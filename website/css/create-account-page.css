@@ -1,0 +1,132 @@
+/*Stylesheet for the account creation page*/
+
+.ca-container{
+    width: 900px;
+    height: 600px;
+    background-color: white;
+    border-radius: 42px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.ca-headline{
+    width: 100%;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    text-align: center;
+}
+
+.ca-creation-form-container{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.ca-creation-form-user-details-container{
+    margin-right: 15px;
+    height: 480px;
+}
+
+.ca-creation-form-additional-information-container{
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 400;
+    height: 480px;
+    position: relative;
+}
+
+.ca-form-headline{
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 400;
+}
+
+.ca-creation-form{
+    width: fit-content;
+    display: flex;
+}
+
+.ca-creation-cred-input{
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    border: solid black 1px;
+    background-color: white;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    margin-bottom: 10px;
+    text-indent: 10px;
+}
+
+.ca-creation-description-input{
+    width: 300px;
+    height: 300px;
+    border-radius: 5px;
+    border: solid black 1px;
+    background-color: white;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    text-indent: 10px;
+    resize: none;
+}
+
+.ca-username-indefinite-warning{
+    width: 300px;
+    text-wrap: wrap;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    font-style: italic;
+    opacity: 0.5;
+}
+
+.ca-terms-link{
+    color: #4A88FF;
+}
+
+.ca-creation-error-container{
+    width: 300px;
+    height: 60px;
+    background-color: #f96161;
+    border: solid black 1px;
+    margin-bottom: 15px;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    color: white;
+    font-size: 25px;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 60px;
+    display: none;
+}
+
+.ca-next-button{
+    width: 100px;
+    height: 40px;
+    border: #4A88FF solid 3px;
+    color: #4A88FF;
+    background-color: white;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.ca-next-button:hover{
+    background-color: #4A88FF;
+    color: white;
+}
+
+.ca-creation-form-additional-information-container span{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
