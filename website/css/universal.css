@@ -1,0 +1,7 @@
+/*Stylesheet with rules for every page*/
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
+
+body{
+    margin: 0;
+    background-color: #F0F0F0;
+}

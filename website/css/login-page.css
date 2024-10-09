@@ -1,0 +1,118 @@
+/*Stylesheet for the login page*/
+
+.login-container{
+    width: 550px;
+    height: 600px;
+    background-color: white;
+    border-radius: 42px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.login-logo-container{
+    width: 100%;
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.login-form{
+    width: fit-content;
+    margin: auto;
+    text-align: center;
+}
+
+.login-form h1{
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    font-size: 45px;
+}
+
+.login-cred-input{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    border: solid 1px black;
+    background-color: white;
+    border-radius: 5px;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 200;
+    font-size: 25px;
+    text-indent: 5px;
+}
+
+.login-register-link{
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+}
+
+.login-register-link a{
+    color: #4A88FF;
+}
+
+.login-button{
+    width: 160px;
+    height: 50px;
+    border: #4A88FF solid 3px;
+    color: #4A88FF;
+    background-color: white;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.login-button:hover{
+    background-color: #4A88FF;
+    color: white;
+}
+
+.login-forgot-link{
+    margin-bottom: 10px;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: #4A88FF;
+}
+
+.login-admin-link{
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 15px;
+    color: black;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.login-admin-link:hover{
+    text-decoration: underline;
+}
+
+.login-error-container{
+    width: 100%;
+    height: 40px;
+    background-color: #f96161;
+    border: solid black 1px;
+    margin-bottom: 15px;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    color: white;
+    font-size: 25px;
+    border-radius: 5px;
+    display: none;
+}
