@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:131.0) Gecko/20100101 Firefox/131.0" version="24.7.17">
   <diagram name="Page-1" id="Q-bK8X_9wn0SpkAS6m4M">
-    <mxGraphModel dx="955" dy="1607" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1167" dy="1720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -259,10 +259,19 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="h333MhKvDOVyU-ICwGlL-76" value="Insert joindate and inputs into database: table users" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="10" y="890" width="120" height="60" as="geometry" />
+          <mxGeometry x="10" y="1000" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="h333MhKvDOVyU-ICwGlL-78" value="&lt;font style=&quot;font-size: 40px;&quot;&gt;User Creation page&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="380" y="-320" width="460" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="h333MhKvDOVyU-ICwGlL-81" value="Hash user inputted password" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="890" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="h333MhKvDOVyU-ICwGlL-82" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="69.87" y="960" as="sourcePoint" />
+            <mxPoint x="69.87" y="990" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
