@@ -116,3 +116,137 @@
     border-radius: 5px;
     display: none;
 }
+
+.login-dark-container{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.50);
+    position: fixed;
+    z-index: 998;
+    display: none;
+}
+
+.login-recovery-container{
+    width: 550px;
+    height: fit-content;
+    padding-bottom: 50px;
+    background-color: white;
+    border-radius: 42px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 999;
+}
+
+.login-recovery-form-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.login-recovery-form{
+    width: 440px;
+}
+
+.login-recovery-form h1{
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.login-recovery-form p{
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    text-wrap: wrap;
+}
+
+#login-recovery-cancel{
+    border: #808080 solid 3px;
+    color: #808080;
+}
+
+#login-recovery-cancel:hover{
+    background-color: #808080;
+    color: white;
+}
+
+.login-recovery-button-container{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.login-recovery-email-sent-form-container{
+    display: none;
+    margin-top: 20px;
+    width: 100%;
+    justify-content: center;
+}
+
+.login-recovery-email-sent-form{
+    width: 440px;
+    align-items: center;
+    text-align: center;
+}
+
+.login-recovery-email-sent-form h1{
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.login-recovery-final-form-container{
+    display: none;
+    margin-top: 20px;
+    width: 100%;
+    justify-content: center;
+}
+
+.login-recovery-final-form{
+    width: 440px;
+    align-items: center;
+    text-align: center;
+}
+
+.login-recovery-final-form h1{
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.login-recovery-final-form p{
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    text-wrap: wrap;
+}
+
+.login-new-password-container{
+    display: none;
+}
+
+.login-new-password-saved{
+    display: none;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.login-new-password-saved h1{
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    text-wrap: wrap;
+}
+
+#login-new-password-error{
+    color: red;
+    display: none;
+}

@@ -108,7 +108,7 @@
 }
 
 .ca-next-button{
-    width: 100px;
+    width: 150px;
     height: 40px;
     border: #4A88FF solid 3px;
     color: #4A88FF;
@@ -116,7 +116,7 @@
     font-family: "Afacad Flux", sans-serif;
     font-weight: 600;
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 17px;
     cursor: pointer;
 }
 
@@ -129,4 +129,8 @@
     position: absolute;
     bottom: 0;
     right: 0;
+}
+
+#ca-login-button-span{
+    margin-right: 160px;
 }

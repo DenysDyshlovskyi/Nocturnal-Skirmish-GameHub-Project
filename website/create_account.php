@@ -1,5 +1,8 @@
 <?php
+session_start();
+
 require "./php_scripts/conn.php";
+require "./lib/mail.php";
 
 $showError = false;
 $errorMessage = "";
@@ -61,9 +64,24 @@ if(isset($_POST['next_button'])){
     $stmt->execute();
     $stmt->close();
 
-    end:
+    $stmt = $conn->prepare("SELECT user_id FROM users WHERE username = ?");
+    $stmt->bind_param("s", $_POST['username']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    $_SESSION['user_id'] = $row['user_id'];
+    $stmt->close();
+
+    $mailReceiver = $_POST['email'];
+    $mailSubject = "Thank you for creating a GameHub account!";
+    $mailBody = "Hey " . $_POST['username'] . ". Thank you for creating a GameHub account.";
+    $mailBodyAlt = "Hey " . $_POST['username'] . ". Thank you for creating a GameHub account.";
+    sendMail($mailReceiver, $mailSubject, $mailBody, $mailBodyAlt);
+
+    header("Location: main.php");
 };
 
+end:
 ?>
 
 <!DOCTYPE html>
@@ -103,7 +121,8 @@ if(isset($_POST['next_button'])){
                     <div class="ca-creation-error-container">
                         <?php echo $errorMessage; ?>
                     </div>
-                    <span><input type="submit" value="Next" class="ca-next-button" name="next_button"></span>
+                    <span id="ca-login-button-span"><button class="ca-next-button" onclick="location.href = 'index.php'">Back to login</button></span>
+                    <span><input type="submit" value="Create account" class="ca-next-button" name="next_button"></span>
                 </div>
             </form>
         </div>
