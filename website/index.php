@@ -3,6 +3,8 @@ session_start();
 require "./php_scripts/conn.php";
 require "./lib/mail.php";
 
+
+// Defines variables for later use
 $showError = false;
 $errorMessage = "";
 $mailReceiver = "";
@@ -118,7 +120,7 @@ if(!empty($_POST['save_password_button'])) {
                 <form action="index.php" method="POST" class="login-recovery-form">
                     <h1>Recover your username or password</h1>
                     <p>Please type in the email the account is registered to</p>
-                    <input type="text" placeholder="Email" name="email_recovery" class="login-cred-input">
+                    <input type="text" placeholder="Email" name="email_recovery" class="login-cred-input" required>
                     <br>
                     <div class="login-recovery-button-container">
                         <input type="submit" value="Next" name="next_recovery" class="login-button">
