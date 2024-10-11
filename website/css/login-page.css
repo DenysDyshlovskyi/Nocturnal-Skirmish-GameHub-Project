@@ -18,6 +18,7 @@
     height: 170px;
     display: flex;
     flex-direction: column;
+    background-image: url(../img/Noc_Skir_Logo.svg);
 }
 
 .login-form-container{

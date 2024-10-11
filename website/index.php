@@ -169,7 +169,7 @@ if(!empty($_POST['save_password_button'])) {
     <a href="./phpMyAdmin/index.php" class="login-admin-link">Admin</a>
     <div class="login-container">
         <div class="login-logo-container">
-            <img src="" alt="">
+            <img src="img/Noc_Skir_Logo.svg" alt="Nocturnal Skirmish Logo">
         </div>
         <div class="login-form-container">
             <form action="index.php" method="POST" class="login-form">
