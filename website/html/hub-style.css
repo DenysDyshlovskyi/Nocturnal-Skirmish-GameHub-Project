@@ -1,0 +1,47 @@
+/*Stylesheet with rules for every page*/
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
+
+body {
+    font-family: "Afacad Flux", sans-serif;
+    background-color: #ffb650;
+}
+
+.Noc-Skir-Logo {
+    height: 22vh;
+}
+
+.play-button{
+    font-size: 35px;
+    width: 100%;
+    background-color:#35b03e;
+    border-color: #25742a;
+    border: #06740d solid 3px;
+    color: #ffffff;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.menu-button{
+    width: 180px;
+    height: 60px;
+    border: #717171 solid 3px;
+    color: #ffffff;
+    background-color: #2e87ad;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.menu-button:hover{
+    background-color: #246a88;
+    color: white;
+}
+.play-button:hover{
+    background-color: #2e9435;
+    color: white;
+}
