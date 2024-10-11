@@ -27,7 +27,7 @@ if(!empty($_POST['login_button'])) {
         $row = $result->fetch_assoc();
         if (password_verify($_POST['password'], $row['password'])){
             $_SESSION['user_id'] = $row['user_id'];
-            header("Location: main.php");
+            header("Location: ./html/hub.html");
         } else {
             $showError = true;
             $errorMessage = "Wrong password!";
