@@ -17,3 +17,9 @@ CREATE TABLE users (
     description varchar(500),
     PRIMARY KEY (user_id)
 );
+
+CREATE TABLE recovery_codes (
+    user_id int,
+    code int,
+    expire BIGINT
+)
