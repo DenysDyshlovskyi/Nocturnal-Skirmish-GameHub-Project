@@ -1,15 +1,6 @@
 <?php
 session_start();
 
-// Scripts to only run once
-if (!isset($_SESSION['do_once'])) {
-    $_SESSION['do_once'] = 1;
-    
-    // Removes expired recovery codes from database
-    $sql = "DELETE FROM recovery_codes WHERE expire < NOW()";
-    $conn->query($sql);
-}
-
 require "./php_scripts/conn.php";
 require "./php_scripts/get_loggedin_image_border.php";
 ?>
