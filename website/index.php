@@ -3,7 +3,6 @@ session_start();
 require "./php_scripts/conn.php";
 require "./lib/mail.php";
 
-
 // Defines variables for later use
 $showError = false;
 $errorMessage = "";
@@ -64,6 +63,10 @@ if(!empty($_POST['next_recovery'])) {
 };
 
 if(!empty($_POST['code_input_button'])) {
+    // Removes expired recovery codes from database
+    $sql = "DELETE FROM recovery_codes WHERE expire < NOW()";
+    $conn->query($sql);
+
     $stmt = $conn->prepare("SELECT * FROM recovery_codes WHERE user_id = ?");
     $stmt->bind_param("s", $_SESSION['temp_recovery_userid']);
     $stmt->execute();
@@ -110,6 +113,7 @@ if(!empty($_POST['save_password_button'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameHub - Log in</title>
+    <link rel="icon" type=".image/x-icon" href="./img/favicon.png">
     <style> <?php include "./css/login-page.css" ?> </style>
     <style> <?php include "./css/universal.css" ?> </style>
 </head>
@@ -130,7 +134,8 @@ if(!empty($_POST['save_password_button'])) {
             </div>
             <div class="login-recovery-email-sent-form-container">
                 <form action="index.php" method="POST" class="login-recovery-email-sent-form">
-                    <h1> <?php echo "An email with a code has been sent to $mailReceiver, please type in the code."; ?> </h1>
+                    <h1> <?php echo "An email with a code has been sent to $mailReceiver, please type in the code. If you cannot find the email, check your spam folder."; ?> </h1>
+                    <p>This code expires in 5 minutes</p>
                     <input type="text" placeholder="000000" name="code_input" class="login-cred-input" maxlength="6" minlength="6">
                     <br>
                     <div class="login-recovery-button-container">
@@ -173,17 +178,18 @@ if(!empty($_POST['save_password_button'])) {
         </div>
         <div class="login-form-container">
             <form action="index.php" method="POST" class="login-form">
+                <div class="login-form-inner">
                 <h1>Log in to GameHub</h1>
                 <div class="login-error-container">
                     <?php echo $errorMessage; ?>
                 </div>
                 <input type="text" placeholder="Username" name="username" required class="login-cred-input" maxlength="50">
-                <br>
-                <input type="text" placeholder="Password" name="password" required class="login-cred-input" maxlength="80">
+                <input type="password" placeholder="Password" name="password" required class="login-cred-input" maxlength="80">
                 <p class="login-register-link">Dont have a user? <a href="create_account.php">Create account.</a></p>
                 <input type="submit" value="Log in" class="login-button" name="login_button">
                 <br>
                 <a href="#" onclick="showDarkContainer()" class="login-forgot-link">Forgot username or password?</a>
+                </div>
             </form>
         </div>
     </div>

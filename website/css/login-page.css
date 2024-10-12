@@ -34,9 +34,10 @@
 }
 
 .login-form{
-    width: fit-content;
+    width: 338px;
     margin: auto;
     text-align: center;
+    display: inline-block;
 }
 
 .login-form h1{
@@ -61,6 +62,8 @@
 .login-register-link{
     font-family: "Afacad Flux", sans-serif;
     font-weight: 600;
+    margin: 0;
+    margin-bottom: 15px;
 }
 
 .login-register-link a{
@@ -91,6 +94,13 @@
     font-weight: 600;
     font-size: 13px;
     color: #4A88FF;
+    position: absolute;
+    bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
 }
 
 .login-admin-link{
@@ -109,7 +119,6 @@
 }
 
 .login-error-container{
-    width: 100%;
     height: 40px;
     background-color: #f96161;
     border: solid black 1px;
@@ -203,7 +212,7 @@
 .login-recovery-email-sent-form h1{
     font-family: "Afacad Flux", sans-serif;
     font-weight: 600;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .login-recovery-final-form-container{
@@ -254,4 +263,14 @@
 #login-new-password-error{
     color: red;
     display: none;
+}
+
+.login-recovery-email-sent-form p{
+    width: 100%;
+    text-wrap: wrap;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    font-style: italic;
+    opacity: 0.5;
 }
