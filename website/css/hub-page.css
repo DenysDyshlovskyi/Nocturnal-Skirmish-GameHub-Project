@@ -1,0 +1,96 @@
+/*Stylesheet for the main hub*/
+
+#hub-body {
+    background-color: #FFCF8C;
+}
+
+.hub-corner-profile-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 15px;
+}
+
+.hub-corner-profilepic-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 65px;
+    height: 65px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.hub-corner-profilepic {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    margin: 15px;
+    width: 55px;
+    height: 55px;
+    background-size: cover;
+}
+
+.hub-corner-profilepic-border{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px;
+    width: 65px;
+    height: 65px;
+    z-index: 999;
+}
+
+.hub-corner-profile-dropdown {
+    position: relative;
+    top: 15px;
+    width: 65px;
+    height: 265px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.hub-corner-profile-dropdown-button {
+    width: 65px;
+    height: 65px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    opacity: 0.5;
+    border: none;
+    background-color: transparent;
+}
+
+.hub-corner-profile-dropdown-button:hover {
+    opacity: 1;
+}
+
+#dropdown-button-settings {
+    background-image: url(./img/icons/settings.svg);
+}
+
+#dropdown-button-friends {
+    background-image: url(./img/icons/groups.svg);
+}
+
+#dropdown-button-chats {
+    background-image: url(./img/icons/message.svg);
+}
+
+.hub-corner-profile-dropdown-divider{
+    width: 65px;
+    height: 1px;
+    border-radius: 1px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
