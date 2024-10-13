@@ -6,11 +6,26 @@ body {
     background-color: #ffb650;
 }
 
-.Noc-Skir-Logo {
-    height: 22vh;
+.main-menu-middle-ui {
+    background-color: white;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-bottom: 2%;
+    border-radius: 4%;
+}
+
+
+.title-text {
+    font-size: 500%;
+    margin-bottom: 0;
 }
 
 .play-button{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+    gap: 10px;
     font-size: 35px;
     width: 100%;
     background-color:#35b03e;
