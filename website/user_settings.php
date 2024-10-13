@@ -48,5 +48,8 @@ require "./php_scripts/get_loggedin_info.php";
             </div>
         </div>
     </div>
+    <audio autoplay loop style="display: none;">
+        <source src="audio/OldJazzOST.mp3" type="audio/mpeg">
+    </audio>
 </body>
 </html>

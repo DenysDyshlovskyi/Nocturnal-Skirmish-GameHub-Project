@@ -97,6 +97,8 @@
     background-color: #D9D9D9;
     border-radius: 12px;
     position: relative;
+    overflow: auto;
+    overflow-x: hidden;
 }
 
 .settings-myaccount-profile-container {

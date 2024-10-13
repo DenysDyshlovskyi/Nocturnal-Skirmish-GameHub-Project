@@ -31,6 +31,9 @@ require "./php_scripts/get_loggedin_info.php";
             <button class="hub-corner-profile-dropdown-button" id="dropdown-button-chats" title="Chats"></button>
         </div>
     </div>
-    
+    <audio autoplay loop style="display: none;">
+        <source src="audio/BrowsingShopOST.mp3" type="audio/mpeg">
+    </audio>
 </body>
+<script><?php include "./js/script.js" ?></script>
 </html>
