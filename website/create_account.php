@@ -8,8 +8,6 @@ $showError = false;
 $errorMessage = "";
 
 if(isset($_POST['next_button'])){
-    require "./php_scripts/getdate.php";
-
     //Check if confirm inputs match with actual inputs.
     if($_POST['email'] != $_POST['email_confirm']){
         $showError = true;
@@ -48,6 +46,8 @@ if(isset($_POST['next_button'])){
     }
     $stmt->close();
 
+    require "./php_scripts/getdate.php";
+
     $joindate = $date . " " . $time;
 
     if(!isset($_POST['description']) || trim($_POST['description']) == ''){
@@ -78,7 +78,7 @@ if(isset($_POST['next_button'])){
     $mailBodyAlt = "Hey " . $_POST['username'] . ". Thank you for creating a GameHub account.";
     sendMail($mailReceiver, $mailSubject, $mailBody, $mailBodyAlt);
 
-    header("Location: main.php");
+    header("Location: hub.php");
 };
 
 end:

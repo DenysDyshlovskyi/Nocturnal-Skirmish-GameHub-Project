@@ -210,22 +210,18 @@ if ($skip == false){
     }
     
     if(!empty($_POST['code_input_button'])) {
-        echo "<style>.login-recovery-email-sent-form-container{display: none;}</style>";
         echo "<style>.login-recovery-form-container{display: none;}</style>";
         echo "<style>.login-recovery-final-form-container{display: flex;}</style>";
         echo "<style>.login-dark-container{display: block;}</style>";
     }
 
     if($newPasswordSaved == true) {
-        echo "<style>.login-recovery-email-sent-form-container{display: none;}</style>";
         echo "<style>.login-recovery-form-container{display: none;}</style>";
-        echo "<style>.login-recovery-final-form-container{display: none;}</style>";
         echo "<style>.login-dark-container{display: block;}</style>";
         echo "<style>.login-new-password-saved{display: flex;}</style>";
     }
 
     if($newPasswordError == true){
-        echo "<style>.login-recovery-email-sent-form-container{display: none;}</style>";
         echo "<style>.login-recovery-form-container{display: none;}</style>";
         echo "<style>.login-recovery-final-form-container{display: flex;}</style>";
         echo "<style>.login-dark-container{display: block;}</style>";
