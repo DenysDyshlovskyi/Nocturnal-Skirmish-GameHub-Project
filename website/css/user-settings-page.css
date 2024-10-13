@@ -77,3 +77,135 @@
 .settings-sidebar-button:hover {
     background-color: #ffcf8ca4;
 }
+
+.settings-myaccount-container {
+    width: calc(100% - 220px);
+    height: 100%;
+    float: right;
+}
+
+.settings-headline {
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+}
+
+.settings-myaccount-inner {
+    padding: 15px;
+    width: calc(100% - 285px);
+    height: calc(100vh - 230px);
+    background-color: #D9D9D9;
+    border-radius: 12px;
+    position: relative;
+}
+
+.settings-myaccount-profile-container {
+    width: 100%;
+    height: 130px;
+    display: flex;
+    margin-bottom: 15px;
+    margin-top: 100px;
+    position: absolute;
+}
+
+.settings-myaccount-profile-pic-parent {
+    width: 130px;
+    height: 130px;
+    background-position: center;
+    background-size: 84% 84%;
+    background-repeat: no-repeat;
+}
+
+.settings-myaccount-border {
+    width: 100%;
+    height: 100%;
+}
+
+.settings-myaccount-name-container {
+    height: 100px;
+    padding-left: 20px;
+}
+
+.settings-myaccount-banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 15px;
+    width: calc(100% - 30px);
+    height: 140px;
+    background-image: url(./img/profile_banners/test.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+}
+
+.settings-myaccount-name-container h1{
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    font-size: 50px;
+    margin: 0;
+    margin-top: 35px;
+}
+
+.settings-myaccount-name-container p{
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 0;
+}
+
+.settings-myaccount-profile-headline{
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 25px;
+    margin: 0;
+}
+
+.settings-myaccount-profile-pushdown {
+    height: 245px;
+}
+
+.settings-myaccount-profile-pic-background {
+    width: 130px;
+    height: 130px;
+    padding-top: 10px;
+    padding-right: 10px;
+    background-color: #D9D9D9;
+    border-top-right-radius: 5px;
+}
+
+.settings-myaccount-description {
+    width: 100%;
+    border: none;
+    height: 150px;
+    resize: none;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-top: 5px;
+    text-indent: 10px;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+}
+
+.settings-myaccount-save-button {
+    width: 140px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #58D245;
+    color: white;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.settings-myaccount-save-button:hover {
+    background-color: #2c6423;
+}

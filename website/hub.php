@@ -2,7 +2,7 @@
 session_start();
 
 require "./php_scripts/conn.php";
-require "./php_scripts/get_loggedin_image_border.php";
+require "./php_scripts/get_loggedin_info.php";
 ?>
 
 <!DOCTYPE html>

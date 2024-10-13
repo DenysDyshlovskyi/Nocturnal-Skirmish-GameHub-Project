@@ -1,5 +1,8 @@
 <?php
-//WIP
+session_start();
+
+require "./php_scripts/conn.php";
+require "./php_scripts/get_loggedin_info.php";
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +25,27 @@
             <button class="settings-sidebar-button">Change border</button>
             <p class="settings-sidebar-headline">General settings</p>
             <button class="settings-sidebar-button">Audio and Music</button>
+        </div>
+        <div class="settings-myaccount-container">
+            <h1 class="settings-headline">My Account</h1>
+            <div class="settings-myaccount-inner">
+                <div class="settings-myaccount-banner" style="background-image: url(<?php echo $_SESSION['user_profile_banner'] ?>);"></div>
+                <div class="settings-myaccount-profile-container">
+                    <div class="settings-myaccount-profile-pic-background">
+                        <div class="settings-myaccount-profile-pic-parent" style="background-image: url(<?php echo $_SESSION['user_profile_picture'] ?>);">
+                            <img src="<?php echo $_SESSION['user_profile_border'] ?>" alt="Profile Border" class="settings-myaccount-border" draggable="false">
+                        </div>
+                    </div>
+                    <div class="settings-myaccount-name-container">
+                        <h1><?php echo $_SESSION['user_profile_nickname'] ?></h1>
+                        <p><?php echo $_SESSION['user_profile_username'] ?></p>
+                    </div>
+                </div>
+                <div class="settings-myaccount-profile-pushdown"></div>
+                <p class="settings-myaccount-profile-headline">Description</p>
+                <textarea class="settings-myaccount-description" maxlength="500"><?php echo $_SESSION['user_profile_description'] ?></textarea>
+                <button class="settings-myaccount-save-button">Save</button>
+            </div>
         </div>
     </div>
 </body>
