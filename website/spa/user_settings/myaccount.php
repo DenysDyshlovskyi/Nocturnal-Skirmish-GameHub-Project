@@ -18,8 +18,8 @@ session_start();
     </div>
     <div class="settings-myaccount-profile-pushdown"></div>
     <p class="settings-myaccount-profile-headline">Description</p>
-    <textarea class="settings-myaccount-description" maxlength="500"><?php echo $_SESSION['user_profile_description'] ?></textarea>
-    <button class="settings-myaccount-save-button">Save</button>
+    <textarea class="settings-myaccount-description" id="descriptionTextArea" maxlength="500"><?php echo $_SESSION['user_profile_description'] ?></textarea>
+    <button class="settings-myaccount-save-button" id="descriptionSave" onclick="saveDescription()">Save</button>
     <p class="settings-myaccount-profile-headline">Account Details</p>
     <div class="settings-myaccount-details-container">
         <div class="settings-myaccount-details-component">
@@ -35,10 +35,12 @@ session_start();
     </div>
     <div class="settings-myaccount-change-container">
         <div class="settings-myaccount-change-component">
-
+            <p class="settings-myaccount-profile-headline">Profile picture</p>
+            <button class="settings-myaccount-change-button">Change profile picture</button>
         </div>
         <div class="settings-myaccount-change-component">
-
+            <p class="settings-myaccount-profile-headline">Password</p>
+            <button class="settings-myaccount-change-button">Change password</button>
         </div>
     </div>
 </div>

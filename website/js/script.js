@@ -37,3 +37,17 @@ function ajaxGet(phpFile, changeID){
     xhttp.open("GET", phpFile);
     xhttp.send();
 }
+
+// POST description to php with jQuery
+function saveDescription() {
+    var text = $('textarea#descriptionTextArea').val();
+    console.log(text);
+    $.ajax({
+        type: "POST",
+        url: "./php_scripts/save_description.php",
+        data:{ description: text }, 
+        success: function(data){
+            console.log(data); 
+        }
+    })
+}
