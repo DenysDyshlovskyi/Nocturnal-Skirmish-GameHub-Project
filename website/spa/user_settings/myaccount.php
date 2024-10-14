@@ -1,6 +1,7 @@
 <?php
 session_start();
 ?>
+<style><?php include "./css/myaccount.css" ?></style>
 <h1 class="settings-headline">My Account</h1>
 <div class="settings-myaccount-inner">
     <div class="settings-myaccount-banner" style="background-image: url(<?php echo $_SESSION['user_profile_banner'] ?>);"></div>
