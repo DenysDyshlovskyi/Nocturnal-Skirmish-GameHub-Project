@@ -130,6 +130,8 @@
     margin-top: 0%;
     border-radius: 4%;
     height: 90%;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .patch-notes-title {
