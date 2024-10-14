@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
+
 #hub-body {
     background-color: #FFCF8C;
     font-family: "Afacad Flux", sans-serif;
@@ -14,11 +16,54 @@
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    font-family: "Afacad Flux", sans-serif;
+    display: flex;
+    flex-direction: row;
 }
 
 .shop-menu {
     width: 200px;
     height: calc(100vh - 100px);
-    background-color: rgb(174, 174, 174);
-    border-radius: 28px;
+    background-color: #FFFFFF;
+    border-radius: 28px 0px 0px 28px;
+    display: flex;
+    flex-direction: column;
+    /* Shadow imported from cssscan */
+    box-shadow: rgba(0, 0, 0, 0.48) 6px 2px 16px 0px;
+    font-family: "Afacad Flux", sans-serif;
+}
+
+.shopLinkTop {
+    height: 50px;
+    width: 200px;
+    background-color: #E7E7E7;
+    border-radius: 28px 0px 0px 0px;
+    /* Shadow imported from cssscan */
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;    
+    border: none;
+    font-family: "Afacad Flux", sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shopLink {
+    height: 50px;
+    width: 200px;   
+    /* Shadow imported from cssscan */
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    border: none;
+    font-family: "Afacad Flux", sans-serif;
+    font-size: large;
+}
+
+.shopLink:hover {
+    cursor: pointer;
+}
+
+.tabContent {
+    display: none;
+    margin-left: 3%;
 }

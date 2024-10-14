@@ -9,10 +9,53 @@
 <body id="hub-body">
     <div class="shop-container">
         <div class="shop-menu">
+            <div class="shopLinkTop">Shop</div>
+            <button class="shopLink" onclick="openShopTab(event, 'featured')">Featured</button>
+            <button class="shopLink" onclick="openShopTab(event, 'cards')">Cards</button>
+            <button class="shopLink" onclick="openShopTab(event, 'characters')">Characters</button>
+            <button class="shopLink" onclick="openShopTab(event, 'profileBorders')">Profile borders</button>
+            <button class="shopLink" onclick="openShopTab(event, 'skins')">Skins</button>
+            <button class="shopLink" onclick="openShopTab(event, 'eventCrates')">Event crates</button>
+            <button class="shopLink" onclick="openShopTab(event, 'currency')">Currency</button>
+            <button class="shopLink" onclick="openShopTab(event, 'other')">Other</button>
+        </div>
 
+        <div id="featured" class="tabContent">
+            <h1>Featured</h1>
+        </div>
+
+        <div id="cards" class="tabContent">
+            <h1>Cards</h1>
+        </div>
+        
+        <div id="characters" class="tabContent">
+            <h1>Characters</h1>
+        </div>
+
+        <div id="profileBorders" class="tabContent">
+            <h1>Profile Borders</h1>
+        </div>
+
+        <div id="skins" class="tabContent">
+            <h1>Skins</h1>
+        </div>
+
+        <div id="eventCrates" class="tabContent">
+            <h1>Event Crates</h1>
+        </div>
+
+        <div id="currency" class="tabContent">
+            <h1>Currency</h1>
+        </div>
+
+        <div id="other" class="tabContent">
+            <h1>Other</h1>
         </div>
 
     </div>
     
+    
 </body>
+
+<script src="/website/shop/js/shop.js"></script>
 </html>
