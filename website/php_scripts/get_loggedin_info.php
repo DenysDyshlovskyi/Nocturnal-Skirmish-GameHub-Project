@@ -14,4 +14,5 @@
     $_SESSION['user_profile_description'] = $row['description'];
     $_SESSION['user_profile_username'] = $row['username'];
     $_SESSION['user_profile_nickname'] = $row['nickname'];
+    $_SESSION['user_profile_email'] = $row['email'];
 ?>

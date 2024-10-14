@@ -27,3 +27,13 @@ function showNewPassword() {
         buttonContainer.style.display = "block";
     }
 }
+
+// GET request with ajax
+function ajaxGet(phpFile, changeID){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function(){
+        document.getElementById(changeID).innerHTML = this.responseText
+    }
+    xhttp.open("GET", phpFile);
+    xhttp.send();
+}

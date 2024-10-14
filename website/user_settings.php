@@ -16,40 +16,22 @@ require "./php_scripts/get_loggedin_info.php";
     <style> <?php include "./css/universal.css" ?> </style>
     <style> <?php include "./css/user-settings-page.css" ?> </style>
 </head>
-<body id="settings-body">
+<body id="settings-body" onload="ajaxGet('./spa/user_settings/myaccount.php', 'settings-spa-container')">
     <div class="settings-container">
         <button class="settings-backtohub" title="Back to Hub" onclick="window.location.href = 'hub.php';">Back to Hub</button>
         <div class="settings-sidebar">
             <p class="settings-sidebar-headline">Profile settings</p>
-            <button class="settings-sidebar-button">My Account</button>
-            <button class="settings-sidebar-button">Change border</button>
+            <button class="settings-sidebar-button" id="myaccount-button" onclick="ajaxGet('./spa/user_settings/myaccount.php', 'settings-spa-container')">My Account</button>
+            <button class="settings-sidebar-button" id="changeborder-button" onclick="ajaxGet('./spa/user_settings/change_border.php', 'settings-spa-container')">Change border</button>
             <p class="settings-sidebar-headline">General settings</p>
-            <button class="settings-sidebar-button">Audio and Music</button>
+            <button class="settings-sidebar-button" id="audiomusic-button" onclick="ajaxGet('./spa/user_settings/audio_music.php', 'settings-spa-container')">Audio and Music</button>
         </div>
-        <div class="settings-myaccount-container">
-            <h1 class="settings-headline">My Account</h1>
-            <div class="settings-myaccount-inner">
-                <div class="settings-myaccount-banner" style="background-image: url(<?php echo $_SESSION['user_profile_banner'] ?>);"></div>
-                <div class="settings-myaccount-profile-container">
-                    <div class="settings-myaccount-profile-pic-background">
-                        <div class="settings-myaccount-profile-pic-parent" style="background-image: url(<?php echo $_SESSION['user_profile_picture'] ?>);">
-                            <img src="<?php echo $_SESSION['user_profile_border'] ?>" alt="Profile Border" class="settings-myaccount-border" draggable="false">
-                        </div>
-                    </div>
-                    <div class="settings-myaccount-name-container">
-                        <h1><?php echo $_SESSION['user_profile_nickname'] ?></h1>
-                        <p><?php echo $_SESSION['user_profile_username'] ?></p>
-                    </div>
-                </div>
-                <div class="settings-myaccount-profile-pushdown"></div>
-                <p class="settings-myaccount-profile-headline">Description</p>
-                <textarea class="settings-myaccount-description" maxlength="500"><?php echo $_SESSION['user_profile_description'] ?></textarea>
-                <button class="settings-myaccount-save-button">Save</button>
-            </div>
+        <div class="settings-spa-container" id="settings-spa-container">
         </div>
     </div>
     <audio autoplay loop style="display: none;">
         <source src="audio/OldJazzOST.mp3" type="audio/mpeg">
     </audio>
+    <script><?php include "./js/script.js" ?></script>
 </body>
 </html>

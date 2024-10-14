@@ -75,15 +75,15 @@
 }
 
 #dropdown-button-settings {
-    background-image: url(../img/icons/settings.svg);
+    background-image: url(./img/icons/settings.svg);
 }
 
 #dropdown-button-friends {
-    background-image: url(../img/icons/groups.svg);
+    background-image: url(./img/icons/groups.svg);
 }
 
 #dropdown-button-chats {
-    background-image: url(../img/icons/message.svg);
+    background-image: url(./img/icons/message.svg);
 }
 
 .hub-corner-profile-dropdown-divider {
