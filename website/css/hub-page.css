@@ -37,7 +37,7 @@
     background-size: cover;
 }
 
-.hub-corner-profilepic-border{
+.hub-corner-profilepic-border {
     position: absolute;
     top: 0;
     left: 0;
@@ -86,7 +86,7 @@
     background-image: url(../img/icons/message.svg);
 }
 
-.hub-corner-profile-dropdown-divider{
+.hub-corner-profile-dropdown-divider {
     width: 65px;
     height: 1px;
     border-radius: 1px;
@@ -97,11 +97,7 @@
 }
 
 
-
-
-
-
-/* husk å endre til bedre navn denne seksjonen */
+/* UI på midten av skjermen, inkl. play knapp, logo og patch notes */
 
 .main-menu-middle-ui {
     background-color: white;
@@ -109,7 +105,6 @@
     padding-right: 4%;
     padding-bottom: 2%;
     border-radius: 4%;
-
     /* Shadow imported from cssscan */
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
@@ -120,15 +115,11 @@
     width: 300px;
     height: 500px;
     position: absolute;
-
     margin-left: 900px;
     border-radius: 4%;
-
     display: flex;
     justify-content: center;
     flex-direction: column;
-    
-
     /* Shadow imported from cssscan */
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
@@ -156,15 +147,14 @@
     font-family: "Afacad Flux", sans-serif;
 }
 
-.play-button{
+.play-button {
     display: flex;
     justify-content: center;
     flex-direction: row;
-
     gap: 10px;
     font-size: 35px;
     width: 100%;
-    background-color:#35b03e;
+    background-color: #35b03e;
     border-color: #25742a;
     border: #06740d solid 3px;
     color: #ffffff;
@@ -173,12 +163,11 @@
     border-radius: 10px;
     font-size: 35px;
     cursor: pointer;
-
     /* Shadow imported from cssscan */
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
-.menu-button{
+.menu-button {
     width: 180px;
     height: 60px;
     border: #717171 solid 3px;
@@ -189,16 +178,16 @@
     border-radius: 10px;
     font-size: 30px;
     cursor: pointer;
-
     /* Shadow imported from cssscan */
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
-.menu-button:hover{
+.menu-button:hover {
     background-color: #246a88;
     color: white;
 }
-.play-button:hover{
+
+.play-button:hover {
     background-color: #2e9435;
     color: white;
 }
@@ -209,7 +198,6 @@ footer {
     position: absolute;
     bottom: 0;
     left: 0;
-
     background-color: #FFFFFF;
     padding: 10px;
     text-align: center;
@@ -220,7 +208,6 @@ footer {
     bottom: 0;
     width: 100%;
     height: 40px;
-
     /* Shadow imported from cssscan */
     box-shadow: rgba(50, 50, 93, 0.25) 0px 15px 30px -6px inset, rgba(0, 0, 0, 0.3) 0px 9px 18px -9px inset;
 }
