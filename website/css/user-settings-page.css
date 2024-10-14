@@ -329,3 +329,20 @@
 .settings-myaccount-change-button:hover {
     background-color: #92754e;
 }
+
+.settings-confirmation-popup {
+    position: absolute;
+    top: 0;
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 25px;
+    height: 25px;
+    margin-top: 10px;
+    font-weight: 600;
+    font-family: "Afacad Flux", sans-serif;
+    color: white;
+    text-align: center;
+    display: none;
+}

@@ -41,13 +41,20 @@ function ajaxGet(phpFile, changeID){
 // POST description to php with jQuery
 function saveDescription() {
     var text = $('textarea#descriptionTextArea').val();
-    console.log(text);
     $.ajax({
         type: "POST",
         url: "./php_scripts/save_description.php",
         data:{ description: text }, 
-        success: function(data){
-            console.log(data); 
+        success: function(){
+            settingsShowConfirm("Description saved!")
         }
     })
+}
+
+//Shows a popup when saving information in user settings
+function settingsShowConfirm(text) {
+    confirmContainer = document.getElementById("confirmContainer");
+    confirmContainer.innerHTML = text;
+    confirmContainer.style.display = "block";
+    $("#confirmContainer").fadeOut(3000);
 }

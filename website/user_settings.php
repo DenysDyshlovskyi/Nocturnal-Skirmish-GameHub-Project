@@ -18,6 +18,7 @@ require "./php_scripts/get_loggedin_info.php";
     <style> <?php include "./css/user-settings-page.css" ?> </style>
 </head>
 <body id="settings-body" onload="ajaxGet('./spa/user_settings/myaccount.php', 'settings-spa-container')">
+    <div class="settings-confirmation-popup" id="confirmContainer"></div>
     <div class="settings-container">
         <button class="settings-backtohub" title="Back to Hub" onclick="window.location.href = 'hub.php';">Back to Hub</button>
         <div class="settings-sidebar">
@@ -26,6 +27,8 @@ require "./php_scripts/get_loggedin_info.php";
             <button class="settings-sidebar-button" id="changeborder-button" onclick="ajaxGet('./spa/user_settings/change_border.php', 'settings-spa-container')">Change border</button>
             <p class="settings-sidebar-headline">General settings</p>
             <button class="settings-sidebar-button" id="audiomusic-button" onclick="ajaxGet('./spa/user_settings/audio_music.php', 'settings-spa-container')">Audio and Music</button>
+            <p class="settings-sidebar-headline">Miscellaneous settings</p>
+            <button class="settings-sidebar-button" id="devcode-button" onclick="ajaxGet('./spa/user_settings/dev_codes.php', 'settings-spa-container')">Dev Codes</button>
         </div>
         <div class="settings-spa-container" id="settings-spa-container">
         </div>
