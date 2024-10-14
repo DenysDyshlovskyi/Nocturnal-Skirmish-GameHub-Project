@@ -51,22 +51,32 @@ function ajaxPost(postText, phpFile, confirm) {
     })
 }
 
-// POST image request with jQuery ajax (DOESNT WORK YET)
-function ajaxPostImage(postImage, phpFile, confirm){
-    var fd = new FormData();
-    var files = $(postImage)[0].files[0];
-    fd.append('file',files);
+// Updates page without refresh
+function reloadPage(phpFile, changeID) {
+    ajaxGet('./php_scripts/get_loggedin_info.php', changeID)
+    ajaxGet(phpFile, changeID)
+}
+
+// Uploads banner to server
+function uploadBanner() {
+    var file_data = $('#banner-input').prop('files')[0];   
+    var form_data = new FormData();                  
+    form_data.append('file', file_data);                           
     $.ajax({
-        url: phpFile,
-        type: 'post',
-        data: fd,
+        url: './php_scripts/banner_image_upload.php',
+        dataType: 'text',
+        cache: false,
         contentType: false,
         processData: false,
+        data: form_data,                         
+        type: 'post',
         success: function(){
-            settingsShowConfirm(confirm)
-        },
+            reloadPage('./spa/user_settings/myaccount.php', 'settings-spa-container');
+            removeDarkContainer();
+            settingsShowConfirm("Banner saved!")
+        }
     });
-}
+};
 
 //Shows a popup when saving information in user settings
 function settingsShowConfirm(text) {
