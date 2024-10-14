@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,11 +18,13 @@
         <div class="hub-corner-profilepic-container" id="hub-corner-profilepic-container">
             <a href="user_settings.php">
                 <img src="./img/borders/defaultborder.webp" alt="Profile Border" class="hub-corner-profilepic-border">
-                <div class="hub-corner-profilepic" style="background-image: url(./img/profile_pictures/defaultprofile.svg);"></div>
+                <div class="hub-corner-profilepic"
+                    style="background-image: url(./img/profile_pictures/defaultprofile.svg);"></div>
             </a>
         </div>
         <div class="hub-corner-profile-dropdown">
-            <button class="hub-corner-profile-dropdown-button" id="dropdown-button-settings" title="Settings" onclick="window.location.href = 'user_settings.php';"></button>
+            <button class="hub-corner-profile-dropdown-button" id="dropdown-button-settings" title="Settings"
+                onclick="window.location.href = 'user_settings.php';"></button>
             <div class="hub-corner-profile-dropdown-divider"></div>
             <button class="hub-corner-profile-dropdown-button" id="dropdown-button-friends" title="Friends"></button>
             <div class="hub-corner-profile-dropdown-divider"></div>
@@ -30,19 +33,22 @@
     </div>
 
     <!-- Middle Menu -->
-    <div style="display: flex; justify-content: center; flex-direction: row; align-items: center; gap: 20px; margin-top: 10%;">
-        <div class="main-menu-middle-ui" style="display: flex; justify-content: center; flex-direction: column; align-items: center; gap: 20px;">
-        <h1 class="title-text">GameHub™</h1>
-        <button class="play-button">Play <img style="width: 30%;" src="img/Noc_Skir_Logo.svg" alt="Logo"></button>
-        <div class="menu-selection-buttons">
-            <button style="margin-bottom: 10px; margin-right: 10px;" class="menu-button">Leaderboard</button>
-            <button class="menu-button"><a href="../website/shop/Featured">Shop</a></button>
-            <br>
-            <button style="margin-bottom: 10px; margin-right: 10px;" class="menu-button">Tutorial</button>
-            <button class="menu-button">Friends List</button>
-        </div>
+    <div
+        style="display: flex; justify-content: center; flex-direction: row; align-items: center; gap: 20px; margin-top: 10%;">
+        <div class="main-menu-middle-ui"
+            style="display: flex; justify-content: center; flex-direction: column; align-items: center; gap: 20px;">
+            <h1 class="title-text">GameHub™</h1>
+            <button class="play-button">Play <img style="width: 30%;" src="img/Noc_Skir_Logo.svg" alt="Logo"></button>
+            <div class="menu-selection-buttons">
+                <button style="margin-bottom: 10px; margin-right: 10px;" class="menu-button">Leaderboard</button>
+                <button class="menu-button">Shop</button>
+                <br>
+                <button style="margin-bottom: 10px; margin-right: 10px;" class="menu-button">Tutorial</button>
+                <button class="menu-button">Friends List</button>
+            </div>
         </div>
 
+        <!-- Patch Notes UI container -->
         <div class="patch-notes-box">
             <h2 class="patch-notes-title">Patch Notes</h2>
             <div class="patch-notes-content-grey">
@@ -61,19 +67,22 @@
                             <li>Added new stuff</li>
                             <li>Updated shop items</li>
                             <li>Added new stuff</li>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
-    </div>
-    
-    <audio loop autoplay src="/audio/BrowsingShopOST.mp3"></audio>
-    
-    <footer>
-        <p class="footer-tm-text">GameHub™ 2024</p>
-        <p class="player-live-count-text">5 players online</p>
-        <img class="live-count-icon" src="img/icons/live-count.svg" alt="live count icon">
-    </footer>
+        </div>
+
+        <!-- Autolooping audio background music (works only if user allows it) -->
+        <audio loop autoplay src="/audio/BrowsingShopOST.mp3"></audio>
+
+        <!-- Footer container with trademark text and live player count -->
+        <footer>
+            <p class="footer-tm-text">GameHub™ 2024</p>
+            <p class="player-live-count-text">5 players online</p>
+            <img class="live-count-icon" src="img/icons/live-count.svg" alt="live count icon">
+        </footer>
 
 </body>
+
 </html>
