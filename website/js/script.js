@@ -27,10 +27,3 @@ function showNewPassword() {
         buttonContainer.style.display = "block";
     }
 }
-
-//Tells the user to enable autoplay once
-audioprompt = localStorage.getItem("audio-prompt");
-if (audioprompt != 1) {
-    alert("To enable music and sound effects the website needs autoplay permission.")
-    localStorage.setItem("audio-prompt", 1)
-}
