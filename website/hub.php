@@ -36,4 +36,12 @@ require "./php_scripts/get_loggedin_info.php";
     </audio>
 </body>
 <script><?php include "./js/script.js" ?></script>
+<script>
+    //Tells the user to enable autoplay once
+    audioprompt = localStorage.getItem("audio-prompt");
+    if (audioprompt != 1) {
+        alert("To enable music and sound effects the website needs autoplay permission.")
+        localStorage.setItem("audio-prompt", 1)
+    }
+</script>
 </html>
