@@ -51,6 +51,23 @@ function ajaxPost(postText, phpFile, confirm) {
     })
 }
 
+// POST image request with jQuery ajax (DOESNT WORK YET)
+function ajaxPostImage(postImage, phpFile, confirm){
+    var fd = new FormData();
+    var files = $(postImage)[0].files[0];
+    fd.append('file',files);
+    $.ajax({
+        url: phpFile,
+        type: 'post',
+        data: fd,
+        contentType: false,
+        processData: false,
+        success: function(){
+            settingsShowConfirm(confirm)
+        },
+    });
+}
+
 //Shows a popup when saving information in user settings
 function settingsShowConfirm(text) {
     confirmContainer = document.getElementById("confirmContainer");
@@ -59,6 +76,7 @@ function settingsShowConfirm(text) {
     $("#confirmContainer").fadeOut(3000);
 }
 
+// Shows preview of banner that user is uploading
 function filePreview(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
