@@ -13,6 +13,7 @@ require "./php_scripts/get_loggedin_info.php";
     <title>GameHub - User settings</title>
     <link rel="icon" type=".image/x-icon" href="./img/favicon.png">
     <link rel="icon" type=".image/x-icon" href="./img/favicon.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <style> <?php include "./css/universal.css" ?> </style>
     <style> <?php include "./css/user-settings-page.css" ?> </style>
 </head>
