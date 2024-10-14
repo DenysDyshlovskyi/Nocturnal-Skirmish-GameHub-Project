@@ -38,15 +38,15 @@ function ajaxGet(phpFile, changeID){
     xhttp.send();
 }
 
-// POST description to php with jQuery
-function saveDescription() {
-    var text = $('textarea#descriptionTextArea').val();
+// POST request with jQuery ajax
+function ajaxPost(postText, phpFile, confirm) {
+    var text = $(postText).val();
     $.ajax({
         type: "POST",
-        url: "./php_scripts/save_description.php",
+        url: phpFile,
         data:{ description: text }, 
         success: function(){
-            settingsShowConfirm("Description saved!")
+            settingsShowConfirm(confirm)
         }
     })
 }
@@ -57,4 +57,20 @@ function settingsShowConfirm(text) {
     confirmContainer.innerHTML = text;
     confirmContainer.style.display = "block";
     $("#confirmContainer").fadeOut(3000);
+}
+
+function filePreview(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#bannerPreview').css('background-image','url('+e.target.result+')');
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+//Removes dark container and its contents
+function removeDarkContainer() {
+    document.getElementById("settings-dark-container").innerHTML = "";
+    document.getElementById("settings-dark-container").style.display = "none";
 }
