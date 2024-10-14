@@ -1,0 +1,24 @@
+#hub-body {
+    background-color: #FFCF8C;
+    font-family: "Afacad Flux", sans-serif;
+}
+
+.shop-container {
+    width: calc(100% - 100px);
+    height: calc(100vh - 100px);
+    background-color: white;
+    border-radius: 28px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.shop-menu {
+    width: 200px;
+    height: calc(100vh - 100px);
+    background-color: rgb(174, 174, 174);
+    border-radius: 28px;
+}
