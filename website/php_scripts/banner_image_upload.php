@@ -20,10 +20,26 @@ if (!isset($_FILES['file'])) {
         $file_name = $newfilename;
 
         // Uploads banner to server
-        move_uploaded_file($_FILES['file']['tmp_name'], $folder);
-        $sql = "UPDATE users SET profile_banner='$file_name' WHERE user_id=" . $_SESSION['user_id'];
-        $result = $conn->query($sql);
-        echo 'url(./img/profile_banners/' . $newfilename . ")";
-    }
+        if (move_uploaded_file($_FILES['file']['tmp_name'], $folder)) {
+            //Delete old banner first to save storage
+            $sql = "SELECT profile_banner FROM users WHERE user_id=" . $_SESSION['user_id'];
+            $result = $conn->query($sql);
+            $row = $result->fetch_assoc();
+            $deleteBanner = '../img/profile_banners/' . $row['profile_banner'];
+            if ($row['profile_banner'] != "defaultbanner.jpg") {
+                if (file_exists($deleteBanner)) {
+                    unlink($deleteBanner);
+                };
+            };
+
+            // Update database with new banner file
+            $sql = "UPDATE users SET profile_banner='$file_name' WHERE user_id=" . $_SESSION['user_id'];
+            $result = $conn->query($sql);
+            // Pass path to new banner to javascript
+            echo 'url(./img/profile_banners/' . $newfilename . ")";
+        } else {
+            echo "error";
+        };
+    };
 };
 ?>

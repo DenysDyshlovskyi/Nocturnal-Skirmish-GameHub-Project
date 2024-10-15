@@ -66,11 +66,13 @@ function uploadBanner() {
         type: 'post',
         success: function(response){
             if (response == "unsupported") {
-                settingsShowConfirm("File type not supported! Only JPG allowed.")
+                settingsShowConfirm("File type not supported! Only JPG allowed.");
             } else if (response == "empty") {
-                settingsShowConfirm("File input empty!")
+                settingsShowConfirm("File input empty!");
+            } else if (response == "error") {
+                settingsShowConfirm("Something went wrong.");
             } else {
-                settingsShowConfirm("Banner saved!")
+                settingsShowConfirm("Banner saved!");
                 document.getElementById('settings-myaccount-banner').style.backgroundImage = response;
             }
             removeDarkContainer();
