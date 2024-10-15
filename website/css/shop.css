@@ -67,3 +67,36 @@
     display: none;
     margin-left: 3%;
 }
+
+.middle-shop-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.left-middle-shop-container {
+    width: 710px;
+    background-color: #D9D9D9;
+    border-radius: 10px 0px 0px 10px;
+    display: flex;
+    flex-direction: row;
+    box-shadow: rgba(0, 0, 0, 0.30) 6px 2px 16px 0px;
+    z-index: 1;
+}
+
+.card-section-middle-shop-container {
+   height: 150px;
+   width: 600px;
+   background-color: #911b1b;
+   margin-top: 50px;
+   margin-left: 55px;
+   border-radius: 20px;
+}
+
+.right-middle-shop-container {
+    width: 510px;
+    background-color: #D9D9D9;
+    border-radius: 0px 10px 10px 0px;
+    display: flex;
+    flex-direction: row;
+    z-index: 0;
+}
