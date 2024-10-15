@@ -1,5 +1,6 @@
 <?php
 require "avoid_errors.php";
+require "compress.php";
 // Uploads banner image to server
 
 //If uploaded file is empty
@@ -31,6 +32,9 @@ if (!isset($_FILES['file'])) {
                     unlink($deleteBanner);
                 };
             };
+
+            //Compresses banner image
+            compress($folder, $folder, 70);
 
             // Update database with new banner file
             $sql = "UPDATE users SET profile_banner='$file_name' WHERE user_id=" . $_SESSION['user_id'];
