@@ -19,7 +19,7 @@
     <p>Preview:</p>
     <div class="settings-upload-banner-preview" id="bannerPreview"></div>
     <div class="settings-upload-banner-button-container">
-        <button onclick="ajaxPostImage('#banner-input', './php_scripts/banner_image_upload.php', 'Banner image uploaded!')">Submit</button>
+        <button id="upload-banner" onclick="uploadBanner()">Submit</button>
         <button onclick="removeDarkContainer()" id="settings-upload-banner-button-cancel" form="banner-upload-form">Cancel</button>
     </div>
 </div>
