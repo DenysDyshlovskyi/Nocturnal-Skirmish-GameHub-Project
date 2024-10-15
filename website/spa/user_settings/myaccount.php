@@ -4,7 +4,7 @@ session_start();
 <style><?php include "./css/myaccount.css" ?></style>
 <h1 class="settings-headline">My Account</h1>
 <div class="settings-myaccount-inner">
-    <div class="settings-myaccount-banner" style="background-image: url(<?php echo $_SESSION['user_profile_banner'] ?>);"></div>
+    <div class="settings-myaccount-banner" id="settings-myaccount-banner" style="background-image: url(<?php echo $_SESSION['user_profile_banner'] ?>);"></div>
     <button class="settings-myaccount-change-banner" onclick="ajaxGet('./spa/user_settings/upload_banner.php', 'settings-dark-container')">Change banner</button>
     <div class="settings-myaccount-profile-container">
         <div class="settings-myaccount-profile-pic-background">

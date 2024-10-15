@@ -35,6 +35,8 @@ require "./php_scripts/get_loggedin_info.php";
         <div class="settings-spa-container" id="settings-spa-container">
         </div>
     </div>
+    <!-- div to target with jQuery when nothing should be displayed -->
+    <div id="reload-div"></div>
     <audio autoplay loop style="display: none;">
         <source src="audio/OldJazzOST.mp3" type="audio/mpeg">
     </audio>

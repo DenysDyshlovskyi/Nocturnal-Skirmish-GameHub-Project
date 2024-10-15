@@ -51,12 +51,6 @@ function ajaxPost(postText, phpFile, confirm) {
     })
 }
 
-// Updates page without refresh
-function reloadPage(phpFile, changeID) {
-    ajaxGet('./php_scripts/get_loggedin_info.php', changeID)
-    ajaxGet(phpFile, changeID)
-}
-
 // Uploads banner to server
 function uploadBanner() {
     var file_data = $('#banner-input').prop('files')[0];   
@@ -70,10 +64,16 @@ function uploadBanner() {
         processData: false,
         data: form_data,                         
         type: 'post',
-        success: function(){
-            reloadPage('./spa/user_settings/myaccount.php', 'settings-spa-container');
+        success: function(response){
+            if (response == "unsupported") {
+                settingsShowConfirm("File type not supported! Only JPG allowed.")
+            } else if (response == "empty") {
+                settingsShowConfirm("File input empty!")
+            } else {
+                settingsShowConfirm("Banner saved!")
+                document.getElementById('settings-myaccount-banner').style.backgroundImage = response;
+            }
             removeDarkContainer();
-            settingsShowConfirm("Banner saved!")
         }
     });
 };
