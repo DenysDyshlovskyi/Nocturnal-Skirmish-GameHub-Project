@@ -43,7 +43,7 @@ require "./php_scripts/get_loggedin_info.php";
             <button class="play-button">Play <img style="width: 30%;" src="img/Noc_Skir_Logo.svg" alt="Logo"></button>
             <div class="menu-selection-buttons">
                 <button style="margin-bottom: 10px; margin-right: 10px;" class="menu-button">Leaderboard</button>
-                <button class="menu-button"><a class="link" href="../website/shop/Featured.html">Shop</a></button>
+                <a class="link" href="../website/shop/Featured.html"><button class="menu-button">Shop</button></a>
                 <br>
                 <button style="margin-bottom: 10px; margin-right: 10px;" class="menu-button">Tutorial</button>
                 <button class="menu-button">Friends List</button>
