@@ -30,8 +30,8 @@ session_start();
         </div>
         <div class="settings-myaccount-details-component">
             <p>Email</p>
-            <h1><?php echo $_SESSION['user_profile_email'] ?></h1>
-            <button>Edit</button>
+            <h1 id="settings-myaccount-details-email"><?php echo $_SESSION['user_profile_email'] ?></h1>
+            <button onclick="ajaxGet('./spa/user_settings/change_email.php', 'settings-dark-container')">Edit</button>
         </div>
     </div>
     <div class="settings-myaccount-change-container">
