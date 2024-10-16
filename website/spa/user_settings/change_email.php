@@ -5,7 +5,7 @@
         display: block !important;
     }
 </style>
-<div class="settings-change-nickname-container">
+<div class="settings-change-nickname-container" onload="prepareSFX()">
     <div class="settings-change-nickname-container-inner">
         <h1>Change email</h1>
         <input type="text" placeholder="New email" maxlength="128" id="change-email-input">

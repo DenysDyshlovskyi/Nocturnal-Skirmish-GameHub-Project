@@ -32,7 +32,8 @@ function showNewPassword() {
 function ajaxGet(phpFile, changeID){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function(){
-        document.getElementById(changeID).innerHTML = this.responseText
+        document.getElementById(changeID).innerHTML = this.responseText;
+        prepareSFX();
     }
     xhttp.open("GET", phpFile);
     xhttp.send();
@@ -149,31 +150,33 @@ function removeDarkContainer() {
     }
 }
 
+//Prepares sound effects for a page
+function prepareSFX() {
+    var hoverAudio = document.getElementById('hoverSFX');
+    // Function to play hover soundeffect on button hover
+    function playHoverSfx() {
+        hoverAudio.play();
+    }
 
+    // Function to stop sfx hover
+    function stopHoverSfx() {
+        hoverAudio.pause();
+        hoverAudio.currentTime = 0;
+    }
 
+    // Get all button and a tags
+    const hoverSfxButton = document.getElementsByTagName('button');
+    const hoverSfxLink = document.getElementsByTagName('a');
 
-// Function to play soundeffect on button hover
-function playSfx() {
-    var audio = document.getElementById('hoverSFX');
-    audio.play();
+    //Loops through all button tags and adds a mouse over event listener
+    for (var i = 0 ; i < hoverSfxButton.length; i++) {
+        hoverSfxButton[i].addEventListener('mouseover', () => {playHoverSfx();});
+        hoverSfxButton[i].addEventListener('mouseout', () => {stopHoverSfx();});
+    }
+
+    //Loops through all link (a) tags and adds a mouse over event listener
+    for (var i = 0 ; i < hoverSfxLink.length; i++) {
+        hoverSfxLink[i].addEventListener('mouseover', () => {playHoverSfx();});
+        hoverSfxLink[i].addEventListener('mouseout', () => {stopHoverSfx();});
+    }
 }
-
-// Function to stop sfx hover
-function stopSfx() {
-    var audio = document.getElementById('hoverSFX');
-    audio.pause();
-    audio.currentTime = 0;
-}
-
-// Get the button element
-const sfxbutton = document.querySelector('.sfx');
-
-// Add a mouseover event listener
-sfxbutton.addEventListener('mouseover', () => {
-    playSfx();
-  });
-
-// Add a mouseout event listener
-sfxbutton.addEventListener('mouseout', () => {
-    stopSfx();
-  });

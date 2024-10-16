@@ -4,7 +4,7 @@
         display: block !important;
     }
 </style>
-<div class="settings-upload-banner-container">
+<div class="settings-upload-banner-container" onload="prepareSFX()">
     <h1>Upload banner image</h1>
     <p>Aspect ratio for banners is 93:14.</p>
     <p>Only supports JPG.</p>

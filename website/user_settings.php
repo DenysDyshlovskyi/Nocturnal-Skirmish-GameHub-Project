@@ -17,7 +17,7 @@ require "./php_scripts/get_loggedin_info.php";
     <style> <?php include "./css/universal.css" ?> </style>
     <style> <?php include "./css/user-settings-page.css" ?> </style>
 </head>
-<body id="settings-body" onload="ajaxGet('./spa/user_settings/myaccount.php', 'settings-spa-container')">
+<body id="settings-body" onload="ajaxGet('./spa/user_settings/myaccount.php', 'settings-spa-container'); prepareSFX()">
     <div id="settings-dark-container" class="settings-dark-container">
     </div>
     <div class="settings-confirmation-popup" id="confirmContainer"></div>
@@ -38,7 +38,11 @@ require "./php_scripts/get_loggedin_info.php";
     <!-- div to target with jQuery when nothing should be displayed -->
     <div id="reload-div"></div>
     <audio autoplay loop style="display: none;">
-        <source src="audio/OldJazzOST.mp3" type="audio/mpeg">
+        <source src="audio/music/OldJazzOST.mp3" type="audio/mpeg">
+    </audio>
+    <!-- hover sfx -->
+    <audio id='hoverSFX'>
+        <source src="./audio/sfx/hover.mp3" type="audio/mpeg">
     </audio>
     <script><?php include "./js/script.js" ?></script>
 </body>
