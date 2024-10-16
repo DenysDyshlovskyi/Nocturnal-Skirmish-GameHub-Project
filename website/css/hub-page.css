@@ -51,7 +51,8 @@
     position: relative;
     top: 15px;
     width: 65px;
-    height: 265px;
+    height: fit-content;
+    padding-bottom: 15px;
     padding: 10px;
     background-color: white;
     border-radius: 15px;
@@ -84,6 +85,14 @@
 
 #dropdown-button-chats {
     background-image: url(./img/icons/message.svg);
+}
+
+#dropdown-button-q_and_a {
+    background-image: url(./img/icons/question.svg);
+}
+
+#dropdown-button-leaderboard {
+    background-image: url(./img/icons/leaderboard.svg);
 }
 
 .hub-corner-profile-dropdown-divider {

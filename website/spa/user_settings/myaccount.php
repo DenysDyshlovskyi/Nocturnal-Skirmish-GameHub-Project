@@ -26,7 +26,7 @@ session_start();
         <div class="settings-myaccount-details-component">
             <p>Nickname</p>
             <h1><?php echo $_SESSION['user_profile_nickname'] ?></h1>
-            <button>Edit</button>
+            <button onclick="ajaxGet('./spa/user_settings/change_nickname.php', 'settings-dark-container')">Edit</button>
         </div>
         <div class="settings-myaccount-details-component">
             <p>Email</p>
