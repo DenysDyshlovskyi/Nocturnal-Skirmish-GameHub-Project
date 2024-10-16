@@ -72,6 +72,26 @@ function saveNickname () {
     })
 }
 
+// Save new email in database
+function saveEmail() {
+    var text = $('#change-email-input').val();
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/save_email.php',
+        data:{ email: text }, 
+        success: function(email){
+            if (email == "error") {
+                settingsShowConfirm("Something went wrong.");
+                removeDarkContainer();
+            } else {
+                document.getElementById("settings-myaccount-details-email").innerHTML = email;
+                removeDarkContainer();
+                settingsShowConfirm("Description saved!");
+            }
+        }
+    })
+}
+
 // Uploads banner to server
 function uploadBanner() {
     var file_data = $('#banner-input').prop('files')[0];   
