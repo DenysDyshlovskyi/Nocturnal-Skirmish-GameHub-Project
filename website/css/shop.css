@@ -3,7 +3,7 @@
 #hub-body {
     background-color: #FFCF8C;
     font-family: "Afacad Flux", sans-serif;
-    user-select: none;
+    -webkit-user-drag: none;
 }
 
 .shop-container {
