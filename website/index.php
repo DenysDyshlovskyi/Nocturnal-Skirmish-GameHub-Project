@@ -183,7 +183,7 @@ if(!empty($_POST['save_password_button'])) {
                 <div class="login-error-container">
                     <?php echo $errorMessage; ?>
                 </div>
-                <input type="text" placeholder="Username" name="username" required class="login-cred-input" maxlength="50">
+                <input type="text" placeholder="Username" name="username" required class="login-cred-input" maxlength="25">
                 <input type="password" placeholder="Password" name="password" required class="login-cred-input" maxlength="80">
                 <p class="login-register-link">Dont have a user? <a href="create_account.php">Create account.</a></p>
                 <input type="submit" value="Log in" class="login-button" name="login_button">

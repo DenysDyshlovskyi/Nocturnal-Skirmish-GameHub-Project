@@ -38,15 +38,31 @@ function ajaxGet(phpFile, changeID){
     xhttp.send();
 }
 
-// POST request with jQuery ajax
-function ajaxPost(postText, phpFile, confirm) {
-    var text = $(postText).val();
+// Save description in database
+function saveDescription() {
+    var text = $('#descriptionTextArea').val();
     $.ajax({
         type: "POST",
-        url: phpFile,
+        url: './php_scripts/save_description.php',
         data:{ description: text }, 
         success: function(){
-            settingsShowConfirm(confirm)
+            settingsShowConfirm("Description saved!")
+        }
+    })
+}
+
+// Save new nickname in database
+function saveNickname () {
+    var text = $('#change-nickname-input').val();
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/save_nickname.php',
+        data:{ nickname: text }, 
+        success: function(nickname){
+            document.getElementById("settings-myaccount-nickname").innerHTML = nickname;
+            document.getElementById("settings-myaccount-details-nickname").innerHTML = nickname;
+            removeDarkContainer();
+            settingsShowConfirm("Description saved!");
         }
     })
 }
@@ -101,6 +117,9 @@ function filePreview(input) {
 
 //Removes dark container and its contents
 function removeDarkContainer() {
-    document.getElementById("settings-dark-container").innerHTML = "";
-    document.getElementById("settings-dark-container").style.display = "none";
+    container = document.getElementById("settings-dark-container");
+    if (window.getComputedStyle(container).display != 'none') {
+        document.getElementById("settings-dark-container").innerHTML = "";
+        document.getElementById("settings-dark-container").style.display = 'none';
+    }
 }
