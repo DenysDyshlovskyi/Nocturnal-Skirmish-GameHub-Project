@@ -166,14 +166,14 @@ function stopSfx() {
 }
 
 // Get the button element
-const button = document.querySelector('button');
+const sfxbutton = document.querySelector('.sfx');
 
 // Add a mouseover event listener
-button.addEventListener('mouseover', () => {
+sfxbutton.addEventListener('mouseover', () => {
     playSfx();
   });
 
 // Add a mouseout event listener
-button.addEventListener('mouseout', () => {
+sfxbutton.addEventListener('mouseout', () => {
     stopSfx();
   });
