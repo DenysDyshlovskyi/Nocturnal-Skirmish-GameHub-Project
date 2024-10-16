@@ -66,13 +66,14 @@
 .tabContent {
     display: none;
     margin-left: 3%;
+    width: 78%;
 }
 
 .middle-shop-container {
     display: flex;
     flex-direction: row;
-    width: 140%;
-    height: 10%;
+    width: 100%;
+    height: 78%;
 }
 
 .left-middle-shop-container {
@@ -89,18 +90,28 @@
 }
 
 .card-section-left-middle-shop-container {
-   height: 200px;
-   width: 600px;
-   background-color: #911b1b;
+   background-color: #62D0FF;
    margin-left: 45px;
    margin-top: -20px;
    border-radius: 20px;
+   width: 90%;
+   height: 45%;
 }
 
 .cards {
-    width: 100px;
-    height: 100px;
-    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    padding-top: 3%;
+    gap: 4%;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-images {
+    border-radius: 10px 10px 10px 10px;
 }
 
 .right-middle-shop-container {
