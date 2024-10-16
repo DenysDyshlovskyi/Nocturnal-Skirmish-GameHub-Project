@@ -86,7 +86,7 @@ function saveEmail() {
             } else {
                 document.getElementById("settings-myaccount-details-email").innerHTML = email;
                 removeDarkContainer();
-                settingsShowConfirm("Description saved!");
+                settingsShowConfirm("Email saved!");
             }
         }
     })
