@@ -59,10 +59,15 @@ function saveNickname () {
         url: './php_scripts/save_nickname.php',
         data:{ nickname: text }, 
         success: function(nickname){
-            document.getElementById("settings-myaccount-nickname").innerHTML = nickname;
-            document.getElementById("settings-myaccount-details-nickname").innerHTML = nickname;
-            removeDarkContainer();
-            settingsShowConfirm("Description saved!");
+            if (nickname == "error") {
+                settingsShowConfirm("Something went wrong.");
+                removeDarkContainer();
+            } else {
+                document.getElementById("settings-myaccount-nickname").innerHTML = nickname;
+                document.getElementById("settings-myaccount-details-nickname").innerHTML = nickname;
+                removeDarkContainer();
+                settingsShowConfirm("Description saved!");
+            }
         }
     })
 }
