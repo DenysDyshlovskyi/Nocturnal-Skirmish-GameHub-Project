@@ -129,6 +129,9 @@ function removeDarkContainer() {
     }
 }
 
+
+
+
 // Function to play soundeffect on button hover
 function playSfx() {
     var audio = document.getElementById('hoverSFX');
@@ -141,3 +144,16 @@ function stopSfx() {
     audio.pause();
     audio.currentTime = 0;
 }
+
+// Get the button element
+const button = document.querySelector('button');
+
+// Add a mouseover event listener
+button.addEventListener('mouseover', () => {
+    playSfx();
+  });
+
+// Add a mouseout event listener
+button.addEventListener('mouseout', () => {
+    stopSfx();
+  });
