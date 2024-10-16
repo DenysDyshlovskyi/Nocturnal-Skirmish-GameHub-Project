@@ -1,8 +1,8 @@
 .settings-change-nickname-container {
-    width: 650px;
-    height: 460px;
+    width: 400px;
+    height: 200px;
     background-color: white;
-    border-radius: 15px;
+    border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     position: fixed;
     top: 50%;
@@ -11,4 +11,65 @@
     transform: translate(-50%, -50%);
     text-align: center;
     align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.settings-change-nickname-container-inner {
+    width: 340px;
+    height: 100%;
+    position: relative;
+}
+
+.settings-change-nickname-container-inner h1{
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    margin: 0;
+    margin-top: 15px;
+}
+
+.settings-change-nickname-container-inner input {
+    width: calc(100% - 10px);
+    height: 30px;
+    font-size: 25px;
+    margin-top: 15px;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 400;
+    border-radius: 5px;
+    border: 1px black solid;
+}
+
+.settings-change-nickname-button-container {
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+.settings-change-nickname-button-container button{
+    width: 160px;
+    height: 50px;
+    border: #4A88FF solid 3px;
+    color: #4A88FF;
+    background-color: white;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.settings-change-nickname-button-container button:hover {
+    background-color: #4A88FF;
+    color: white;
+}
+
+#change-nickname-cancel {
+    border: #808080 solid 3px;
+    color: #808080;
+}
+
+#change-nickname-cancel:hover {
+    color: white;
+    background-color: #808080;
 }

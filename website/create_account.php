@@ -101,9 +101,9 @@ end:
             <form action="create_account.php" method="POST" class="ca-creation-form">
                 <div class="ca-creation-form-user-details-container">
                     <h1 class="ca-form-headline">User details</h1>
-                    <input type="text" placeholder="Username" name="username" required class="ca-creation-cred-input" maxlength="50">
+                    <input type="text" placeholder="Username" name="username" required class="ca-creation-cred-input" maxlength="25">
                     <br>
-                    <input type="text" placeholder="Nickname*" name="nickname" required class="ca-creation-cred-input" maxlength="50">
+                    <input type="text" placeholder="Nickname*" name="nickname" required class="ca-creation-cred-input" maxlength="25">
                     <br>
                     <textarea name="description" placeholder="Description" class="ca-creation-description-input" maxlength="500"></textarea>
                 </div>
