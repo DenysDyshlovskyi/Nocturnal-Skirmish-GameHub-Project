@@ -34,7 +34,7 @@ if (!isset($_FILES['file'])) {
             };
 
             //Compresses banner image
-            compress($folder, $folder, 10);
+            compress($folder, $folder, 80);
 
             // Update database with new banner file
             $sql = "UPDATE users SET profile_banner='$file_name' WHERE user_id=" . $_SESSION['user_id'];
