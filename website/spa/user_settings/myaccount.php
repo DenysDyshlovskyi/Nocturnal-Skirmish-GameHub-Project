@@ -13,19 +13,19 @@ session_start();
             </div>
         </div>
         <div class="settings-myaccount-name-container">
-            <h1><?php echo $_SESSION['user_profile_nickname'] ?></h1>
+            <h1 id="settings-myaccount-nickname"><?php echo $_SESSION['user_profile_nickname'] ?></h1>
             <p><?php echo $_SESSION['user_profile_username'] ?></p>
         </div>
     </div>
     <div class="settings-myaccount-profile-pushdown"></div>
     <p class="settings-myaccount-profile-headline">Description</p>
     <textarea class="settings-myaccount-description" id="descriptionTextArea" maxlength="500"><?php echo $_SESSION['user_profile_description'] ?></textarea>
-    <button class="settings-myaccount-save-button" id="descriptionSave" onclick="ajaxPost('#descriptionTextArea', './php_scripts/save_description.php', 'Description saved!')">Save</button>
+    <button class="settings-myaccount-save-button" id="descriptionSave" onclick="saveDescription()">Save</button>
     <p class="settings-myaccount-profile-headline">Account Details</p>
     <div class="settings-myaccount-details-container">
         <div class="settings-myaccount-details-component">
             <p>Nickname</p>
-            <h1><?php echo $_SESSION['user_profile_nickname'] ?></h1>
+            <h1 id="settings-myaccount-details-nickname"><?php echo $_SESSION['user_profile_nickname'] ?></h1>
             <button onclick="ajaxGet('./spa/user_settings/change_nickname.php', 'settings-dark-container')">Edit</button>
         </div>
         <div class="settings-myaccount-details-component">
