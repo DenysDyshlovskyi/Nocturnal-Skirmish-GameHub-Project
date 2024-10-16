@@ -71,10 +71,12 @@
 .middle-shop-container {
     display: flex;
     flex-direction: row;
+    width: 140%;
+    height: 10%;
 }
 
 .left-middle-shop-container {
-    width: 710px;
+    width: 71%;
     background-color: #D9D9D9;
     border-radius: 10px 0px 0px 10px;
     box-shadow: rgba(0, 0, 0, 0.30) 6px 2px 16px 0px;
@@ -102,7 +104,7 @@
 }
 
 .right-middle-shop-container {
-    width: 510px;
+    width: 51%;
     background-color: #D9D9D9;
     border-radius: 0px 10px 10px 0px;
     display: flex;
