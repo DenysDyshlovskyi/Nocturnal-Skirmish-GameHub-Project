@@ -180,3 +180,8 @@ function prepareSFX() {
         hoverSfxLink[i].addEventListener('mouseout', () => {stopHoverSfx();});
     }
 }
+
+// Updates online users count every 2 seconds
+setInterval(function(){
+    ajaxGet('./php_scripts/update_login_time.php', 'players-live-count');
+}, 2000);

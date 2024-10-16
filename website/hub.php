@@ -15,7 +15,7 @@ require "./php_scripts/get_loggedin_info.php";
     <style> <?php include "./css/universal.css" ?> </style>
     <style> <?php include "./css/hub-page.css" ?> </style>
 </head>
-<body id="hub-body" onload="prepareSFX()">
+<body id="hub-body" onload="prepareSFX(); ajaxGet('./php_scripts/update_login_time.php', 'players-live-count');">
     <div class="hub-corner-profile-container">
         <div class="hub-corner-profilepic-container" id="hub-corner-profilepic-container">
             <a href="user_settings.php">
@@ -100,7 +100,7 @@ require "./php_scripts/get_loggedin_info.php";
         <!-- Footer container with trademark text and live player count -->
         <footer>
             <p class="footer-tm-text">GameHub™ 2024</p>
-            <p class="player-live-count-text">5 players online</p>
+            <p class="player-live-count-text" id="players-live-count"></p>
             <img class="live-count-icon" src="img/icons/live-count.svg" alt="live count icon">
         </footer>
     <!-- /HUB2-IMPORT -->
