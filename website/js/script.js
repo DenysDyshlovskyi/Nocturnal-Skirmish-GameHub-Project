@@ -123,3 +123,16 @@ function removeDarkContainer() {
         document.getElementById("settings-dark-container").style.display = 'none';
     }
 }
+
+// Function to play soundeffect on button hover
+function playSfx() {
+    var audio = document.getElementById('hoverSFX');
+    audio.play();
+}
+
+// Function to stop sfx hover
+function stopSfx() {
+    var audio = document.getElementById('hoverSFX');
+    audio.pause();
+    audio.currentTime = 0;
+}
