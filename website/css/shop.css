@@ -77,19 +77,28 @@
     width: 710px;
     background-color: #D9D9D9;
     border-radius: 10px 0px 0px 10px;
-    display: flex;
-    flex-direction: row;
     box-shadow: rgba(0, 0, 0, 0.30) 6px 2px 16px 0px;
     z-index: 1;
 }
 
-.card-section-middle-shop-container {
-   height: 150px;
+.left-middle-shop-container-titles {
+    margin-left: 55px;
+    font-size: 30px;
+}
+
+.card-section-left-middle-shop-container {
+   height: 200px;
    width: 600px;
    background-color: #911b1b;
-   margin-top: 50px;
-   margin-left: 55px;
+   margin-left: 45px;
+   margin-top: -20px;
    border-radius: 20px;
+}
+
+.cards {
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
 }
 
 .right-middle-shop-container {
