@@ -44,7 +44,7 @@ require "./php_scripts/get_loggedin_info.php";
         <div class="main-menu-middle-ui"
             style="display: flex; justify-content: center; flex-direction: column; align-items: center; gap: 20px;">
             <h1 class="title-text">GameHub™</h1>
-            <button class="play-button">Play <img style="width: 30%;" src="img/Noc_Skir_Logo.svg" alt="Logo"></button>
+            <button class="play-button" onmouseover="playSfx('hoverSFX')" onmouseout="stopSfx('hoverSFX')" >Play <img style="width: 30%;" src="img/Noc_Skir_Logo.svg" alt="Logo"></button>
             <div class="menu-selection-buttons">
                 <button style="margin-bottom: 10px; margin-right: 10px;" class="menu-button">Inventory</button>
                 <a class="link" href="Featured.html"><button class="menu-button">Shop</button></a>
@@ -109,6 +109,12 @@ require "./php_scripts/get_loggedin_info.php";
     <audio autoplay loop style="display: none;">
         <source src="audio/BrowsingShopOST.mp3" type="audio/mpeg">
     </audio>
+
+    <!-- hover audio temp -->
+    <audio id='hoverSFX'>
+        <source src="audio/sfx/hover.mp3" type="audio/mpeg">
+    </audio>
+    
 </body>
 <script><?php include "./js/script.js" ?></script>
 <script>
