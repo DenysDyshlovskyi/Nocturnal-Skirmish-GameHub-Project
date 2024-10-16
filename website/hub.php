@@ -30,6 +30,8 @@ require "./php_scripts/get_loggedin_info.php";
             <div class="hub-corner-profile-dropdown-divider"></div>
             <button class="hub-corner-profile-dropdown-button" id="dropdown-button-chats" title="Chats"></button>
             <div class="hub-corner-profile-dropdown-divider"></div>
+            <button class="hub-corner-profile-dropdown-button" id="dropdown-button-leaderboard" title="Leaderboard"></button>
+            <div class="hub-corner-profile-dropdown-divider"></div>
             <button class="hub-corner-profile-dropdown-button" id="dropdown-button-q_and_a" title="QandA"></button>
         </div>
     </div>
@@ -44,7 +46,7 @@ require "./php_scripts/get_loggedin_info.php";
             <h1 class="title-text">GameHub™</h1>
             <button class="play-button">Play <img style="width: 30%;" src="img/Noc_Skir_Logo.svg" alt="Logo"></button>
             <div class="menu-selection-buttons">
-                <button style="margin-bottom: 10px; margin-right: 10px;" class="menu-button">Leaderboard</button>
+                <button style="margin-bottom: 10px; margin-right: 10px;" class="menu-button">Inventory</button>
                 <a class="link" href="../website/shop/Featured.html"><button class="menu-button">Shop</button></a>
                 <br>
                 <button style="margin-bottom: 10px; margin-right: 10px;" class="menu-button">Tutorial</button>
