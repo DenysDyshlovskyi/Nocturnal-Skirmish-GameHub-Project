@@ -86,6 +86,10 @@
     background-image: url(./img/icons/message.svg);
 }
 
+#dropdown-button-q_and_a {
+    background-image: url(./img/icons/question.svg);
+}
+
 .hub-corner-profile-dropdown-divider {
     width: 65px;
     height: 1px;

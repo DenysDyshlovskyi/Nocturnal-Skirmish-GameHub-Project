@@ -29,6 +29,8 @@ require "./php_scripts/get_loggedin_info.php";
             <button class="hub-corner-profile-dropdown-button" id="dropdown-button-friends" title="Friends"></button>
             <div class="hub-corner-profile-dropdown-divider"></div>
             <button class="hub-corner-profile-dropdown-button" id="dropdown-button-chats" title="Chats"></button>
+            <div class="hub-corner-profile-dropdown-divider"></div>
+            <button class="hub-corner-profile-dropdown-button" id="dropdown-button-q_and_a" title="QandA"></button>
         </div>
     </div>
 
