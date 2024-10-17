@@ -1,5 +1,6 @@
 <?php
 session_start();
+require "../../php_scripts/get_loggedin_info.php";
 ?>
 <style><?php include "./css/myaccount.css" ?></style>
 <h1 class="settings-headline">My Account</h1>

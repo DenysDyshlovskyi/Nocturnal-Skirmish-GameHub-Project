@@ -179,6 +179,7 @@ function prepareSFX() {
         hoverSfxLink[i].addEventListener('mouseover', () => {playHoverSfx();});
         hoverSfxLink[i].addEventListener('mouseout', () => {stopHoverSfx();});
     }
+<<<<<<< Updated upstream
 }
 
 // Updates online users count every 2 seconds
@@ -193,4 +194,6 @@ document.onclick = playclickSFX();
 function playclickSFX() {
     var clickAudio = document.getElementById('clickSFX');
     clickAudio.play();
+=======
+>>>>>>> Stashed changes
 }

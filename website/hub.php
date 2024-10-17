@@ -128,5 +128,10 @@ require "./php_scripts/get_loggedin_info.php";
         alert("To enable music and sound effects the website needs autoplay permission.")
         localStorage.setItem("audio-prompt", 1)
     }
+
+    // Updates online users count every 2 seconds
+    setInterval(function(){
+        ajaxGet('./php_scripts/update_login_time.php', 'players-live-count');
+    }, 2000);
 </script>
 </html>
