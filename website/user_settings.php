@@ -44,6 +44,10 @@ require "./php_scripts/get_loggedin_info.php";
     <audio id='hoverSFX'>
         <source src="./audio/sfx/hover.mp3" type="audio/mpeg">
     </audio>
+    <!-- click sfx temp -->
+    <audio id='clickSFX'>
+        <source src="./audio/sfx/click1.mp3" type="audio/mpeg">
+    </audio>
     <script><?php include "./js/script.js" ?></script>
 </body>
 </html>

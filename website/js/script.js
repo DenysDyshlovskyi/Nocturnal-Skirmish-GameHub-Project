@@ -186,11 +186,22 @@ setInterval(function(){
     ajaxGet('./php_scripts/update_login_time.php', 'players-live-count');
 }, 2000);
 
-
-// Click sfx on whole document
-document.onclick = playclickSFX();
-
-function playclickSFX() {
+// play click sfx
+function playClickSfx() {
     var clickAudio = document.getElementById('clickSFX');
     clickAudio.play();
 }
+
+// Stop click sfx
+function stopClickSfx() {
+    var clickAudio = document.getElementById('clickSFX');
+    clickAudio.pause();
+    clickAudio.currentTime = 0;
+}
+
+// Click sfx on whole document
+const clickSfxBody = document.querySelector('body');
+clickSfxBody.addEventListener('click', () => {
+    stopClickSfx();
+    playClickSfx();
+});
