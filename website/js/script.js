@@ -185,3 +185,12 @@ function prepareSFX() {
 setInterval(function(){
     ajaxGet('./php_scripts/update_login_time.php', 'players-live-count');
 }, 2000);
+
+
+// Click sfx on whole document
+document.onclick = playclickSFX();
+
+function playclickSFX() {
+    var clickAudio = document.getElementById('clickSFX');
+    clickAudio.play();
+}
