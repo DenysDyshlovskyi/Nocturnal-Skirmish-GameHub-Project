@@ -172,7 +172,7 @@
 }
 
 /*---------------------------------------------------------------------*/
-/*cards*/
+/*card types*/
 
 .common-card-section-left-middle-shop-container {
    background-color: #A4A4A4;
@@ -183,3 +183,34 @@
    width: 90%;
    height: 45%;
 }
+
+.fire-card-section-left-middle-shop-container {
+    background-color: #FF4D00;
+    margin-left: 5%;
+    margin-top: -20px;
+    margin-bottom: 10%;
+    border-radius: 20px;
+    width: 90%;
+    height: 45%;
+ }
+
+ .ice-card-section-left-middle-shop-container {
+    background-color: #cffdff;
+    margin-left: 5%;
+    margin-top: -20px;
+    margin-bottom: 10%;
+    border-radius: 20px;
+    width: 90%;
+    height: 45%;
+ }
+
+ .dark-card-name {
+    color: #777777;
+    margin-top: 0%;
+    font-size: 1.2vw;
+    margin-left: 5%;
+    text-decoration: underline;
+    font-weight: bold;
+    text-underline-offset: 20%;
+    font-family: "Afacad Flux", sans-serif;
+ }
