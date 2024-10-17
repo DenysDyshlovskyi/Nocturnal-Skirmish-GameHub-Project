@@ -15,6 +15,7 @@ CREATE TABLE users (
     profile_banner varchar(128) DEFAULT "defaultbanner.jpg",
     nickname varchar(25),
     description varchar(500),
+    runes BIGINT DEFAULT 0,
     PRIMARY KEY (user_id)
 );
 

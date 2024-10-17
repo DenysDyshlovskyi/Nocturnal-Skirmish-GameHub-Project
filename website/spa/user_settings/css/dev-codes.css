@@ -1,0 +1,71 @@
+/*Stylesheet for dev codes page*/
+.settings-devcodes-discord {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    bottom: 0;
+    margin-left: 10px;
+}
+
+.settings-devcodes-h1 {
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    margin: 0;
+    margin-top: 15px;
+}
+
+.settings-devcodes-p {
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 400;
+    margin: 0;
+    margin-top: 15px;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.settings-devcode-input {
+    width: 240px;
+    height: 30px;
+    margin-bottom: 20px;
+    border: solid 1px black;
+    background-color: white;
+    border-radius: 5px;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 200;
+    font-size: 25px;
+    text-indent: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.settings-devcodes-button{
+    width: 130px;
+    height: 35px;
+    border: #4A88FF solid 3px;
+    color: #4A88FF;
+    background-color: white;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.settings-devcodes-button:hover{
+    background-color: #4A88FF;
+    color: white;
+}
+
+.settings-devcodes-link {
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    margin: 0;
+    font-size: 30px;
+    position: relative;
+    color: #744AFF;
+    text-decoration: none;
+}
+
+.settings-devcodes-link:hover {
+    text-decoration: underline;
+}

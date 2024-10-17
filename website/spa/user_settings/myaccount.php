@@ -15,7 +15,7 @@ require "../../php_scripts/get_loggedin_info.php";
         </div>
         <div class="settings-myaccount-name-container">
             <h1 id="settings-myaccount-nickname"><?php echo $_SESSION['user_profile_nickname'] ?></h1>
-            <p><?php echo $_SESSION['user_profile_username'] ?></p>
+            <p><?php echo $_SESSION['user_profile_username'] . " - " . $_SESSION['user_profile_runes'] . " Runes" ?></p>
         </div>
     </div>
     <div class="settings-myaccount-profile-pushdown"></div>
@@ -38,7 +38,7 @@ require "../../php_scripts/get_loggedin_info.php";
     <div class="settings-myaccount-change-container">
         <div class="settings-myaccount-change-component">
             <p class="settings-myaccount-profile-headline">Profile picture</p>
-            <button class="settings-myaccount-change-button">Change profile picture</button>
+            <button class="settings-myaccount-change-button" onclick="ajaxGet('./spa/user_settings/upload_profile_picture.php', 'settings-dark-container')">Change profile picture</button>
         </div>
         <div class="settings-myaccount-change-component">
             <p class="settings-myaccount-profile-headline">Password</p>

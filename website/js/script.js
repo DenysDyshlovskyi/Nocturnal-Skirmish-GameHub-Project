@@ -181,11 +181,6 @@ function prepareSFX() {
     }
 }
 
-// Updates online users count every 2 seconds
-setInterval(function(){
-    ajaxGet('./php_scripts/update_login_time.php', 'players-live-count');
-}, 2000);
-
 // play click sfx
 function playClickSfx() {
     var clickAudio = document.getElementById('clickSFX');
