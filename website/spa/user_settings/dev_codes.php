@@ -4,4 +4,4 @@
     }
 </style>
 
-<a href="https://discord.gg/BDSGhgADzQ"><img src="../../img/favicon.png" alt=""></a>
+<a href="https://discord.gg/BDSGhgADzQ"><img src="website\img\Noc_Skir_Logo.svg" alt="Discord Logo Test"></a>
