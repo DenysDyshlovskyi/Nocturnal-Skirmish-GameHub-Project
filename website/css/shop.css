@@ -124,6 +124,7 @@
     text-decoration: underline;
     font-weight: bold;
     text-underline-offset: 20%;
+    font-family: "Afacad Flux", sans-serif;
 }
 
 .profileborder-section-left-middle-shop-container {
@@ -138,9 +139,27 @@
 }
 
 .profileborder-container {
-    background-color: red;
+    background-color: #3f3838;
     width: 50%;
-    height: 70%;
+    height: 65%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 5%;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.profileborder-images {
+    width: 90%;
+    margin-top: 12%;
+}
+
+.profileborder-name {
+    color: #ffffff;
+    margin-top: 3%;
+    font-weight: bold;
+    font-family: "Afacad Flux", sans-serif;
+    font-size: 1.2vw;
 }
 
 .right-middle-shop-container {
