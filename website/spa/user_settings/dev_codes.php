@@ -6,8 +6,8 @@
 <style><?php include "./css/dev-codes.css" ?></style>
 <h1 class="settings-devcodes-h1">Dev Codes</h1>
 <p class="settings-devcodes-p">Enter code:</p>
-<input type="text" name="" id="" class="settings-devcode-input">
+<input type="text" id="devcodeInput" class="settings-devcode-input">
 <br>
-<button class="settings-devcodes-button">Submit</button>
+<button class="settings-devcodes-button" onclick="submitDevCode()">Submit</button>
 <br>
 <a href="https://discord.gg/BDSGhgADzQ" class="settings-devcodes-link">Join our Discord for more codes! <img class="settings-devcodes-discord" src="./img/icons/discord_logo.svg" alt="Discord Logo Test"></a>

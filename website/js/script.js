@@ -52,6 +52,24 @@ function saveDescription() {
     })
 }
 
+function submitDevCode() {
+    var text = $('#devcodeInput').val();
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/submit_devcode.php',
+        data:{ devcode: text }, 
+        success: function(response){
+            if (response == "codenotfound") {
+                settingsShowConfirm("Code doesn't exist or is expired.")
+            } else if (response == "alreadyredeemed") {
+                settingsShowConfirm("Code already redeemed!")
+            } else {
+                settingsShowConfirm("Code redeemed!")
+            }
+        }
+    })
+}
+
 // Save new nickname in database
 function saveNickname () {
     var text = $('#change-nickname-input').val();
