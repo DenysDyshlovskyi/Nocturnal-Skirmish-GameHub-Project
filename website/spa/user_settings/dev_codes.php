@@ -10,4 +10,4 @@
 <br>
 <button class="settings-devcodes-button">Submit</button>
 <br>
-<a href="https://discord.gg/BDSGhgADzQ" class="settings-devcodes-link">Join our Discord for more codes! <img class="settings-devcodes-discord" src="./img/icons/discord_logo.svg" alt="Discord Logo Test"></a>
+<a href="https://discord.gg/BDSGhgADzQ" target="_blank" class="settings-devcodes-link">Join our Discord for more codes! <img class="settings-devcodes-discord" src="./img/icons/discord_logo.svg" alt="Discord Logo Test"></a>
