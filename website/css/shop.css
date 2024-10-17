@@ -85,14 +85,15 @@
 }
 
 .left-middle-shop-container-titles {
-    margin-left: 55px;
+    margin-left: 6%;
     font-size: 30px;
 }
 
 .card-section-left-middle-shop-container {
    background-color: #62D0FF;
-   margin-left: 45px;
+   margin-left: 5%;
    margin-top: -20px;
+   margin-bottom: 10%;
    border-radius: 20px;
    width: 90%;
    height: 45%;
@@ -108,10 +109,38 @@
 .card-content {
     display: flex;
     flex-direction: column;
+    width: 15.5%;
 }
 
 .card-images {
     border-radius: 10px 10px 10px 10px;
+}
+
+.card-name {
+    color: #FFFFFF;
+    margin-top: 0%;
+    font-size: 1.2vw;
+    margin-left: 5%;
+    text-decoration: underline;
+    font-weight: bold;
+    text-underline-offset: 20%;
+}
+
+.profileborder-section-left-middle-shop-container {
+    margin-left: 5%;
+    margin-top: -20px;
+    margin-bottom: 10%; 
+    width: 90%;
+    height: 45%; 
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+}
+
+.profileborder-container {
+    background-color: red;
+    width: 50%;
+    height: 70%;
 }
 
 .right-middle-shop-container {
