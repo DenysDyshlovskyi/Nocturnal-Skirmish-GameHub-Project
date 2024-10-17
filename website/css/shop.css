@@ -170,3 +170,16 @@
     flex-direction: row;
     z-index: 0;
 }
+
+/*---------------------------------------------------------------------*/
+/*cards*/
+
+.common-card-section-left-middle-shop-container {
+   background-color: #A4A4A4;
+   margin-left: 5%;
+   margin-top: -20px;
+   margin-bottom: 10%;
+   border-radius: 20px;
+   width: 90%;
+   height: 45%;
+}
