@@ -23,3 +23,22 @@ document.addEventListener("DOMContentLoaded", function() {
     const featuredButton = document.querySelector('.shopLink'); // Select the first button
     openShopTab({ currentTarget: featuredButton }, 'featured');
 });
+
+
+// play click sfx
+function playClickSfx() {
+    var clickAudio = document.getElementById('clickSFX');
+    clickAudio.play();
+}
+// Stop click sfx
+function stopClickSfx() {
+    var clickAudio = document.getElementById('clickSFX');
+    clickAudio.pause();
+    clickAudio.currentTime = 0;
+}
+// Click sfx on whole document
+const clickSfxBody = document.querySelector('body');
+clickSfxBody.addEventListener('click', () => {
+    stopClickSfx();
+    playClickSfx();
+});
