@@ -140,6 +140,38 @@ function uploadBanner() {
     });
 };
 
+// Uploads temp profile pic to server
+function uploadProfilePic() {
+    var file_data = $('#profilepic-input').prop('files')[0];   
+    var form_data = new FormData();                  
+    form_data.append('file', file_data);                           
+    $.ajax({
+        url: './php_scripts/profilepic_upload.php',
+        dataType: 'text',
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: form_data,                         
+        type: 'post',
+        success: function(response){
+            if (response == "unsupported") {
+                removeDarkContainer();
+                settingsShowConfirm("File type not supported! Only JPG and PNG allowed.");
+            } else if (response == "empty") {
+                removeDarkContainer();
+                settingsShowConfirm("File input empty!");
+            } else if (response == "error") {
+                removeDarkContainer();
+                settingsShowConfirm("Something went wrong.");
+            } else {
+                container = document.getElementById("settings-dark-container");
+                container.innerHTML = "";
+                ajaxGet('./spa/user_settings/profilepic_crop.php', 'settings-dark-container');
+            }
+        }
+    });
+};
+
 //Shows a popup when saving information in user settings
 function settingsShowConfirm(text) {
     confirmContainer = document.getElementById("confirmContainer");
