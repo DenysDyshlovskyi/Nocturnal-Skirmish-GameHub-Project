@@ -5,6 +5,26 @@
     font-family: "Afacad Flux", sans-serif;
 }
 
+.settings-backtohub {
+    width: 140px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #D9D9D9;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 15px;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+.settings-backtohub:hover {
+    background-color: #868686;
+}
+
 .shop-container {
     width: calc(100% - 100px);
     height: calc(100vh - 100px);
@@ -116,7 +136,7 @@
     border-radius: 10px 10px 10px 10px;
 }
 
-.card-name {
+.light-card-name {
     color: #FFFFFF;
     margin-top: 0%;
     font-size: 1.2vw;
@@ -170,3 +190,67 @@
     flex-direction: row;
     z-index: 0;
 }
+
+/*---------------------------------------------------------------------*/
+/*card types*/
+
+.common-card-section-left-middle-shop-container {
+   background-color: #A4A4A4;
+   margin-left: 5%;
+   margin-top: -20px;
+   margin-bottom: 10%;
+   border-radius: 20px;
+   width: 90%;
+   height: 45%;
+}
+
+.fire-card-section-left-middle-shop-container {
+    background-color: #FF4D00;
+    margin-left: 5%;
+    margin-top: -20px;
+    margin-bottom: 10%;
+    border-radius: 20px;
+    width: 90%;
+    height: 45%;
+ }
+
+ .ice-card-section-left-middle-shop-container {
+    background-color: #cffdff;
+    margin-left: 5%;
+    margin-top: -20px;
+    margin-bottom: 10%;
+    border-radius: 20px;
+    width: 90%;
+    height: 45%;
+ }
+
+ .dark-card-name {
+    color: #777777;
+    margin-top: 0%;
+    font-size: 1.2vw;
+    margin-left: 5%;
+    text-decoration: underline;
+    font-weight: bold;
+    text-underline-offset: 20%;
+    font-family: "Afacad Flux", sans-serif;
+ }
+
+ .water-card-section-left-middle-shop-container {
+    background-color: #427eff;
+    margin-left: 5%;
+    margin-top: -20px;
+    margin-bottom: 10%;
+    border-radius: 20px;
+    width: 90%;
+    height: 45%;
+ }
+
+ .blood-card-section-left-middle-shop-container {
+    background-color: #520000;
+    margin-left: 5%;
+    margin-top: -20px;
+    margin-bottom: 10%;
+    border-radius: 20px;
+    width: 90%;
+    height: 45%;
+ }
