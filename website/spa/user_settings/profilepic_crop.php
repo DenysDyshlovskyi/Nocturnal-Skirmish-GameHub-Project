@@ -12,7 +12,7 @@ session_start();
     <div class="settings-profilepic-crop-save-container">
         <h1>Crop profile picture</h1>
         <div class="settings-profilepic-crop-image-container">
-            <img src="../../img/temp/1729187981.jpg" alt="">
+            <img src="./img/profile_pictures/test.jpg" id="cropper_js_element" alt="">
         </div>
         <div class="settings-profilepic-crop-button-container">
             <button class="settings-profilepic-crop-save-button">Save</button>
@@ -22,7 +22,8 @@ session_start();
     <div class="settings-profilepic-preview-container">
         <div class="settings-profilepic-preview-profile">
             <h1>Preview</h1>
-            <div class="settings-profilepic-preview-profile-parent" style="background-image: url(<?php echo $_SESSION['user_profile_picture'] ?>);">
+            <div class="settings-profilepic-preview-profile-parent">
+                <div class="settings-profilepic-preview-profilepic"></div>
                 <img src="<?php echo $_SESSION['user_profile_border'] ?>" alt="Profile Border" class="settings-profilepic-preview-profile-border" draggable="false">
             </div>
         </div>

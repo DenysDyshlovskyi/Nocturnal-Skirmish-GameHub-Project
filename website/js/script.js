@@ -29,11 +29,14 @@ function showNewPassword() {
 }
 
 // GET request with ajax
-function ajaxGet(phpFile, changeID){
+function ajaxGet(phpFile, changeID, onLoad){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function(){
         document.getElementById(changeID).innerHTML = this.responseText;
         prepareSFX();
+        if (onLoad == "cropper_js") {
+            configureCropperJS();
+        }
     }
     xhttp.open("GET", phpFile);
     xhttp.send();
@@ -166,11 +169,21 @@ function uploadProfilePic() {
             } else {
                 container = document.getElementById("settings-dark-container");
                 container.innerHTML = "";
-                ajaxGet('./spa/user_settings/profilepic_crop.php', 'settings-dark-container');
+                ajaxGet('./spa/user_settings/profilepic_crop.php', 'settings-dark-container', 'cropper_js');
             }
         }
     });
 };
+
+// Configures settings fro cropper js
+function configureCropperJS() {
+    image = document.getElementById('cropper_js_element');
+    new Cropper(image, {
+        aspectRatio: 1/1,
+        dragMode: 'none',
+        preview: '.settings-profilepic-preview-profilepic'
+    });
+}
 
 //Shows a popup when saving information in user settings
 function settingsShowConfirm(text) {
