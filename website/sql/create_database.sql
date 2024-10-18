@@ -24,3 +24,13 @@ CREATE TABLE recovery_codes (
     code int,
     expire BIGINT
 )
+
+CREATE TABLE redeemed_codes (
+    user_id int,
+    code varchar(128)
+)
+
+CREATE TABLE temp_profilepic (
+    name varchar(128),
+    expire BIGINT
+)

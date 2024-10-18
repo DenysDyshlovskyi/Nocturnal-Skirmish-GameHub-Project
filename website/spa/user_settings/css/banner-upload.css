@@ -116,3 +116,7 @@ input[type="file"] {
     background-color: #6C6C6C;
     color: white;
 }
+
+#settings-upload-profilepic-container {
+    height: 300px;
+}
