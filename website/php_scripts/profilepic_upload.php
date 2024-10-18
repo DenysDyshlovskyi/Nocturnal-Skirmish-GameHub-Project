@@ -28,8 +28,8 @@ if (!isset($_FILES['file'])) {
             //Compresses profile pic image
             compress($folder, $folder, 80);
 
-            // Pass path to new banner to javascript
-            echo 'url(./img/temp/' . $newfilename . ")";
+            // Pass path to temp profile pic to javascript
+            $_SESSION['temp_profile_pic'] = './img/temp/' . $newfilename;
         } else {
             echo "error";
         };

@@ -178,12 +178,41 @@ function uploadProfilePic() {
 // Configures settings fro cropper js
 function configureCropperJS() {
     image = document.getElementById('cropper_js_element');
-    new Cropper(image, {
+    let cropper = new Cropper(image, {
         aspectRatio: 1/1,
         dragMode: 'none',
         preview: '.settings-profilepic-preview-profilepic'
     });
-}
+    $('#settings-profilepic-crop-save-button').click(function(){
+		canvas = cropper.getCroppedCanvas({
+			width:400,
+			height:400
+		});
+		canvas.toBlob(function(blob){
+			url = URL.createObjectURL(blob);
+			var reader = new FileReader();
+			reader.readAsDataURL(blob);
+			reader.onloadend = function(){
+				var base64data = reader.result;
+				$.ajax({
+					url:'./php_scripts/profilepic_cropped_upload.php',
+					method:'POST',
+					data:{image:base64data},
+					success:function(response){
+                        if (response == "error") {
+                            settingsShowConfirm("Something went wrong.");
+                            removeDarkContainer();
+                        } else {
+                            document.getElementById("settings-myaccount-profile-pic-parent").style.backgroundImage = response;
+                            settingsShowConfirm("Profile picture saved!");
+                            removeDarkContainer();
+                        }
+					}
+				});
+			};
+		});
+    });
+};
 
 //Shows a popup when saving information in user settings
 function settingsShowConfirm(text) {
