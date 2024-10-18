@@ -12,11 +12,11 @@ session_start();
     <div class="settings-profilepic-crop-save-container">
         <h1>Crop profile picture</h1>
         <div class="settings-profilepic-crop-image-container">
-            <img src="./img/profile_pictures/test.jpg" id="cropper_js_element" alt="">
+            <img src="<?php echo $_SESSION['temp_profile_pic']; ?>" id="cropper_js_element" alt="">
         </div>
         <div class="settings-profilepic-crop-button-container">
-            <button class="settings-profilepic-crop-save-button">Save</button>
-            <button class="settings-profilepic-crop-save-button" id="settings-profilepic-crop-cancel-button">Cancel</button>
+            <button class="settings-profilepic-crop-save-button" id="settings-profilepic-crop-save-button">Save</button>
+            <button class="settings-profilepic-crop-save-button" id="settings-profilepic-crop-cancel-button" onclick="removeDarkContainer()">Cancel</button>
         </div>
     </div>
     <div class="settings-profilepic-preview-container">

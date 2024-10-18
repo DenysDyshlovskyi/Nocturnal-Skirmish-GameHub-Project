@@ -32,6 +32,11 @@
     height: 100%;
 }
 
+.settings-myaccount-profile-pic-link-hover:hover {
+    filter: brightness(0.5);
+    position: relative;
+}
+
 .settings-myaccount-name-container {
     height: 100px;
     padding-left: 20px;
@@ -44,7 +49,6 @@
     margin: 15px;
     width: calc(100% - 30px);
     height: 140px;
-    background-image: url(./img/profile_banners/test.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
