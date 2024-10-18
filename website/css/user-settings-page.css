@@ -31,6 +31,29 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+.settings-sidebar-button-logout {
+    width: 100px;
+    height: 40px;
+    border: #D64A4A solid 3px;
+    color: #D64A4A;
+    background-color: white;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+
+.settings-sidebar-button-logout:hover{
+    background-color: #D64A4A;
+    color: white;
+}
+
 .settings-backtohub {
     width: 140px;
     height: 50px;
