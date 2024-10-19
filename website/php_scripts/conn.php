@@ -1,5 +1,6 @@
 <?php
 //Script for connecting to database
+// Is in gitignore
 
 $servername = "localhost";
 $username = "root";
