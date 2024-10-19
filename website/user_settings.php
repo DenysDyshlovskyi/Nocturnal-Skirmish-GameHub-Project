@@ -18,6 +18,9 @@ require "./php_scripts/get_loggedin_info.php";
     <script src="./lib/cropper_js/node_modules/cropperjs/dist/cropper.js"></script>
     <style> <?php include "./css/universal.css" ?> </style>
     <style> <?php include "./css/user-settings-page.css" ?> </style>
+    <!-- Preloads images that might be large -->
+    <link rel="preload" as="image" href="<?php echo $_SESSION['user_profile_picture'] ?>" />
+    <link rel="preload" as="image" href="<?php echo $_SESSION['user_profile_banner'] ?>" />
 </head>
 <body id="settings-body" onload="ajaxGet('./spa/user_settings/myaccount.php', 'settings-spa-container'); prepareSFX()">
     <div id="settings-dark-container" class="settings-dark-container">

@@ -6,6 +6,7 @@ if(session_id() == '') {
 }
 
 if(!isset($conn)) {
+    // Gets parent folder of parent folder of where avoid errors is located
     require dirname(dirname(__FILE__)) . "/config/conn.php";
 }
 ?>
