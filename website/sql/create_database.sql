@@ -23,14 +23,22 @@ CREATE TABLE recovery_codes (
     user_id int,
     code int,
     expire BIGINT
-)
+);
 
 CREATE TABLE redeemed_codes (
     user_id int,
     code varchar(128)
-)
+);
 
 CREATE TABLE temp_profilepic (
     name varchar(128),
     expire BIGINT
+);
+
+CREATE TABLE dev_codes (
+    code varchar(128) NOT NULL,
+    runes int,
+    border varchar(128),
+    skin varchar(128),
+    PRIMARY KEY (code)
 )
