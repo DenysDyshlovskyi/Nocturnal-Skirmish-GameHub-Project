@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require "./php_scripts/conn.php";
+require "./config/conn.php";
 require "./php_scripts/get_loggedin_info.php";
 ?>
 

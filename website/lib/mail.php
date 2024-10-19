@@ -9,7 +9,7 @@ use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php';
 
 function sendMail($mailReceiver, $mailSubject, $mailBody, $mailBodyAlt){
-    require '../config/mail_cred.php';
+    require './config/mail_cred.php';
     $mail = new PHPMailer(true);
     try {
         //Server settings
@@ -19,14 +19,14 @@ function sendMail($mailReceiver, $mailSubject, $mailBody, $mailBodyAlt){
         $mail->isSMTP();                                            //Send using SMTP
         $mail->Host       = 'smtp.mailersend.net';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mail->Username   = 'MS_lQ4E4r@trial-z86org8w6kngew13.mlsender.net';                     //SMTP username
+        $mail->Username   = $mailusername;                     //SMTP username
         $mail->Password   = $mailpassword;                               //SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
         $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
     
     
         //Recipients
-        $mail->setFrom('MS_lQ4E4r@trial-z86org8w6kngew13.mlsender.net', 'GameHub');
+        $mail->setFrom($mailusername, 'GameHub');
         $mail->addAddress($mailReceiver);
     
         //Content

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "./php_scripts/conn.php";
+require "./config/conn.php";
 require "./lib/mail.php";
 
 // Defines variables for later use

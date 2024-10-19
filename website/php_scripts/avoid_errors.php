@@ -6,6 +6,6 @@ if(session_id() == '') {
 }
 
 if(!isset($conn)) {
-    require "conn.php";
+    require dirname(dirname(__FILE__)) . "/config/conn.php";
 }
 ?>
