@@ -318,3 +318,20 @@ clickSfxBody.addEventListener('click', () => {
     stopClickSfx();
     playClickSfx();
 });
+
+function saveBorder(border) {
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/save_border.php',
+        data:{ bordername: border}, 
+        success: function(response){
+            if (response == "error") {
+                settingsShowConfirm("Something went wrong.");
+                removeDarkContainer();
+            } else {
+                removeDarkContainer();
+                settingsShowConfirm("Border saved!");
+            }
+        }
+    })
+}

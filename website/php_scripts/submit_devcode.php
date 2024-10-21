@@ -1,5 +1,6 @@
 <?php
 require "avoid_errors.php";
+$_POST['devcode'] = "DEVCODE_ALLBORDERS";
 if(isset($_POST['devcode'])){
     // Checks if code has been redeemed in the past
     $stmt = $conn->prepare("SELECT * FROM redeemed_codes WHERE user_id = ? AND code = ?");
@@ -24,6 +25,10 @@ if(isset($_POST['devcode'])){
         echo "codenotfound";
         exit;
     } else {
+        // Checks if code is a special code.
+        require dirname(dirname(__FILE__)) . "/config/devcode_special.php";
+        specialDevCode($_POST['devcode']);
+
         // Gives user rewards
         $row = $result->fetch_assoc();
         if ($row['runes'] != NULL) {

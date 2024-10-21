@@ -41,4 +41,9 @@ CREATE TABLE dev_codes (
     border varchar(128),
     skin varchar(128),
     PRIMARY KEY (code)
+);
+
+CREATE TABLE border_inventory (
+    user_id int,
+    border varchar(128)
 )
