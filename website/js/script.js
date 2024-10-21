@@ -114,6 +114,32 @@ function saveEmail() {
     })
 }
 
+// Save new password in database
+function savePassword() {
+    var text = $('#change-password-input').val();
+    var text2 = $('#change-password-confirm-input').val();
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/save_password.php',
+        data:{ password: text, confirmpassword: text2}, 
+        success: function(response){
+            if (response == "error") {
+                settingsShowConfirm("Something went wrong.");
+                removeDarkContainer();
+            } else if (response == "dontmatch"){
+                removeDarkContainer();
+                settingsShowConfirm("Passwords dont match!");
+            } else if (response == "empty"){ 
+                removeDarkContainer();
+                settingsShowConfirm("Input is empty!");
+            } else {
+                removeDarkContainer();
+                settingsShowConfirm("Password saved!");
+            }
+        }
+    })
+}
+
 // Uploads banner to server
 function uploadBanner() {
     var file_data = $('#banner-input').prop('files')[0];   

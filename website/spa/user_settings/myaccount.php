@@ -44,7 +44,7 @@ require "../../php_scripts/get_loggedin_info.php";
         </div>
         <div class="settings-myaccount-change-component">
             <p class="settings-myaccount-profile-headline">Password</p>
-            <button class="settings-myaccount-change-button">Change password</button>
+            <button class="settings-myaccount-change-button" onclick="ajaxGet('./spa/user_settings/change_password.php', 'settings-dark-container')">Change password</button>
         </div>
     </div>
 </div>
