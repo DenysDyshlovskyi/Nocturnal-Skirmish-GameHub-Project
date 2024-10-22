@@ -44,8 +44,11 @@ if(isset($_POST['devcode'])){
 
         // User cant redeem code in future
         $stmt->close();
-        $sql = "INSERT INTO redeemed_codes (user_id, code) VALUES (" . $_SESSION['user_id'] . ",'" . $_POST['devcode'] . "')";
-        $conn->query($sql);
+
+        $stmt = $conn->prepare("INSERT INTO redeemed_codes (user_id, code) VALUES (?, ?)");
+        $stmt->bind_param("ss", $_SESSION['user_id'] ,$_POST['devcode']);
+        $stmt->execute();
+        $stmt->close();
     }
 };
 ?>

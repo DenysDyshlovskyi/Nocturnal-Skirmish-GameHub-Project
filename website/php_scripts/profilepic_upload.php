@@ -18,11 +18,10 @@ if (!isset($_FILES['file'])) {
         $temp = explode(".", $file_name);
         $newfilename = round(microtime(true)) . '.' . end($temp);
         $folder = '../img/temp/'.$newfilename;
-        $file_name = $newfilename;
 
         // Uploads profile pic to server
         if (move_uploaded_file($_FILES['file']['tmp_name'], $folder)) {
-            $sql = "INSERT INTO temp_profilepic (name, expire) VALUES ('$file_name' , NOW() + INTERVAL 15 MINUTE)";
+            $sql = "INSERT INTO temp_profilepic (name, expire) VALUES ('$newfilename' , NOW() + INTERVAL 15 MINUTE)";
             $conn->query($sql);
 
             //Compresses profile pic image

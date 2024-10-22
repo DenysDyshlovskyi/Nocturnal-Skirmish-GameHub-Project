@@ -18,6 +18,12 @@ if(isset($_POST['image'])){
             };
         };
     };
+    
+    //Deletes temp profile pic
+    $deletePic = "." . $_SESSION['temp_profile_pic'];
+    if (file_exists($deletePic)) {
+        unlink($deletePic);
+    };
 
     //Converts blob from cropper js to jpg
 	$data = $_POST['image'];
@@ -28,6 +34,17 @@ if(isset($_POST['image'])){
     $newfilename = round(microtime(true)) . '.jpg';
     $folder = '../img/profile_pictures/'.$newfilename;
     $file_name = $newfilename;
+
+    // Deletes old profile pic
+    $sql = "SELECT profile_picture FROM users WHERE user_id=" . $_SESSION['user_id'];
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    $deleteProfilePic = '../img/profile_pictures/' . $row['profile_picture'];
+    if ($row['profile_picture'] != "defaultprofile.svg") {
+        if (file_exists($deleteProfilePic)) {
+            unlink($deleteProfilePic);
+        };
+    };
 
 	if (file_put_contents($folder, $data)){
         // Update database
