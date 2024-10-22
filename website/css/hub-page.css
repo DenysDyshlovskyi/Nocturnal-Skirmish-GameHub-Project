@@ -108,24 +108,32 @@
 
 /* UI på midten av skjermen, inkl. play knapp, logo og patch notes */
 
+.main-menu-middle-ui-container {
+    display: flex;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    margin-left: 150px;
+}
+
 .main-menu-middle-ui {
     background-color: white;
-    padding-left: 4%;
-    padding-right: 4%;
-    padding-bottom: 2%;
-    border-radius: 4%;
+    border-radius: 20px;
     /* Shadow imported from cssscan */
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    width: 600px;
+    height: 500px;
 }
 
 
 .patch-notes-box {
     background-color: white;
+    margin-left: 15px;
     width: 300px;
     height: 500px;
-    position: absolute;
-    margin-left: 900px;
-    border-radius: 4%;
+    border-radius: 20px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -154,7 +162,7 @@
 
 .title-text {
     font-size: 500%;
-    margin-bottom: 0;
+    margin: 0;
     font-family: "Afacad Flux", sans-serif;
 }
 

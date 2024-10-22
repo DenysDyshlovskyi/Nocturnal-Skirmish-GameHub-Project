@@ -49,7 +49,7 @@
     left: 0;
     margin: 15px;
     width: calc(100% - 30px);
-    height: 140px;
+    min-height: 140px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

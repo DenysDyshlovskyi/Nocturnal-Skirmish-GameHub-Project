@@ -39,13 +39,14 @@ require "./php_scripts/get_loggedin_info.php";
 
 <!-- HUB2-IMPORT -->
     <!-- Middle Menu -->
-    <div
-        style="display: flex; justify-content: center; flex-direction: row; align-items: center; gap: 20px; margin-top: 10%;">
+    <div class="main-menu-middle-ui-container">
         <div class="main-menu-middle-ui"
             style="display: flex; justify-content: center; flex-direction: column; align-items: center; gap: 20px;">
             <h1 class="title-text">GameHub™</h1>
-            <button class="play-button">Play <img style="width: 30%;" src="img/Noc_Skir_Logo.svg" alt="Logo"></button>
+            
             <div class="menu-selection-buttons">
+                <button class="play-button">Play <img style="width: 30%;" src="img/Noc_Skir_Logo.svg" alt="Logo"></button>
+                <br>
                 <button style="margin-bottom: 10px; margin-right: 10px;" class="menu-button">Inventory</button>
                 <a class="link" href="Featured.html"><button class="menu-button">Shop</button></a>
                 <br>
@@ -94,8 +95,8 @@ require "./php_scripts/get_loggedin_info.php";
                     </div>
                 </div>
             </div>
-
-        </div>     
+        </div>
+    </div>   
 
         <!-- Footer container with trademark text and live player count -->
         <footer>
