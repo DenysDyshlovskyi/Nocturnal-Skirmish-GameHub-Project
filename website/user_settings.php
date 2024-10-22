@@ -43,7 +43,7 @@ require "./php_scripts/get_loggedin_info.php";
     </div>
     <!-- div to target with jQuery when nothing should be displayed -->
     <div id="reload-div"></div>
-    <audio autoplay loop style="display: none;">
+    <audio autoplay loop style="display: none;" id="musicAudio">
         <source src="audio/music/OldJazzOST.mp3" type="audio/mpeg">
     </audio>
     <!-- hover sfx -->

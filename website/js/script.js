@@ -33,12 +33,15 @@ function ajaxGet(phpFile, changeID, onLoad){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function(){
         document.getElementById(changeID).innerHTML = this.responseText;
-        prepareSFX();
         if (onLoad == "cropper_js") {
             configureCropperJS();
         } else if (onLoad == "audio_music_settings") {
             configureAudioSettings();
         }
+
+        if (onLoad != "no_sfx") {
+            prepareSFX();
+        };
     }
     xhttp.open("GET", phpFile);
     xhttp.send();
@@ -272,7 +275,12 @@ function removeDarkContainer() {
 
 //Prepares sound effects for a page
 function prepareSFX() {
+    //Sets volume of music
+    var musicAudio = document.getElementById('musicAudio');
+    musicAudio.volume = localStorage.getItem("volumeMusic");
+
     var hoverAudio = document.getElementById('hoverSFX');
+    hoverAudio.volume = localStorage.getItem("volumeUi");
     // Function to play hover soundeffect on button hover
     function playHoverSfx() {
         hoverAudio.play();
@@ -304,12 +312,14 @@ function prepareSFX() {
 // play click sfx
 function playClickSfx() {
     var clickAudio = document.getElementById('clickSFX');
+    clickAudio.volume = localStorage.getItem("volumeUi");
     clickAudio.play();
 }
 
 // Stop click sfx
 function stopClickSfx() {
     var clickAudio = document.getElementById('clickSFX');
+    clickAudio.volume = localStorage.getItem("volumeUi");
     clickAudio.pause();
     clickAudio.currentTime = 0;
 }
@@ -344,15 +354,33 @@ function configureAudioSettings() {
     // Gets audio to change
     var hoverAudio = document.getElementById('hoverSFX');
     var clickAudio = document.getElementById('clickSFX');
+    var musicAudio = document.getElementById('musicAudio');
+
     //Gets all range inputs
     let volumeSFX = document.querySelector("#volume-control-sfx");
     let volumeMusic = document.querySelector("#volume-control-music");
     let volumeUi = document.querySelector("#volume-control-ui");
 
+    //Sets default value to localstorage value
+    volumeUi.value = localStorage.getItem("volumeUi") * 100;
+    volumeMusic.value = localStorage.getItem("volumeMusic") * 100;
+
     // Changes volume of ui sfx (hover, click)
     volumeUi.addEventListener("change", function(e) {
         hoverAudio.volume = e.currentTarget.value / 100;
         clickAudio.volume = e.currentTarget.value / 100;
-        console.log(e.currentTarget.value / 100);
+    })
+
+    // Changes volume of music
+    volumeMusic.addEventListener("change", function(e) {
+        musicAudio.volume = e.currentTarget.value / 100;
+    })
+
+    // Adds event listener to save button
+    var audioSaveButton = document.getElementById('audioSaveButton');
+    audioSaveButton.addEventListener("click", function() {
+        localStorage.setItem("volumeUi", volumeUi.value / 100);
+        localStorage.setItem("volumeMusic", volumeMusic.value / 100);
+        settingsShowConfirm("Audio settings saved!");
     })
 }

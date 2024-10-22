@@ -13,6 +13,6 @@
     <input type="range" min="0" max="100" id="volume-control-music"> <br>
     User interface sound effects volume: <br>
     <input type="range" min="0" max="100" id="volume-control-ui">
-    <button>Save</button>
+    <button id="audioSaveButton">Save</button>
 </div>
 

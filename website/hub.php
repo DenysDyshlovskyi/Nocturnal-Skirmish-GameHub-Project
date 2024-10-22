@@ -106,7 +106,7 @@ require "./php_scripts/get_loggedin_info.php";
     <!-- /HUB2-IMPORT -->
 
     <!-- Autolooping audio background music (works only if user allows it) -->
-    <audio autoplay loop style="display: none;">
+    <audio autoplay loop style="display: none;" id="musicAudio">
         <source src="./audio/music/BrowsingShopOST.mp3" type="audio/mpeg">
     </audio>
 
@@ -131,7 +131,7 @@ require "./php_scripts/get_loggedin_info.php";
 
     // Updates online users count every 2 seconds
     setInterval(function(){
-        ajaxGet('./php_scripts/update_login_time.php', 'players-live-count');
+        ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx');
     }, 2000);
 </script>
 </html>
