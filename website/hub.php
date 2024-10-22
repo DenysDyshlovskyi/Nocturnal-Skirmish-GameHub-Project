@@ -129,6 +129,15 @@ require "./php_scripts/get_loggedin_info.php";
         localStorage.setItem("audio-prompt", 1)
     }
 
+    // Sets default volumes if it is first time youre making a user.
+    if(localStorage.getItem("volumeUi") === null) {
+        localStorage.setItem("volumeUi", 1);
+    }
+
+    if(localStorage.getItem("volumeMusic") === null) {
+        localStorage.setItem("volumeMusic", 1);
+    }
+
     // Updates online users count every 2 seconds
     setInterval(function(){
         ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx');
