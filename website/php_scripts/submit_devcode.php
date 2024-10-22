@@ -1,6 +1,5 @@
 <?php
 require "avoid_errors.php";
-$_POST['devcode'] = "DEVCODE_ALLBORDERS";
 if(isset($_POST['devcode'])){
     // Checks if code has been redeemed in the past
     $stmt = $conn->prepare("SELECT * FROM redeemed_codes WHERE user_id = ? AND code = ?");
