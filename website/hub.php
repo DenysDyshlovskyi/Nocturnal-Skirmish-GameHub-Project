@@ -43,7 +43,6 @@ require "./php_scripts/get_loggedin_info.php";
         <div class="main-menu-middle-ui"
             style="display: flex; justify-content: center; flex-direction: column; align-items: center; gap: 20px;">
             <h1 class="title-text">GameHub™</h1>
-            
             <div class="menu-selection-buttons">
                 <button class="play-button">Play <img style="width: 30%;" src="img/Noc_Skir_Logo.svg" alt="Logo"></button>
                 <br>
@@ -98,12 +97,11 @@ require "./php_scripts/get_loggedin_info.php";
         </div>
     </div>   
 
-        <!-- Footer container with trademark text and live player count -->
-        <footer>
-            <p class="footer-tm-text">GameHub™ 2024</p>
-            <p class="player-live-count-text" id="players-live-count"></p>
-            <img class="live-count-icon" src="img/icons/live-count.svg" alt="live count icon">
-        </footer>
+    <!-- Footer container with trademark text and live player count -->
+    <footer>
+        <p class="footer-tm-text">GameHub™ 2024</p>
+        <p class="player-live-count-text" id="players-live-count"></p>
+    </footer>
     <!-- /HUB2-IMPORT -->
 
     <!-- Autolooping audio background music (works only if user allows it) -->
