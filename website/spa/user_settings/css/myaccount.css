@@ -1,7 +1,8 @@
 /*Stylesheet for My Account page in User Settings*/
 .settings-myaccount-inner {
     padding: 15px;
-    width: calc(100% - 285px);
+    width: calc(100% - 45px);
+    max-width: 930px;
     height: calc(100vh - 230px);
     background-color: #D9D9D9;
     border-radius: 12px;

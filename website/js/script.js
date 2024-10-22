@@ -36,6 +36,8 @@ function ajaxGet(phpFile, changeID, onLoad){
         prepareSFX();
         if (onLoad == "cropper_js") {
             configureCropperJS();
+        } else if (onLoad == "audio_music_settings") {
+            configureAudioSettings();
         }
     }
     xhttp.open("GET", phpFile);
@@ -319,6 +321,7 @@ clickSfxBody.addEventListener('click', () => {
     playClickSfx();
 });
 
+// Saves border you clicked to database user
 function saveBorder(border) {
     $.ajax({
         type: "POST",
@@ -333,5 +336,23 @@ function saveBorder(border) {
                 settingsShowConfirm("Border saved!");
             }
         }
+    })
+}
+
+// Changes volume in audio settings
+function configureAudioSettings() {
+    // Gets audio to change
+    var hoverAudio = document.getElementById('hoverSFX');
+    var clickAudio = document.getElementById('clickSFX');
+    //Gets all range inputs
+    let volumeSFX = document.querySelector("#volume-control-sfx");
+    let volumeMusic = document.querySelector("#volume-control-music");
+    let volumeUi = document.querySelector("#volume-control-ui");
+
+    // Changes volume of ui sfx (hover, click)
+    volumeUi.addEventListener("change", function(e) {
+        hoverAudio.volume = e.currentTarget.value / 100;
+        clickAudio.volume = e.currentTarget.value / 100;
+        console.log(e.currentTarget.value / 100);
     })
 }

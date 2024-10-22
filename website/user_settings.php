@@ -33,7 +33,7 @@ require "./php_scripts/get_loggedin_info.php";
             <button class="settings-sidebar-button" id="myaccount-button" onclick="ajaxGet('./spa/user_settings/myaccount.php', 'settings-spa-container')">My Account</button>
             <button class="settings-sidebar-button" id="changeborder-button" onclick="ajaxGet('./spa/user_settings/change_border.php', 'settings-spa-container')">Change border</button>
             <p class="settings-sidebar-headline">General settings</p>
-            <button class="settings-sidebar-button" id="audiomusic-button" onclick="ajaxGet('./spa/user_settings/audio_music.php', 'settings-spa-container')">Audio and Music</button>
+            <button class="settings-sidebar-button" id="audiomusic-button" onclick="ajaxGet('./spa/user_settings/audio_music.php', 'settings-spa-container', 'audio_music_settings')">Audio and Music</button>
             <p class="settings-sidebar-headline">Miscellaneous</p>
             <button class="settings-sidebar-button" id="devcode-button" onclick="ajaxGet('./spa/user_settings/dev_codes.php', 'settings-spa-container')">Dev Codes</button>
             <button class="settings-sidebar-button-logout" onclick="window.location.href = './php_scripts/logout.php';">Log out</button>

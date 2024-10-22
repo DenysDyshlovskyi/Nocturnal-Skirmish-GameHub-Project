@@ -1,0 +1,39 @@
+/* Stylesheet for audio and music settings */
+
+.settings-audio-divider {
+    width: 100%;
+    height: 2px;
+    background-color: gray;
+    border-radius: 2px;
+    margin-bottom: 15px;
+}
+
+.settings-audio-container {
+    position: relative;
+    width: calc(100% - 15px);
+    max-width: 600px;
+    height: calc(100% - 100px);
+    font-family: "Afacad Flux", sans-serif;
+    font-size: 22px;
+}
+
+.settings-audio-container button {
+    width: 140px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 15px;
+    background-color: #58D245;
+    border: none;
+    border-radius: 5px;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+.settings-audio-container button:hover {
+    filter: brightness(0.5);
+}
