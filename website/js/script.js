@@ -42,6 +42,10 @@ function ajaxGet(phpFile, changeID, onLoad){
         if (onLoad != "no_sfx") {
             prepareSFX();
         };
+
+        if (changeID == "dark-container") {
+            $("#dark-container").fadeIn(100);
+        }
     }
     xhttp.open("GET", phpFile);
     xhttp.send();

@@ -20,4 +20,13 @@ session_start();
             <p><?php echo $_SESSION['userprofile_display_username'] . " - " . $_SESSION['userprofile_display_runes'] . " Runes" ?></p>
         </div>
     </div>
+    <div class="hub-userprofile-pushdown"></div>
+    <p class="hub-userprofile-p">Description:</p>
+    <div class="hub-userprofile-description">
+        <p><?php echo $_SESSION['userprofile_display_description'] ?></p>
+    </div>
+    <div class="hub-userprofile-bottom-container">
+        <p><?php echo "Join date: " . $_SESSION['userprofile_display_joindate'] ?></p>
+        <button onclick="removeDarkContainer()">Exit</button>
+    </div>
 </div>

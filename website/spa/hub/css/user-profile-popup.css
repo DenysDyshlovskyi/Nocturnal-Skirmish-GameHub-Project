@@ -24,3 +24,130 @@
     background-size: cover;
     border-radius: 5px;
 }
+
+.hub-userprofile {
+    width: 100%;
+    height: 130px;
+    display: flex;
+    margin-bottom: 15px;
+    margin-top: 100px;
+    position: absolute;
+}
+
+.hub-userprofile-profilepic-parent {
+    width: 130px;
+    height: 130px;
+    background-position: center;
+    background-size: 90% 90%;
+    background-repeat: no-repeat;
+}
+
+.hub-userprofile-border {
+    width: 100%;
+    height: 100%;
+}
+
+.hub-userprofile-profilepic-background{
+    width: 130px;
+    height: 130px;
+    padding-top: 10px;
+    padding-right: 10px;
+    background-color: #D9D9D9;
+    border-top-right-radius: 5px;
+}
+
+.hub-userprofile-name-container {
+    width: calc(100% - 30px);
+    overflow: hidden;
+    height: 150px;
+    margin-left: 10px;
+}
+
+.hub-userprofile-name-container h1{
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    font-size: 50px;
+    margin: 0;
+    margin-top: 35px;
+}
+
+.hub-userprofile-name-container p{
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 0;
+}
+
+.hub-userprofile-pushdown {
+    height: 245px;
+}
+
+.hub-userprofile-p {
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 25px;
+    margin: 0;
+    margin-top: 5px;
+}
+
+.hub-userprofile-description{
+    width: calc(100% - 30px);
+    height: 120px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: white;
+    border: solid #828282 1px;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.hub-userprofile-description p {
+    width: 100%;
+    text-wrap: wrap;
+    overflow-wrap: break-word;
+    margin: 0;
+}
+
+.hub-userprofile-bottom-container {
+    width: 100%;
+    position: relative;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.hub-userprofile-bottom-container p {
+    position: absolute;
+    left: 0;
+    font-size: 27px;
+    color: rgba(0, 0, 0, 0.5);
+    font-style: italic;
+    font-weight: 600;
+}
+
+.hub-userprofile-bottom-container button {
+    position: absolute;
+    right: 0;
+    width: 130px;
+    height: 50px;
+    border: #ff4a4a solid 3px;
+    color: #ff4a4a;
+    background-color: transparent;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+.hub-userprofile-bottom-container button:hover {
+    color: white;
+    background-color: #ff4a4a;
+}
