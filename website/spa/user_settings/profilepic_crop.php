@@ -4,7 +4,7 @@ session_start();
 ?>
 <style><?php include "./css/profilepic-crop.css" ?></style>
 <style>
-    #settings-dark-container {
+    #dark-container {
         display: block !important;
     }
 </style>

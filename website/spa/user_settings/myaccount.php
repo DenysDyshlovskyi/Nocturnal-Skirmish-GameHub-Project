@@ -6,10 +6,10 @@ require "../../php_scripts/get_loggedin_info.php";
 <h1 class="settings-headline">My Account</h1>
 <div class="settings-myaccount-inner">
     <div class="settings-myaccount-banner" id="settings-myaccount-banner" style="background-image: url(<?php echo $_SESSION['user_profile_banner'] ?>);"></div>
-    <button class="settings-myaccount-change-banner" onclick="ajaxGet('./spa/user_settings/upload_banner.php', 'settings-dark-container')">Change banner</button>
+    <button class="settings-myaccount-change-banner" onclick="ajaxGet('./spa/user_settings/upload_banner.php', 'dark-container')">Change banner</button>
     <div class="settings-myaccount-profile-container">
         <div class="settings-myaccount-profile-pic-background">
-            <a href="#" onclick="ajaxGet('./spa/user_settings/upload_profile_picture.php', 'settings-dark-container')" class="settings-myaccount-profile-pic-link-hover">
+            <a href="#" onclick="ajaxGet('./spa/user_settings/upload_profile_picture.php', 'dark-container')" class="settings-myaccount-profile-pic-link-hover">
                 <div class="settings-myaccount-profile-pic-parent" id="settings-myaccount-profile-pic-parent" style="background-image: url(<?php echo $_SESSION['user_profile_picture'] ?>);">
                     <img src="<?php echo $_SESSION['user_profile_border'] ?>" alt="Profile Border" class="settings-myaccount-border" draggable="false">
                 </div>
@@ -29,22 +29,22 @@ require "../../php_scripts/get_loggedin_info.php";
         <div class="settings-myaccount-details-component">
             <p>Nickname</p>
             <h1 id="settings-myaccount-details-nickname"><?php echo $_SESSION['user_profile_nickname'] ?></h1>
-            <button onclick="ajaxGet('./spa/user_settings/change_nickname.php', 'settings-dark-container')">Edit</button>
+            <button onclick="ajaxGet('./spa/user_settings/change_nickname.php', 'dark-container')">Edit</button>
         </div>
         <div class="settings-myaccount-details-component">
             <p>Email</p>
             <h1 id="settings-myaccount-details-email"><?php echo $_SESSION['user_profile_email'] ?></h1>
-            <button onclick="ajaxGet('./spa/user_settings/change_email.php', 'settings-dark-container')">Edit</button>
+            <button onclick="ajaxGet('./spa/user_settings/change_email.php', 'dark-container')">Edit</button>
         </div>
     </div>
     <div class="settings-myaccount-change-container">
         <div class="settings-myaccount-change-component">
             <p class="settings-myaccount-profile-headline">Profile picture</p>
-            <button class="settings-myaccount-change-button" onclick="ajaxGet('./spa/user_settings/upload_profile_picture.php', 'settings-dark-container')">Change profile picture</button>
+            <button class="settings-myaccount-change-button" onclick="ajaxGet('./spa/user_settings/upload_profile_picture.php', 'dark-container')">Change profile picture</button>
         </div>
         <div class="settings-myaccount-change-component">
             <p class="settings-myaccount-profile-headline">Password</p>
-            <button class="settings-myaccount-change-button" onclick="ajaxGet('./spa/user_settings/change_password.php', 'settings-dark-container')">Change password</button>
+            <button class="settings-myaccount-change-button" onclick="ajaxGet('./spa/user_settings/change_password.php', 'dark-container')">Change password</button>
         </div>
     </div>
 </div>

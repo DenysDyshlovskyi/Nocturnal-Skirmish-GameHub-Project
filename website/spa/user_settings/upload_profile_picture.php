@@ -1,7 +1,7 @@
 <!-- Reusing style from banner upload --->
 <style><?php include "./css/banner-upload.css" ?></style>
 <style>
-    #settings-dark-container {
+    #dark-container {
         display: block !important;
     }
 </style>

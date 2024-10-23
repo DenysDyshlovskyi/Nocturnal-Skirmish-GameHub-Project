@@ -12,13 +12,16 @@ require "./php_scripts/get_loggedin_info.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameHub</title>
     <link rel="icon" type=".image/x-icon" href="./img/favicon.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <style> <?php include "./css/universal.css" ?> </style>
     <style> <?php include "./css/hub-page.css" ?> </style>
 </head>
 <body id="hub-body" onload="prepareSFX(); ajaxGet('./php_scripts/update_login_time.php', 'players-live-count');">
+    <div id="dark-container" class="dark-container"></div>
+    <div class="confirmation-popup" id="confirmContainer"></div>
     <div class="hub-corner-profile-container">
         <div class="hub-corner-profilepic-container" id="hub-corner-profilepic-container">
-            <a href="user_settings.php">
+            <a href="#" onclick="displayUserProfile('loggedin')">
                 <img src="<?php echo $_SESSION['user_profile_border']; ?>" alt="Profile Border" class="hub-corner-profilepic-border">
                 <div class="hub-corner-profilepic" style="background-image: url(<?php echo $_SESSION['user_profile_picture']; ?>);"></div>
             </a>

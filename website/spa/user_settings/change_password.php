@@ -1,7 +1,7 @@
 <!-- uses same styling as nickname upload -->
 <style><?php include "./css/nickname-upload.css" ?></style>
 <style>
-    #settings-dark-container {
+    #dark-container {
         display: block !important;
     }
 </style>

@@ -18,6 +18,10 @@ if(isset($_POST['image'])){
             };
         };
     };
+
+    // Deletes expired database entries
+    $sql = "DELETE FROM temp_profilepic WHERE expire < NOW()";
+    $result = $conn->query($sql);
     
     //Deletes temp profile pic
     $deletePic = "." . $_SESSION['temp_profile_pic'];

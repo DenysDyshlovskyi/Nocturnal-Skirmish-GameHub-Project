@@ -55,7 +55,7 @@ function saveDescription() {
         url: './php_scripts/save_description.php',
         data:{ description: text }, 
         success: function(){
-            settingsShowConfirm("Description saved!")
+            showConfirm("Description saved!")
         }
     })
 }
@@ -68,11 +68,11 @@ function submitDevCode() {
         data:{ devcode: text }, 
         success: function(response){
             if (response == "codenotfound") {
-                settingsShowConfirm("Code doesn't exist or is expired.")
+                showConfirm("Code doesn't exist or is expired.")
             } else if (response == "alreadyredeemed") {
-                settingsShowConfirm("Code already redeemed!")
+                showConfirm("Code already redeemed!")
             } else {
-                settingsShowConfirm("Code redeemed!")
+                showConfirm("Code redeemed!")
             }
         }
     })
@@ -87,13 +87,13 @@ function saveNickname () {
         data:{ nickname: text }, 
         success: function(nickname){
             if (nickname == "error") {
-                settingsShowConfirm("Something went wrong.");
+                showConfirm("Something went wrong.");
                 removeDarkContainer();
             } else {
                 document.getElementById("settings-myaccount-nickname").innerHTML = nickname;
                 document.getElementById("settings-myaccount-details-nickname").innerHTML = nickname;
                 removeDarkContainer();
-                settingsShowConfirm("Description saved!");
+                showConfirm("Description saved!");
             }
         }
     })
@@ -108,12 +108,12 @@ function saveEmail() {
         data:{ email: text }, 
         success: function(email){
             if (email == "error") {
-                settingsShowConfirm("Something went wrong.");
+                showConfirm("Something went wrong.");
                 removeDarkContainer();
             } else {
                 document.getElementById("settings-myaccount-details-email").innerHTML = email;
                 removeDarkContainer();
-                settingsShowConfirm("Email saved!");
+                showConfirm("Email saved!");
             }
         }
     })
@@ -129,17 +129,17 @@ function savePassword() {
         data:{ password: text, confirmpassword: text2}, 
         success: function(response){
             if (response == "error") {
-                settingsShowConfirm("Something went wrong.");
+                showConfirm("Something went wrong.");
                 removeDarkContainer();
             } else if (response == "dontmatch"){
                 removeDarkContainer();
-                settingsShowConfirm("Passwords dont match!");
+                showConfirm("Passwords dont match!");
             } else if (response == "empty"){ 
                 removeDarkContainer();
-                settingsShowConfirm("Input is empty!");
+                showConfirm("Input is empty!");
             } else {
                 removeDarkContainer();
-                settingsShowConfirm("Password saved!");
+                showConfirm("Password saved!");
             }
         }
     })
@@ -160,13 +160,13 @@ function uploadBanner() {
         type: 'post',
         success: function(response){
             if (response == "unsupported") {
-                settingsShowConfirm("File type not supported! Only JPG allowed.");
+                showConfirm("File type not supported! Only JPG allowed.");
             } else if (response == "empty") {
-                settingsShowConfirm("File input empty!");
+                showConfirm("File input empty!");
             } else if (response == "error") {
-                settingsShowConfirm("Something went wrong.");
+                showConfirm("Something went wrong.");
             } else {
-                settingsShowConfirm("Banner saved!");
+                showConfirm("Banner saved!");
                 document.getElementById('settings-myaccount-banner').style.backgroundImage = response;
             }
             removeDarkContainer();
@@ -190,17 +190,17 @@ function uploadProfilePic() {
         success: function(response){
             if (response == "unsupported") {
                 removeDarkContainer();
-                settingsShowConfirm("File type not supported! Only JPG and PNG allowed.");
+                showConfirm("File type not supported! Only JPG and PNG allowed.");
             } else if (response == "empty") {
                 removeDarkContainer();
-                settingsShowConfirm("File input empty!");
+                showConfirm("File input empty!");
             } else if (response == "error") {
                 removeDarkContainer();
-                settingsShowConfirm("Something went wrong.");
+                showConfirm("Something went wrong.");
             } else {
-                container = document.getElementById("settings-dark-container");
+                container = document.getElementById("dark-container");
                 container.innerHTML = "";
-                ajaxGet('./spa/user_settings/profilepic_crop.php', 'settings-dark-container', 'cropper_js');
+                ajaxGet('./spa/user_settings/profilepic_crop.php', 'dark-container', 'cropper_js');
             }
         }
     });
@@ -231,11 +231,11 @@ function configureCropperJS() {
 					data:{image:base64data},
 					success:function(response){
                         if (response == "error") {
-                            settingsShowConfirm("Something went wrong.");
+                            showConfirm("Something went wrong.");
                             removeDarkContainer();
                         } else {
                             document.getElementById("settings-myaccount-profile-pic-parent").style.backgroundImage = response;
-                            settingsShowConfirm("Profile picture saved!");
+                            showConfirm("Profile picture saved!");
                             removeDarkContainer();
                         }
 					}
@@ -246,7 +246,7 @@ function configureCropperJS() {
 };
 
 //Shows a popup when saving information in user settings
-function settingsShowConfirm(text) {
+function showConfirm(text) {
     confirmContainer = document.getElementById("confirmContainer");
     confirmContainer.innerHTML = text;
     confirmContainer.style.display = "block";
@@ -266,10 +266,10 @@ function filePreview(input) {
 
 //Removes dark container and its contents
 function removeDarkContainer() {
-    container = document.getElementById("settings-dark-container");
+    container = document.getElementById("dark-container");
     if (window.getComputedStyle(container).display != 'none') {
-        document.getElementById("settings-dark-container").innerHTML = "";
-        document.getElementById("settings-dark-container").style.display = 'none';
+        container.innerHTML = "";
+        container.style.display = 'none';
     }
 }
 
@@ -339,11 +339,11 @@ function saveBorder(border) {
         data:{ bordername: border}, 
         success: function(response){
             if (response == "error") {
-                settingsShowConfirm("Something went wrong.");
+                showConfirm("Something went wrong.");
                 removeDarkContainer();
             } else {
                 removeDarkContainer();
-                settingsShowConfirm("Border saved!");
+                showConfirm("Border saved!");
             }
         }
     })
@@ -381,6 +381,11 @@ function configureAudioSettings() {
     audioSaveButton.addEventListener("click", function() {
         localStorage.setItem("volumeUi", volumeUi.value / 100);
         localStorage.setItem("volumeMusic", volumeMusic.value / 100);
-        settingsShowConfirm("Audio settings saved!");
+        showConfirm("Audio settings saved!");
     })
+}
+
+// Loads in popup box with user details
+function displayUserProfile(user_id) {
+
 }

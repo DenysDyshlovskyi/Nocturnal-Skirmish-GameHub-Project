@@ -23,9 +23,8 @@ require "./php_scripts/get_loggedin_info.php";
     <link rel="preload" as="image" href="<?php echo $_SESSION['user_profile_banner'] ?>" />
 </head>
 <body id="settings-body" onload="ajaxGet('./spa/user_settings/myaccount.php', 'settings-spa-container'); prepareSFX()">
-    <div id="settings-dark-container" class="settings-dark-container">
-    </div>
-    <div class="settings-confirmation-popup" id="confirmContainer"></div>
+    <div id="dark-container" class="dark-container"></div>
+    <div class="confirmation-popup" id="confirmContainer"></div>
     <div class="settings-container">
         <button class="settings-backtohub" title="Back to Hub" onclick="window.location.href = 'hub.php';">Back to Hub</button>
         <div class="settings-sidebar">
