@@ -27,6 +27,6 @@ session_start();
     </div>
     <div class="hub-userprofile-bottom-container">
         <p><?php echo "Join date: " . $_SESSION['userprofile_display_joindate'] ?></p>
-        <button onclick="removeDarkContainer()">Exit</button>
+        <button onclick="removeDarkContainer()">Close</button>
     </div>
 </div>
