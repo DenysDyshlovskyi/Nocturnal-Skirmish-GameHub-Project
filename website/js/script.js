@@ -387,5 +387,16 @@ function configureAudioSettings() {
 
 // Loads in popup box with user details
 function displayUserProfile(user_id) {
-
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/display_user_profile.php',
+        data:{ user_id : user_id}, 
+        success: function(response){
+            if (response == "error") {
+                showConfirm("Something went wrong.");
+            } else {
+                ajaxGet('./spa/hub/user_profile_popup.php', 'dark-container');
+            }
+        }
+    })
 }
