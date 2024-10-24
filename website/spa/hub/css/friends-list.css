@@ -140,3 +140,79 @@
     width: 30px;
     margin-left: 10px;
 }
+
+.hub-friends-list-profile-container {
+    width: 100%;
+    height: 130px;
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.hub-friends-list-profilepic {
+    width: 130px;
+    height: 130px;
+    position: relative;
+    background-position: center;
+    background-size: 90% 90%;
+    background-repeat: no-repeat;
+}
+
+.hub-friends-list-profilepic img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hub-friends-list-profilepic-link {
+    width: 130px;
+    height: 130px;
+}
+
+.hub-friends-list-profilepic-link:hover {
+    filter: brightness(0.7);
+    position: relative;
+}
+
+.hub-friends-list-profile-name-container {
+    width: fit-content;
+    height: fit-content;
+    margin-left: 20px;
+    position: relative;
+    max-width: calc(100% - 215px);
+    overflow: hidden;
+}
+
+.hub-friends-list-profile-name-container h1{
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 40px;
+}
+
+.hub-friends-list-profile-name-container-line {
+    width: 100%;
+    height: 5px;
+    background-color: #888;
+}
+
+.hub-friends-list-profile-message-button {
+    width: 60px;
+    height: 60px;
+    background-image: url(./img/icons/message.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: 0.5;
+    position: absolute;
+    right: 0;
+}
+
+.hub-friends-list-profile-message-button:hover {
+    opacity: 1;
+}

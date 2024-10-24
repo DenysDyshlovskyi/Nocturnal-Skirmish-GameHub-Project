@@ -46,4 +46,9 @@ CREATE TABLE dev_codes (
 CREATE TABLE border_inventory (
     user_id int,
     border varchar(128)
+);
+
+CREATE TABLE friend_list (
+    user_id_1 int,
+    user_id_2 int
 )
