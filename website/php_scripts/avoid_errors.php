@@ -1,7 +1,7 @@
 <?php
 //Avoids errors in php scripts regarding sessions and database connections
 
-if(session_id() == '') {
+if(session_id() == '' || !isset($_SESSION)) {
     session_start();
 }
 

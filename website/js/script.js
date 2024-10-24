@@ -404,3 +404,18 @@ function displayUserProfile(user_id) {
         }
     })
 }
+
+// Hides or shows spa container in hub
+function displaySpaContainerHub(display) {
+    container = document.getElementById('hub-spa-container');
+    if (display == "none") {
+        if (window.getComputedStyle(container).display != 'none') {
+            container.innerHTML = "";
+            container.style.display = 'none';
+        }
+    } else {
+        if (window.getComputedStyle(container).display == 'none') {
+            container.style.display = 'block';
+        }
+    }
+}

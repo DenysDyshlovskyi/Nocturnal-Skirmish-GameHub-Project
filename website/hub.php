@@ -19,6 +19,7 @@ require "./php_scripts/get_loggedin_info.php";
 <body id="hub-body" onload="prepareSFX(); ajaxGet('./php_scripts/update_login_time.php', 'players-live-count');">
     <div id="dark-container" class="dark-container"></div>
     <div class="confirmation-popup" id="confirmContainer"></div>
+    <div class="hub-spa-container" id="hub-spa-container"></div>
     <div class="hub-corner-profile-container">
         <div class="hub-corner-profilepic-container" id="hub-corner-profilepic-container">
             <a href="#" onclick="displayUserProfile('loggedin')">
@@ -29,7 +30,7 @@ require "./php_scripts/get_loggedin_info.php";
         <div class="hub-corner-profile-dropdown">
             <button class="hub-corner-profile-dropdown-button" id="dropdown-button-settings" title="Settings" onclick="window.location.href = 'user_settings.php';"></button>
             <div class="hub-corner-profile-dropdown-divider"></div>
-            <button class="hub-corner-profile-dropdown-button" id="dropdown-button-friends" title="Friends"></button>
+            <button class="hub-corner-profile-dropdown-button" id="dropdown-button-friends" title="Friends" onclick="ajaxGet('./spa/hub/friends_list.php', 'hub-spa-container'); displaySpaContainerHub('block')"></button>
             <div class="hub-corner-profile-dropdown-divider"></div>
             <button class="hub-corner-profile-dropdown-button" id="dropdown-button-chats" title="Chats"></button>
             <div class="hub-corner-profile-dropdown-divider"></div>
@@ -53,7 +54,7 @@ require "./php_scripts/get_loggedin_info.php";
                 <a class="link" href="Featured.html"><button class="menu-button">Shop</button></a>
                 <br>
                 <button style="margin-bottom: 10px; margin-right: 10px;" class="menu-button">Tutorial</button>
-                <button class="menu-button">Friends List</button>
+                <button class="menu-button" onclick="ajaxGet('./spa/hub/friends_list.php', 'hub-spa-container'); displaySpaContainerHub('block')">Friends List</button>
             </div>
         </div>
 
