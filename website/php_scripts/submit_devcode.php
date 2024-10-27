@@ -1,9 +1,10 @@
 <?php
-require "avoid_errors.php";
-if(isset($_POST['devcode'])){
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    require "avoid_errors.php";
     // Checks if code has been redeemed in the past
+    $posted_devcode = htmlspecialchars($_POST['devcode']);
     $stmt = $conn->prepare("SELECT * FROM redeemed_codes WHERE user_id = ? AND code = ?");
-    $stmt->bind_param("ss", $_SESSION['user_id'], $_POST['devcode']);
+    $stmt->bind_param("ss", $_SESSION['user_id'], $posted_devcode);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -15,7 +16,7 @@ if(isset($_POST['devcode'])){
 
     // Check if code exists
     $stmt = $conn->prepare("SELECT * FROM dev_codes WHERE code = ?");
-    $stmt->bind_param("s", $_POST['devcode']);
+    $stmt->bind_param("s", $posted_devcode);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -26,7 +27,7 @@ if(isset($_POST['devcode'])){
     } else {
         // Checks if code is a special code.
         require dirname(dirname(__FILE__)) . "/config/devcode_special.php";
-        specialDevCode($_POST['devcode']);
+        specialDevCode($posted_devcode);
 
         // Gives user rewards
         $row = $result->fetch_assoc();
@@ -45,9 +46,10 @@ if(isset($_POST['devcode'])){
         $stmt->close();
 
         $stmt = $conn->prepare("INSERT INTO redeemed_codes (user_id, code) VALUES (?, ?)");
-        $stmt->bind_param("ss", $_SESSION['user_id'] ,$_POST['devcode']);
+        $stmt->bind_param("ss", $_SESSION['user_id'] ,$posted_devcode);
         $stmt->execute();
         $stmt->close();
     }
-};
-?>
+} else {
+    header("Location: ../index.php");
+}

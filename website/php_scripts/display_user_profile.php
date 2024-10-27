@@ -2,8 +2,9 @@
 require "avoid_errors.php";
 
 // Sets correct session variables to display
-if (isset($_POST['user_id'])) {
-    if ($_POST['user_id'] == "loggedin") {
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $posted_userid = htmlspecialchars($_POST['user_id']);
+    if ($posted_userid == "loggedin") {
         // Display the user profile of the logged in user
         $stmt = $conn->prepare("SELECT * FROM users WHERE user_id = ?");
         $stmt->bind_param("s", $_SESSION['user_id']);
@@ -12,7 +13,7 @@ if (isset($_POST['user_id'])) {
     } else {
         // Displays the user profile of the user with user id that matched the user id that was posted
         $stmt = $conn->prepare("SELECT * FROM users WHERE user_id = ?");
-        $stmt->bind_param("s", $_POST['user_id']);
+        $stmt->bind_param("s", $posted_userid);
         $stmt->execute();
         $result = $stmt->get_result();
     };
@@ -34,6 +35,5 @@ if (isset($_POST['user_id'])) {
     $_SESSION['userprofile_display_runes'] = $row['runes'];
     $_SESSION['userprofile_display_joindate'] = $row['joindate'];
 } else {
-    echo "error";
+    header("Location: ../index.php");
 }
-?>

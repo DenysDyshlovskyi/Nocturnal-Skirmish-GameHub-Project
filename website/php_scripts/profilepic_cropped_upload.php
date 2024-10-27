@@ -1,7 +1,7 @@
 <?php
 require "avoid_errors.php";
 // Uploads cropped image to server
-if(isset($_POST['image'])){
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Deletes expired temp pictures
     $sql = "SELECT * FROM temp_profilepic WHERE expire < NOW()";
     $result = $conn->query($sql);
@@ -64,6 +64,5 @@ if(isset($_POST['image'])){
         echo "error";
     }
 } else {
-    echo "error";
+    header("Location: ../index.php");
 }
-?>

@@ -9,7 +9,7 @@ use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php';
 
 function sendMail($mailReceiver, $mailSubject, $mailBody, $mailBodyAlt){
-    require './config/mail_cred.php';
+    require dirname(dirname(__FILE__)) . "/config/mail_cred.php";
     $mail = new PHPMailer(true);
     try {
         //Server settings

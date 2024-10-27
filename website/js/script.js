@@ -97,7 +97,7 @@ function saveNickname () {
                 document.getElementById("settings-myaccount-nickname").innerHTML = nickname;
                 document.getElementById("settings-myaccount-details-nickname").innerHTML = nickname;
                 removeDarkContainer();
-                showConfirm("Description saved!");
+                showConfirm("Nickname saved!");
             }
         }
     })

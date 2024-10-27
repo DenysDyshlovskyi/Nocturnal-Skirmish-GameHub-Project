@@ -20,11 +20,16 @@ if(isset($_POST['next_button'])){
         goto end;
     }
 
+    //Prevents XSS
+    $username = htmlspecialchars($_POST['username']);
+    $nickname = htmlspecialchars($_POST['nickname']);
+    $description = htmlspecialchars($_POST['description']);
+    $email = htmlspecialchars($_POST['email']);
+
     //Checks if username is already taken
     // The ? below are parameter markers used for variable binding
-
     $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
-    $stmt->bind_param("s", $_POST['username']);
+    $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
     if($result->num_rows > 0){
@@ -36,7 +41,7 @@ if(isset($_POST['next_button'])){
 
     //Checks if email is already registered
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
-    $stmt->bind_param("s", $_POST['email']);
+    $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
     if($result->num_rows > 0){
@@ -50,22 +55,20 @@ if(isset($_POST['next_button'])){
 
     $joindate = $date . " " . $time;
 
-    if(!isset($_POST['description']) || trim($_POST['description']) == ''){
+    if(!isset($description) || trim($description) == ''){
         $description = "No description";
-    } else {
-        $description = $_POST['description'];
     };
 
     $password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     //Inserts user into database
     $stmt = $conn->prepare("INSERT INTO users (username, password, email, joindate, nickname, description) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssss", $_POST['username'], $password_hash, $_POST['email'], $joindate, $_POST['nickname'], $description);
+    $stmt->bind_param("ssssss", $username, $password_hash, $email, $joindate, $nickname, $description);
     $stmt->execute();
     $stmt->close();
 
     $stmt = $conn->prepare("SELECT user_id FROM users WHERE username = ?");
-    $stmt->bind_param("s", $_POST['username']);
+    $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
@@ -74,8 +77,8 @@ if(isset($_POST['next_button'])){
 
     $mailReceiver = $_POST['email'];
     $mailSubject = "Thank you for creating a GameHub account!";
-    $mailBody = "Hey " . $_POST['username'] . ". Thank you for creating a GameHub account.";
-    $mailBodyAlt = "Hey " . $_POST['username'] . ". Thank you for creating a GameHub account.";
+    $mailBody = "Hey " . $username . ". Thank you for creating a GameHub account.";
+    $mailBodyAlt = "Hey " . $username . ". Thank you for creating a GameHub account.";
     sendMail($mailReceiver, $mailSubject, $mailBody, $mailBodyAlt);
 
     header("Location: hub.php");

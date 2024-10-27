@@ -20,4 +20,3 @@ if ($row['total'] == 1) {
 }
 
 echo $text . "<img class='live-count-icon' src='img/icons/live-count.svg' alt='live count icon'>";
-?>

@@ -2,7 +2,7 @@
 require "../lib/mail.php";
 require "avoid_errors.php";
 //Saves new password to database
-if(isset($_POST['password']) && isset($_POST['confirmpassword'])){
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
     //Checks if the confirm password matches with the original one
     if ($_POST['password'] != $_POST['confirmpassword']) {
         echo "dontmatch";
@@ -17,6 +17,5 @@ if(isset($_POST['password']) && isset($_POST['confirmpassword'])){
         $stmt->close();
     }
 } else {
-    echo "error";
+    header("Location: ../index.php");
 };
-?>
