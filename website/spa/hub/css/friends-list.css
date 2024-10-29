@@ -182,7 +182,7 @@
     height: fit-content;
     margin-left: 20px;
     position: relative;
-    max-width: calc(100% - 215px);
+    max-width: calc(100% - 245px);
     overflow: hidden;
 }
 
@@ -211,8 +211,39 @@
     opacity: 0.5;
     position: absolute;
     right: 0;
+    margin-right: 30px;
 }
 
 .hub-friends-list-profile-message-button:hover {
     opacity: 1;
+}
+
+.hub-friends-list-profile-more-button {
+    width: 20px;
+    height: 60px;
+    background-image: url(./img/icons/three-dots-vertical.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: 0.5;
+    position: absolute;
+    right: 0;
+}
+
+.hub-friends-list-profile-more-button:hover {
+    opacity: 1;
+}
+
+.hub-friends-list-profile-more-hover-container {
+    width: 150px;
+    height: 50px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: absolute;
+    right: 0;
+    margin-bottom: 45px;
 }

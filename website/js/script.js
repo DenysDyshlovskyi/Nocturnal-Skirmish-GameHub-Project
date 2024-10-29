@@ -419,3 +419,53 @@ function displaySpaContainerHub(display) {
         }
     }
 }
+
+// Open a modal with more options for each friend in friends list
+function openMoreOptionsFriendsList(user_id) {
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/friends_list_more_button.php',
+        data:{ user_id : user_id}, 
+        success: function(response){
+            if (response == "error") {
+                showConfirm("Something went wrong.");
+            } else {
+                ajaxGet('./spa/hub/friends_list_more_button_modal.php', 'dark-container');
+            }
+        }
+    })
+}
+
+// Shows or hides container for confirming removal of friend in friends list
+function confirmFriendRemove(){
+    var removeContainer = document.getElementById("friends-list-more-modal-remove-confirm-container");
+    var mainContainer = document.getElementById("friends-list-more-modal-container");
+
+    if (window.getComputedStyle(removeContainer).display === 'none') {
+        removeContainer.style.display = 'block';
+        mainContainer.style.display = 'none';
+    } else {
+        removeContainer.style.display = 'none';
+        mainContainer.style.display = 'block';
+    }
+}
+
+// Removes friend from friends list
+function removeFriend(user_id) {
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/remove_friend.php',
+        data:{ user_id : user_id}, 
+        success: function(response){
+            if (response == "error") {
+                removeDarkContainer();
+                showConfirm("Something went wrong.");
+            } else {
+                var removedFriendContainer = document.getElementById(response);
+                removedFriendContainer.remove();
+                removeDarkContainer();
+                showConfirm("Friend removed.")
+            }
+        }
+    })
+}

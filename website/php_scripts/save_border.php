@@ -1,7 +1,7 @@
 <?php
-require "avoid_errors.php";
 // Saves border to database
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    require "avoid_errors.php";
     $bordername = htmlspecialchars($_POST['bordername']);
     if (file_exists("../img/borders/" . $bordername)) {
         $stmt = $conn->prepare("UPDATE users SET profile_border = ? WHERE user_id = ?");

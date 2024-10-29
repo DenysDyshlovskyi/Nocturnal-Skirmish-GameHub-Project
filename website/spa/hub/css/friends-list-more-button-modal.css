@@ -1,0 +1,156 @@
+/*Stylesheet for popup for removing friend*/
+.friends-list-more-modal-container {
+    width: 470px;
+    height: fit-content;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 30px;
+}
+
+.friends-list-more-modal-exit {
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+    margin: 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-image: url(./img/icons/x.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.friends-list-more-modal-exit:hover {
+    opacity: 1;
+}
+
+.friends-list-more-modal-profile-container {
+    width: 100%;
+    height: 130px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.friends-list-more-modal-profilepic {
+    width: 130px;
+    height: 130px;
+    background-position: center;
+    background-size: 90% 90%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.friends-list-more-modal-profilepic img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.friends-list-more-modal-name-container {
+    width: 310px;
+    height: 130px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.friends-list-more-modal-name-container h1{
+    margin-left: 15px;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    font-size: 34px;
+}
+
+.friends-list-more-modal-button-container {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.friends-list-more-modal-remove-button {
+    width: 100%;
+    height: 50px;
+    border: none;
+    background-color: white;
+    border-radius: 10px;
+    border: solid 3px rgb(255, 90, 90);
+    color: rgb(255, 90, 90);
+    cursor: pointer;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.friends-list-more-modal-remove-button:hover {
+    background-color: rgb(255, 90, 90);
+    color: white;
+}
+
+.friends-list-more-modal-remove-confirm-container {
+    display: none;
+    width: 470px;
+    height: fit-content;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.friends-list-more-modal-remove-confirm-button-container {
+    width: 100%;
+    height: 50px;
+    margin-top: 15px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.friends-list-more-modal-remove-confirm-button-container button{
+    width: 160px;
+    height: 50px;
+    border: rgb(255, 90, 90) solid 3px;
+    color: rgb(255, 90, 90);
+    background-color: white;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+.friends-list-more-modal-remove-confirm-button-container button:hover {
+    background-color: rgb(255, 90, 90);
+    color: white;
+}
+
+#more-modal-cancel-remove {
+    border: #808080 solid 3px;
+    color: #808080;
+}
+
+#more-modal-cancel-remove:hover {
+    background-color: #808080;
+    color: white;
+}
