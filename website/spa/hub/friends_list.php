@@ -8,7 +8,7 @@ include "../../php_scripts/avoid_errors.php";
     }
 </style>
 <div class="hub-friends-container">
-    <button class="hub-friends-backtohub" onclick="displaySpaContainerHub('none');">Back to hub</button>
+    <button class="hub-friends-backtohub" onclick="displaySpaContainerHub('none'); stopFriendsListInterval();">Back to hub</button>
     <div class="hub-friends-menu">
         <div class="hub-friends-menu-top">Friends</div>
         <button onclick="ajaxGet('./spa/hub/online_offline_friends.php', 'hub-friends-content')" id="friends_list_menu_button">Friends list</button>

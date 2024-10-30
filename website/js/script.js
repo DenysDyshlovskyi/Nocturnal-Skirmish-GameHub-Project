@@ -59,6 +59,7 @@ function ajaxGet(phpFile, changeID, onLoad){
         } else if (onLoad == "friends_list") {
             ajaxGet('./spa/hub/online_offline_friends.php', 'hub-friends-content');
             checkPendingAmount();
+            startFriendsListInterval();
         }
 
         if (onLoad != "no_sfx") {
@@ -540,7 +541,39 @@ function sendFriendRequest(user_id, nickname) {
                 showConfirm("Something went wrong.");
             } else {
                 showConfirm("Sent friend request to " + nickname + "!");
+                var search = document.getElementById("hub-add-friends-search-input").value;
+                searchForFriend(search);
             }
         }
     })
+}
+
+
+// Functions and variables to stop and start intervals in friends list
+var FriendsListIntervalState = 1;
+
+function startFriendsListInterval() {
+    FriendsListIntervalState = 1;
+    var FriendsListInterval = setInterval(function(){
+        if (FriendsListIntervalState == 1) {
+            checkPendingAmount();
+            var pendingRequestsContainer = document.getElementById("hub-add-friends-pending-container");
+            if (pendingRequestsContainer !== null) {
+                ajaxGet('./php_scripts/load_pending_invites.php', 'hub-add-friends-pending-container');
+            }
+
+            // If offline container exists then online container must exist
+            var offlineContainer = document.getElementById("hub-friends-offline-container");
+            if (offlineContainer !== null) {
+                ajaxGet('./php_scripts/load_online_friends.php', 'hub-friends-online-container');
+                ajaxGet('./php_scripts/load_offline_friends.php', 'hub-friends-offline-container');
+            }
+        } else {
+            clearInterval(FriendsListInterval);
+        }
+    }, 3000);
+}
+
+function stopFriendsListInterval() {
+    FriendsListIntervalState = 0;
 }

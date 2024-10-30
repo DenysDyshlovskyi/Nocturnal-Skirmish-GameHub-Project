@@ -144,6 +144,6 @@ require "./php_scripts/get_loggedin_info.php";
     // Starts 2 second interval to update players online counter
     setInterval(function(){
         ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx');
-    }, 2000);
+    }, 5000);
 </script>
 </html>
