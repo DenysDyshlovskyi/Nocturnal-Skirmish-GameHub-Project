@@ -233,7 +233,7 @@ function uploadProfilePic() {
     });
 };
 
-// Configures settings fro cropper js
+// Configures settings from cropper js
 function configureCropperJS() {
     image = document.getElementById('cropper_js_element');
     let cropper = new Cropper(image, {
