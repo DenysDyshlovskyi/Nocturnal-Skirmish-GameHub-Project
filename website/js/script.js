@@ -511,3 +511,20 @@ function acceptIgnoreFriendInvite(user_id, type) {
         }
     })
 }
+
+// Takes user input in search bar and sends looks up the input in the database.
+function searchForFriend(search) {
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/friend_add_search.php',
+        data:{ search : search }, 
+        success: function(response){
+            resultContainer = document.getElementById("hub-add-friends-search-results-container");
+            if (response == "none") {
+                resultContainer.innerHTML = "No username or nickname found containing '" + search + "'.";
+            } else {
+                resultContainer.innerHTML = response;
+            }
+        }
+    })
+}

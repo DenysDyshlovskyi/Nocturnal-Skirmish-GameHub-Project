@@ -158,3 +158,123 @@
 #accept_pending_button {
     background-color: #58D245;
 }
+
+#hub-add-friends-half-container-inner-right {
+    background-color: #D9D9D9;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: inset 4px 0px 4px 0px rgba(0, 0, 0, 25%);
+}
+
+.hub-add-friends-search-input-container {
+    height: 130px;
+    width: 100%;
+    text-align: left;
+}
+
+.hub-add-friends-search-input-container h1{
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 30px;
+}
+
+.hub-add-friends-search-input-container input {
+    width: 100%;
+    text-indent: 10px;
+    height: 40px;
+    border-radius: 15px;
+    border: solid 1px black;
+    font-family: "Afacad Flux", sans-serif;
+    font-size: 22px;
+}
+
+.hub-add-friends-search-results-container {
+    padding: 15px;
+    width: calc(100% - 30px);
+    height: calc(100% - 175px);
+    background-color: #E7E7E7;
+    border-radius: 15px;
+    box-shadow: inset 0px 4px 4px 0px rgba(0, 0, 0, 25%);
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.hub-add-friends-search-results-profile {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.hub-add-friends-search-results-profilepic {
+    height: 100px;
+    width: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90% 90%;
+    position: relative;
+}
+
+.hub-add-friends-search-results-profilepic img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.hub-add-friends-search-results-profilepic-link:hover {
+    filter: brightness(0.5);
+}
+
+.hub-add-friends-search-results-profile-name-container {
+    width: calc(100% - 200px);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 15px;
+    margin-right: 85px;
+    overflow-x: hidden;
+}
+
+.hub-add-friends-search-results-profile-name-container h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 35px;
+}
+
+.hub-add-friends-search-results-profile-name-line {
+    height: 3px;
+    background-color: #A1A1A1;
+    width: 100%;
+}
+
+.hub-add-friends-search-results-profile button {
+    position: absolute;
+    right: 0;
+    width: 70px;
+    height: 70px;
+    border: none;
+    border-radius: 10px;
+    background-color: #58D245;
+    cursor: pointer;
+    background-image: url(./img/icons/add-friend.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70%;
+}
+
+.hub-add-friends-search-results-profile button:hover {
+    filter: brightness(0.5);
+}
+
+.hub-add-friends-search-results-profile-divider {
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}

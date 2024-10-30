@@ -21,8 +21,14 @@ session_start();
             </div>
         </div>
     </div>
-    <div class="hub-add-friends-half-container">
+    <div class="hub-add-friends-half-container" id="hub-add-friends-half-container-inner-right">
         <div class="hub-add-friends-half-container-inner">
+            <div class="hub-add-friends-search-input-container">
+                <h1>Search for Friends:</h1>
+                <input type="text" placeholder="Username or Nickname..." onkeyup="searchForFriend(this.value)">
+            </div>
+            <div class="hub-add-friends-search-results-container" id="hub-add-friends-search-results-container">
+            </div>
         </div>
     </div>
 </div>
