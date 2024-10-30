@@ -528,3 +528,19 @@ function searchForFriend(search) {
         }
     })
 }
+
+// Sends friend request from logged in user to a diffrent user
+function sendFriendRequest(user_id, nickname) {
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/send_friend_request.php',
+        data:{ user_id : user_id }, 
+        success: function(response){
+            if (response == "error") {
+                showConfirm("Something went wrong.");
+            } else {
+                showConfirm("Sent friend request to " + nickname + "!");
+            }
+        }
+    })
+}

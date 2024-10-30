@@ -14,20 +14,55 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "none";
     } else {
         while ($row = $result->fetch_assoc()) {
-            echo "<div class='hub-add-friends-search-results-profile'>
-                    <a href='#' onclick='displayUserProfile(" . $row['user_id'] . ")' class='hub-add-friends-search-results-profilepic-link'>
-                        <div class='hub-add-friends-search-results-profilepic' style='background-image: url(./img/profile_pictures/" . $row['profile_picture'] . ");'>
-                            <img src='./img/borders/" . $row['profile_border'] . "'>
+            // Checks if user is yourself
+            if ($row['user_id'] != $_SESSION['user_id']) {
+                // Checks if user is already in friends list
+                $stmt = $conn->prepare("SELECT user_id_2 FROM friend_list WHERE user_id_1 = ? AND user_id_2 = ?");
+                $stmt->bind_param("ss", $_SESSION['user_id'], $row['user_id']);
+                $stmt->execute();
+                $result2 = $stmt->get_result();
+                if ((mysqli_num_rows($result2) <= 0)) {
+                    $isInFriendsList = 0;
+                } else {
+                    $isInFriendsList = 1;
+                }
+
+                // Checks if you have already sent friend request to user
+                $stmt = $conn->prepare("SELECT user_id_2 FROM pending_friend_list WHERE user_id_1 = ? AND user_id_2 = ?");
+                $stmt->bind_param("ss", $_SESSION['user_id'], $row['user_id']);
+                $stmt->execute();
+                $result2 = $stmt->get_result();
+                if ((mysqli_num_rows($result2) <= 0)) {
+                    $alreadySent = 0;
+                } else {
+                    $alreadySent = 1;
+                }
+
+                if ($isInFriendsList == 0 && $alreadySent == 0) {
+                    $friendRequestButton = "<button title='Send friend request' onclick='sendFriendRequest(" . $row['user_id'] . ", %s)'></button>";
+                } else {
+                    if ($isInFriendsList == 1) {
+                        $friendRequestButton = "<button title='You are already friends with this user.' id='already_friends'></button>";
+                    } else {
+                        $friendRequestButton = "<button title='You have already sent this user a friend request.' id='already_friends'></button>";
+                    }
+                }
+
+                printf("<div class='hub-add-friends-search-results-profile'>
+                        <a href='#' onclick='displayUserProfile(" . $row['user_id'] . ")' class='hub-add-friends-search-results-profilepic-link'>
+                            <div class='hub-add-friends-search-results-profilepic' style='background-image: url(./img/profile_pictures/" . $row['profile_picture'] . ");'>
+                                <img src='./img/borders/" . $row['profile_border'] . "'>
+                            </div>
+                        </a>
+                        <div class='hub-add-friends-search-results-profile-name-container'>
+                            <h1>" . $row['nickname'] . "</h1>
+                            <div class='hub-add-friends-search-results-profile-name-line'></div>
                         </div>
-                    </a>
-                    <div class='hub-add-friends-search-results-profile-name-container'>
-                        <h1>" . $row['nickname'] . "</h1>
-                        <div class='hub-add-friends-search-results-profile-name-line'></div>
+                        $friendRequestButton
                     </div>
-                    <button title='Send friend request' onclick='sendFriendRequest(" . $row['user_id'] . ")'></button>
-                </div>
-                <div class='hub-add-friends-search-results-profile-divider'></div>
-            ";
+                    <div class='hub-add-friends-search-results-profile-divider'></div>
+                    ", '"' . $row['nickname'] . '"');
+            }
         }
     }
     $stmt->close();

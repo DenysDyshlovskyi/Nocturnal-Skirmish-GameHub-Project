@@ -267,6 +267,16 @@
     background-size: 70%;
 }
 
+#already_friends {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#already_friends:hover {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 .hub-add-friends-search-results-profile button:hover {
     filter: brightness(0.5);
 }
