@@ -1,0 +1,160 @@
+/* Stylesheet for page where you add friends */
+
+.hub-add-friends-container {
+    width: calc(100% - 15px);
+    height: calc(100% - 85px);
+    position: relative;
+    display: flex;
+}
+
+.hub-add-friends-half-container {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hub-add-friends-half-container-inner {
+    width: calc(100% - 80px);
+    height: calc(100% - 40px);
+}
+
+.hub-add-friends-pending-headline {
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 10px;
+}
+
+.hub-add-friends-pending-headline h1{
+    font-style: italic;
+    font-weight: 400;
+    font-size: 30px;
+}
+
+.hub-add-friends-pending-headline-line {
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    border-radius: 2px;
+}
+
+.hub-add-friends-pending-description {
+    font-weight: 600;
+    font-style: italic;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.hub-add-friends-pending-container {
+    padding: 30px;
+    width: calc(100% - 60px);
+    height: calc(100% - 205px);
+    background-color: #E7E7E7;
+    border-radius: 15px;
+    box-shadow: inset 0px 4px 4px 0px rgba(0, 0, 0, 25%);
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.hub-add-friends-pending-profile {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    position: relative;
+}
+
+.hub-add-friends-pending-profile-divider {
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.hub-add-friends-pending-profilepic-link:hover {
+    filter: brightness(0.5);
+}
+
+.hub-add-friends-pending-profilepic {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90% 90%;
+    background-image: url(./img/profile_pictures/defaultprofile.svg);
+}
+
+.hub-add-friends-pending-profilepic img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.hub-add-friends-pending-profile-text-container {
+    height: 100px;
+    width: calc(100% - 230px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: 10px;
+    margin-right: 120px;
+    overflow-x: hidden;
+}
+
+.hub-add-friends-pending-profile-text-container p{
+    margin: 0;
+    padding: 0;
+    font-style: italic;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.hub-add-friends-pending-profile-text-container h1{
+    margin: 0;
+    padding: 0;
+}
+
+.hub-add-friends-pending-profile-text-container-line {
+    height: 3px;
+    width: 100%;
+    background-color: #A1A1A1;
+}
+
+.hub-add-friends-pending-profile-button-container {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.hub-add-friends-pending-profile-button-container button {
+    width: 100%;
+    height: 45px;
+    font-family: "Afacad Flux", sans-serif;
+    cursor: pointer;
+    color: white;
+    border-radius: 10px;
+    font-size: 20px;
+    border: none;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 25%);
+}
+
+.hub-add-friends-pending-profile-button-container button:hover {
+    filter: brightness(0.5);
+}
+
+#ignore_pending_button {
+    background-color: #F66C6C;
+}
+
+#accept_pending_button {
+    background-color: #58D245;
+}

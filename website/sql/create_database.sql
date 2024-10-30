@@ -51,4 +51,9 @@ CREATE TABLE border_inventory (
 CREATE TABLE friend_list (
     user_id_1 int,
     user_id_2 int
+);
+
+CREATE TABLE pending_friend_list (
+    user_id_1 int,
+    user_id_2 int
 )

@@ -37,6 +37,8 @@ function ajaxGet(phpFile, changeID, onLoad){
             configureCropperJS();
         } else if (onLoad == "audio_music_settings") {
             configureAudioSettings();
+        } else if (onLoad == "friends_list") {
+            ajaxGet('./spa/hub/online_offline_friends.php', 'hub-friends-content');
         }
 
         if (onLoad != "no_sfx") {

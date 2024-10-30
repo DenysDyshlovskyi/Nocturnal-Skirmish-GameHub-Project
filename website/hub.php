@@ -16,7 +16,7 @@ require "./php_scripts/get_loggedin_info.php";
     <style> <?php include "./css/universal.css" ?> </style>
     <style> <?php include "./css/hub-page.css" ?> </style>
 </head>
-<body id="hub-body" onload="prepareSFX(); ajaxGet('./php_scripts/update_login_time.php', 'players-live-count');">
+<body id="hub-body" onload="prepareSFX(); ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx');">
     <div id="dark-container" class="dark-container"></div>
     <div class="confirmation-popup" id="confirmContainer"></div>
     <div class="hub-spa-container" id="hub-spa-container"></div>
@@ -30,7 +30,7 @@ require "./php_scripts/get_loggedin_info.php";
         <div class="hub-corner-profile-dropdown">
             <button class="hub-corner-profile-dropdown-button" id="dropdown-button-settings" title="Settings" onclick="window.location.href = 'user_settings.php';"></button>
             <div class="hub-corner-profile-dropdown-divider"></div>
-            <button class="hub-corner-profile-dropdown-button" id="dropdown-button-friends" title="Friends" onclick="ajaxGet('./spa/hub/friends_list.php', 'hub-spa-container'); displaySpaContainerHub('block')"></button>
+            <button class="hub-corner-profile-dropdown-button" id="dropdown-button-friends" title="Friends" onclick="ajaxGet('./spa/hub/friends_list.php', 'hub-spa-container', 'friends_list'); displaySpaContainerHub('block');"></button>
             <div class="hub-corner-profile-dropdown-divider"></div>
             <button class="hub-corner-profile-dropdown-button" id="dropdown-button-chats" title="Chats"></button>
             <div class="hub-corner-profile-dropdown-divider"></div>
@@ -54,7 +54,7 @@ require "./php_scripts/get_loggedin_info.php";
                 <a class="link" href="Featured.html"><button class="menu-button">Shop</button></a>
                 <br>
                 <button style="margin-bottom: 10px; margin-right: 10px;" class="menu-button">Tutorial</button>
-                <button class="menu-button" onclick="ajaxGet('./spa/hub/friends_list.php', 'hub-spa-container'); displaySpaContainerHub('block')">Friends List</button>
+                <button class="menu-button" onclick="ajaxGet('./spa/hub/friends_list.php', 'hub-spa-container', 'friends_list'); displaySpaContainerHub('block');">Friends List</button>
             </div>
         </div>
 
@@ -141,7 +141,7 @@ require "./php_scripts/get_loggedin_info.php";
         localStorage.setItem("volumeMusic", 1);
     }
 
-    // Updates online users count every 2 seconds
+    // Starts 2 second interval to update players online counter
     setInterval(function(){
         ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx');
     }, 2000);
