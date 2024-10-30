@@ -55,5 +55,6 @@ CREATE TABLE friend_list (
 
 CREATE TABLE pending_friend_list (
     user_id_1 int,
-    user_id_2 int
+    user_id_2 int,
+    sent varchar(64)
 )

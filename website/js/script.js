@@ -28,6 +28,25 @@ function showNewPassword() {
     }
 }
 
+// Check the amount of pending friend invites the user has
+function checkPendingAmount() {
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/get_pending_invites_amount.php',
+        data:{ placeholder : "placeholder" }, 
+        success: function(response){
+            pendingAmountContainer = document.getElementById("pending_amount");
+            if (response != "none") {
+                pendingAmountContainer.innerHTML = response;
+                pendingAmountContainer.style.display = 'block';
+            } else {
+                pendingAmountContainer.innerHTML = "";
+                pendingAmountContainer.style.display = 'none';
+            }
+        }
+    })
+}
+
 // GET request with ajax
 function ajaxGet(phpFile, changeID, onLoad){
     const xhttp = new XMLHttpRequest();
@@ -39,6 +58,7 @@ function ajaxGet(phpFile, changeID, onLoad){
             configureAudioSettings();
         } else if (onLoad == "friends_list") {
             ajaxGet('./spa/hub/online_offline_friends.php', 'hub-friends-content');
+            checkPendingAmount();
         }
 
         if (onLoad != "no_sfx") {
@@ -468,6 +488,26 @@ function removeFriend(user_id) {
                 removeDarkContainer();
                 showConfirm("Friend removed.")
             }
+        }
+    })
+}
+
+// Accepts or ignores friend request
+function acceptIgnoreFriendInvite(user_id, type) {
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/accept_ignore_friend_invite.php',
+        data:{ user_id : user_id, type : type}, 
+        success: function(response){
+            if (response == "accepted") {
+                showConfirm("User added to friends list!");
+            } else if (response == "ignored") {
+                showConfirm("Ignored friend invite.");
+            } else if (response == "error") {
+                showConfirm("Something went wrong.");
+            }
+            ajaxGet('./php_scripts/load_pending_invites.php', 'hub-add-friends-pending-container');
+            checkPendingAmount();
         }
     })
 }
