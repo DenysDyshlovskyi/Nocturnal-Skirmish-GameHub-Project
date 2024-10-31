@@ -7,11 +7,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("s", $_SESSION['more_button_userid']);
     $stmt->execute();
     $result = $stmt->get_result();
-    $row = $result->fetch_assoc();
 
-    $_SESSION['more_button_profilepic'] = $row['profile_picture'];
-    $_SESSION['more_button_border'] = $row['profile_border'];
-    $_SESSION['more_button_nickname'] = $row['nickname'];
+    if ((mysqli_num_rows($result) <= 0)) {
+        echo "error";
+        exit;
+    } else {
+        $row = $result->fetch_assoc();
+
+        $_SESSION['more_button_profilepic'] = $row['profile_picture'];
+        $_SESSION['more_button_border'] = $row['profile_border'];
+        $_SESSION['more_button_nickname'] = $row['nickname'];
+    }
 } else {
     header("Location: ../../index.php");
 }
