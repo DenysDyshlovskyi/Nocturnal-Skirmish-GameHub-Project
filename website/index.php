@@ -172,7 +172,7 @@ if(!empty($_POST['save_password_button'])) {
             </div>
         </div>
     </div>
-    <a href="./phpMyAdmin/index.php" class="login-admin-link">Admin</a>
+    <a href="./admin_centre/admin_login.php" class="login-admin-link">Admin</a>
     <div class="login-container">
         <div class="login-logo-container">
             <img src="./img/Noc_Skir_Logo.svg" alt="Nocturnal Skirmish Logo" draggable="false">

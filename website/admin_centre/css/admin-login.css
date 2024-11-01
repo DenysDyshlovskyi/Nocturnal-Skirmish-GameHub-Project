@@ -1,0 +1,84 @@
+/*Stylesheet for login page for admins*/
+
+.admin-logon-container {
+    width: 500px;
+    height: fit-content;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.admin-logon-container img {
+    width: 200px;
+    margin-top: 15px;
+}
+
+.admin-logon-container h1{
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600px;
+    font-size: 35px;
+}
+
+.admin-logon-input {
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 400;
+    width: 300px;
+    height: 30px;
+    font-size: 22px;
+    border-radius: 5px;
+    border: 1px black solid;
+}
+
+.admin-logon-button {
+    width: 160px;
+    height: 50px;
+    border: #4A88FF solid 3px;
+    color: #4A88FF;
+    background-color: white;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.admin-logon-button:hover {
+    background-color: #4A88FF;
+    color: white;
+}
+
+#backtologin {
+    border: #a1a1a1 solid 3px;
+    color: #a1a1a1;
+}
+
+#backtologin:hover {
+    background-color: #a1a1a1;
+    color: white;
+}
+
+#error-container {
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    width: 80%;
+    height: 25px;
+    font-size: 18px;
+    margin-top: 5px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+    transform: translate(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 30px;
+    color: white;
+    text-align: center;
+}

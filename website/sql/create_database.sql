@@ -59,10 +59,6 @@ CREATE TABLE pending_friend_list (
     sent varchar(64)
 );
 
-CREATE TABLE admins (
-    user_id int
-);
-
 CREATE TABLE ip_adresses (
     user_id int,
     ip varchar(64),
