@@ -26,6 +26,7 @@ if(!empty($_POST['login_button'])) {
         $row = $result->fetch_assoc();
         if (password_verify($_POST['password'], $row['password'])){
             $_SESSION['user_id'] = $row['user_id'];
+            require "./php_scripts/register_ip.php";
             header("Location: ./hub.php");
         } else {
             $showError = true;

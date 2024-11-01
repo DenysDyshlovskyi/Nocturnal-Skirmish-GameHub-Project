@@ -57,4 +57,14 @@ CREATE TABLE pending_friend_list (
     user_id_1 int,
     user_id_2 int,
     sent varchar(64)
+);
+
+CREATE TABLE admins (
+    user_id int
+);
+
+CREATE TABLE ip_adresses (
+    user_id int,
+    ip varchar(64),
+    last_login varchar(64)
 )
