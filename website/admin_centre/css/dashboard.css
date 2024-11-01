@@ -24,10 +24,11 @@ header h1 {
     position: absolute;
     right: 0;
     height: 75px;
-    width: 200px;
+    width: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 10px;
 }
 
 .header-button-container button {
@@ -37,4 +38,5 @@ header h1 {
     font-weight: 600;
     height: 30px;
     width: 130px;
+    margin-left: 10px;
 }

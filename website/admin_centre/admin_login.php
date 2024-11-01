@@ -6,6 +6,8 @@ if (isset($_GET['error'])) {
         echo "<div id='error-container'>Password is wrong!</div>";
     } else if ($_GET['error'] == "unauth") {
         echo "<div id='error-container'>You are unauthorized to use this resource!</div>";
+    } else if ($_GET['error'] == "logout") {
+        echo "<div id='error-container'>Logged out.</div>";
     }
 }
 ?>

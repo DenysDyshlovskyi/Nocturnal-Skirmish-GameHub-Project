@@ -25,6 +25,7 @@ if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] != 1) {
         <div class="header-button-container">
             <form action="./scripts/header-button-handler.php" method="POST">
                 <button name="cleanup">Perform cleanup</button>
+                <button name="logout">Log out.</button>
             </form>
         </div>
     </header>

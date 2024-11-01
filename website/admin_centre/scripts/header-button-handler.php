@@ -179,6 +179,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             removeFakeUsers('pending_friend_list', 'multiple');
 
             echo "<br>Cleanup done! <a href='../dashboard.php'>Back to dashboard.</a>";
+        } else if (isset($_POST['logout'])) {
+            session_unset();
+            header("Location: ../admin_login.php?error=logout");
+            exit;
         }
     }
 } else {
