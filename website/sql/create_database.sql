@@ -27,7 +27,9 @@ CREATE TABLE recovery_codes (
 
 CREATE TABLE redeemed_codes (
     user_id int,
-    code varchar(128)
+    code varchar(128),
+    id int NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE temp_profilepic (
@@ -45,18 +47,24 @@ CREATE TABLE dev_codes (
 
 CREATE TABLE border_inventory (
     user_id int,
-    border varchar(128)
+    border varchar(128),
+    id int NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE friend_list (
     user_id_1 int,
-    user_id_2 int
+    user_id_2 int,
+    id int NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE pending_friend_list (
     user_id_1 int,
     user_id_2 int,
-    sent varchar(64)
+    sent varchar(64),
+    id int NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE ip_adresses (
