@@ -127,11 +127,24 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                         }
                     }
                     ?>
+                <br><button onclick="addNewBorder(<?php echo $user_id ?>)">Add new border to inventory</button>
+                </div>
+            </div>
+            <div class="component">
+                <div class="component-headline">Friend list</div>
+                <div class="component-list-container">
+                    <?php echo $dev_codes ?>
+                </div>
+            </div>
+            <div class="component">
+                <div class="component-headline">Pending friend list</div>
+                <div class="component-list-container">
+                    <?php echo $dev_codes ?>
                 </div>
             </div>
         </div>
-        <button class="backtodash" onclick="window.location.href = 'dashboard.php'">Back to dashboard</button>
     </div>
+    <button class="backtodash" onclick="window.location.href = 'dashboard.php'">Back to dashboard</button>
 </body>
 <script><?php include "./js/display_profile.js" ?></script>
 </html>

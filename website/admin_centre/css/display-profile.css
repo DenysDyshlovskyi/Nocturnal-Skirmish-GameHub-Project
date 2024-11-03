@@ -17,7 +17,7 @@
 }
 
 .backtodash {
-    position: absolute;
+    position: fixed;
     right: 0;
     bottom: 0;
     margin: 15px;
@@ -27,7 +27,6 @@
     font-weight: 600;
     height: 30px;
     width: 130px;
-    margin-left: 10px;
 }
 
 .profile-container {
@@ -102,7 +101,6 @@
     margin-left: 10px;
     height: 130px;
     font-family: "Afacad Flux", sans-serif;
-    overflow-x: scroll;
     overflow-y: hidden;
 }
 
@@ -160,9 +158,8 @@
     right: 0;
     width: calc(100% - 1005px);
     height: 520px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .component {
@@ -175,6 +172,7 @@
     text-align: center;
     border: 1px solid black;
     font-family: "Afacad Flux", sans-serif;
+    margin-bottom: 15px;
 }
 
 .component-headline {
