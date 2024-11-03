@@ -43,6 +43,20 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $dev_codes = $dev_codes . $row['code'] . "<br>";
             }
         }
+
+        // Get border inventory of user
+        $stmt = $conn->prepare("SELECT * FROM border_inventory WHERE user_id = ?");
+        $stmt->bind_param("s", $user_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $border_inventory = "";
+        if ((mysqli_num_rows($result) <= 0)) {
+            $border_inventory = "No borders. ";
+        } else {
+            while ($row = $result->fetch_assoc()) {
+                $border_inventory = $border_inventory . $row['border'] . "<br>";
+            }
+        }
     }
 } else {
     header("Location: admin_login.php?error=unauth");
@@ -85,17 +99,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             <textarea class="description"><?php echo $userprofile_row['description'] ?></textarea>
         </div>
         <div class="component-container">
-            <div class="ip_container">
-                <div class="ip-container-headline">Registered IP adresses</div>
-                <div class="ip-adresses">
+            <div class="component">
+                <div class="component-headline">Registered IP adresses</div>
+                <div class="component-list-container">
                     <?php echo $ip_adresses ?>
                 </div>
             </div>
-            <br>
-            <div class="ip_container">
-                <div class="ip-container-headline">Redeemed dev codes</div>
-                <div class="ip-adresses">
+            <div class="component">
+                <div class="component-headline">Redeemed dev codes</div>
+                <div class="component-list-container">
                     <?php echo $dev_codes ?>
+                </div>
+            </div>
+            <div class="component">
+                <div class="component-headline">Border inventory</div>
+                <div class="component-list-container">
+                    <?php echo $border_inventory ?>
                 </div>
             </div>
         </div>

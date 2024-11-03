@@ -12,6 +12,8 @@
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     padding: 15px;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .backtodash {
@@ -31,7 +33,7 @@
 .profile-container {
     width: 100%;
     max-width: 930px;
-    height: fit-content;
+    height: 500px;
     padding: 10px;
     border-radius: 10px;
     background-color: #D1D1D1;
@@ -157,10 +159,13 @@
     top: 0;
     right: 0;
     width: calc(100% - 1005px);
-    height: fit-content;
+    height: 520px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.ip_container {
+.component {
     background-color: #D1D1D1;
     height: 150px;
     overflow-y: scroll;
@@ -172,7 +177,7 @@
     font-family: "Afacad Flux", sans-serif;
 }
 
-.ip-container-headline {
+.component-headline {
     width: 100%;
     height: 50px;
     background-color: #969696;
@@ -187,11 +192,18 @@
     font-weight: 600;
 }
 
-.ip-adresses {
+.component-list-container {
     padding-left: 10px;
     padding-right: 10px;
     width: calc(100% - 20px);
     padding-top: 10px;
-    height: 100%;
+    height: fit-content;
     font-size: 23px;
+}
+
+.profile-button-container {
+    width: 100%;
+    max-width: 930px;
+    height: 50px;
+    margin-top: 15px;
 }
