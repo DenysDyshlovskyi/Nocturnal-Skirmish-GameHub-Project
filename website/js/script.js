@@ -274,6 +274,7 @@ function configureCropperJS() {
 
 //Shows a popup when saving information in user settings
 function showConfirm(text) {
+    $("#confirmContainer").stop( true, true ).fadeOut();
     confirmContainer = document.getElementById("confirmContainer");
     confirmContainer.innerHTML = text;
     confirmContainer.style.display = "block";

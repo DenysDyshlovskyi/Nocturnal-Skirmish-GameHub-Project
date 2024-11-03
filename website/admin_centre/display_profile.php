@@ -43,20 +43,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $dev_codes = $dev_codes . $row['code'] . "<br>";
             }
         }
-
-        // Get border inventory of user
-        $stmt = $conn->prepare("SELECT * FROM border_inventory WHERE user_id = ?");
-        $stmt->bind_param("s", $user_id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $border_inventory = "";
-        if ((mysqli_num_rows($result) <= 0)) {
-            $border_inventory = "No borders. ";
-        } else {
-            while ($row = $result->fetch_assoc()) {
-                $border_inventory = $border_inventory . $row['border'] . "<br>";
-            }
-        }
     }
 } else {
     header("Location: admin_login.php?error=unauth");
@@ -73,8 +59,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="icon" type=".image/x-icon" href="../img/favicon.png">
     <style> <?php include "../css/universal.css" ?> </style>
     <style> <?php include "./css/display-profile.css" ?> </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
+    <div id="confirmContainer" class="confirmation-popup"></div>
     <div class="content">
         <div class="profile-container">
             <a href="#">
@@ -114,11 +102,25 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="component">
                 <div class="component-headline">Border inventory</div>
                 <div class="component-list-container">
-                    <?php echo $border_inventory ?>
+                    <?php
+                    // Get border inventory of user and prints out p tag saying the border name with a button to remove it
+                    $stmt = $conn->prepare("SELECT * FROM border_inventory WHERE user_id = ?");
+                    $stmt->bind_param("s", $user_id);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    if ((mysqli_num_rows($result) <= 0)) {
+                        echo "No borders. ";
+                    } else {
+                        while ($row = $result->fetch_assoc()) {
+                            printf("<p id='borderComponent_" . $row['border'] . "'>" . $row['border'] . "<button class='component-remove-button' onclick='removeBorder(" . $row['user_id'] . ", %s)'>Remove</button></p>", '"' . $row['border'] . '"');
+                        }
+                    }
+                    ?>
                 </div>
             </div>
         </div>
         <button class="backtodash" onclick="window.location.href = 'dashboard.php'">Back to dashboard</button>
     </div>
 </body>
+<script><?php include "./js/display_profile.js" ?></script>
 </html>

@@ -201,9 +201,20 @@
     font-size: 23px;
 }
 
+.component-list-container p{
+    margin: 0;
+    padding: 0;
+}
+
 .profile-button-container {
     width: 100%;
     max-width: 930px;
     height: 50px;
     margin-top: 15px;
+}
+
+.component-remove-button {
+    margin-left: 5px;
+    cursor: pointer;
+    font-family: "Afacad Flux", sans-serif;
 }
