@@ -81,10 +81,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <h1>Username: <?php echo $userprofile_row['username'] ?></h1>
                     <p>Nickname: <?php echo $userprofile_row['nickname'] ?></p>
                     <p>User ID: <?php echo $user_id ?></p>
+                    <p>Runes: <?php echo $userprofile_row['runes'] ?></p>
                     <p>Join date: <?php echo $userprofile_row['joindate'] ?></p>
                 </div>
             </div>
-            <textarea class="description"><?php echo $userprofile_row['description'] ?></textarea>
+            <textarea class="description" id="description-textarea"><?php echo $userprofile_row['description'] ?></textarea>
+        </div>
+        <div class="profile-button-container">
+            <button onclick="saveDescription(<?php echo $userprofile_row['user_id'] ?>)">Save Description</button>
+            <button>Change Username</button>
+            <button>Change Nickname</button>
+            <button>Change Rune Amount</button>
+            <button>Change Join Date</button>
+            <button>Change Border</button>
+            <button style="background-color: red;">Ban User</button>
+            <button style="background-color: red;">Delete User</button>
         </div>
         <div class="component-container">
             <div class="component">
@@ -100,8 +111,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
             </div>
             <div class="component">
-                <div class="component-headline">Border inventory</div>
-                <div class="component-list-container">
+                <div class="component-headline">Border inventory <button class='component-remove-button' onclick="removeAllBorders(<?php echo $userprofile_row['user_id'] ?>)">Remove all</button></div>
+                <div class="component-list-container" id="border-inventory">
                     <?php
                     // Get border inventory of user and prints out p tag saying the border name with a button to remove it
                     $stmt = $conn->prepare("SELECT * FROM border_inventory WHERE user_id = ?");
