@@ -40,3 +40,131 @@ header h1 {
     width: 130px;
     margin-left: 10px;
 }
+
+.content {
+    width: calc(100% - 50px);
+    margin-top: 100px;
+    margin-left: 25px;
+    margin-right: 25px;
+    position: relative;
+}
+
+.user-search-container {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 15px;
+    width: 400px;
+    height: calc(100vh - 160px);
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.user-search-results {
+    background-color: #D9D9D9;
+    width: calc(100% - 20px);
+    height: calc(100% - 118px);
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-family: "Afacad Flux", sans-serif;
+}
+
+#user-search-input {
+    width: calc(100% - 6px);
+    border-radius: 5px;
+    height: 25px;
+    border: 1px solid black;
+    text-indent: 10px;
+    font-family: "Afacad Flux", sans-serif;
+    font-size: 18px;
+}
+
+.user-search-headline {
+    margin: 0;
+    padding: 0;
+    font-family: "Afacad Flux", sans-serif;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.search-result-container {
+    width: calc(100% - 20px);
+    height: 60px;
+    margin-bottom: 15px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.search-result-profilepic {
+    height: 60px;
+    width: 60px;
+    background-position: center;
+    background-size: 90% 90%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.search-result-profilepic img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.search-result-name-container {
+    width: calc(100% - 130px);
+    height: 60px;
+    margin-left: 5px;
+    font-family: "Afacad Flux", sans-serif;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.search-result-name-container h1{
+    font-size: 23px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    text-wrap: nowrap;
+}
+
+.search-result-name-container p{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 0;
+    font-size: 17px;
+    text-wrap: nowrap;
+    font-style: italic;
+}
+
+.user-search-button {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 0;
+    margin-right: 15px;
+    cursor: pointer;
+    background-image: url(../img/icons/settings.svg);
+    background-size: 80% 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 5px;
+    background-color: #d1d1d1;
+    opacity: 0.5;
+}
+
+.user-search-button:hover {
+    opacity: 1;
+}

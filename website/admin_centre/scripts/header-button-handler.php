@@ -183,6 +183,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             session_unset();
             header("Location: ../admin_login.php?error=logout");
             exit;
+        } else if (isset($_POST['phpmyadmin'])) {
+            header("Location: ../../phpMyAdmin/index.php");
         }
     }
 } else {

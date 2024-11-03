@@ -25,6 +25,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "codenotfound";
         exit;
     } else {
+        // Checks if code is a special code.
+        require dirname(dirname(__FILE__)) . "/config/devcode_special.php";
+
         // Gives user rewards
         $row = $result->fetch_assoc();
         if ($row['runes'] != NULL) {
@@ -37,10 +40,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($row['skin'] != NULL) {
             
         }
-
-        // Checks if code is a special code.
-        require dirname(dirname(__FILE__)) . "/config/devcode_special.php";
-        specialDevCode($posted_devcode);
 
         // User cant redeem code in future
         $stmt->close();

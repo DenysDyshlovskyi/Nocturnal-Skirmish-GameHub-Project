@@ -1,0 +1,197 @@
+/* Stylesheet for page where admins can edit user details */
+
+.content {
+    width: calc(100% - 75px);
+    height: calc(100vh - 75px);
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: white;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 15px;
+}
+
+.backtodash {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 15px;
+    cursor: pointer;
+    font-family: "Afacad Flux", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    height: 30px;
+    width: 130px;
+    margin-left: 10px;
+}
+
+.profile-container {
+    width: 100%;
+    max-width: 930px;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #D1D1D1;
+    border: solid 1px black;
+    position: relative;
+}
+
+.banner-container {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: calc(100% - 20px);
+    height: 140px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+
+.banner-container:hover > .banner-hover-pencil {
+    display: block;
+}
+
+.banner-hover-pencil {
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/icons/pencil.svg);
+    background-position: center;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.name-container {
+    position: relative;
+    margin-top: 150px;
+    width: 100%;
+    height: 130px;
+    display: flex;
+}
+
+.profilepic {
+    width: 130px;
+    height: 130px;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90% 90%;
+}
+
+.profilepic img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.name-inner-container {
+    width: calc(100% - 140px);
+    margin-left: 10px;
+    height: 130px;
+    font-family: "Afacad Flux", sans-serif;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.name-inner-container h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 35px;
+    text-wrap: nowrap;
+}
+
+.name-inner-container p {
+    margin: 0;
+    padding: 0;
+    font-size: 21px;
+    font-style: italic;
+    text-wrap: nowrap;
+}
+
+.profilepic:hover > .profilepic-pencil-hover {
+    display: block;
+}
+
+.profilepic-pencil-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/icons/pencil.svg);
+    background-position: center;
+    background-size: 30% 30%;
+    background-repeat: no-repeat;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.description {
+    padding: 10px;
+    width: calc(100% - 20px);
+    height: 190px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: none;
+    resize: none;
+    font-family: "Afacad Flux", sans-serif;
+    font-size: 20px;
+}
+
+.component-container {
+    margin-top: 15px;
+    margin-right: 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(100% - 1005px);
+    height: fit-content;
+}
+
+.ip_container {
+    background-color: #D1D1D1;
+    height: 150px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid black;
+    font-family: "Afacad Flux", sans-serif;
+}
+
+.ip-container-headline {
+    width: 100%;
+    height: 50px;
+    background-color: #969696;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    font-size: 27px;
+    font-weight: 600;
+}
+
+.ip-adresses {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: calc(100% - 20px);
+    padding-top: 10px;
+    height: 100%;
+    font-size: 23px;
+}
