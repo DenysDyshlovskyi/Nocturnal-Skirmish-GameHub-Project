@@ -151,3 +151,160 @@ function removeAllPendingFriends(user_id) {
         }
     })
 }
+
+// GET request with ajax
+function ajaxGet(phpFile, changeID){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function(){
+        document.getElementById(changeID).innerHTML = this.responseText;
+        if (changeID == "dark-container") {
+            $("#dark-container").fadeIn(100);
+        }
+    }
+    xhttp.open("GET", phpFile);
+    xhttp.send();
+}
+
+//Removes dark container and its contents
+function removeDarkContainer() {
+    container = document.getElementById("dark-container");
+    if (window.getComputedStyle(container).display != 'none') {
+        container.innerHTML = "";
+        container.style.display = 'none';
+    }
+}
+
+// Adds specified border to users inventory
+function addBorder(user_id, border) {
+    $.ajax({
+        type: "POST",
+        url: './scripts/display_profile/add_border.php',
+        data:{ user_id : user_id, border : border}, 
+        success: function(response){
+            if (response == "error") {
+                showConfirm("Something went wrong.")
+            } else {
+                removeDarkContainer();
+                showConfirm("Border " + border + " added to inventory! (Refresh to see changes)");
+            }
+        }
+    })
+}
+
+// saves username
+function saveUsername(user_id) {
+    var username = document.getElementById("username-input-change").value;
+    $.ajax({
+        type: "POST",
+        url: './scripts/display_profile/save_username.php',
+        data:{ user_id : user_id, new_username : username}, 
+        success: function(response){
+            if (response == "taken") {
+                showConfirm("Username taken!")
+            } else {
+                var usernameContainer = document.getElementById("username-h1");
+                usernameContainer.innerHTML = "Username: " + username;
+                removeDarkContainer();
+                showConfirm("Username changed to " + username);
+            }
+        }
+    })
+}
+
+// Saves nickname
+function saveNickname(user_id) {
+    var nickname = document.getElementById("nickname-input-change").value;
+    $.ajax({
+        type: "POST",
+        url: './scripts/display_profile/save_nickname.php',
+        data:{ user_id : user_id, new_nickname : nickname}, 
+        success: function(response){
+            if (response == "error") {
+                showConfirm("Something went wrong.")
+            } else {
+                var nicknameContainer = document.getElementById("nickname-p");
+                nicknameContainer.innerHTML = "Nickname: " + nickname;
+                removeDarkContainer();
+                showConfirm("Nickname changed to " + nickname);
+            }
+        }
+    })
+}
+
+// Saves rune amount
+function changeRuneAmount(user_id) {
+    var runes = document.getElementById("rune-amount-change").value;
+    $.ajax({
+        type: "POST",
+        url: './scripts/display_profile/save_runes.php',
+        data:{ user_id : user_id, new_runes : runes}, 
+        success: function(response){
+            if (response == "error") {
+                showConfirm("Something went wrong.")
+            } else {
+                var runesContainer = document.getElementById("runes-p");
+                runesContainer.innerHTML = "Runes: " + runes;
+                removeDarkContainer();
+                showConfirm("Amount of runes changed to " + runes);
+            }
+        }
+    })
+}
+
+// Saves joindate
+function changeJoinDate(user_id) {
+    var joindate = document.getElementById("joindate-input").value;
+    $.ajax({
+        type: "POST",
+        url: './scripts/display_profile/save_joindate.php',
+        data:{ user_id : user_id, new_joindate : joindate}, 
+        success: function(response){
+            if (response == "error") {
+                showConfirm("Something went wrong.")
+            } else {
+                var joindateContainer = document.getElementById("joindate-p");
+                joindateContainer.innerHTML = "Join date: " + joindate;
+                removeDarkContainer();
+                showConfirm("Join date changed to " + joindate);
+            }
+        }
+    })
+}
+
+// Saves email
+function saveEmail(user_id) {
+    var email = document.getElementById("email-input").value;
+    $.ajax({
+        type: "POST",
+        url: './scripts/display_profile/save_email.php',
+        data:{ user_id : user_id, new_email : email}, 
+        success: function(response){
+            if (response == "taken") {
+                showConfirm("Email already registered!.")
+            } else {
+                var emailContainer = document.getElementById("email-p");
+                emailContainer.innerHTML = "E-mail: " + email;
+                removeDarkContainer();
+                showConfirm("Email changed to " + email);
+            }
+        }
+    })
+}
+
+// Saves passowrd
+function savePassword(user_id) {
+    var password = document.getElementById("password-input").value;
+    $.ajax({
+        type: "POST",
+        url: './scripts/display_profile/save_password.php',
+        data:{ user_id : user_id, new_password : password}, 
+        success: function(response){
+            if (response == "error") {
+                showConfirm("Something went wrong.")
+            } else {
+                removeDarkContainer();
+                showConfirm("Password changed to " + password);
+            }
+        }
+    })
+}

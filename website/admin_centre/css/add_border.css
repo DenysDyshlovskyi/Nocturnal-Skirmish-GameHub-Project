@@ -1,0 +1,54 @@
+/* Stylesheet for add border modal */
+
+.border-add-container {
+    width: 500px;
+    height: fit-content;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.border-add-container h1 {
+    font-family: "Afacad Flux", "sans-serif";
+}
+
+.table_container {
+    width: 100%;
+    min-height: 150px;
+    max-height: 500px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+table {
+    width: 100%;
+    font-family: "Afacad Flux", "sans-serif";
+}
+
+table, th, td, tr{
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+td, tr{
+    height: 60px;
+}
+
+td img{
+    width: 60px;
+    height: 60px;
+}
+
+#cancel-button {
+    font-family: "Afacad Flux", "sans-serif";
+    cursor: pointer;
+    font-size: 22px;
+    margin-top: 15px;
+}

@@ -1,0 +1,27 @@
+/* Stylesheet for modals for changing password, nickname, username, runes, email, ... Basically anything to do with plain text */
+
+.textchange-container {
+    width: 500px;
+    height: fit-content;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#cancel-button {
+    font-family: "Afacad Flux", "sans-serif";
+    cursor: pointer;
+    font-size: 22px;
+    margin-top: 15px;
+}
+
+.textchange-container h1 {
+    font-family: "Afacad Flux", "sans-serif";
+}

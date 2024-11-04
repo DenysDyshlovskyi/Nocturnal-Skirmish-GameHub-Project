@@ -141,7 +141,7 @@ require "./php_scripts/get_loggedin_info.php";
         localStorage.setItem("volumeMusic", 1);
     }
 
-    // Starts 2 second interval to update players online counter
+    // Starts 5 second interval to update players online counter
     setInterval(function(){
         ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx');
     }, 5000);
