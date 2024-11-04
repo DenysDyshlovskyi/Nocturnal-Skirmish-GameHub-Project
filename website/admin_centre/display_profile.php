@@ -81,8 +81,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <h1>Username: <?php echo $userprofile_row['username'] ?></h1>
                     <p>Nickname: <?php echo $userprofile_row['nickname'] ?></p>
                     <p>User ID: <?php echo $user_id ?></p>
+                </div>
+                <div class="name-inner-container-divider"></div>
+                <div class="name-inner-container">
+                    <h1>Other info:</h1>
                     <p>Runes: <?php echo $userprofile_row['runes'] ?></p>
                     <p>Join date: <?php echo $userprofile_row['joindate'] ?></p>
+                    <p>E-mail: <?php echo $userprofile_row['email'] ?></p>
                 </div>
             </div>
             <textarea class="description" id="description-textarea"><?php echo $userprofile_row['description'] ?></textarea>
@@ -93,7 +98,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             <button>Change Nickname</button>
             <button>Change Rune Amount</button>
             <button>Change Join Date</button>
+            <button>Change E-mail</button>
             <button>Change Border</button>
+            <button>Change Password</button>
+            <br>
+            <br>
             <button style="background-color: red;">Ban User</button>
             <button style="background-color: red;">Delete User</button>
         </div>
@@ -126,25 +135,83 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                             printf("<p id='borderComponent_" . $row['border'] . "'>" . $row['border'] . "<button class='component-remove-button' onclick='removeBorder(" . $row['user_id'] . ", %s)'>Remove</button></p>", '"' . $row['border'] . '"');
                         }
                     }
+                    $stmt->close();
                     ?>
                 <br><button onclick="addNewBorder(<?php echo $user_id ?>)">Add new border to inventory</button>
                 </div>
             </div>
             <div class="component">
-                <div class="component-headline">Friend list</div>
-                <div class="component-list-container">
-                    <?php echo $dev_codes ?>
+                <div class="component-headline">Friend list <button class='component-remove-button' onclick="removeAllFriends(<?php echo $userprofile_row['user_id'] ?>)">Remove all</button></div>
+                <div class="component-list-container" id="friend_list">
+                <?php
+                    // Gets friend list of user
+                    $stmt = $conn->prepare("SELECT * FROM friend_list WHERE user_id_1 = ?");
+                    $stmt->bind_param("s", $user_id);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    if ((mysqli_num_rows($result) <= 0)) {
+                        echo "No friends. ";
+                    } else {
+                        while ($row = $result->fetch_assoc()) {
+                            $stmt2 = $conn->prepare("SELECT username FROM users WHERE user_id = ?");
+                            $stmt2->bind_param("s", $row['user_id_2']);
+                            $stmt2->execute();
+                            $result2 = $stmt2->get_result();
+                            $friend_row = $result2->fetch_assoc();
+                            echo "<p id='friendListComponent_" . $row['user_id_2'] . "'>" . $friend_row['username'] . " (uID: " . $row['user_id_2'] . ")<button class='component-remove-button' onclick='removeFriend(" . $row['user_id_1'] . ", " . $row['user_id_2'] . ")'>Remove</button></p>";
+                        }
+                    }
+                    $stmt->close();
+                    ?>
                 </div>
             </div>
             <div class="component">
-                <div class="component-headline">Pending friend list</div>
-                <div class="component-list-container">
-                    <?php echo $dev_codes ?>
+                <div class="component-headline">Pending friend list <button class='component-remove-button' onclick="removeAllPendingFriends(<?php echo $userprofile_row['user_id'] ?>)">Remove all</button></div>
+                <div class="component-list-container" id="pending_friend_list">
+                <?php
+                    // Gets outgoing pending friend list of user
+                    $stmt = $conn->prepare("SELECT * FROM pending_friend_list WHERE user_id_1 = ?");
+                    $stmt->bind_param("s", $user_id);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    if ((mysqli_num_rows($result) <= 0)) {
+                        echo "No outgoing pending friends. <br>";
+                    } else {
+                        while ($row = $result->fetch_assoc()) {
+                            $stmt2 = $conn->prepare("SELECT username FROM users WHERE user_id = ?");
+                            $stmt2->bind_param("s", $row['user_id_2']);
+                            $stmt2->execute();
+                            $result2 = $stmt2->get_result();
+                            $friend_row = $result2->fetch_assoc();
+                            echo "<p id='pendingFriendListComponent_" . $row['id'] . "'>Outgoing: (Sent: " . $row['sent'] . ") " . $friend_row['username'] . " (uID: " . $row['user_id_2'] . ")<button class='component-remove-button' onclick='removePendingOutgoingFriend(" . $row['user_id_1'] . ", " . $row['user_id_2'] . ", " . $row['id'] . ")'>Remove</button></p>";
+                        }
+                    }
+                    $stmt->close();
+
+                    // Gets incoming pending friend list of user
+                    $stmt = $conn->prepare("SELECT * FROM pending_friend_list WHERE user_id_2 = ?");
+                    $stmt->bind_param("s", $user_id);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    if ((mysqli_num_rows($result) <= 0)) {
+                        echo "No incoming pending friends. ";
+                    } else {
+                        while ($row = $result->fetch_assoc()) {
+                            $stmt2 = $conn->prepare("SELECT username FROM users WHERE user_id = ?");
+                            $stmt2->bind_param("s", $row['user_id_1']);
+                            $stmt2->execute();
+                            $result2 = $stmt2->get_result();
+                            $friend_row = $result2->fetch_assoc();
+                            echo "<p id='pendingFriendListComponent_" . $row['id'] . "'>Incoming: (Sent: " . $row['sent'] . ") " . $friend_row['username'] . " (uID: " . $row['user_id_1'] . ")<button class='component-remove-button' onclick='removePendingIncomingFriend(" . $row['user_id_1'] . ", " . $row['user_id_2'] . ", " . $row['id'] . ")'>Remove</button></p>";
+                        }
+                    }
+                    $stmt->close();
+                    ?>
                 </div>
             </div>
         </div>
+        <button class="backtodash" onclick="window.location.href = 'dashboard.php'">Back to dashboard</button>
     </div>
-    <button class="backtodash" onclick="window.location.href = 'dashboard.php'">Back to dashboard</button>
 </body>
 <script><?php include "./js/display_profile.js" ?></script>
 </html>

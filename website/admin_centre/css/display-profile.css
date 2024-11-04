@@ -17,7 +17,7 @@
 }
 
 .backtodash {
-    position: fixed;
+    position: absolute;
     right: 0;
     bottom: 0;
     margin: 15px;
@@ -97,11 +97,18 @@
 }
 
 .name-inner-container {
-    width: calc(100% - 140px);
+    width: fit-content;
     margin-left: 10px;
     height: 130px;
     font-family: "Afacad Flux", sans-serif;
     overflow-y: hidden;
+}
+
+.name-inner-container-divider {
+    width: 1px;
+    height: 100%;
+    background-color: black;
+    margin-left: 10px;
 }
 
 .name-inner-container h1 {
@@ -164,8 +171,7 @@
 
 .component {
     background-color: #D1D1D1;
-    height: 150px;
-    overflow-y: scroll;
+    height: fit-content;
     overflow-x: hidden;
     width: 100%;
     border-radius: 10px;
@@ -173,6 +179,7 @@
     border: 1px solid black;
     font-family: "Afacad Flux", sans-serif;
     margin-bottom: 15px;
+    padding-bottom: 10px;
 }
 
 .component-headline {
