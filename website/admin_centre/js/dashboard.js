@@ -14,3 +14,5 @@ function adminUserSearch(search) {
         }
     })
 }
+
+$('#message-container').delay(2000).fadeOut('slow');

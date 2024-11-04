@@ -20,6 +20,11 @@ if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] != 1) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
+    <?php
+    if (isset($_GET['userdeleted'])) {
+        echo "<div id='message-container'>User deleted. uID: " . $_GET['userdeleted'] . "</div>";
+    }
+    ?>
     <header>
         <h1>GameHub Admin Center</h1>
         <div class="header-button-container">
@@ -42,4 +47,5 @@ if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] != 1) {
     </div>
 </body>
 <script><?php include "./js/dashboard.js" ?></script>
+</body>
 </html>

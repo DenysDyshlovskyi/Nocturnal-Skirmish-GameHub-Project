@@ -213,7 +213,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             <br>
             <br>
             <button style="background-color: red;">Ban User</button>
-            <button style="background-color: red;">Delete User</button>
+            <form action="./scripts/delete_user.php" method="POST">
+                <button style="background-color: red;">Delete User</button>
+                <input type="hidden" value="<?php echo $user_id ?>" name="user_id">
+            </form>
         </div>
         <button class="backtodash" onclick="window.location.href = 'dashboard.php'">Back to dashboard</button>
     </div>
