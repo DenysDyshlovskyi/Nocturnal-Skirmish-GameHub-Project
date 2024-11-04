@@ -38,13 +38,26 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $alreadySent = 1;
                 }
 
-                if ($isInFriendsList == 0 && $alreadySent == 0) {
+                // Checks if user has already sent friend request to you
+                $stmt = $conn->prepare("SELECT user_id_2 FROM pending_friend_list WHERE user_id_1 = ? AND user_id_2 = ?");
+                $stmt->bind_param("ss", $row['user_id'], $_SESSION['user_id']);
+                $stmt->execute();
+                $result2 = $stmt->get_result();
+                if ((mysqli_num_rows($result2) <= 0)) {
+                    $alreadyReceived = 0;
+                } else {
+                    $alreadyReceived = 1;
+                }
+
+                if ($isInFriendsList == 0 && $alreadySent == 0 && $alreadyReceived == 0) {
                     $friendRequestButton = "<button title='Send friend request' onclick='sendFriendRequest(" . $row['user_id'] . ", %s)'></button>";
                 } else {
                     if ($isInFriendsList == 1) {
                         $friendRequestButton = "<button title='You are already friends with this user.' id='already_friends'></button>";
-                    } else {
+                    } else if ($alreadySent == 1){
                         $friendRequestButton = "<button title='You have already sent this user a friend request.' id='already_friends'></button>";
+                    } else {
+                        $friendRequestButton = "<button title='This user has already sent you a friend request' id='already_friends'></button>";
                     }
                 }
 

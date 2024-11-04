@@ -40,7 +40,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         $stmt->close();
 
-        if ($isInFriendsList == 0 && $alreadySent == 0) {
+        // Checks if user has already sent friend request to you
+        $stmt = $conn->prepare("SELECT user_id_2 FROM pending_friend_list WHERE user_id_1 = ? AND user_id_2 = ?");
+        $stmt->bind_param("ss", $user_id, $_SESSION['user_id']);
+        $stmt->execute();
+        $result2 = $stmt->get_result();
+        if ((mysqli_num_rows($result2) <= 0)) {
+            $alreadyReceived = 0;
+        } else {
+            $alreadyReceived = 1;
+        }
+        $stmt->close();
+
+        if ($isInFriendsList == 0 && $alreadySent == 0 && $alreadyReceived == 0) {
             // Insert friend request into pending_friend_list table
             $stmt = $conn->prepare("INSERT INTO pending_friend_list (user_id_1, user_id_2, sent) VALUES (?,?,?)");
             $stmt->bind_param("sss", $_SESSION['user_id'], $user_id, $date);
