@@ -16,13 +16,13 @@ if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] != 1) {
 <div class="ban-container">
     <h1>Ban user: uID <?php echo $_SESSION['displayprofile_userid'] ?></h1>
     <b>Type:</b>
-    <form action="display_profile.php" method="post">
-        <input type="checkbox" onclick="$('#perm').prop('checked', false); $('#temp').prop('checked', true); banType('temp');" id="temp"> Temporary
-        <input type="checkbox" onclick="$('#temp').prop('checked', false); $('#perm').prop('checked', true); banType('perm')" id="perm"> Permanent
+    <form action="./scripts/display_profile/ban_user.php" method="post">
+        <input type="checkbox" onclick="$('#perm').prop('checked', false); $('#temp').prop('checked', true); banType('temp');" id="temp" name="temporary"> Temporary
+        <input type="checkbox" onclick="$('#temp').prop('checked', false); $('#perm').prop('checked', true); banType('perm')" id="perm" name="permanent"> Permanent
         <div id="hide-show-ban">
-            <p id="ban-duration"><b>Banned till:</b><br> <input type="date" id="ban-duration-input"></p>
+            <p id="ban-duration"><b>Banned till:</b><br> <input type="date" id="ban-duration-input" name="duration"></p>
             <b>Reason for ban:</b><br>
-            <textarea name="" id=""></textarea>
+            <textarea name="reason" maxlength="300"></textarea>
             <br>
             <input type="submit" value="Ban user" class="ban-button">
             <br>
