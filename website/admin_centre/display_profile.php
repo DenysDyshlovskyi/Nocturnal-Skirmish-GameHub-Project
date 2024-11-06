@@ -58,7 +58,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="content">
         <div class="top-half-container">
             <div class="profile-container">
-                <a href="#">
+                <a href="#" onclick="ajaxGet('./spa/upload_banner.php', 'dark-container')">
                     <div class="banner-container" style="background-image: url(../img/profile_banners/<?php echo $userprofile_row['profile_banner'] ?>);">
                         <div class="banner-hover-pencil"></div>
                     </div>

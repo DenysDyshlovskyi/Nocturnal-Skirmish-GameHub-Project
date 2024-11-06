@@ -163,6 +163,8 @@ function ajaxGet(phpFile, changeID, onLoad){
 
         if (onLoad == "cropper_js") {
             configureCropperJS();
+        } else if (onLoad == "cropper_js_banner") {
+            configureCropperJSBanner();
         }
     }
     xhttp.open("GET", phpFile);
@@ -427,6 +429,76 @@ function configureCropperJS() {
                             removeDarkContainer();
                         } else {
                             showConfirm("Profile picture saved! Refresh to see changes.");
+                            removeDarkContainer();
+                        }
+					}
+				});
+			};
+		});
+    });
+};
+
+// Uploads temp banner to server
+function uploadBanner() {
+    var file_data = $('#banner-input').prop('files')[0];   
+    var form_data = new FormData();                  
+    form_data.append('file', file_data);                           
+    $.ajax({
+        url: './scripts/display_profile/banner_upload.php',
+        dataType: 'text',
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: form_data,                         
+        type: 'post',
+        success: function(response){
+            if (response == "unsupported") {
+                removeDarkContainer();
+                showConfirm("File type not supported! Only JPG allowed.");
+            } else if (response == "empty") {
+                removeDarkContainer();
+                showConfirm("File input empty!");
+            } else if (response == "error") {
+                removeDarkContainer();
+                showConfirm("Something went wrong.");
+            } else {
+                container = document.getElementById("dark-container");
+                container.innerHTML = "";
+                ajaxGet('./spa/banner_crop.php', 'dark-container', 'cropper_js_banner');
+            }
+        }
+    });
+};
+
+// Configures settings from cropper js for banner
+function configureCropperJSBanner() {
+    image = document.getElementById('cropper_js_element_banner');
+    let cropper = new Cropper(image, {
+        aspectRatio: 93/14,
+        dragMode: 'none',
+        preview: '.settings-banner-preview-banner'
+    });
+    $('#settings-banner-crop-save-button').click(function(){
+		canvas = cropper.getCroppedCanvas({
+			width:930,
+			height:140
+		});
+		canvas.toBlob(function(blob){
+			url = URL.createObjectURL(blob);
+			var reader = new FileReader();
+			reader.readAsDataURL(blob);
+			reader.onloadend = function(){
+				var base64data = reader.result;
+				$.ajax({
+					url:'./scripts/display_profile/banner_cropped_upload.php',
+					method:'POST',
+					data:{image:base64data},
+					success:function(response){
+                        if (response == "error") {
+                            showConfirm("Something went wrong.");
+                            removeDarkContainer();
+                        } else {
+                            showConfirm("Banner saved! Refresh to see changes.");
                             removeDarkContainer();
                         }
 					}

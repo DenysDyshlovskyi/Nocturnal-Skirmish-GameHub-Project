@@ -1,4 +1,3 @@
-<!-- Reusing style from banner upload --->
 <?php
 session_start();
 if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] != 1) {
@@ -12,14 +11,14 @@ if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] != 1) {
     }
 </style>
 <div class="settings-upload-banner-container">
-    <h1>Upload profile picture</h1>
-    <p>Only supports JPG and PNG.</p>
+    <h1>Upload banner</h1>
+    <p>Only supports JPG.</p>
     <div class="settings-upload-banner-input-container">
         <form method="POST" action="" enctype="multipart/form-data" id="banner-upload-form">
-            <label for="profilepic-input" class="settings-upload-banner-input">
+            <label for="banner-input" class="settings-upload-banner-input">
                 Upload
             </label>
-            <input type="file" id="profilepic-input" accept="image/jpeg, image/png" onchange="uploadProfilePic()">
+            <input type="file" id="banner-input" accept="image/jpeg" onchange="uploadBanner()">
         </form>
     </div>
     <div class="settings-upload-banner-button-container">
