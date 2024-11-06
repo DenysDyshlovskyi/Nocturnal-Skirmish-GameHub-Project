@@ -201,15 +201,32 @@
     width: 51%;
     background-color: #D9D9D9;
     border-radius: 0px 10px 10px 0px;
-    display: flex;
-    flex-direction: row;
     z-index: 0;
+}
+
+.right-middle-shop-container-titles {
+    margin-left: 6%;
+    font-size: 30px;
+}
+
+.right-middle-shop-container-cards {
+    display: flex;
+    justify-content: center;
+    width: 100%;  
+    gap: 10%;  
+}
+
+.right-card-content {
+    width: 22%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
 }
 
 /*---------------------------------------------------------------------*/
 /*card types*/
 
-.common-card-section-left-middle-shop-container {
+.common-card-section-middle-shop-container {
    background-color: #A4A4A4;
    margin-left: 5%;
    margin-top: -20px;
@@ -219,7 +236,7 @@
    height: 45%;
 }
 
- .fire-card-section-left-middle-shop-container {
+ .fire-card-section-middle-shop-container {
     background-color: #FF4D00;
     margin-left: 5%;
     margin-top: -20px;
@@ -229,7 +246,7 @@
     height: 45%;
  }
 
- .ice-card-section-left-middle-shop-container {
+ .ice-card-section-middle-shop-container {
     background-color: #cffdff;
     margin-left: 5%;
     margin-top: -20px;
@@ -239,7 +256,7 @@
     height: 45%;
  }
 
- .water-card-section-left-middle-shop-container {
+ .water-card-section-middle-shop-container {
     background-color: #427eff;
     margin-left: 5%;
     margin-top: -20px;
@@ -249,7 +266,7 @@
     height: 45%;
  }
 
- .blood-card-section-left-middle-shop-container {
+ .blood-card-section-middle-shop-container {
     background-color: #520000;
     margin-left: 5%;
     margin-top: -20px;
@@ -259,7 +276,7 @@
     height: 45%;
  }
 
- .holy-card-section-left-middle-shop-container {
+ .holy-card-section-middle-shop-container {
     background-color: #ffb700;
     margin-left: 5%;
     margin-top: -20px;
@@ -269,7 +286,7 @@
     height: 45%;
  }
 
- .nature-card-section-left-middle-shop-container {
+ .nature-card-section-middle-shop-container {
     background-color: #137200;
     margin-left: 5%;
     margin-top: -20px;
@@ -279,7 +296,7 @@
     height: 45%;
  }
 
- .chaos-card-section-left-middle-shop-container {
+ .chaos-card-section-middle-shop-container {
     background-color: #8b0088;
     margin-left: 5%;
     margin-top: -20px;
@@ -289,7 +306,7 @@
     height: 45%;
  }
 
- .poison-card-section-left-middle-shop-container {
+ .necromancy-card-section-middle-shop-container {
     background-color: #62ff00;
     margin-left: 5%;
     margin-top: -20px;
@@ -297,4 +314,40 @@
     border-radius: 20px;
     width: 90%;
     height: 45%;
+ }
+
+.christmas-card-section-middle-shop-container {
+    background-color: #62D0FF;
+    margin-left: 5%;
+    margin-top: -20px;
+    margin-bottom: 10%;
+    border-radius: 20px;
+    width: 90%;
+    height: 45%;
+    display: flex;
+    align-items: center;
+ }
+
+.halloween-card-section-middle-shop-container {
+    background-color: #ffb700;
+    margin-left: 5%;
+    margin-top: -20px;
+    margin-bottom: 10%;
+    border-radius: 20px;
+    width: 90%;
+    height: 45%;
+    display: flex;
+    align-items: center;
+ }
+
+.valentine-card-section-middle-shop-container {
+    background-color: #ff12ac;
+    margin-left: 5%;
+    margin-top: -20px;
+    margin-bottom: 10%;
+    border-radius: 20px;
+    width: 90%;
+    height: 45%;
+    display: flex;
+    align-items: center;
  }
