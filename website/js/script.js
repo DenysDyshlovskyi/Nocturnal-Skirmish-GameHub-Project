@@ -60,6 +60,8 @@ function ajaxGet(phpFile, changeID, onLoad){
             ajaxGet('./spa/hub/online_offline_friends.php', 'hub-friends-content');
             checkPendingAmount();
             startFriendsListInterval();
+        } else if (onLoad == "cropper_js_banner") {
+            configureCropperJSBanner();
         }
 
         if (onLoad != "no_sfx") {
@@ -172,13 +174,13 @@ function savePassword() {
     })
 }
 
-// Uploads banner to server
+// Uploads temp banner to server
 function uploadBanner() {
     var file_data = $('#banner-input').prop('files')[0];   
     var form_data = new FormData();                  
     form_data.append('file', file_data);                           
     $.ajax({
-        url: './php_scripts/banner_image_upload.php',
+        url: './php_scripts/banner_upload.php',
         dataType: 'text',
         cache: false,
         contentType: false,
@@ -187,16 +189,19 @@ function uploadBanner() {
         type: 'post',
         success: function(response){
             if (response == "unsupported") {
+                removeDarkContainer();
                 showConfirm("File type not supported! Only JPG allowed.");
             } else if (response == "empty") {
+                removeDarkContainer();
                 showConfirm("File input empty!");
             } else if (response == "error") {
+                removeDarkContainer();
                 showConfirm("Something went wrong.");
             } else {
-                showConfirm("Banner saved!");
-                document.getElementById('settings-myaccount-banner').style.backgroundImage = response;
+                container = document.getElementById("dark-container");
+                container.innerHTML = "";
+                ajaxGet('./spa/user_settings/banner_crop.php', 'dark-container', 'cropper_js_banner');
             }
-            removeDarkContainer();
         }
     });
 };
@@ -233,7 +238,7 @@ function uploadProfilePic() {
     });
 };
 
-// Configures settings from cropper js
+// Configures settings from cropper js for profile picture
 function configureCropperJS() {
     image = document.getElementById('cropper_js_element');
     let cropper = new Cropper(image, {
@@ -263,6 +268,45 @@ function configureCropperJS() {
                         } else {
                             document.getElementById("settings-myaccount-profile-pic-parent").style.backgroundImage = response;
                             showConfirm("Profile picture saved!");
+                            removeDarkContainer();
+                        }
+					}
+				});
+			};
+		});
+    });
+};
+
+// Configures settings from cropper js for banner
+function configureCropperJSBanner() {
+    image = document.getElementById('cropper_js_element_banner');
+    let cropper = new Cropper(image, {
+        aspectRatio: 93/14,
+        dragMode: 'none',
+        preview: '.settings-banner-preview-banner'
+    });
+    $('#settings-banner-crop-save-button').click(function(){
+		canvas = cropper.getCroppedCanvas({
+			width:930,
+			height:140
+		});
+		canvas.toBlob(function(blob){
+			url = URL.createObjectURL(blob);
+			var reader = new FileReader();
+			reader.readAsDataURL(blob);
+			reader.onloadend = function(){
+				var base64data = reader.result;
+				$.ajax({
+					url:'./php_scripts/banner_cropped_upload.php',
+					method:'POST',
+					data:{image:base64data},
+					success:function(response){
+                        if (response == "error") {
+                            showConfirm("Something went wrong.");
+                            removeDarkContainer();
+                        } else {
+                            document.getElementById("settings-myaccount-banner").style.backgroundImage = response;
+                            showConfirm("Banner saved!");
                             removeDarkContainer();
                         }
 					}

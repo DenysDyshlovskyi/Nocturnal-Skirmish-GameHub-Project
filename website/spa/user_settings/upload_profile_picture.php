@@ -5,7 +5,7 @@
         display: block !important;
     }
 </style>
-<div class="settings-upload-banner-container" id="settings-upload-profilepic-container" onload="prepareSFX()">
+<div class="settings-upload-banner-container" onload="prepareSFX()">
     <h1>Upload profile picture</h1>
     <p>Only supports JPG and PNG.</p>
     <div class="settings-upload-banner-input-container">

@@ -15,4 +15,4 @@ function adminUserSearch(search) {
     })
 }
 
-$('#message-container').delay(2000).fadeOut('slow');
+$('#message-container').delay(3500).fadeOut('slow');

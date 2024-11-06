@@ -120,3 +120,11 @@
     left: 0;
     z-index: 999;
 }
+
+.settings-banner-preview-banner {
+    width: 465px;
+    height: 70px;
+    overflow: hidden;
+    position: relative;
+    border: solid black 1px;
+}

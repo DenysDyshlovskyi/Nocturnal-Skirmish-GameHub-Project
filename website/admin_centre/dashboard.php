@@ -22,7 +22,7 @@ if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] != 1) {
 <body>
     <?php
     if (isset($_GET['userdeleted'])) {
-        echo "<div id='message-container'>User deleted. uID: " . $_GET['userdeleted'] . "</div>";
+        echo "<div id='message-container'>User deleted. uID: " . $_GET['userdeleted'] . ". Cleanup recommended.</div>";
     }
     ?>
     <header>
