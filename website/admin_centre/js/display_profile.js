@@ -153,12 +153,16 @@ function removeAllPendingFriends(user_id) {
 }
 
 // GET request with ajax
-function ajaxGet(phpFile, changeID){
+function ajaxGet(phpFile, changeID, onLoad){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function(){
         document.getElementById(changeID).innerHTML = this.responseText;
         if (changeID == "dark-container") {
             $("#dark-container").fadeIn(100);
+        }
+
+        if (onLoad == "cropper_js") {
+            configureCropperJS();
         }
     }
     xhttp.open("GET", phpFile);
@@ -361,3 +365,73 @@ function changeBorder(user_id, border) {
         }
     })
 }
+
+// Uploads temp profile pic to server
+function uploadProfilePic() {
+    var file_data = $('#profilepic-input').prop('files')[0];   
+    var form_data = new FormData();                  
+    form_data.append('file', file_data);                           
+    $.ajax({
+        url: './scripts/display_profile/profilepic_upload.php',
+        dataType: 'text',
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: form_data,                         
+        type: 'post',
+        success: function(response){
+            if (response == "unsupported") {
+                removeDarkContainer();
+                showConfirm("File type not supported! Only JPG and PNG allowed.");
+            } else if (response == "empty") {
+                removeDarkContainer();
+                showConfirm("File input empty!");
+            } else if (response == "error") {
+                removeDarkContainer();
+                showConfirm("Something went wrong.");
+            } else {
+                container = document.getElementById("dark-container");
+                container.innerHTML = "";
+                ajaxGet('./spa/profilepic_crop.php', 'dark-container', 'cropper_js');
+            }
+        }
+    });
+};
+
+// Configures settings from cropper js for profile picture
+function configureCropperJS() {
+    image = document.getElementById('cropper_js_element');
+    let cropper = new Cropper(image, {
+        aspectRatio: 1/1,
+        dragMode: 'none',
+        preview: '.settings-profilepic-preview-profilepic'
+    });
+    $('#settings-profilepic-crop-save-button').click(function(){
+		canvas = cropper.getCroppedCanvas({
+			width:400,
+			height:400
+		});
+		canvas.toBlob(function(blob){
+			url = URL.createObjectURL(blob);
+			var reader = new FileReader();
+			reader.readAsDataURL(blob);
+			reader.onloadend = function(){
+				var base64data = reader.result;
+				$.ajax({
+					url:'./scripts/display_profile/profilepic_cropped_upload.php',
+					method:'POST',
+					data:{image:base64data},
+					success:function(response){
+                        if (response == "error") {
+                            showConfirm("Something went wrong.");
+                            removeDarkContainer();
+                        } else {
+                            showConfirm("Profile picture saved! Refresh to see changes.");
+                            removeDarkContainer();
+                        }
+					}
+				});
+			};
+		});
+    });
+};

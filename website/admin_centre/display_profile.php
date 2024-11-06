@@ -17,6 +17,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $userprofile_row = $result->fetch_assoc();
 
+        $_SESSION['user_profile_border'] = "../img/borders/" . $userprofile_row['profile_border'];
+
         // Get ip adresses registered to user
         $stmt = $conn->prepare("SELECT * FROM ip_adresses WHERE user_id = ?");
         $stmt->bind_param("s", $user_id);
@@ -47,6 +49,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <style> <?php include "../css/universal.css" ?> </style>
     <style> <?php include "./css/display-profile.css" ?> </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="../lib/cropper_js/node_modules/cropperjs/dist/cropper.css" rel="stylesheet">
+    <script src="../lib/cropper_js/node_modules/cropperjs/dist/cropper.js"></script>
 </head>
 <body onload="ajaxGet('./scripts/display_profile/online-offline.php', 'online-offline');">
     <div id="dark-container" class="dark-container"></div>
@@ -60,7 +64,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
                 </a>
                 <div class="name-container">
-                    <a href="#">
+                    <a href="#" onclick="ajaxGet('./spa/upload_profile_picture.php', 'dark-container')">
                         <div class="profilepic" style="background-image: url(../img/profile_pictures/<?php echo $userprofile_row['profile_picture'] ?>);">
                             <div class="profilepic-pencil-hover"></div>
                             <img src="../img/borders/<?php echo $userprofile_row['profile_border'] ?>" alt="">

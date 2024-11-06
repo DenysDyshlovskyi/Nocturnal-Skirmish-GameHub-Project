@@ -1,0 +1,118 @@
+/*Stylesheet for banner upload popup*/
+
+.settings-upload-banner-container {
+    width: 650px;
+    height: 300px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    align-items: center;
+}
+
+.settings-upload-banner-container h1{
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    margin: 0;
+    margin-top: 15px;
+}
+
+.settings-upload-banner-container p {
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 22px;
+    margin: 0;
+}
+
+.settings-upload-banner-input-container {
+    position: relative;
+    top: 20px;
+    width: 400px;
+    height: 70px;
+    background-color: #DCDCDC;
+    border-radius: 10px;
+    margin: auto;
+    display: grid;
+    place-items: center;
+    margin-bottom: 30px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.settings-upload-banner-input {
+    display: inline-block;
+    background-color: white;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    border: solid 1px black;
+    border-radius: 5px;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.settings-upload-banner-input:hover {
+    background-color: rgb(166, 166, 166);
+}
+
+.settings-upload-banner-preview {
+    position: relative;
+    top: 15px;
+    width: 465px;
+    height: 70px;
+    background-color: #DCDCDC;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: auto;
+    border-radius: 5px;
+}
+
+.settings-upload-banner-button-container {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 30px;
+}
+
+.settings-upload-banner-button-container button {
+    width: 160px;
+    height: 70px;
+    border: #4A88FF solid 3px;
+    color: #4A88FF;
+    background-color: white;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.settings-upload-banner-button-container button:hover {
+    background-color: #4A88FF;
+    color: white;
+}
+
+#settings-upload-banner-button-cancel {
+    border: #6C6C6C solid 3px;
+    color: #6C6C6C;
+}
+
+#settings-upload-banner-button-cancel:hover {
+    background-color: #6C6C6C;
+    color: white;
+}

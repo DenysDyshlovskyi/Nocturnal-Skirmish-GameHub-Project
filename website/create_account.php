@@ -73,7 +73,7 @@ if(isset($_POST['next_button'])){
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
     $_SESSION['user_id'] = $row['user_id'];
-    $stmt->close();
+    require "./php_scripts/register_ip.php";
 
     $mailReceiver = $_POST['email'];
     $mailSubject = "Thank you for creating a GameHub account!";
