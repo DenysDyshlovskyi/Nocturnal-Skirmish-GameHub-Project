@@ -258,3 +258,13 @@
     width: 90%;
     height: 45%;
  }
+
+ .holy-card-section-left-middle-shop-container {
+    background-color: #ffb700;
+    margin-left: 5%;
+    margin-top: -20px;
+    margin-bottom: 10%;
+    border-radius: 20px;
+    width: 90%;
+    height: 45%;
+ }
