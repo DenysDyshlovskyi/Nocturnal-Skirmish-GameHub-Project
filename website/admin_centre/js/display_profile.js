@@ -308,3 +308,39 @@ function savePassword(user_id) {
         }
     })
 }
+
+// Removes redeemed code
+function removeRedeemed(row_id){
+    $.ajax({
+        type: "POST",
+        url: './scripts/display_profile/remove_redeemed_code.php',
+        data:{row_id : row_id}, 
+        success: function(response){
+            if (response == "error") {
+                showConfirm("Something went wrong.")
+            } else {
+                var redeemedContainer = document.getElementById("redeemedComponent_" + row_id);
+                redeemedContainer.remove();
+                showConfirm("Removed redeemed code: " + response);
+            }
+        }
+    })
+}
+
+// Removes all redeemed codes
+function removeAllRedeemed(user_id) {
+    $.ajax({
+        type: "POST",
+        url: './scripts/display_profile/remove_all_redeemed_codes.php',
+        data:{user_id : user_id}, 
+        success: function(response){
+            if (response == "error") {
+                showConfirm("Something went wrong.")
+            } else {
+                var redeemedContainer = document.getElementById("redeemed_codes");
+                redeemedContainer.innerHTML = "No redeemed codes. <br>";
+                showConfirm("Removed all redeemed codes.");
+            }
+        }
+    })
+}

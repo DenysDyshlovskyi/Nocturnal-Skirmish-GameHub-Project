@@ -104,9 +104,23 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
                 </div>
                 <div class="component">
-                    <div class="component-headline">Redeemed dev codes</div>
-                    <div class="component-list-container">
-                        <?php echo $dev_codes ?>
+                    <div class="component-headline">Redeemed dev codes <button class='component-remove-button' onclick="removeAllRedeemed(<?php echo $userprofile_row['user_id'] ?>)">Remove all</button></div>
+                    <div class="component-list-container" id="redeemed_codes">
+                        <?php
+                        // Get redeemed codes of user and prints out p tag saying the redeemed code with a button to remove it
+                        $stmt = $conn->prepare("SELECT * FROM redeemed_codes WHERE user_id = ?");
+                        $stmt->bind_param("s", $user_id);
+                        $stmt->execute();
+                        $result = $stmt->get_result();
+                        if ((mysqli_num_rows($result) <= 0)) {
+                            echo "No redeemed codes. <br> ";
+                        } else {
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<p id='redeemedComponent_" . $row['id'] . "'>" . $row['code'] . "<button class='component-remove-button' onclick='removeRedeemed(" . $row['id'] . ")'>Remove</button></p>";
+                            }
+                        }
+                        $stmt->close();
+                        ?>
                     </div>
                 </div>
                 <div class="component">
