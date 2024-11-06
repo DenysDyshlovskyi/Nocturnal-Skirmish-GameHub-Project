@@ -151,6 +151,17 @@
     font-family: "Afacad Flux", sans-serif;
 }
 
+.dark-card-name {
+    color: #777777;
+    margin-top: 0%;
+    font-size: 1.2vw;
+    margin-left: 5%;
+    text-decoration: underline;
+    font-weight: bold;
+    text-underline-offset: 20%;
+    font-family: "Afacad Flux", sans-serif;
+}
+
 .profileborder-section-left-middle-shop-container {
     margin-left: 5%;
     margin-top: -20px;
@@ -208,7 +219,7 @@
    height: 45%;
 }
 
-.fire-card-section-left-middle-shop-container {
+ .fire-card-section-left-middle-shop-container {
     background-color: #FF4D00;
     margin-left: 5%;
     margin-top: -20px;
@@ -226,17 +237,6 @@
     border-radius: 20px;
     width: 90%;
     height: 45%;
- }
-
- .dark-card-name {
-    color: #777777;
-    margin-top: 0%;
-    font-size: 1.2vw;
-    margin-left: 5%;
-    text-decoration: underline;
-    font-weight: bold;
-    text-underline-offset: 20%;
-    font-family: "Afacad Flux", sans-serif;
  }
 
  .water-card-section-left-middle-shop-container {
@@ -261,6 +261,36 @@
 
  .holy-card-section-left-middle-shop-container {
     background-color: #ffb700;
+    margin-left: 5%;
+    margin-top: -20px;
+    margin-bottom: 10%;
+    border-radius: 20px;
+    width: 90%;
+    height: 45%;
+ }
+
+ .nature-card-section-left-middle-shop-container {
+    background-color: #137200;
+    margin-left: 5%;
+    margin-top: -20px;
+    margin-bottom: 10%;
+    border-radius: 20px;
+    width: 90%;
+    height: 45%;
+ }
+
+ .chaos-card-section-left-middle-shop-container {
+    background-color: #8b0088;
+    margin-left: 5%;
+    margin-top: -20px;
+    margin-bottom: 10%;
+    border-radius: 20px;
+    width: 90%;
+    height: 45%;
+ }
+
+ .poison-card-section-left-middle-shop-container {
+    background-color: #62ff00;
     margin-left: 5%;
     margin-top: -20px;
     margin-bottom: 10%;
