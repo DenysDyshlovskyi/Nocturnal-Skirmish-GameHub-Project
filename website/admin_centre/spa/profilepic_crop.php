@@ -1,6 +1,9 @@
 <?php
 // Crops the profilepic that was uploaded to temp folder.
 session_start();
+if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] != 1) {
+    header("Location: ../admin_login.php?error=unauth");
+};
 ?>
 <style><?php include "./css/profilepic-crop.css" ?></style>
 <style>

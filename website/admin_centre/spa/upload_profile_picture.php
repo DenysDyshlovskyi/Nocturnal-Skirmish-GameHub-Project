@@ -1,4 +1,10 @@
 <!-- Reusing style from banner upload --->
+<?php
+session_start();
+if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] != 1) {
+    header("Location: ../admin_login.php?error=unauth");
+};
+?>
 <style><?php include "./css/banner-upload.css" ?></style>
 <style>
     #dark-container {
