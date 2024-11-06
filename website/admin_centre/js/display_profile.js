@@ -344,3 +344,20 @@ function removeAllRedeemed(user_id) {
         }
     })
 }
+
+// Changes border
+function changeBorder(user_id, border) {
+    $.ajax({
+        type: "POST",
+        url: './scripts/display_profile/change_border.php',
+        data:{user_id : user_id, border : border}, 
+        success: function(response){
+            if (response == "error") {
+                showConfirm("Something went wrong.")
+            } else {
+                removeDarkContainer();
+                showConfirm("Changed border! Refresh to see change");
+            }
+        }
+    })
+}

@@ -30,20 +30,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $ip_adresses = $ip_adresses . $row['ip'] . " - " . $row['last_login'] . "<br>";
             }
         }
-
-        // Get redeemed dev codes registered to user
-        $stmt = $conn->prepare("SELECT * FROM redeemed_codes WHERE user_id = ?");
-        $stmt->bind_param("s", $user_id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $dev_codes = "";
-        if ((mysqli_num_rows($result) <= 0)) {
-            $dev_codes = "No redeemed codes. ";
-        } else {
-            while ($row = $result->fetch_assoc()) {
-                $dev_codes = $dev_codes . $row['code'] . "<br>";
-            }
-        }
     }
 } else {
     header("Location: admin_login.php?error=unauth");
@@ -222,7 +208,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             <button onclick="ajaxGet('./spa/change_runes.php', 'dark-container');">Change Rune Amount</button>
             <button onclick="ajaxGet('./spa/change_joindate.php', 'dark-container');">Change Join Date</button>
             <button onclick="ajaxGet('./spa/change_email.php', 'dark-container');">Change E-mail</button>
-            <button>Change Border</button>
+            <button onclick="ajaxGet('./spa/change_border.php', 'dark-container');">Change Border</button>
             <button onclick="ajaxGet('./spa/change_password.php', 'dark-container');">Change Password</button>
             <br>
             <br>
