@@ -27,7 +27,7 @@ function removeAllBorders(user_id) {
                 showConfirm("Something went wrong.")
             } else {
                 var borderContainer = document.getElementById("border-inventory");
-                borderContainer.innerHTML = "No borders.<br><button onclick='addNewBorder(" + user_id + ")'>Add new border to inventory</button>";
+                borderContainer.innerHTML = "No borders.<br><button>Refresh to add new border to inventory</button>";
                 showConfirm("Removed all borders")
             }
         }
