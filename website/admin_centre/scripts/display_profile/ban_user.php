@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $duration = htmlspecialchars($_POST['duration']);
         } else if (isset($_POST['permanent'])) {
             $type = "perm";
-            $duration = "perm";
+            $duration = NULL;
         }
 
         $reason = htmlspecialchars($_POST['reason']);

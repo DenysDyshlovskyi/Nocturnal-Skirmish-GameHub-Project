@@ -27,7 +27,30 @@ if(!empty($_POST['login_button'])) {
         if (password_verify($_POST['password'], $row['password'])){
             $_SESSION['user_id'] = $row['user_id'];
             require "./php_scripts/register_ip.php";
-            header("Location: ./hub.php");
+            // Deletes expired bans
+            $stmt1 = $conn->prepare("DELETE FROM banned WHERE duration < NOW()");
+            $stmt1->execute();
+            $stmt1->close();
+
+            // Checks if user trying to log in is banned.
+            $stmt1 = $conn->prepare("SELECT * FROM banned WHERE user_id = ? OR ip = ? LIMIT 1");
+            $stmt1->bind_param("ss", $_SESSION['user_id'], $ip);
+            $stmt1->execute();
+            $result1 = $stmt1->get_result();
+            if($result1->num_rows > 0){
+                $row1 = $result1->fetch_assoc();
+                if ($row1['type'] == "perm") {
+                    printf("<script>alert('You have been banned permanently! Reason: %s')</script>", '"' . $row1['reason'] . '"');
+                } else {
+                    printf("<script>alert('You have been banned! Expires: %s. Reason: %s')</script>", '"' . $row1['duration'] . '"', '"' . $row1['reason'] . '"');
+                }
+                $showError = true;
+                $errorMessage = "You have been banned!";
+
+                $_SESSION['user_id'] = "banned";
+            } else {
+                header("Location: ./hub.php");
+            }
         } else {
             $showError = true;
             $errorMessage = "Wrong password!";

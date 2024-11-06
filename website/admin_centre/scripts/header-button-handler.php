@@ -18,6 +18,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->execute();
             echo $stmt->affected_rows ." rows deleted from recovery_codes table. <br><br>";
 
+            // banned
+            $stmt = $conn->prepare("DELETE FROM banned WHERE duration < NOW()");
+            $stmt->execute();
+            echo $stmt->affected_rows ." rows deleted from banned table. <br><br>";
+
             //temp_profilepic
             $stmt = $conn->prepare("SELECT * FROM temp_profilepic WHERE expire < NOW()");
             $stmt->execute();
@@ -175,6 +180,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             removeFakeUsers('redeemed_codes', 'single');
             removeFakeUsers('border_inventory', 'single');
             removeFakeUsers('ip_adresses', 'single');
+            removeFakeUsers('banned', 'single');
             removeFakeUsers('friend_list', 'multiple');
             removeFakeUsers('pending_friend_list', 'multiple');
 
