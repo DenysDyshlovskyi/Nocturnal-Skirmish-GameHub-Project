@@ -216,7 +216,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             <button onclick="ajaxGet('./spa/change_password.php', 'dark-container');">Change Password</button>
             <br>
             <br>
-            <button style="background-color: red;">Ban User</button>
+            <button style="background-color: red;" onclick="ajaxGet('./spa/ban_user.php', 'dark-container')">Ban User</button>
             <form action="./scripts/delete_user.php" method="POST">
                 <button style="background-color: red;">Delete User</button>
                 <input type="hidden" value="<?php echo $user_id ?>" name="user_id">

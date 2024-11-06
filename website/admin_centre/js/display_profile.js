@@ -507,3 +507,18 @@ function configureCropperJSBanner() {
 		});
     });
 };
+
+function banType(type) {
+    var hideShowBanContainer = document.getElementById("hide-show-ban")
+    hideShowBanContainer.style.display = "block";
+    if (type == "temp") {
+        document.getElementById("ban-duration").style.display = "block";
+        var now = new Date(),
+
+        // Can only choose dates in future
+        minDate = now.toISOString().substring(0,10);
+        $('#ban-duration-input').prop('min', minDate);
+    } else if (type == "perm") {
+        document.getElementById("ban-duration").style.display = "none";
+    }
+}
