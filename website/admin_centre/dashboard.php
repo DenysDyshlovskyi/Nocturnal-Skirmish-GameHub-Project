@@ -23,6 +23,8 @@ if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] != 1) {
     <?php
     if (isset($_GET['userdeleted'])) {
         echo "<div id='message-container'>User deleted. uID: " . $_GET['userdeleted'] . ". Cleanup recommended.</div>";
+    } else if (isset($_GET['userbanned'])) {
+        echo "<div id='message-container'>User banned. uID: " . $_GET['userbanned'] . ". Go into user profile to see changes.</div>";
     }
     ?>
     <header>

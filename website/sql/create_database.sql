@@ -71,4 +71,14 @@ CREATE TABLE ip_adresses (
     user_id int,
     ip varchar(64),
     last_login varchar(64)
+);
+
+CREATE TABLE banned (
+    id int NOT NULL AUTO_INCREMENT,
+    user_id int,
+    ip varchar(64),
+    type varchar(64),
+    duration varchar(64),
+    reason varchar(300),
+    PRIMARY KEY (id)
 )
