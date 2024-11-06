@@ -25,13 +25,35 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->execute();
         $result = $stmt->get_result();
         $ip_adresses = "";
+        $banned_status = "This user is not banned.";
         if ((mysqli_num_rows($result) <= 0)) {
             $ip_adresses = "No registered ip adresses";
         } else {
             while ($row = $result->fetch_assoc()) {
                 $ip_adresses = $ip_adresses . $row['ip'] . " - " . $row['last_login'] . "<br>";
+
+                // Checks if ip is banned
+                $stmt1 = $conn->prepare("SELECT * FROM banned WHERE ip = ? LIMIT 1");
+                $stmt1->bind_param("s", $row['ip']);
+                $stmt1->execute();
+                $result1 = $stmt1->get_result();
+                $row1 = $result1->fetch_assoc();
+                if ((mysqli_num_rows($result1) > 0)) {
+                    $banned_status = "This user is banned. <button>Lift ban(s)</button>";
+                };
             }
         }
+
+        // Check if user id is banned
+        $stmt1 = $conn->prepare("SELECT * FROM banned WHERE user_id = ? LIMIT 1");
+        $stmt1->bind_param("s", $user_id);
+        $stmt1->execute();
+        $result1 = $stmt1->get_result();
+        $row1 = $result1->fetch_assoc();
+        // TODO: make ui for lifting bans
+        if ((mysqli_num_rows($result1) > 0)) {
+            $banned_status = "This user is banned. <button>Lift ban(s)</button>";
+        };
     }
 } else {
     header("Location: admin_login.php?error=unauth");
@@ -82,6 +104,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <p id="runes-p">Runes: <?php echo $userprofile_row['runes'] ?></p>
                         <p id="joindate-p">Join date: <?php echo $userprofile_row['joindate'] ?></p>
                         <p id="email-p">E-mail: <?php echo $userprofile_row['email'] ?></p>
+                        <p><?php echo $banned_status ?></p>
                     </div>
                 </div>
                 <textarea class="description" id="description-textarea"><?php echo $userprofile_row['description'] ?></textarea>
