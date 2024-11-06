@@ -51,6 +51,31 @@ if(isset($_POST['next_button'])){
     }
     $stmt->close();
 
+    // Deletes expired bans
+    $stmt1 = $conn->prepare("DELETE FROM banned WHERE duration < NOW()");
+    $stmt1->execute();
+    $stmt1->close();
+
+    $ip = $_SERVER['REMOTE_ADDR'];
+
+    // Checks if user trying to create account is banned.
+    $stmt1 = $conn->prepare("SELECT * FROM banned WHERE ip = ? LIMIT 1");
+    $stmt1->bind_param("s", $ip);
+    $stmt1->execute();
+    $result1 = $stmt1->get_result();
+    if($result1->num_rows > 0){
+        $row1 = $result1->fetch_assoc();
+        if ($row1['type'] == "perm") {
+            printf("<script>alert('You have been banned permanently! Reason: %s')</script>", '"' . $row1['reason'] . '"');
+        } else {
+            printf("<script>alert('You have been banned! Expires: %s. Reason: %s')</script>", '"' . $row1['duration'] . '"', '"' . $row1['reason'] . '"');
+        }
+        $_SESSION['user_id'] = "banned";
+        $showError = true;
+        $errorMessage = "You are banned!";
+        goto end;
+    };
+
     require "./php_scripts/getdate.php";
 
     $joindate = $date . " " . $time;
