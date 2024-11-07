@@ -12,6 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt = $conn->prepare("DELETE FROM kick WHERE user_id = ?");
         $stmt->bind_param("s", $_SESSION['user_id']);
         $stmt->execute();
+        session_destroy();
     }
     $stmt->close();
 } else {
