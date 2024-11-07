@@ -34,6 +34,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->execute();
         $stmt->close();
 
+        //Put user_id in kick table incase theyre online
+        $stmt = $conn->prepare("INSERT INTO kick (user_id) VALUES (?)");
+        $stmt->bind_param("s", $user_id);
+        $stmt->execute();
+        $stmt->close();
+
         // Redirect
         header("Location: ../../dashboard.php?userbanned=$user_id");
     };
