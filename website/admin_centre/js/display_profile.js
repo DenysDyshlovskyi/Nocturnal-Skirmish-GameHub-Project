@@ -508,6 +508,7 @@ function configureCropperJSBanner() {
     });
 };
 
+// If ban type is permanent, hide the date input
 function banType(type) {
     var hideShowBanContainer = document.getElementById("hide-show-ban")
     hideShowBanContainer.style.display = "block";
@@ -521,4 +522,21 @@ function banType(type) {
     } else if (type == "perm") {
         document.getElementById("ban-duration").style.display = "none";
     }
+}
+
+// Lifts a ban
+function liftBan(row_id) {
+    $.ajax({
+        type: "POST",
+        url: './scripts/display_profile/lift_ban.php',
+        data:{row_id : row_id}, 
+        success: function(response){
+            if (response == "error") {
+                showConfirm("Something went wrong.")
+            } else {
+                removeDarkContainer();
+                showConfirm("Lifted ban!");
+            }
+        }
+    })
 }
