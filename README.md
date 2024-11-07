@@ -8,3 +8,8 @@ In this multipul A game you will face your worst fears and experiance action lik
 ## ***Play Untitled-Game-Terminal-Project also known as Nocturnal Skirmish now for 20 dollars a month this december.***
 
 ![](design_prototypes/Noc_Skir_Logo_png.png)
+
+#### **!here are some sneak peaks of some of the cards!**
+
+![](website/img/cards/PoisonArrow_Card.webp) ![](website/img/cards/Whale_Symphony_Card.webp) ![](website/img/cards/Fire_Spirit_Card.webp) ![](website/img/cards/Deep_Ocean_Dweller_Card.webp) ![](website/img/cards/Bomb_Card.webp)
+
