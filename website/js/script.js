@@ -13,21 +13,6 @@ function showDarkContainer() {
     }
 }
 
-//Function to switch visibility of new password container
-function showNewPassword() {
-    event.preventDefault();
-    container = document.getElementById("login-new-password-container");
-    buttonContainer = document.getElementById("login-recovery-button-container-hide");
-
-    if (window.getComputedStyle(container).display === 'none'){
-        container.style.display = "block";
-        buttonContainer.style.display = "none";
-    } else {
-        container.style.display = "none";
-        buttonContainer.style.display = "block";
-    }
-}
-
 // Check the amount of pending friend invites the user has
 function checkPendingAmount() {
     $.ajax({
@@ -379,29 +364,30 @@ function prepareSFX() {
         hoverSfxLink[i].addEventListener('mouseover', () => {playHoverSfx();});
         hoverSfxLink[i].addEventListener('mouseout', () => {stopHoverSfx();});
     }
-}
 
-// play click sfx
-function playClickSfx() {
-    var clickAudio = document.getElementById('clickSFX');
-    clickAudio.volume = localStorage.getItem("volumeUi");
-    clickAudio.play();
-}
+    // play click sfx
+    function playClickSfx() {
+        var clickAudio = document.getElementById('clickSFX');
+        clickAudio.volume = localStorage.getItem("volumeUi");
+        clickAudio.play();
+    }
 
-// Stop click sfx
-function stopClickSfx() {
-    var clickAudio = document.getElementById('clickSFX');
-    clickAudio.volume = localStorage.getItem("volumeUi");
-    clickAudio.pause();
-    clickAudio.currentTime = 0;
-}
+    // Stop click sfx
+    function stopClickSfx() {
+        var clickAudio = document.getElementById('clickSFX');
+        clickAudio.volume = localStorage.getItem("volumeUi");
+        clickAudio.pause();
+        clickAudio.currentTime = 0;
+    }
 
-// Click sfx on whole document
-const clickSfxBody = document.querySelector('body');
-clickSfxBody.addEventListener('click', () => {
-    stopClickSfx();
-    playClickSfx();
-});
+    // Click sfx on whole document
+    const clickSfxBody = document.querySelector('body');
+    clickSfxBody.addEventListener('click', () => {
+        stopClickSfx();
+        playClickSfx();
+    });
+
+}
 
 // Saves border you clicked to database user
 function saveBorder(border) {
@@ -647,4 +633,78 @@ function loginForm() {
             }
         }
     })
+}
+
+// Function thats called when user types in their email and presses next in forgot_link.php
+function recoveryTypeIn() {
+    var email = document.getElementById("forgot-email-input").value;
+
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/recovery_type_in_email.php',
+        data:{ email : email }, 
+        success: function(response){
+            if (response == "notregistered") {
+                showConfirm("This email is not registered to a GameHub account!");
+            } else if (response == "empty") {
+                showConfirm("Input empty!");
+            } else if (response == "invalid") {
+                showConfirm("Not a valid email adress!");
+            } else {
+                document.getElementById("dark-container").innerHTML = "";
+                ajaxGet("./spa/login/recovery_type_in_code.php", "dark-container", "no_sfx");
+            }
+        }
+    })
+}
+
+// Function that posts user inputted recovery code
+function recoveryCode() {
+    var code = document.getElementById("recovery_code_input").value;
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/recovery_type_in_code.php',
+        data:{ code : code }, 
+        success: function(response){
+            if (response == "invalid") {
+                showConfirm("Not a valid code!")
+            } else if (response == "empty") {
+                showConfirm("Input empty!");
+            } else if (response == "existexpired") {
+                showConfirm("Code is wrong or is expired.")
+            } else {
+                document.getElementById("dark-container").innerHTML = "";
+                ajaxGet("./spa/login/recovery_final.php", "dark-container", "no_sfx");
+            }
+        }
+    })
+}
+
+//Function to switch visibility of new password container
+function showNewPassword() {
+    button = document.getElementById("password-recovery-button");
+    container = document.getElementById("new-password-input-container");
+
+    if (window.getComputedStyle(container).display === 'none'){
+        container.style.display = "block";
+        button.innerHTML = "Save";
+    } else {
+        var password = document.getElementById("new-password-input").value;
+        var password_confirm = document.getElementById("new-password-input-confirm").value;
+        $.ajax({
+            type: "POST",
+            url: './php_scripts/recovery_save_password.php',
+            data:{ password : password, password_confirm : password_confirm }, 
+            success: function(response){
+                if (response == "empty") {
+                    showConfirm("Input empty!");
+                } else if (response == "dontmatch") {
+                    showConfirm("Passwords dont match!");
+                } else {
+                    removeDarkContainer();
+                    showConfirm("Password saved.");
+                }
+            }
+        })
+    }
 }

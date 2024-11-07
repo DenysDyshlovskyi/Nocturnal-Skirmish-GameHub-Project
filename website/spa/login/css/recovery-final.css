@@ -1,0 +1,74 @@
+/*Stylesheet for modal for final stage of password or username recovery*/
+.recovery-final-container {
+    width: fit-content;
+    height: fit-content;
+    padding: 30px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: rgba(216, 182, 182, 0.24) 0px 3px 8px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.recovery-final-container h1{
+    font-family: "Afacad Flux", "sans-serif";
+    margin: 0;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+.recovery-final-button-container {
+    margin-top: 15px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    position: relative;
+}
+
+.recovery-final-password-button {
+    width: 160px;
+    height: 50px;
+    border: #4A88FF solid 3px;
+    color: #4A88FF;
+    background-color: white;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.recovery-final-password-button:hover {
+    background-color: #4A88FF;
+    color: white;
+}
+
+.recovery-final-done-button {
+    width: 160px;
+    height: 50px;
+    background-color: white;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    border: #A1A1A1 solid 3px;
+    color: #A1A1A1;
+}
+
+.recovery-final-done-button:hover {
+    background-color: #A1A1A1;
+    color: white;
+}
+
+.new-password-input-container {
+    width: 100%;
+    height: 300px;
+    display: none;
+}

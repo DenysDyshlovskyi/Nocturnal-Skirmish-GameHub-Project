@@ -10,6 +10,7 @@
     <style> <?php include "./css/universal.css" ?> </style>
 </head>
 <body>
+    <div id="dark-container" class="dark-container"></div>
     <div class="confirmation-popup" id="confirmContainer"></div>
     <a href="./admin_centre/admin_login.php" class="login-admin-link">Admin</a>
     <div class="login-container">
@@ -24,7 +25,7 @@
                 <p class="login-register-link">Dont have a user? <a href="create_account.php">Create account.</a></p>
                 <input type="submit" value="Log in" class="login-button" onclick="loginForm()">
                 <br>
-                <a href="forgot_username_password.php" class="login-forgot-link">Forgot username or password?</a>
+                <a href="#" class="login-forgot-link" onclick="ajaxGet('./spa/login/forgot_link.php', 'dark-container', 'no_sfx')">Forgot username or password?</a>
             </div>
         </div>
     </div>

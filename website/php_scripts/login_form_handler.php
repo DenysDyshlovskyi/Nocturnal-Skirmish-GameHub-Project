@@ -59,6 +59,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         echo "correct";
     }
+    $stmt->close();
 } else {
     header("Location: ../index.php");
 }
