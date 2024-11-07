@@ -6,10 +6,11 @@
     }
 </style>
 <div class="recovery-final-container">
-    <h1>The username for this account is <?php echo $_SESSION['temp_recovery_username']; ?></h1>
+    <h1>The username for this account is <?php echo $_SESSION['temp_recovery_username'] ?></h1>
     <div class="new-password-input-container" id="new-password-input-container">
         <p>Create new password</p>
         <input type="text" id="new-password-input" placeholder="New password" maxlength="80">
+        <br>
         <input type="text" id="new-password-input-confirm" placeholder="Confirm new password" maxlength="80">
     </div>
     <div class="recovery-final-button-container">
