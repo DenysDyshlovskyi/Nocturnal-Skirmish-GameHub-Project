@@ -38,7 +38,7 @@ Instructions:
 
  Step 3)
 
- 1. call my number: mynumber(930 12 308)
+ 1. call my number: mynumber(930 12 997)
 
  2. ask to get free acsess before others
 
