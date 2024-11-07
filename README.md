@@ -22,7 +22,7 @@ Instructions:
 
  Step 1)
 
- 1. call my number: my number(918 55 728)
+ 1. call my number: my number(918 55 705)
 
  2. ask to get free acsess before others
 
@@ -30,7 +30,7 @@ Instructions:
 
  Step 2)
 
- 1. call my number: mynumber(967 49 293)
+ 1. call my number: mynumber(967 49 281)
 
  2. ask to get free acsess before others
 
