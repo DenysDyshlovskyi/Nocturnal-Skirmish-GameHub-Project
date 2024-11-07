@@ -619,6 +619,32 @@ function startFriendsListInterval() {
     }, 3000);
 }
 
+// Stops friend list interval
 function stopFriendsListInterval() {
     FriendsListIntervalState = 0;
+}
+
+// Logs in user
+function loginForm() {
+    var username = document.getElementById("username-input").value;
+    var password = document.getElementById("password-input").value;
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/login_form_handler.php',
+        data:{ username : username, password : password }, 
+        success: function(response){
+            if (response == "wrong") {
+                showConfirm("Password or username incorrect!");
+            } else if (response == "empty") {
+                showConfirm("Inputs empty!");
+            } else if (response == "exist") {
+                showConfirm("User doesnt exist!");
+            } else if (response == "correct") {
+                window.location.href = "hub.php";
+            } else {
+                alert(response);
+                showConfirm("You have been banned!");
+            }
+        }
+    })
 }
