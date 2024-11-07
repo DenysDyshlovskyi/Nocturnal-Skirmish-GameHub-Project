@@ -217,8 +217,7 @@
 }
 
 .profile-button-container {
-    width: 100%;
-    max-width: 930px;
+    width: fit-content;
     height: 50px;
     margin-top: 15px;
 }

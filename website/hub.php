@@ -16,7 +16,7 @@ require "./php_scripts/get_loggedin_info.php";
     <style> <?php include "./css/universal.css" ?> </style>
     <style> <?php include "./css/hub-page.css" ?> </style>
 </head>
-<body id="hub-body" onload="prepareSFX(); ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx');">
+<body id="hub-body" onload="prepareSFX(); ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx'); isKicked()">
     <div id="dark-container" class="dark-container"></div>
     <div class="confirmation-popup" id="confirmContainer"></div>
     <div class="hub-spa-container" id="hub-spa-container"></div>

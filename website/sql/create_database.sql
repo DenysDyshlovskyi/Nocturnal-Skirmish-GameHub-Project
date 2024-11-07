@@ -81,4 +81,8 @@ CREATE TABLE banned (
     duration varchar(64),
     reason varchar(300),
     PRIMARY KEY (id)
+);
+
+CREATE TABLE kick (
+    user_id int
 )

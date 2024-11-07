@@ -708,3 +708,22 @@ function showNewPassword() {
         })
     }
 }
+
+// Checks if user should be kicked
+function isKicked() {
+    var placeholder = "placeholder";
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/kick.php',
+        data:{ placeholder : placeholder }, 
+        success: function(response){
+            if (response == "kick") {
+                window.location.href = "index.php";
+            }
+        }
+    })
+}
+// Starts 5 second interval to update kick status
+setInterval(function(){
+    isKicked()
+}, 5000);

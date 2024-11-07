@@ -540,3 +540,14 @@ function liftBan(row_id) {
         }
     })
 }
+
+function kickUser(user_id) {
+    $.ajax({
+        type: "POST",
+        url: './scripts/display_profile/kick_user.php',
+        data:{user_id : user_id}, 
+        success: function(){
+            showConfirm("User kicked!");
+        }
+    })
+}
