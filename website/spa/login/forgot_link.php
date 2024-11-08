@@ -9,7 +9,7 @@
     <p>Please type in the e-mail adress the account was registered with:</p>
     <input type="text" id="forgot-email-input" placeholder="E-mail">
     <div class="forgot-link-button-container">
-        <button class="forgot-link-next-button" onclick="recoveryTypeIn()" id="type-in-email-next">Next</button>
+        <button class="forgot-link-next-button" onclick="waitClick(); recoveryTypeIn()" id="type-in-email-next">Next</button>
         <button onclick="removeDarkContainer()" class="forgot-link-cancel-button">Cancel</button>
     </div>
 </div>

@@ -22,7 +22,7 @@ require "./php_scripts/get_loggedin_info.php";
     <link rel="preload" as="image" href="<?php echo $_SESSION['user_profile_picture'] ?>" />
     <link rel="preload" as="image" href="<?php echo $_SESSION['user_profile_banner'] ?>" />
 </head>
-<body id="settings-body" onload="ajaxGet('./spa/user_settings/myaccount.php', 'settings-spa-container'); prepareSFX(); ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx');">
+<body id="settings-body" onload="ajaxGet('./spa/user_settings/myaccount.php', 'settings-spa-container'); prepareSFX(); ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx'); isKicked()">
     <div id="dark-container" class="dark-container"></div>
     <div class="confirmation-popup" id="confirmContainer"></div>
     <div class="settings-container">
@@ -59,9 +59,25 @@ require "./php_scripts/get_loggedin_info.php";
     </audio>
     <script><?php include "./js/script.js" ?></script>
     <script>
-        // Starts 5 second interval to update players online counter
+        // Checks if user should be kicked
+        function isKicked() {
+            var placeholder = "placeholder";
+            $.ajax({
+                type: "POST",
+                url: './php_scripts/kick.php',
+                data:{ placeholder : placeholder }, 
+                success: function(response){
+                    if (response == "kick") {
+                        window.location.href = "index.php";
+                    }
+                }
+            })
+        }
+
+        // Starts 5 second interval to update players online counter, and to check if user should be kicked
         setInterval(function(){
             ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx');
+            isKicked()
         }, 5000);
     </script>
 </body>

@@ -651,9 +651,11 @@ function recoveryTypeIn() {
             } else if (response == "invalid") {
                 showConfirm("Not a valid email adress!");
             } else {
+                stopWaitClick();
                 document.getElementById("dark-container").innerHTML = "";
                 ajaxGet("./spa/login/recovery_type_in_code.php", "dark-container", "no_sfx");
             }
+            stopWaitClick();
         }
     })
 }
@@ -709,21 +711,71 @@ function showNewPassword() {
     }
 }
 
-// Checks if user should be kicked
-function isKicked() {
-    var placeholder = "placeholder";
+// Makes it so user has to wait before pressing button
+function waitClick() {
+    var waitContainer = document.getElementById("wait-container");
+    waitContainer.style.display = "flex";
+}
+
+// Stops wait click
+function stopWaitClick() {
+    var waitContainer = document.getElementById("wait-container");
+    waitContainer.style.display = "none";
+}
+
+// Creates account
+function createAccount() {
+    // Gets all neccessary inputs
+    var username = document.getElementById("username-input").value;
+    var nickname = document.getElementById("nickname-input").value;
+    var description = document.getElementById("description-input").value;
+    var email = document.getElementById("email-input").value;
+    var email_confirm = document.getElementById("email-input-confirm").value;
+    var password = document.getElementById("password-input").value;
+    var password_confirm = document.getElementById("password-input-confirm").value;
+    var checkbox = document.getElementById("terms-checkbox");
+    if (checkbox.checked) {
+        checkbox = "checked";
+    } else {
+        checkbox = "unchecked";
+    }
+
+    // Posts values
     $.ajax({
         type: "POST",
-        url: './php_scripts/kick.php',
-        data:{ placeholder : placeholder }, 
+        url: './php_scripts/create_account.php',
+        data:{
+            username : username,
+            nickname : nickname,
+            description : description,
+            email : email,
+            email_confirm : email_confirm,
+            password : password,
+            password_confirm : password_confirm,
+            checkbox : checkbox
+        }, 
         success: function(response){
-            if (response == "kick") {
-                window.location.href = "index.php";
+            if (response == "empty") {
+                showConfirm("One or more inputs empty!");
+            } else if (response == "password_dontmatch") {
+                showConfirm("Passwords dont match!");
+            } else if (response == "email_dontmatch") {
+                showConfirm("Emails dont match!");
+            } else if (response == "unchecked") {
+                showConfirm("Checkbox unchecked!");
+            } else if (response == "username_taken") {
+                showConfirm("Username already taken!");
+            } else if (response == "email_registered") {
+                showConfirm("Email already registered!");
+            } else if (response == "banned") {
+                showConfirm("You have been banned! Log in to see reason.");
+            } else if (response == "email_invalid") {
+                showConfirm("Not a valid email adress!");
+            } else {
+                stopWaitClick();
+                window.location.href = "hub.php";
             }
+            stopWaitClick();
         }
     })
 }
-// Starts 5 second interval to update kick status
-setInterval(function(){
-    isKicked()
-}, 5000);

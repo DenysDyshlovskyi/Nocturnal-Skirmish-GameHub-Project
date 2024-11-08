@@ -142,9 +142,25 @@ require "./php_scripts/get_loggedin_info.php";
         localStorage.setItem("volumeMusic", 1);
     }
 
-    // Starts 5 second interval to update players online counter
+    // Checks if user should be kicked
+    function isKicked() {
+        var placeholder = "placeholder";
+        $.ajax({
+            type: "POST",
+            url: './php_scripts/kick.php',
+            data:{ placeholder : placeholder }, 
+            success: function(response){
+                if (response == "kick") {
+                    window.location.href = "index.php";
+                }
+            }
+        })
+    }
+
+    // Starts 5 second interval to update players online counter, and to check if user should be kicked
     setInterval(function(){
         ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx');
+        isKicked()
     }, 5000);
 </script>
 </html>

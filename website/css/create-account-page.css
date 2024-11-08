@@ -26,7 +26,6 @@
     align-items: center;
     display: flex;
     justify-content: center;
-    flex-direction: column;
 }
 
 .ca-creation-form-user-details-container{
@@ -44,11 +43,6 @@
 .ca-form-headline{
     font-family: "Afacad Flux", sans-serif;
     font-weight: 400;
-}
-
-.ca-creation-form{
-    width: fit-content;
-    display: flex;
 }
 
 .ca-creation-cred-input{

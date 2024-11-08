@@ -10,6 +10,9 @@
     <style> <?php include "./css/universal.css" ?> </style>
 </head>
 <body>
+    <div id="wait-container" class="wait-container">
+        <div class="wait-container-inner">Please wait...</div>
+    </div>
     <div id="dark-container" class="dark-container"></div>
     <div class="confirmation-popup" id="confirmContainer"></div>
     <a href="./admin_centre/admin_login.php" class="login-admin-link">Admin</a>
