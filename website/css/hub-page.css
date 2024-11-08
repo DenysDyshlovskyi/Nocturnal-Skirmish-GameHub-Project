@@ -37,7 +37,7 @@
     height: 65px;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 90% 90%;
+    background-size: 92% 92%;
 }
 
 .hub-corner-profilepic-border {
@@ -46,7 +46,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 999;
 }
 
 .hub-corner-profilepic-container a:hover {
