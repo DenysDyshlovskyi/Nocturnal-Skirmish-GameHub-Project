@@ -14,6 +14,9 @@
 
 .hub-corner-profilepic-container {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 0;
     left: 0;
     width: 65px;
@@ -27,24 +30,27 @@
 }
 
 .hub-corner-profilepic {
-    position: absolute;
-    display: block;
+    position: relative;
     top: 0;
     left: 0;
-    margin: 15px;
-    width: 55px;
-    height: 55px;
-    background-size: cover;
+    width: 65px;
+    height: 65px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90% 90%;
 }
 
 .hub-corner-profilepic-border {
     position: absolute;
     top: 0;
     left: 0;
-    margin: 10px;
-    width: 65px;
-    height: 65px;
+    width: 100%;
+    height: 100%;
     z-index: 999;
+}
+
+.hub-corner-profilepic-container a:hover {
+    filter: brightness(0.5);
 }
 
 .hub-corner-profile-dropdown {

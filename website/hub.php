@@ -23,8 +23,9 @@ require "./php_scripts/get_loggedin_info.php";
     <div class="hub-corner-profile-container">
         <div class="hub-corner-profilepic-container" id="hub-corner-profilepic-container">
             <a href="#" onclick="displayUserProfile(<?php echo $_SESSION['user_id'] ?>)">
-                <img src="<?php echo $_SESSION['user_profile_border']; ?>" alt="Profile Border" class="hub-corner-profilepic-border">
-                <div class="hub-corner-profilepic" style="background-image: url(<?php echo $_SESSION['user_profile_picture']; ?>);"></div>
+                <div class="hub-corner-profilepic" style="background-image: url(<?php echo $_SESSION['user_profile_picture']; ?>);">
+                    <img src="<?php echo $_SESSION['user_profile_border']; ?>" alt="Profile Border" class="hub-corner-profilepic-border">
+                </div>
             </a>
         </div>
         <div class="hub-corner-profile-dropdown">
