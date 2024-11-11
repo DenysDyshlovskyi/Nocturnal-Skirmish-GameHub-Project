@@ -33,7 +33,7 @@ require "./php_scripts/get_loggedin_info.php";
             <div class="hub-corner-profile-dropdown-divider"></div>
             <button class="hub-corner-profile-dropdown-button" id="dropdown-button-friends" title="Friends" onclick="ajaxGet('./spa/hub/friends_list.php', 'hub-spa-container', 'friends_list'); displaySpaContainerHub('block');"></button>
             <div class="hub-corner-profile-dropdown-divider"></div>
-            <button class="hub-corner-profile-dropdown-button" id="dropdown-button-chats" title="Chats"></button>
+            <button class="hub-corner-profile-dropdown-button" id="dropdown-button-chats" title="Chats" onclick="window.location.href = 'messages.php'"></button>
             <div class="hub-corner-profile-dropdown-divider"></div>
             <button class="hub-corner-profile-dropdown-button" id="dropdown-button-leaderboard" title="Leaderboard"></button>
             <div class="hub-corner-profile-dropdown-divider"></div>
