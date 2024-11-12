@@ -18,14 +18,13 @@
 }
 
 .messages-backtohub {
+    position: absolute;
+    right: 0;
+    margin-right: 15px;
     width: 140px;
     height: 50px;
     border-radius: 10px;
     background-color: #D9D9D9;
-    position: absolute;
-    right: 0;
-    top: 0;
-    margin: 15px;
     font-family: "Afacad Flux", sans-serif;
     font-weight: 600;
     font-size: 24px;
@@ -35,4 +34,204 @@
 
 .messages-backtohub:hover {
     background-color: #868686;
+}
+
+.messages-menu {
+    width: 250px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.messages-menu-top{
+    width: 100%;
+    height: 75px;
+    background-color: #D9D9D9;
+    border-top-left-radius: 20px;
+    font-family: "Afacad Flux", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 27px;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.messages-menu-button {
+    width: 100%;
+    height: 60px;
+    background-color: #E7E7E7;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.messages-menu-button:hover {
+    filter: brightness(0.7);
+}
+
+.messages-menu-button-profilepic {
+    height: 40px;
+    width: 40px;
+    position: relative;
+    background-position: center;
+    background-size: 90% 90%;
+    background-repeat: no-repeat;
+    margin-left: 15px;
+}
+
+.messages-menu-button-profilepic img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+
+.messages-menu-button p {
+    font-family: "Afacad Flux", "sans-serif";
+    font-weight: 600;
+    font-size: 20px;
+    margin-left: 15px;
+    text-wrap: nowrap;
+}
+
+.messages-menu-button-name-container {
+    position: absolute;
+    right: 0;
+    height: 40px;
+    width: calc(100% - 65px);
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+header {
+    width: calc(100% - 250px);
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 75px;
+    border-top-right-radius: 28px;
+    background-color: #EAEAEA;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 25%);
+    display: flex;
+    align-items: center;
+}
+
+.current-messenger-container {
+    height: 75px;
+    width: 50%;
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.current-messenger-profilepic {
+    position: relative;
+    height: 60px;
+    width: 60px;
+    background-position: center;
+    background-size: 90% 90%;
+    background-repeat: no-repeat;
+}
+
+.current-messenger-profilepic img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.current-messenger-name-container {
+    width: 75%;
+    height: 60px;
+    margin-left: 15px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.current-messenger-name-container p{
+    font-family: "Afacad Flux", "sans-serif";
+    font-weight: 600;
+    font-size: 30px;
+    text-wrap: nowrap;
+}
+
+.message-bar {
+    width: calc(100% - 250px);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 60px;
+    border-bottom-right-radius: 28px;
+    background-color: #C9C9C9;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 25%);
+    display: flex;
+    align-items: center;
+}
+
+.message-bar-text-input {
+    width: calc(100% - 195px);
+    margin-left: 15px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 25%);
+    font-family: "Afacad Flux", "sans-serif";
+    font-size: 20px;
+}
+
+.message-bar-more-container {
+    height: 40px;
+    width: 150px;
+    display: flex;
+    margin-left: 15px;
+    gap: 15px;
+}
+
+.message-bar-more-container button {
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    background-color: white;
+    border: none;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 25%);
+    cursor: pointer;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70%;
+}
+
+.message-bar-more-container button:hover {
+    filter: brightness(0.7);
+}
+
+#send-button {
+    background-image: url(./img/icons/send.svg);
+}
+
+#attachment-button {
+    background-image: url(./img/icons/plus.svg);
+}
+
+#emoji-button {
+    background-image: url(./img/icons/smile.svg);
 }
