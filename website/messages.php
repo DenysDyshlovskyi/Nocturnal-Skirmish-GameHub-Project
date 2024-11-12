@@ -10,9 +10,41 @@
     <style> <?php include "./css/messages.css" ?> </style>
 </head>
 <body id="messages-body" onload="prepareSFX(); ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx'); isKicked()">
+<div id="dark-container" class="dark-container"></div>
+<div class="confirmation-popup" id="confirmContainer"></div>
     <div class="messages-content-container">
-        <button class="messages-backtohub" title="Back to Hub" onclick="window.location.href = 'hub.php';">Back to Hub</button>
-
+        <header>
+            <div class="current-messenger-container">
+                <div class="current-messenger-profilepic" style="background-image: url(./img/profile_pictures/defaultprofile.svg);">
+                    <img src="./img/borders/defaultborder.webp">
+                </div>
+                <div class="current-messenger-name-container">
+                    <p>BimBomSlimSlom</p>
+                </div>
+            </div>
+            <button class="messages-backtohub" title="Back to Hub" onclick="window.location.href = 'hub.php';">Back to Hub</button>
+        </header>
+        <div class="messages-menu">
+            <div class="messages-menu-top">Messages</div>
+            <div id="messages-menu-chats-container">
+                <button class="messages-menu-button">
+                    <div class="messages-menu-button-profilepic" style="background-image: url(./img/profile_pictures/defaultprofile.svg);">
+                        <img src="./img/borders/defaultborder.webp">
+                    </div>
+                    <div class="messages-menu-button-name-container">
+                        <p>BimBomSlimSlom</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+        <div class="message-bar">
+            <input type="text" class="message-bar-text-input">
+            <div class="message-bar-more-container">
+                <button title="Send message" id="send-button"></button>
+                <button title="Add attachment" id="attachment-button"></button>
+                <button title="Add emoji" id="emoji-button"></button>
+            </div>
+        </div>
     </div>
 
     <footer>
@@ -20,7 +52,7 @@
         <p class="player-live-count-text" id="players-live-count"></p>
     </footer>
     <audio autoplay loop style="display: none;" id="musicAudio">
-        <source src="audio/music/IntermissionOST.mp3" type="audio/mpeg">
+        <source src="audio/music/MessagesOST.mp3" type="audio/mpeg">
     </audio>
     <!-- hover sfx -->
     <audio id='hoverSFX'>
