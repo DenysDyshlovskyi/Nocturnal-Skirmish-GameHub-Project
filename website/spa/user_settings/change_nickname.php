@@ -7,7 +7,7 @@
 <div class="settings-change-nickname-container" onload="prepareSFX()">
     <div class="settings-change-nickname-container-inner">
         <h1>Change nickname</h1>
-        <input type="text" placeholder="New nickname" maxlength="25" id="change-nickname-input">
+        <input type="text" placeholder="New nickname" maxlength="25" id="change-nickname-input" class="settings-change-nickname-container-inner-input">
         <div class="settings-change-nickname-button-container">
             <button id="change-nickname-submit" onclick="saveNickname()">Submit</button>
             <button id="change-nickname-cancel" onclick="removeDarkContainer()">Cancel</button>

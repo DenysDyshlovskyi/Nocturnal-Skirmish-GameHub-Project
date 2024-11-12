@@ -28,7 +28,7 @@
     margin-top: 15px;
 }
 
-.settings-change-nickname-container-inner input {
+.settings-change-nickname-container-inner-input {
     width: calc(100% - 10px);
     height: 30px;
     font-size: 25px;
@@ -72,4 +72,36 @@
 #change-nickname-cancel:hover {
     color: white;
     background-color: #808080;
+}
+
+.input-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.input-wrapper input {
+    text-indent: 30px;
+    height: 30px;
+    font-size: 25px;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 400;
+    border-radius: 5px;
+    border: 1px black solid;
+}
+
+.input-wrapper button {
+    position: absolute;
+    left: 0;
+    right: 0;
+    border: none;
+    background-color: transparent;
+    z-index: 999;
+    cursor: pointer;
+    background-image: url(./img/icons/eye-password-hide.svg);
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 30px;
+    height: 100%;
 }
