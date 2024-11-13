@@ -779,3 +779,16 @@ function createAccount() {
         }
     })
 }
+
+//password visibility button
+
+function changeVisibility(id){
+    const passwordInput = document.getElementById(id)
+
+    if (password.type === "password") {
+        password.type == "text"
+    }
+    else {
+        password.type = "password"
+    }
+}
