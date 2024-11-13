@@ -24,7 +24,10 @@
             <div class="login-form-inner">
                 <h1>Log in to GameHub</h1>
                 <input type="text" placeholder="Username" class="login-cred-input" maxlength="25" id="username-input">
-                <input type="password" placeholder="Password" class="login-cred-input" maxlength="80" id="password-input">
+                <div class="password-input-wrapper">
+                    <input type="password" placeholder="Password" maxlength="80" id="password-input">
+                    <button id="password-view-button" onclick="changeVisibility('password-input', 'password-view-button')"></button>
+                </div>
                 <p class="login-register-link">Dont have a user? <a href="create_account.php">Create account.</a></p>
                 <input type="submit" value="Log in" class="login-button" onclick="loginForm()">
                 <br>
