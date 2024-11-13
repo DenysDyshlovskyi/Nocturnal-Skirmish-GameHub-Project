@@ -782,13 +782,16 @@ function createAccount() {
 
 //password visibility button
 
-function changeVisibility(id){
-    const passwordInput = document.getElementById(id)
+function changeVisibility(inputID, buttonID){
+    var passwordInput = document.getElementById(inputID)
+    var visibilityButton = document.getElementById(buttonID)
 
-    if (password.type === "password") {
-        password.type == "text"
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text"
+        visibilityButton.style.backgroundImage = "url(./img/icons/eye-password-show.svg)"
     }
     else {
-        password.type = "password"
+        passwordInput.type = "password"
+        visibilityButton.style.backgroundImage = "url(./img/icons/eye-password-hide.svg)"
     }
 }
