@@ -1,3 +1,6 @@
+<?php
+session_start()
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,14 +30,7 @@
         <div class="messages-menu">
             <div class="messages-menu-top">Messages</div>
             <div id="messages-menu-chats-container">
-                <button class="messages-menu-button">
-                    <div class="messages-menu-button-profilepic" style="background-image: url(./img/profile_pictures/defaultprofile.svg);">
-                        <img src="./img/borders/defaultborder.webp">
-                    </div>
-                    <div class="messages-menu-button-name-container">
-                        <p>BimBomSlimSlom</p>
-                    </div>
-                </button>
+                <?php include "./php_scripts/load_chat_list.php" ?>
             </div>
         </div>
 
