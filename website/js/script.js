@@ -781,7 +781,6 @@ function createAccount() {
 }
 
 //password visibility button
-
 function changeVisibility(inputID, buttonID){
     var passwordInput = document.getElementById(inputID)
     var visibilityButton = document.getElementById(buttonID)
@@ -794,4 +793,22 @@ function changeVisibility(inputID, buttonID){
         passwordInput.type = "password"
         visibilityButton.style.backgroundImage = "url(./img/icons/eye-password-hide.svg)"
     }
+}
+
+// Creates a new chat
+function createChat(user_id) {
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/create_chat.php',
+        data:{ user_id : user_id }, 
+        success: function(response){
+            if (response == "error") {
+                showConfirm("Something went wrong.");
+            } else if (response == "already_in_chat") {
+                showConfirm("You are already in a chat with this user.");
+            } else {
+                window.location.href = "messages.php";
+            }
+        }
+    })
 }

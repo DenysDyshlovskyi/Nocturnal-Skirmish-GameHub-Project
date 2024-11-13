@@ -9,7 +9,7 @@
     <style> <?php include "./css/universal.css" ?> </style>
     <style> <?php include "./css/messages.css" ?> </style>
 </head>
-<body id="messages-body" onload="prepareSFX(); ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx'); isKicked()">
+<body id="messages-body" onload="prepareSFX(); ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx'); isKicked(); scrollToBottom()">
 <div id="dark-container" class="dark-container"></div>
 <div class="confirmation-popup" id="confirmContainer"></div>
     <div class="messages-content-container">
@@ -37,6 +37,87 @@
                 </button>
             </div>
         </div>
+
+        <div class="messages-container" id="messages-container">
+            <div class="message-container">
+                <div class="message-name-container">
+                    <div class="message-profilepic" style="background-image: url(./img/profile_pictures/defaultprofile.svg);">
+                        <img src="./img/borders/defaultborder.webp">
+                    </div>
+                    <h1 class="message-nickname">BimBomSlimSlom - <i>20-04-2024 10:30</i></h1>
+                </div>
+                <div class="message-content">
+                    <p>Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha</p>
+                </div>
+            </div>
+            <div class="message-container">
+                <div class="message-name-container">
+                    <div class="message-profilepic" style="background-image: url(./img/profile_pictures/defaultprofile.svg);">
+                        <img src="./img/borders/defaultborder.webp">
+                    </div>
+                    <h1 class="message-nickname">BimBomSlimSlom - <i>20-04-2024 10:30</i></h1>
+                </div>
+                <div class="message-content">
+                    <p>Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha</p>
+                </div>
+            </div>
+            <div class="message-container">
+                <div class="message-name-container">
+                    <div class="message-profilepic" style="background-image: url(./img/profile_pictures/defaultprofile.svg);">
+                        <img src="./img/borders/defaultborder.webp">
+                    </div>
+                    <h1 class="message-nickname">BimBomSlimSlom - <i>20-04-2024 10:30</i></h1>
+                </div>
+                <div class="message-content">
+                    <p>Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha</p>
+                </div>
+            </div>
+            <div class="message-container">
+                <div class="message-name-container">
+                    <div class="message-profilepic" style="background-image: url(./img/profile_pictures/defaultprofile.svg);">
+                        <img src="./img/borders/defaultborder.webp">
+                    </div>
+                    <h1 class="message-nickname">BimBomSlimSlom - <i>20-04-2024 10:30</i></h1>
+                </div>
+                <div class="message-content">
+                    <p>Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha</p>
+                </div>
+            </div>
+            <div class="message-container">
+                <div class="message-name-container">
+                    <div class="message-profilepic" style="background-image: url(./img/profile_pictures/defaultprofile.svg);">
+                        <img src="./img/borders/defaultborder.webp">
+                    </div>
+                    <h1 class="message-nickname">BimBomSlimSlom - <i>20-04-2024 10:30</i></h1>
+                </div>
+                <div class="message-content">
+                    <p>Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha</p>
+                </div>
+            </div>
+            <div class="message-container">
+                <div class="message-name-container">
+                    <div class="message-profilepic" style="background-image: url(./img/profile_pictures/defaultprofile.svg);">
+                        <img src="./img/borders/defaultborder.webp">
+                    </div>
+                    <h1 class="message-nickname">BimBomSlimSlom - <i>20-04-2024 10:30</i></h1>
+                </div>
+                <div class="message-content">
+                    <p>Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha</p>
+                </div>
+            </div>
+            <div class="message-container">
+                <div class="message-name-container">
+                    <div class="message-profilepic" style="background-image: url(./img/profile_pictures/defaultprofile.svg);">
+                        <img src="./img/borders/defaultborder.webp">
+                    </div>
+                    <h1 class="message-nickname">BimBomSlimSlom - <i>20-04-2024 10:30</i></h1>
+                </div>
+                <div class="message-content">
+                    <p>Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha Jeg er en skummel monster muhahaha</p>
+                </div>
+            </div>
+        </div>
+
         <div class="message-bar">
             <input type="text" class="message-bar-text-input">
             <div class="message-bar-more-container">
@@ -84,6 +165,12 @@
             ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx');
             isKicked()
         }, 5000);
+
+        // Scrolls to bottom of messages
+        function scrollToBottom() {
+            container = document.getElementById("messages-container");
+            container.scrollTop = container.scrollHeight;
+        }
     </script>
 </body>
 </html>

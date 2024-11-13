@@ -85,4 +85,14 @@ CREATE TABLE banned (
 
 CREATE TABLE kick (
     user_id int
-)
+);
+
+CREATE TABLE chats (
+    id int NOT NULL AUTO_INCREMENT,
+    tablename varchar(128),
+    user_id int,
+    type varchar(32),
+    PRIMARY KEY (id)
+);
+
+CREATE DATABASE IF NOT EXISTS gamehub_messages;
