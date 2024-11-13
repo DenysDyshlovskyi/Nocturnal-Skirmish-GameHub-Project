@@ -34,6 +34,7 @@ if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] != 1) {
                 <button name="phpmyadmin">phpMyAdmin</button>
                 <button name="cleanup">Perform cleanup</button>
                 <button name="logout">Log out.</button>
+                <button name="testing">Testing page</button>
             </form>
         </div>
     </header>

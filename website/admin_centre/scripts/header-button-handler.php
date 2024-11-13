@@ -191,6 +191,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             exit;
         } else if (isset($_POST['phpmyadmin'])) {
             header("Location: ../../phpMyAdmin/index.php");
+        } else if (isset($_POST['testing'])) {
+            header("Location: ../testing.php");
         }
     }
 } else {

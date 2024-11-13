@@ -1,0 +1,39 @@
+/*Stylesheet for testing page*/
+.password-input-wrapper {
+    width: 300px;
+    height: 30px;
+    border: solid 1px black;
+    border-radius: 5px;
+    background-color: white;
+    position: relative;
+    margin: 15px;
+}
+
+.password-input-wrapper input {
+    height: calc(100% - 3px);
+    width: calc(100% - 37px);
+    margin-right: 5px;
+    position: absolute;
+    left: 0;
+    border: none;
+    padding-right: 35px;
+    border-radius: 5px;
+    font-family: "Afacad Flux", "sans-serif";
+    font-size: 20px;
+    text-indent: 5px;
+}
+
+.password-input-wrapper button {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    position: absolute;
+    right: 0;
+    border: none;
+    cursor: pointer;
+    border-left: 1px solid #a1a1a1;
+    background-image: url(../img/icons/eye-password-hide.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80%;
+}
