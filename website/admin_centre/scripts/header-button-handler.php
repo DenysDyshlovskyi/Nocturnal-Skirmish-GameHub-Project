@@ -184,6 +184,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             removeFakeUsers('friend_list', 'multiple');
             removeFakeUsers('pending_friend_list', 'multiple');
 
+            // TODO : remove two user chats with user_ids that dont exist, or replace the sender with username of "deleted user"
+
             echo "<br>Cleanup done! <a href='../dashboard.php'>Back to dashboard.</a>";
         } else if (isset($_POST['logout'])) {
             session_unset();
