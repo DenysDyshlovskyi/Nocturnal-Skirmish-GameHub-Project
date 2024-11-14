@@ -111,6 +111,7 @@
 .left-middle-shop-container-titles {
     margin-left: 6%;
     font-size: 30px;
+    color: #3e3e3e;
 }
 
 .card-section-left-middle-shop-container {
@@ -356,6 +357,19 @@
 /*---------------------------------------------------------------------*/
 /*Character shop*/
 
+.character-preview-empty {
+    display: flex;
+    margin-top: 50%;
+    color: #676767;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+#characterPreviewEmptyUnderText{
+    margin: 0%;
+}
+
 .character-box-container {
     height: 100%;
     width: 100%;
@@ -407,6 +421,8 @@
     display: flex;
     justify-content: center;
     font-family: "Afacad Flux", sans-serif;
+    font-size: 2em;
+    color: #3e3e3e;
 }
 
 .character-preview-content {

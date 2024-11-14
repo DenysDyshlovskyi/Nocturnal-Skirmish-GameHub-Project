@@ -31,8 +31,21 @@ function openCharacterTab(characterId) {
             content.classList.remove('active');
         });
         document.getElementById(characterId).classList.add('active');
-    }
+}
 
+function openCharacterTab(characterId) {
+    // Hide the initial empty preview message
+    document.getElementById("characterPreviewEmpty").style.display = "none";
+
+    // Hide all character content sections
+    const characterContents = document.querySelectorAll(".character-content");
+    characterContents.forEach(content => {
+        content.style.display = "none";
+    });
+
+    // Show the selected character's content
+    document.getElementById(characterId).style.display = "block";
+}
 
 
 
