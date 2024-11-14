@@ -25,6 +25,33 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+
+function openCharacterTab(characterId) {
+        document.querySelectorAll('.character-content').forEach(content => {
+            content.classList.remove('active');
+        });
+        document.getElementById(characterId).classList.add('active');
+}
+
+function openCharacterTab(characterId) {
+    // Hide the initial empty preview message
+    document.getElementById("characterPreviewEmpty").style.display = "none";
+
+    // Hide all character content sections
+    const characterContents = document.querySelectorAll(".character-content");
+    characterContents.forEach(content => {
+        content.style.display = "none";
+    });
+
+    // Show the selected character's content
+    document.getElementById(characterId).style.display = "block";
+}
+
+
+
+
+
+
 // play click sfx
 function playClickSfx() {
     var clickAudio = document.getElementById('clickSFX');
