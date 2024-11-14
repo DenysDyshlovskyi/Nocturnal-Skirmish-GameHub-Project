@@ -9,6 +9,9 @@ session_start();
     <title>GameHub - Messages</title>
     <link rel="icon" type=".image/x-icon" href="./img/favicon.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./lib/LC-emoji-picker-master/lc_emoji_picker.min.js"></script>
+    <!--Using LC Emoji Picker: https://lcweb.it/lc-emoji-picker-javascript-plugin/-->
+    <script type="text/javascript"> new lc_emoji_picker('textarea, input'); </script>
     <style> <?php include "./css/universal.css" ?> </style>
     <style> <?php include "./css/messages.css" ?> </style>
 </head>
@@ -38,7 +41,6 @@ session_start();
             <div class="message-bar-more-container">
                 <button title="Send message" id="send-button" onclick="sendMessage()"></button>
                 <button title="Add attachment" id="attachment-button"></button>
-                <button title="Add emoji" id="emoji-button"></button>
             </div>
         </div>
     </div>
@@ -58,6 +60,7 @@ session_start();
     <audio id='clickSFX'>
         <source src="./audio/sfx/click1.mp3" type="audio/mpeg">
     </audio>
+    <script><?php include "./js/script.js" ?></script>
     <script>
         // Checks if user should be kicked
         function isKicked() {
@@ -85,6 +88,5 @@ session_start();
             ajaxGet("./php_scripts/load_messages.php", "messages-container");
         }, 3000);
     </script>
-    <script><?php include "./js/script.js" ?></script>
 </body>
 </html>
