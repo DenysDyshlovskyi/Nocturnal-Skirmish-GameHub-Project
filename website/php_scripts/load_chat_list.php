@@ -24,14 +24,14 @@ if ((mysqli_num_rows($result) <= 0)) {
             $stmt2->execute();
             $result2 = $stmt2->get_result();
             $row2 = mysqli_fetch_assoc($result2);
-            echo "<button class='messages-menu-button'>
+            printf("<button class='messages-menu-button' onclick='selectChat(%s)'>
                         <div class='messages-menu-button-profilepic' style='background-image: url(./img/profile_pictures/" . $row2['profile_picture'] . ");'>
                             <img src='./img/borders/" . $row2['profile_border'] . "'>
                         </div>
                         <div class='messages-menu-button-name-container'>
                             <p>" . $row2['nickname'] . "</p>
                         </div>
-                    </button>";
+                    </button>", '"' . $row['tablename'] . '"');
         }
     }
 }

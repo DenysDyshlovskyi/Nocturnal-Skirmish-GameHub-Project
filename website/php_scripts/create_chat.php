@@ -29,6 +29,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $result2 = $stmt2->get_result();
             $row2 = mysqli_fetch_assoc($result2);
             if ($row2['user_id'] == $posted_userid) {
+                $_SESSION['current_table'] = $row['tablename'];
                 echo "already_in_chat";
                 $stmt2->close();
                 exit;
@@ -60,6 +61,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("ss", $posted_userid, $tablename);
     $stmt->execute();
     $stmt->close();
+
+    $_SESSION['current_table'] = $tablename;
 } else {
     header("Location: ../index.php");
 }

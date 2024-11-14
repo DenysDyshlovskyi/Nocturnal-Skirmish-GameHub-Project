@@ -812,3 +812,19 @@ function createChat(user_id) {
         }
     })
 }
+
+// Selects a chat to display messages
+function selectChat(tablename) {
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/select_chat.php',
+        data:{ tablename : tablename }, 
+        success: function(response){
+            if (response == "error") {
+                showConfirm("Something went wrong.");
+            } else {
+                ajaxGet("./php_scripts/load_messages.php", "messages-container");
+            }
+        }
+    })
+}
