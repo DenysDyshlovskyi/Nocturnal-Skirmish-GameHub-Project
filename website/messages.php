@@ -17,13 +17,8 @@ session_start();
 <div class="confirmation-popup" id="confirmContainer"></div>
     <div class="messages-content-container">
         <header>
-            <div class="current-messenger-container">
-                <div class="current-messenger-profilepic" style="background-image: url(./img/profile_pictures/defaultprofile.svg);">
-                    <img src="./img/borders/defaultborder.webp">
-                </div>
-                <div class="current-messenger-name-container">
-                    <p>BimBomSlimSlom</p>
-                </div>
+            <div class="current-messenger-container" id="current-messenger-container">
+                <?php include "./php_scripts/load_current_messenger.php" ?>
             </div>
             <button class="messages-backtohub" title="Back to Hub" onclick="window.location.href = 'hub.php';">Back to Hub</button>
         </header>

@@ -141,6 +141,10 @@ header {
     align-items: center;
 }
 
+.current-messenger-container a:hover {
+    filter: brightness(0.5);
+}
+
 .current-messenger-profilepic {
     position: relative;
     height: 60px;
@@ -294,7 +298,7 @@ header {
 .message-content {
     width: fit-content;
     height: fit-content;
-    max-width: 50%;
+    max-width: 100%;
     padding: 15px;
     margin-top: 10px;
     border-radius: 10px;

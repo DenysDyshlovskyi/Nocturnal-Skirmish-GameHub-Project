@@ -30,6 +30,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $row2 = mysqli_fetch_assoc($result2);
             if ($row2['user_id'] == $posted_userid) {
                 $_SESSION['current_table'] = $row['tablename'];
+                $_SESSION['current_messenger'] = $posted_userid;
                 exit;
             }
             $stmt2->close();
@@ -62,6 +63,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->close();
 
     $_SESSION['current_table'] = $tablename;
+    $_SESSION['current_messenger'] = $posted_userid;
 } else {
     header("Location: ../index.php");
 }

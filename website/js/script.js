@@ -825,6 +825,7 @@ function selectChat(tablename) {
                 showConfirm("Something went wrong.");
             } else {
                 ajaxGet("./php_scripts/load_messages.php", "messages-container");
+                ajaxGet("./php_scripts/load_current_messenger.php", "current-messenger-container");
             }
         }
     })
