@@ -122,6 +122,11 @@
     margin-left: 5%;
 }
 
+.right-middle-shop-container-characters{
+    display: flex;
+    flex-direction: row;
+}
+
 .card-section-left-middle-shop-container {
    background-color: #62D0FF;
    margin-left: 5%;
