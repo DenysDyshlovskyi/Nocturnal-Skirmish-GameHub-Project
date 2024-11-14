@@ -25,6 +25,20 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+
+function openCharacterTab(characterId) {
+        document.querySelectorAll('.character-content').forEach(content => {
+            content.classList.remove('active');
+        });
+        document.getElementById(characterId).classList.add('active');
+    }
+
+
+
+
+
+
+
 // play click sfx
 function playClickSfx() {
     var clickAudio = document.getElementById('clickSFX');

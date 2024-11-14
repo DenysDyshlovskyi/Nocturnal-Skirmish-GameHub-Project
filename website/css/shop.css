@@ -138,6 +138,7 @@
 
 .card-images {
     border-radius: 10px 10px 10px 10px;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
 .light-card-name {
@@ -189,7 +190,7 @@
     margin-top: 12%;
 }
 
-.profileborder-name {
+.profileborder- {
     color: #ffffff;
     margin-top: 3%;
     font-weight: bold;
@@ -358,7 +359,14 @@
 .character-box-container {
     height: 100%;
     width: 100%;
-    background-color: red;
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+}
+
+.character-box-wrapper {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
     gap: 10%;
@@ -367,7 +375,76 @@
 
 .character-box {
     width: 20%;
-    height: 50%;
-    background-color: orange;
+    height: 300px;
+    background-color: #FFBC5E;
     margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
 }
+
+.character-content {
+    display: none;
+}
+
+.character-content.active {
+    display: block;
+}
+
+.character-preview {
+    margin-top: 140%;
+    height: 50px;    
+    width: 85%;
+    background-color: gray;
+    font-family: "Afacad Flux", sans-serif;
+    color: #ffffff;
+    font-size: 1.2em;
+
+}
+
+.character-text {
+    display: flex;
+    justify-content: center;
+    font-family: "Afacad Flux", sans-serif;
+}
+
+.character-preview-content {
+ display: flex;
+ flex-direction: column;
+ gap: 30px;
+}
+
+.character-preview-content-top-section {
+    display: flex;
+    flex-direction: row;
+    gap: 11%;
+}
+
+.character-showcase {
+    height: 360px;
+    width: 36%;
+    background-color: #FFBC5E;
+    margin-left: 10%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.character-stats {
+    width: 32%;
+    height: 270px;
+    background-color: #999999;
+    opacity: 0.6;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; 
+}
+
+.character-preview-content-bottom-section {
+    width: 80%;
+    height: 150px;
+    background-color: #B96C00;
+    opacity: 0.6;
+    margin-left: 10%;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
