@@ -30,10 +30,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $row2 = mysqli_fetch_assoc($result2);
             if ($row2['user_id'] == $posted_userid) {
                 $_SESSION['current_table'] = $row['tablename'];
-                echo "already_in_chat";
-                $stmt2->close();
                 exit;
             }
+            $stmt2->close();
         }
     };
     $stmt->close();

@@ -39,9 +39,9 @@ session_start();
         </div>
 
         <div class="message-bar">
-            <input type="text" class="message-bar-text-input" maxlength="500">
+            <input type="text" class="message-bar-text-input" maxlength="500" id="message-input">
             <div class="message-bar-more-container">
-                <button title="Send message" id="send-button"></button>
+                <button title="Send message" id="send-button" onclick="sendMessage()"></button>
                 <button title="Add attachment" id="attachment-button"></button>
                 <button title="Add emoji" id="emoji-button"></button>
             </div>
@@ -84,12 +84,6 @@ session_start();
             ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx');
             isKicked()
         }, 5000);
-
-        // Scrolls to bottom of messages
-        function scrollToBottom() {
-            container = document.getElementById("messages-container");
-            container.scrollTop = container.scrollHeight;
-        }
 
         // Starts 3 second interval to update messages
         setInterval(function(){

@@ -47,6 +47,9 @@ function ajaxGet(phpFile, changeID, onLoad){
             startFriendsListInterval();
         } else if (onLoad == "cropper_js_banner") {
             configureCropperJSBanner();
+        } else if (onLoad == "scroll"){
+            container = document.getElementById("messages-container");
+            container.scrollTop = container.scrollHeight;
         }
 
         if (onLoad != "no_sfx") {
@@ -804,8 +807,6 @@ function createChat(user_id) {
         success: function(response){
             if (response == "error") {
                 showConfirm("Something went wrong.");
-            } else if (response == "already_in_chat") {
-                showConfirm("You are already in a chat with this user.");
             } else {
                 window.location.href = "messages.php";
             }
@@ -824,6 +825,30 @@ function selectChat(tablename) {
                 showConfirm("Something went wrong.");
             } else {
                 ajaxGet("./php_scripts/load_messages.php", "messages-container");
+            }
+        }
+    })
+}
+
+// Scrolls to bottom of messages
+function scrollToBottom() {
+    container = document.getElementById("messages-container");
+    container.scrollTop = container.scrollHeight;
+}
+
+// Sends a message in the current chat
+function sendMessage() {
+    var message = document.getElementById("message-input").value;
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/send_message.php',
+        data:{ message : message }, 
+        success: function(response){
+            if (response == "empty") {
+                showConfirm("Message is empty!");
+            } else {
+                ajaxGet("./php_scripts/load_messages.php", "messages-container", 'scroll');
+                document.getElementById("message-input").value = '';
             }
         }
     })

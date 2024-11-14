@@ -19,6 +19,12 @@ if (!isset($_SESSION['current_table'])) {
             $stmt2->execute();
             $result2 = $stmt2->get_result();
             $row2 = mysqli_fetch_assoc($result2);
+            // Make message orange if its sent by you
+            if ($row['user_id'] == $_SESSION['user_id']) {
+                $backgroundColor = "style='background-color: #FFCF8C;'";
+            } else {
+                $backgroundColor = "";
+            }
             echo "<div class='message-container'>
                     <div class='message-name-container'>
                         <div class='message-profilepic' style='background-image: url(./img/profile_pictures/" . $row2['profile_picture'] . ");'>
@@ -26,7 +32,7 @@ if (!isset($_SESSION['current_table'])) {
                         </div>
                         <h1 class='message-nickname'>" . $row2['nickname'] . " - <i>" . $row['timestamp'] . "</i></h1>
                     </div>
-                    <div class='message-content'>
+                    <div class='message-content' $backgroundColor>
                         <p>" . $row['message'] . "</p>
                     </div>
                 </div>";
