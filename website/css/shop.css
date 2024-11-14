@@ -114,6 +114,14 @@
     color: #3e3e3e;
 }
 
+.left-middle-shop-container-titles-underline {
+    width: 60%;
+    height: 5px;
+    background-color: #3e3e3e;
+    margin-top: -4%;
+    margin-left: 5%;
+}
+
 .card-section-left-middle-shop-container {
    background-color: #62D0FF;
    margin-left: 5%;
@@ -363,7 +371,7 @@
     color: #676767;
     flex-direction: column;
     align-items: center;
-    
+    font-size: 2em;
 }
 
 #characterPreviewEmptyUnderText{
@@ -388,8 +396,8 @@
 }
 
 .character-box {
-    width: 20%;
-    height: 300px;
+    width: 23%;
+    height: 270px;
     background-color: #FFBC5E;
     margin-top: 10%;
     display: flex;
@@ -438,7 +446,7 @@
 }
 
 .character-showcase {
-    height: 360px;
+    height: 320px;
     width: 36%;
     background-color: #FFBC5E;
     margin-left: 10%;
@@ -447,7 +455,7 @@
 
 .character-stats {
     width: 32%;
-    height: 270px;
+    height: 240px;
     background-color: #999999;
     opacity: 0.6;
     border-radius: 10px;
