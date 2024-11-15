@@ -53,14 +53,14 @@ if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == 1) {
                 <img src="./img/icons/paper-clip.svg" alt="Attach file">Attach file
             </div>
             <div class="more-button-popup-button">
-                <input type="file" class="file-upload" name="upload"/>
+                <input type="file" class="file-upload" onchange="preview()" name="upload" accept="image/png, image/gif, image/jpeg, image/webp"/>
                 <img src="./img/icons/image.svg" alt="Attach media">Attach media
             </div>
         </div>
-        <div class="message-bar">
+        <div class="message-bar" id="message-bar">
             <div class="message-bar-input-img-container">
-                <img src="./img/profile_banners/defaultbanner.jpg" class="message-bar-preview-image">
-                <textarea class="message-bar-text-input" maxlength="500" id="message-input" oninput='resizeTextArea()' onkeydown = "if (event.keyCode == 13){sendMessage()}" spellcheck="false"></textarea>
+                <img src="./img/profile_banners/defaultbanner.jpg" class="message-bar-preview-image" id="media-preview">
+                <textarea class="message-bar-text-input" maxlength="500" id="message-input" oninput='resizeTextArea(); resizeMessageBar();' onkeydown = "if (event.keyCode == 13){sendMessage()}" spellcheck="false"></textarea>
             </div>
             <div class="message-bar-more-container">
                 <button title="Send message" id="send-button" onclick="sendMessage()"></button>
@@ -100,15 +100,9 @@ if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == 1) {
         // Resizes message input based on how much text is inside of it
         function resizeTextArea() {
             var textarea = document.getElementById("message-input");
-            var messagesContainer = document.getElementById("messages-container");
 
             textarea.style.height = "";
             textarea.style.height = textarea.scrollHeight + "px";
-            height = "calc(100vh - " + (textarea.scrollHeight + 227) + "px)";
-            if ((textarea.scrollHeight + 227) < 338) {
-                messagesContainer.style.setProperty('height', height);
-                scrollToBottom();
-            }
         }
 
         // Checks if user should be kicked
@@ -192,6 +186,25 @@ if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == 1) {
                 jumpToLastMessage();
             }
         });
+
+        // Previews image when uploading image
+        function preview() {
+            document.getElementById('media-preview').src=URL.createObjectURL(event.target.files[0]);
+            document.getElementById('media-preview').style.display = "block";
+            setTimeout(resizeMessageBar, 100)
+        }
+
+        // Resizes messages-container based on height of message bar
+        function resizeMessageBar() {
+            var messagesContainer = document.getElementById("messages-container");
+            document.getElementById("message-bar").style.height = "";
+            var messageBar = $("#message-bar").height();
+
+            height = "calc(100vh - " + (messageBar + 215) + "px)";
+
+            messagesContainer.style.setProperty('height', height);
+            scrollToBottom();
+        }
     </script>
 </body>
 </html>
