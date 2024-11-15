@@ -47,9 +47,6 @@ function ajaxGet(phpFile, changeID, onLoad){
             startFriendsListInterval();
         } else if (onLoad == "cropper_js_banner") {
             configureCropperJSBanner();
-        } else if (onLoad == "scroll"){
-            container = document.getElementById("messages-container");
-            container.scrollTop = container.scrollHeight;
         } else if (onLoad == "still_at_bottom") {
             stillAtBottom();
         }
