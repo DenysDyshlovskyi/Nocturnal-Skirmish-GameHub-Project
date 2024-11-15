@@ -39,7 +39,7 @@ $_SESSION['message_amount'] = 15;
         </div>
 
         <div class="message-bar">
-            <textarea class="message-bar-text-input" maxlength="500" id="message-input" oninput='resizeTextArea()' onkeydown = "if (event.keyCode == 13){sendMessage()}"></textarea>
+            <textarea class="message-bar-text-input" maxlength="500" id="message-input" oninput='resizeTextArea()' onkeydown = "if (event.keyCode == 13){sendMessage()}" spellcheck="false"></textarea>
             <div class="message-bar-more-container">
                 <button title="Send message" id="send-button" onclick="sendMessage()"></button>
                 <button title="Add attachment" id="attachment-button"></button>
