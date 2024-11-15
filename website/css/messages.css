@@ -373,7 +373,7 @@ header {
     display: none;
 }
 
-.more-button-popup button {
+.more-button-popup-button {
     width: 100%;
     height: 50%;
     border: none;
@@ -385,9 +385,26 @@ header {
     font-size: 18px;
     display: flex;
     align-items: center;
+    overflow: hidden;
+    position: relative;
 }
 
-.more-button-popup button:hover {
+.file-upload{
+    height: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 100px;
+    z-index: 2;
+    opacity: 0.0; /* Standard: FF gt 1.5, Opera, Safari */
+    filter: alpha(opacity=0); /* IE lt 8 */
+    -ms-filter: "alpha(opacity=0)"; /* IE 8 */
+    -khtml-opacity: 0.0; /* Safari 1.x */
+    -moz-opacity: 0.0; /* FF lt 1.5, Netscape */
+}
+
+.more-button-popup-button:hover {
     filter: brightness(0.7);
 }
 

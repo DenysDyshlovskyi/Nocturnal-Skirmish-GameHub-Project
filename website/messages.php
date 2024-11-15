@@ -48,8 +48,14 @@ if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == 1) {
             <?php include "./php_scripts/load_messages.php"; ?>
         </div>
         <div class="more-button-popup" id="more-button-popup">
-            <button id="attach-file"><img src="./img/icons/paper-clip.svg" alt="Attach file">Attach file</button>
-            <button><img src="./img/icons/image.svg" alt="Attach media">Attach media</button>
+            <div class="more-button-popup-button" id="attach-file">
+                <input type="file" class="file-upload" name="upload"/>
+                <img src="./img/icons/paper-clip.svg" alt="Attach file">Attach file
+            </div>
+            <div class="more-button-popup-button">
+                <input type="file" class="file-upload" name="upload"/>
+                <img src="./img/icons/image.svg" alt="Attach media">Attach media
+            </div>
         </div>
         <div class="message-bar">
             <div class="message-bar-input-img-container">
