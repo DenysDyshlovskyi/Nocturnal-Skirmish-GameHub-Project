@@ -83,13 +83,33 @@ session_start();
             isKicked()
         }, 5000);
 
+        var atBottom = 0;
+        function isAtBottom() {
+            const scrollableDiv = document.getElementById('messages-container');
+            const { scrollTop, scrollHeight, clientHeight } = scrollableDiv;
+
+            // Check if the user has scrolled to the bottom
+            if (scrollTop + clientHeight >= scrollHeight) {
+                atBottom = 1;
+            } else {
+                atBottom = 0;
+            }
+        }
+
+        function stillAtBottom() {
+            if (atBottom == 1) {
+                scrollToBottom();
+            }
+        }
+
+        function loadMessages() {
+            ajaxGet("./php_scripts/load_messages.php", "messages-container", "still_at_bottom");
+        }
+
         // Starts 3 second interval to update messages
         setInterval(function(){
-            var element = document.getElementById("messages-container")
-            if (element.scrollHeight - element.scrollTop === element.clientHeight) {
-                var atBottom = 1;
-            }
-            ajaxGet("./php_scripts/load_messages.php", "messages-container");
+            isAtBottom();
+            setTimeout(loadMessages, 500);
         }, 3000);
     </script>
 </body>

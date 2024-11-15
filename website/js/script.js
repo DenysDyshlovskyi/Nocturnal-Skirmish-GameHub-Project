@@ -50,6 +50,8 @@ function ajaxGet(phpFile, changeID, onLoad){
         } else if (onLoad == "scroll"){
             container = document.getElementById("messages-container");
             container.scrollTop = container.scrollHeight;
+        } else if (onLoad == "still_at_bottom") {
+            stillAtBottom();
         }
 
         if (onLoad != "no_sfx") {
