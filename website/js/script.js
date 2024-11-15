@@ -857,6 +857,9 @@ function sendMessage() {
             if (response == "empty") {
                 showConfirm("Message is empty!");
                 document.getElementById("message-input").value = '';
+            } else if (response == "notselected") {
+                showConfirm("No chat selected!");
+                document.getElementById("message-input").value = '';
             } else {
                 ajaxGet("./php_scripts/load_messages.php", "messages-container", "scroll");
                 document.getElementById("message-input").value = '';

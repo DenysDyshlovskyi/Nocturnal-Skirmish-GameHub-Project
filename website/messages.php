@@ -1,6 +1,10 @@
 <?php
 session_start();
 $_SESSION['message_amount'] = 15;
+
+if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == 1) {
+    echo "Viewing as admin";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +28,13 @@ $_SESSION['message_amount'] = 15;
             <div class="current-messenger-container" id="current-messenger-container">
                 <?php include "./php_scripts/load_current_messenger.php" ?>
             </div>
-            <button class="messages-backtohub" title="Back to Hub" onclick="window.location.href = 'hub.php';">Back to Hub</button>
+            <?php
+            if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == 1) {
+                printf("<button class='messages-backtohub' style='width: 200px' title='Back to Dashboard' onclick='window.location.href = %s;'>Back to Dashboard</button>", '"' . "./admin_centre/dashboard.php" . '"');
+            } else {
+                printf("<button class='messages-backtohub' title='Back to Hub' onclick='window.location.href = %s;'>Back to Hub</button>", '"' . "hub.php" . '"');
+            }
+            ?>
         </header>
         <div class="messages-menu">
             <div class="messages-menu-top">Messages</div>

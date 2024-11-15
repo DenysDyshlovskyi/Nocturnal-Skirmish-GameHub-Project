@@ -551,3 +551,14 @@ function kickUser(user_id) {
         }
     })
 }
+
+function viewChat(user_id) {
+    $.ajax({
+        type: "POST",
+        url: './scripts/display_profile/change_to_userid.php',
+        data:{user_id : user_id}, 
+        success: function(){
+            window.location.href = "../messages.php";
+        }
+    })
+}

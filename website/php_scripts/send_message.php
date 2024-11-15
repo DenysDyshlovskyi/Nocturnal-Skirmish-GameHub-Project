@@ -11,6 +11,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 
+    // Check if a chat has been selected
+    if (!isset($_SESSION['current_table']) || $_SESSION['current_table'] == null) {
+        echo "notselected";
+        exit;
+    }
+
     // Get current time
     require "getdate.php";
     $timestamp = $date . " - " . $time;
