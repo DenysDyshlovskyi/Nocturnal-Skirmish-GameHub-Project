@@ -85,6 +85,10 @@ session_start();
 
         // Starts 3 second interval to update messages
         setInterval(function(){
+            var element = document.getElementById("messages-container")
+            if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+                var atBottom = 1;
+            }
             ajaxGet("./php_scripts/load_messages.php", "messages-container");
         }, 3000);
     </script>

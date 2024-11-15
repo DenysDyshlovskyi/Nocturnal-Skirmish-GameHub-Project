@@ -48,6 +48,7 @@
     margin: 0;
     cursor: pointer;
     margin: 12px;
+    background-color: transparent;
 }
 
 .settings-change-border-inventory-border:hover{
