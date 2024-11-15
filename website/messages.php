@@ -36,6 +36,7 @@ if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == 1) {
             }
             ?>
         </header>
+        <div class="loading-container" id="loading"><img src="./img/icons/loading.gif"></div>
         <div class="messages-menu">
             <div class="messages-menu-top">Messages</div>
             <div id="messages-menu-chats-container">
@@ -168,6 +169,7 @@ if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == 1) {
             const target = document.getElementById(first_message_id);
             const offsetTop = target.offsetTop - container.offsetTop;
             container.scrollTo({ top: offsetTop});
+            $('#loading').hide();
         }
 
         // Jumps to previous last message when new messages are loaded in
@@ -181,9 +183,10 @@ if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == 1) {
 
         // When user has scrolled to top of messages, load in 15 new ones
         scrollableDiv.addEventListener('scroll', () => {
-            // Check if the user has scrolled to the top
+            // Check if the user has scrolled to the top, if they have start loading animation
             if (scrollableDiv.scrollTop === 0) {
-                jumpToLastMessage();
+                $('#loading').css('display', 'flex');
+                setTimeout(jumpToLastMessage, 300);
             }
         });
 
@@ -191,6 +194,7 @@ if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == 1) {
         function preview() {
             document.getElementById('media-preview').src=URL.createObjectURL(event.target.files[0]);
             document.getElementById('media-preview').style.display = "block";
+            document.getElementById("more-button-popup").style.display = "none";
             setTimeout(resizeMessageBar, 100)
         }
 
