@@ -47,12 +47,18 @@ if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == 1) {
         <div class="messages-container" id="messages-container">
             <?php include "./php_scripts/load_messages.php"; ?>
         </div>
-
+        <div class="more-button-popup" id="more-button-popup">
+            <button id="attach-file"><img src="./img/icons/paper-clip.svg" alt="Attach file">Attach file</button>
+            <button><img src="./img/icons/image.svg" alt="Attach media">Attach media</button>
+        </div>
         <div class="message-bar">
-            <textarea class="message-bar-text-input" maxlength="500" id="message-input" oninput='resizeTextArea()' onkeydown = "if (event.keyCode == 13){sendMessage()}" spellcheck="false"></textarea>
+            <div class="message-bar-input-img-container">
+                <img src="./img/profile_banners/defaultbanner.jpg" class="message-bar-preview-image">
+                <textarea class="message-bar-text-input" maxlength="500" id="message-input" oninput='resizeTextArea()' onkeydown = "if (event.keyCode == 13){sendMessage()}" spellcheck="false"></textarea>
+            </div>
             <div class="message-bar-more-container">
                 <button title="Send message" id="send-button" onclick="sendMessage()"></button>
-                <button title="Add attachment" id="attachment-button"></button>
+                <button title="Add attachment" id="attachment-button" onclick="hideShowAttachMenu()"></button>
             </div>
         </div>
     </div>
@@ -74,6 +80,17 @@ if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == 1) {
     </audio>
     <script><?php include "./js/script.js" ?></script>
     <script>
+        // Hides or shows menu for attaching media or file
+        function hideShowAttachMenu() {
+            var menu = document.getElementById("more-button-popup");
+            if (window.getComputedStyle(menu).display === 'none'){
+                $("#more-button-popup").fadeIn(100);
+                menu.style.display = 'block';
+            } else {
+                $("#more-button-popup").fadeOut(100);
+            }
+        }
+
         // Resizes message input based on how much text is inside of it
         function resizeTextArea() {
             var textarea = document.getElementById("message-input");
