@@ -31,6 +31,7 @@ $_SESSION['message_amount'] = 15;
             <div id="messages-menu-chats-container">
                 <?php include "./php_scripts/load_chat_list.php" ?>
             </div>
+            <button class="messages-add-chat-button" title="Create new chat" onclick="localStorage.setItem('openFriendList', 1); window.location.href = 'hub.php';"></button>
         </div>
 
         <div class="messages-container" id="messages-container">
@@ -38,7 +39,7 @@ $_SESSION['message_amount'] = 15;
         </div>
 
         <div class="message-bar">
-            <input type="text" class="message-bar-text-input" maxlength="500" id="message-input">
+            <textarea class="message-bar-text-input" maxlength="500" id="message-input" oninput='resizeTextArea()'></textarea>
             <div class="message-bar-more-container">
                 <button title="Send message" id="send-button" onclick="sendMessage()"></button>
                 <button title="Add attachment" id="attachment-button"></button>
@@ -63,6 +64,20 @@ $_SESSION['message_amount'] = 15;
     </audio>
     <script><?php include "./js/script.js" ?></script>
     <script>
+        // Resizes message input based on how much text is inside of it
+        function resizeTextArea() {
+            var textarea = document.getElementById("message-input");
+            var messagesContainer = document.getElementById("messages-container");
+
+            textarea.style.height = "";
+            textarea.style.height = textarea.scrollHeight + "px";
+            height = "calc(100vh - " + (textarea.scrollHeight + 227) + "px)";
+            if ((textarea.scrollHeight + 227) < 338) {
+                messagesContainer.style.setProperty('height', height);
+                scrollToBottom();
+            }
+        }
+
         // Checks if user should be kicked
         function isKicked() {
             var placeholder = "placeholder";
@@ -85,6 +100,7 @@ $_SESSION['message_amount'] = 15;
         }, 5000);
 
         var atBottom = 0;
+        // Checks if the user is at the bottom of page
         function isAtBottom() {
             const scrollableDiv = document.getElementById('messages-container');
             const { scrollTop, scrollHeight, clientHeight } = scrollableDiv;
@@ -97,12 +113,14 @@ $_SESSION['message_amount'] = 15;
             }
         }
 
+        // Checks if the user was at the bottom of page before new messages were loaded in
         function stillAtBottom() {
             if (atBottom == 1) {
                 scrollToBottom();
             }
         }
 
+        // Loads in messages, and scrolls to bottom of page to view new messages
         function loadMessages() {
             ajaxGet("./php_scripts/load_messages.php", "messages-container", "still_at_bottom");
         }

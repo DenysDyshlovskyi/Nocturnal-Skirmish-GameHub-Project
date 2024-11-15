@@ -19,7 +19,8 @@ require "./php_scripts/get_loggedin_info.php";
 <body id="hub-body" onload="prepareSFX(); ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx'); isKicked()">
     <div id="dark-container" class="dark-container"></div>
     <div class="confirmation-popup" id="confirmContainer"></div>
-    <div class="hub-spa-container" id="hub-spa-container"></div>
+    <div class="hub-spa-container" id="hub-spa-container">
+    </div>
     <div class="hub-corner-profile-container">
         <div class="hub-corner-profilepic-container" id="hub-corner-profilepic-container">
             <a href="#" onclick="displayUserProfile(<?php echo $_SESSION['user_id'] ?>)">
@@ -162,5 +163,13 @@ require "./php_scripts/get_loggedin_info.php";
         ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx');
         isKicked()
     }, 5000);
+
+    // If friend list should be open, open it.
+    var friendListVar = localStorage.getItem("openFriendList");
+    if (friendListVar == 1) {
+        ajaxGet('./spa/hub/friends_list.php', 'hub-spa-container', 'friends_list');
+        displaySpaContainerHub('block');
+        localStorage.setItem("openFriendList", 0);
+    }
 </script>
 </html>

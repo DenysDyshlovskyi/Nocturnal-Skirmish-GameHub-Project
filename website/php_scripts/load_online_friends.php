@@ -29,8 +29,8 @@ if ((mysqli_num_rows($result) <= 0)) {
                     <h1>" . $row2['nickname'] . "</h1>
                     <div class='hub-friends-list-profile-name-container-line'></div>
                 </div>
-                <button class='hub-friends-list-profile-message-button' onclick='createChat(" . $row2['user_id'] . ")'></button>
-                <button class='hub-friends-list-profile-more-button' onclick='openMoreOptionsFriendsList(" . $row2['user_id'] . ")'></button>
+                <button class='hub-friends-list-profile-message-button' title='Chat with friend' onclick='createChat(" . $row2['user_id'] . ")'></button>
+                <button class='hub-friends-list-profile-more-button' title='More' onclick='openMoreOptionsFriendsList(" . $row2['user_id'] . ")'></button>
             </div>";
         };
         $stmt->close();
