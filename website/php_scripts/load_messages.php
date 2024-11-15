@@ -7,8 +7,16 @@ if (!isset($_SESSION['current_table'])) {
 } else {
     $conn -> select_db("gamehub_messages");
     $tablename = $_SESSION['current_table'];
+    $message_amount = $_SESSION['message_amount'];
 
-    $stmt = $conn->prepare("SELECT * FROM $tablename");
+    $stmt = $conn->prepare("SELECT *
+FROM (
+    SELECT *
+    FROM $tablename
+    ORDER BY message_id DESC
+    LIMIT $message_amount
+) AS latest_posts
+ORDER BY message_id ASC;");
     $stmt->execute();
     $result = $stmt->get_result();
     if($result->num_rows != 0){
@@ -25,7 +33,7 @@ if (!isset($_SESSION['current_table'])) {
             } else {
                 $backgroundColor = "";
             }
-            echo "<div class='message-container'>
+            echo "<div class='message-container' id='" . $row['message_id'] . "'>
                     <div class='message-name-container'>
                         <div class='message-profilepic' style='background-image: url(./img/profile_pictures/" . $row2['profile_picture'] . ");'>
                             <img src='./img/borders/" . $row2['profile_border'] . "'>

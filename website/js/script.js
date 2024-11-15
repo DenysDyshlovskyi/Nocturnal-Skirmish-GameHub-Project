@@ -37,18 +37,25 @@ function ajaxGet(phpFile, changeID, onLoad){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function(){
         document.getElementById(changeID).innerHTML = this.responseText;
-        if (onLoad == "cropper_js") {
-            configureCropperJS();
-        } else if (onLoad == "audio_music_settings") {
-            configureAudioSettings();
-        } else if (onLoad == "friends_list") {
-            ajaxGet('./spa/hub/online_offline_friends.php', 'hub-friends-content');
-            checkPendingAmount();
-            startFriendsListInterval();
-        } else if (onLoad == "cropper_js_banner") {
-            configureCropperJSBanner();
-        } else if (onLoad == "still_at_bottom") {
-            stillAtBottom();
+        if (onLoad != null) {
+            if (onLoad == "cropper_js") {
+                configureCropperJS();
+            } else if (onLoad == "audio_music_settings") {
+                configureAudioSettings();
+            } else if (onLoad == "friends_list") {
+                ajaxGet('./spa/hub/online_offline_friends.php', 'hub-friends-content');
+                checkPendingAmount();
+                startFriendsListInterval();
+            } else if (onLoad == "cropper_js_banner") {
+                configureCropperJSBanner();
+            } else if (onLoad == "still_at_bottom") {
+                stillAtBottom();
+            } else if (onLoad == "scroll"){
+                container = document.getElementById("messages-container");
+                container.scrollTop = container.scrollHeight;
+            } else if (onLoad == "scrollToDiv") {
+                scrollToDiv();
+            };
         }
 
         if (onLoad != "no_sfx") {
@@ -823,7 +830,7 @@ function selectChat(tablename) {
             if (response == "error") {
                 showConfirm("Something went wrong.");
             } else {
-                ajaxGet("./php_scripts/load_messages.php", "messages-container");
+                ajaxGet("./php_scripts/load_messages.php", "messages-container", "scroll");
                 ajaxGet("./php_scripts/load_current_messenger.php", "current-messenger-container");
             }
         }
@@ -847,7 +854,7 @@ function sendMessage() {
             if (response == "empty") {
                 showConfirm("Message is empty!");
             } else {
-                ajaxGet("./php_scripts/load_messages.php", "messages-container", 'scroll');
+                ajaxGet("./php_scripts/load_messages.php", "messages-container", "scroll");
                 document.getElementById("message-input").value = '';
             }
         }

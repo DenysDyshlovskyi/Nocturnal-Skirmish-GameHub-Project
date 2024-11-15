@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['message_amount'] = 15;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -111,6 +112,32 @@ session_start();
             isAtBottom();
             setTimeout(loadMessages, 500);
         }, 3000);
+
+        // When user scrolls to top of messages, load in 25 more messages
+        const scrollableDiv = document.getElementById('messages-container');
+        var first_message_id;
+
+        function scrollToDiv() {
+            const container = document.getElementById('messages-container');
+            const target = document.getElementById(first_message_id);
+            const offsetTop = target.offsetTop - container.offsetTop;
+            container.scrollTo({ top: offsetTop});
+        }
+
+        function jumpToLastMessage() {
+            var messages_container = document.getElementsByClassName('messages-container');
+            var first_message = messages_container[0].children[0];
+            first_message_id = first_message.id;
+            $.get('./php_scripts/load_more_messages.php');
+            ajaxGet("./php_scripts/load_messages.php", "messages-container", "scrollToDiv");
+        }
+
+        scrollableDiv.addEventListener('scroll', () => {
+            // Check if the user has scrolled to the top
+            if (scrollableDiv.scrollTop === 0) {
+                jumpToLastMessage();
+            }
+        });
     </script>
 </body>
 </html>
