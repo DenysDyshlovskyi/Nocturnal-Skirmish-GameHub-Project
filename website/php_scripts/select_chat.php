@@ -25,6 +25,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Set the current table to the tablename
     $_SESSION['current_table'] = $tablename;
+
+    // Reset amount of messages loaded in
+    $_SESSION['message_amount'] = 15;
 } else {
     header("Location: ../index.php");
 }

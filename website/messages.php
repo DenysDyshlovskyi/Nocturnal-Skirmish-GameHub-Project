@@ -117,6 +117,7 @@ $_SESSION['message_amount'] = 15;
         const scrollableDiv = document.getElementById('messages-container');
         var first_message_id;
 
+        // Jumps to previous last message, so that the same message before loading in the new ones is shown.
         function scrollToDiv() {
             const container = document.getElementById('messages-container');
             const target = document.getElementById(first_message_id);
@@ -124,6 +125,7 @@ $_SESSION['message_amount'] = 15;
             container.scrollTo({ top: offsetTop});
         }
 
+        // Jumps to previous last message when new messages are loaded in
         function jumpToLastMessage() {
             var messages_container = document.getElementsByClassName('messages-container');
             var first_message = messages_container[0].children[0];
@@ -132,6 +134,7 @@ $_SESSION['message_amount'] = 15;
             ajaxGet("./php_scripts/load_messages.php", "messages-container", "scrollToDiv");
         }
 
+        // When user has scrolled to top of messages, load in 15 new ones
         scrollableDiv.addEventListener('scroll', () => {
             // Check if the user has scrolled to the top
             if (scrollableDiv.scrollTop === 0) {
