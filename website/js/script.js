@@ -846,6 +846,9 @@ function scrollToBottom() {
 // Sends a message in the current chat
 function sendMessage() {
     var message = document.getElementById("message-input").value;
+    // Disable inputs for 1 seconds to prevent spam
+    $('#message-input').prop('disabled', true);
+    $('#send-button').prop('disabled', true);
     $.ajax({
         type: "POST",
         url: './php_scripts/send_message.php',
@@ -853,10 +856,18 @@ function sendMessage() {
         success: function(response){
             if (response == "empty") {
                 showConfirm("Message is empty!");
+                document.getElementById("message-input").value = '';
             } else {
                 ajaxGet("./php_scripts/load_messages.php", "messages-container", "scroll");
                 document.getElementById("message-input").value = '';
             }
+        },
+        complete: function () {
+            setTimeout(function () {
+                // After 1 seconds, enable inputs again
+                $('#message-input').prop('disabled', false);
+                $('#send-button').prop('disabled', false);
+            }, 1000);
         }
     })
 }

@@ -5,7 +5,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $message = htmlspecialchars($_POST['message']);
 
     // Check if input is empty
-    if ($message === null || strlen($message) == 0){
+    if ($message === null || strlen($message) == 0) {
         // Input is empty
         echo "empty";
         exit;
