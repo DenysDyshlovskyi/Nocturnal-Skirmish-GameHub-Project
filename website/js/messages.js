@@ -145,6 +145,10 @@ function selectChat(tablename) {
             } else {
                 ajaxGet("./php_scripts/load_messages.php", "messages-container", "scroll");
                 ajaxGet("./php_scripts/load_current_messenger.php", "current-messenger-container");
+                document.getElementById("message-input").value = '';
+                removeMedia();
+                cancelReply();
+                resizeMessageBar();
             }
         }
     })
@@ -187,6 +191,7 @@ $("form#message-send-form").submit(function(e) {
                 ajaxGet("./php_scripts/load_messages.php", "messages-container", "scroll");
                 document.getElementById("message-input").value = '';
                 removeMedia();
+                cancelReply();
             }
         },
         cache: false,
@@ -235,4 +240,47 @@ function cancelReply() {
     replyingToPTag.innerHTML = "";
     replyingToMessageId = 0;
     resizeMessageBar();
+}
+
+//Loads in message and scrolls to it
+function messageScroll(messageID) {
+    // Check if message exists first
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/does_message_exist.php',
+        data:{ messageID : messageID }, 
+        success: function(response){
+            if (response == "doesntexist") {
+                showConfirm("Message doesnt exist!");
+            } else {
+                if (document.getElementById(messageID) == null) {
+                    var isMessageLoaded = setInterval(function(){
+                        if(document.getElementById(messageID) == null){
+                            $.get('./php_scripts/load_more_messages.php');
+                            ajaxGet("./php_scripts/load_messages.php", "messages-container");
+                        } else {
+                            clearInterval(isMessageLoaded);
+                            jumpToMessage(messageID);
+                        }
+                    }, 200);
+                } else {
+                    jumpToMessage(messageID);
+                }
+            }
+        }
+    })
+};
+
+// Jumps to message with id in parameter, and highlights it
+function jumpToMessage(messageID){
+    var i=0;
+    document.getElementById(messageID).scrollIntoView();
+    var highlighInterval = setInterval(function(){
+        i++;
+        if (i<45){
+            document.getElementById(messageID).style.backgroundColor = "rgba(0, 0, 0, 0.25)";
+        } else {
+            clearInterval(highlighInterval);
+        }
+    }, 25);
 }
