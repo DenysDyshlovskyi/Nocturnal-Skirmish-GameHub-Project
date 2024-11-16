@@ -64,6 +64,10 @@ if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == 1) {
                     <button title="Remove attachment" onclick="removeMedia()"></button>
                     <img src="./img/profile_banners/defaultbanner.jpg" class="message-bar-preview-image" id="media-preview">
                 </div>
+                <div class="replyingto-container" id="replyingto-container">
+                    <p id="replyingto-p"></p>
+                    <button class="replyingto-cancel" title="Cancel reply" onclick="cancelReply()"></button>
+                </div>
                 <textarea class="message-bar-text-input" name="message-text" form="message-send-form" maxlength="500" id="message-input" oninput='resizeTextArea(); resizeMessageBar();' onkeydown = "if (event.keyCode == 13){ $('#message-send-form').submit() }" spellcheck="false"></textarea>
             </div>
             <div class="message-bar-more-container">

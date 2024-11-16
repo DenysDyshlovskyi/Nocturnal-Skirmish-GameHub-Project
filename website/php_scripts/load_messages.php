@@ -3,6 +3,7 @@
 require "avoid_errors.php";
 
 if (!isset($_SESSION['current_table'])) {
+    // If a chat has not been selected
     echo "<p>Select a chat to begin</p>";
 } else {
     $conn -> select_db("gamehub_messages");
@@ -21,6 +22,7 @@ ORDER BY message_id ASC;");
     $result = $stmt->get_result();
     if($result->num_rows != 0){
         while ($row = mysqli_fetch_assoc($result)) {
+            // Gets information about user who sent the current message
             $conn -> select_db("gamehub");
             $stmt2 = $conn->prepare("SELECT * FROM users WHERE user_id = ?");
             $stmt2->bind_param("s", $row['user_id']);
@@ -37,6 +39,8 @@ ORDER BY message_id ASC;");
             // if row has image attached, show it.
             if($row['file'] != NULL) {
                 $mediaAttachment = "<a target='_blank' href='./img/chat_images/" . $row['file'] . "'><img class='message-media-attachment' src='./img/chat_images/" . $row['file'] . "'></a>";
+
+                // If message has text, add a breakline to put the image under the text
                 if (strlen($row['message']) > 0) {
                     $br = "<br>";
                 } else {
@@ -47,7 +51,16 @@ ORDER BY message_id ASC;");
                 $br = "";
             }
 
-            echo "<div class='message-container' id='" . $row['message_id'] . "'>
+            // Prepares nickname to put inside replyToMessage parameter
+            $nickname = '"' . $row2['nickname'] . '"';
+
+            // Outputs the message to the screen
+            echo "<div onmouseover='showMessageButtons(" . $row['message_id'] .  ")' onmouseout='hideMessageButtons(" . $row['message_id'] .  ")' class='message-container' id='" . $row['message_id'] . "'>
+                    <div class='message-buttons-container' id='" . $row['message_id'] . "_ButtonContainer'>
+                        <div class='message-buttons-relative'>
+                            <button title='Reply to message' class='message-reply-button' onclick='replyToMessage(" . $row['message_id'] . ", $nickname)'></button>
+                        </div>
+                    </div>
                     <div class='message-name-container'>
                         <div class='message-profilepic' style='background-image: url(./img/profile_pictures/" . $row2['profile_picture'] . ");'>
                             <img src='./img/borders/" . $row2['profile_border'] . "'>

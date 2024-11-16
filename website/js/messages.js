@@ -201,3 +201,38 @@ $("form#message-send-form").submit(function(e) {
         }
     });
 });
+
+// Shows buttons on messages for for example replying when hovering over specific message
+function showMessageButtons(message_id) {
+    var buttonContainer = document.getElementById(message_id + '_ButtonContainer');
+    buttonContainer.style.display = "block";
+}
+
+// Hides buttons on messages for for example replying when hovering over specific message
+function hideMessageButtons(message_id) {
+    var buttonContainer = document.getElementById(message_id + '_ButtonContainer');
+    buttonContainer.style.display = "none";
+}
+
+// Sets global variable of message id person is replying to
+var replyingToMessageId = 0;
+
+// Lets the system know that the message thats about to be sent is a reply, and show div containing nickname of who youre replying to
+function replyToMessage(message_id, nickname) {
+    var replyingToContainer = document.getElementById("replyingto-container");
+    var replyingToPTag = document.getElementById("replyingto-p");
+    replyingToPTag.innerHTML = "Replying to " + nickname;
+    replyingToContainer.style.display = "flex";
+    replyingToMessageId = message_id;
+    resizeMessageBar();
+}
+
+// Cancels replying to message
+function cancelReply() {
+    var replyingToContainer = document.getElementById("replyingto-container");
+    var replyingToPTag = document.getElementById("replyingto-p");
+    replyingToContainer.style.display = "none";
+    replyingToPTag.innerHTML = "";
+    replyingToMessageId = 0;
+    resizeMessageBar();
+}
