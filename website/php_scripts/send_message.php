@@ -2,7 +2,7 @@
 // Sends a message in the current table
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     require "avoid_errors.php";
-    $message = htmlspecialchars($_POST['message']);
+    $message = htmlspecialchars($_POST['message-text']);
 
     // Check if input is empty
     if ($message === null || strlen($message) == 0) {

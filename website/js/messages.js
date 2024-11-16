@@ -156,17 +156,20 @@ function scrollToBottom() {
     container.scrollTop = container.scrollHeight;
 }
 
-// Sends a message in the current chat
-function sendMessage() {
-    var message = document.getElementById("message-input").value;
+// When form for sending message is submitted
+$("form#message-send-form").submit(function(e) {
+    e.preventDefault();    
+    var formData = new FormData(this);
+
     // Disable inputs for 1 seconds to prevent spam
     $('#message-input').prop('disabled', true);
     $('#send-button').prop('disabled', true);
+
     $.ajax({
-        type: "POST",
         url: './php_scripts/send_message.php',
-        data:{ message : message }, 
-        success: function(response){
+        type: 'POST',
+        data: formData,
+        success: function (response) {
             if (response == "empty") {
                 showConfirm("Message is empty!");
                 document.getElementById("message-input").value = '';
@@ -176,8 +179,12 @@ function sendMessage() {
             } else {
                 ajaxGet("./php_scripts/load_messages.php", "messages-container", "scroll");
                 document.getElementById("message-input").value = '';
+                removeMedia();
             }
         },
+        cache: false,
+        contentType: false,
+        processData: false,
         complete: function () {
             setTimeout(function () {
                 // After 1 seconds, enable inputs again
@@ -185,5 +192,5 @@ function sendMessage() {
                 $('#send-button').prop('disabled', false);
             }, 1000);
         }
-    })
-}
+    });
+});
