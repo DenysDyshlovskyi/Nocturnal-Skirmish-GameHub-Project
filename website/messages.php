@@ -54,13 +54,16 @@ if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == 1) {
                 <img src="./img/icons/paper-clip.svg" alt="Attach file">Attach file
             </div>
             <div class="more-button-popup-button">
-                <input type="file" class="file-upload" onchange="preview()" name="upload" accept="image/png, image/gif, image/jpeg, image/webp"/>
+                <input type="file" id="media-file-input" class="file-upload" onchange="preview()" name="upload" accept="image/png, image/gif, image/jpeg, image/webp"/>
                 <img src="./img/icons/image.svg" alt="Attach media">Attach media
             </div>
         </div>
         <div class="message-bar" id="message-bar">
             <div class="message-bar-input-img-container">
-                <img src="./img/profile_banners/defaultbanner.jpg" class="message-bar-preview-image" id="media-preview">
+                <div class="media-preview-container" id="media-preview-container">
+                    <button title="Remove attachment" onclick="removeMedia()"></button>
+                    <img src="./img/profile_banners/defaultbanner.jpg" class="message-bar-preview-image" id="media-preview">
+                </div>
                 <textarea class="message-bar-text-input" maxlength="500" id="message-input" oninput='resizeTextArea(); resizeMessageBar();' onkeydown = "if (event.keyCode == 13){sendMessage()}" spellcheck="false"></textarea>
             </div>
             <div class="message-bar-more-container">
@@ -86,129 +89,6 @@ if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == 1) {
         <source src="./audio/sfx/click1.mp3" type="audio/mpeg">
     </audio>
     <script><?php include "./js/script.js" ?></script>
-    <script>
-        // Hides or shows menu for attaching media or file
-        function hideShowAttachMenu() {
-            var menu = document.getElementById("more-button-popup");
-            if (window.getComputedStyle(menu).display === 'none'){
-                $("#more-button-popup").fadeIn(100);
-                menu.style.display = 'block';
-            } else {
-                $("#more-button-popup").fadeOut(100);
-            }
-        }
-
-        // Resizes message input based on how much text is inside of it
-        function resizeTextArea() {
-            var textarea = document.getElementById("message-input");
-
-            textarea.style.height = "";
-            textarea.style.height = textarea.scrollHeight + "px";
-        }
-
-        // Checks if user should be kicked
-        function isKicked() {
-            var placeholder = "placeholder";
-            $.ajax({
-                type: "POST",
-                url: './php_scripts/kick.php',
-                data:{ placeholder : placeholder }, 
-                success: function(response){
-                    if (response == "kick") {
-                        window.location.href = "index.php";
-                    }
-                }
-            })
-        }
-
-        // Starts 5 second interval to update players online counter, and to check if user should be kicked
-        setInterval(function(){
-            ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx');
-            isKicked()
-        }, 5000);
-
-        var atBottom = 0;
-        // Checks if the user is at the bottom of page
-        function isAtBottom() {
-            const scrollableDiv = document.getElementById('messages-container');
-            const { scrollTop, scrollHeight, clientHeight } = scrollableDiv;
-
-            // Check if the user has scrolled to the bottom
-            if (scrollTop + clientHeight >= scrollHeight) {
-                atBottom = 1;
-            } else {
-                atBottom = 0;
-            }
-        }
-
-        // Checks if the user was at the bottom of page before new messages were loaded in
-        function stillAtBottom() {
-            if (atBottom == 1) {
-                scrollToBottom();
-            }
-        }
-
-        // Loads in messages, and scrolls to bottom of page to view new messages
-        function loadMessages() {
-            ajaxGet("./php_scripts/load_messages.php", "messages-container", "still_at_bottom");
-        }
-
-        // Starts 3 second interval to update messages
-        setInterval(function(){
-            isAtBottom();
-            setTimeout(loadMessages, 500);
-        }, 3000);
-
-        // When user scrolls to top of messages, load in 25 more messages
-        const scrollableDiv = document.getElementById('messages-container');
-        var first_message_id;
-
-        // Jumps to previous last message, so that the same message before loading in the new ones is shown.
-        function scrollToDiv() {
-            const container = document.getElementById('messages-container');
-            const target = document.getElementById(first_message_id);
-            const offsetTop = target.offsetTop - container.offsetTop;
-            container.scrollTo({ top: offsetTop});
-            $('#loading').hide();
-        }
-
-        // Jumps to previous last message when new messages are loaded in
-        function jumpToLastMessage() {
-            var messages_container = document.getElementsByClassName('messages-container');
-            var first_message = messages_container[0].children[0];
-            first_message_id = first_message.id;
-            $.get('./php_scripts/load_more_messages.php');
-            ajaxGet("./php_scripts/load_messages.php", "messages-container", "scrollToDiv");
-        }
-
-        // When user has scrolled to top of messages, load in 15 new ones
-        scrollableDiv.addEventListener('scroll', () => {
-            // Check if the user has scrolled to the top, if they have start loading animation
-            if (scrollableDiv.scrollTop === 0) {
-                $('#loading').css('display', 'flex');
-                setTimeout(jumpToLastMessage, 300);
-            }
-        });
-
-        // Previews image when uploading image
-        function preview() {
-            document.getElementById('media-preview').src=URL.createObjectURL(event.target.files[0]);
-            document.getElementById('media-preview').style.display = "block";
-            document.getElementById("more-button-popup").style.display = "none";
-            setTimeout(resizeMessageBar, 100)
-        }
-
-        // Resizes messages-container based on height of message bar
-        function resizeMessageBar() {
-            var messagesContainer = document.getElementById("messages-container");
-            document.getElementById("message-bar").style.height = "";
-            var messageBar = $("#message-bar").height();
-
-            height = "calc(100vh - " + (messageBar + 215) + "px)";
-
-            messagesContainer.style.setProperty('height', height);
-            scrollToBottom();
-        }
-    </script>
+    <script><?php include "./js/messages.js" ?></script>
 </body>
 </html>
