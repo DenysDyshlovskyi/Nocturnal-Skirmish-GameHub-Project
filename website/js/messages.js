@@ -157,6 +157,7 @@ function scrollToBottom() {
 }
 
 // When form for sending message is submitted
+
 $("form#message-send-form").submit(function(e) {
     e.preventDefault();    
     var formData = new FormData(this);
@@ -175,6 +176,12 @@ $("form#message-send-form").submit(function(e) {
                 document.getElementById("message-input").value = '';
             } else if (response == "notselected") {
                 showConfirm("No chat selected!");
+                document.getElementById("message-input").value = '';
+            } else if (response == "unsupported") {
+                showConfirm("Unsupported file format! Only JPG, PNG, GIF or WebP allowed!");
+                document.getElementById("message-input").value = '';
+            } else if (response == "error") {
+                showConfirm("Something went wrong.");
                 document.getElementById("message-input").value = '';
             } else {
                 ajaxGet("./php_scripts/load_messages.php", "messages-container", "scroll");

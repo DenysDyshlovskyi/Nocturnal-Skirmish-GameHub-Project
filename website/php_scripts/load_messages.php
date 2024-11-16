@@ -33,6 +33,20 @@ ORDER BY message_id ASC;");
             } else {
                 $backgroundColor = "";
             }
+
+            // if row has image attached, show it.
+            if($row['file'] != NULL) {
+                $mediaAttachment = "<a target='_blank' href='./img/chat_images/" . $row['file'] . "'><img class='message-media-attachment' src='./img/chat_images/" . $row['file'] . "'></a>";
+                if (strlen($row['message']) > 0) {
+                    $br = "<br>";
+                } else {
+                    $br = "";
+                }
+            } else {
+                $mediaAttachment = "";
+                $br = "";
+            }
+
             echo "<div class='message-container' id='" . $row['message_id'] . "'>
                     <div class='message-name-container'>
                         <div class='message-profilepic' style='background-image: url(./img/profile_pictures/" . $row2['profile_picture'] . ");'>
@@ -41,7 +55,8 @@ ORDER BY message_id ASC;");
                         <h1 class='message-nickname'>" . $row2['nickname'] . " - <i>" . $row['timestamp'] . "</i></h1>
                     </div>
                     <div class='message-content' $backgroundColor>
-                        <p>" . $row['message'] . "</p>
+                        <p>" . $row['message'] . "</p>$br
+                        $mediaAttachment
                     </div>
                 </div>";
         }
