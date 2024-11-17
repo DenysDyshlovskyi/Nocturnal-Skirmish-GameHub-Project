@@ -165,6 +165,7 @@ function scrollToBottom() {
 $("form#message-send-form").submit(function(e) {
     e.preventDefault();    
     var formData = new FormData(this);
+    formData.append('reply', replyingToMessageId);
 
     // Disable inputs for 1 seconds to prevent spam
     $('#message-input').prop('disabled', true);

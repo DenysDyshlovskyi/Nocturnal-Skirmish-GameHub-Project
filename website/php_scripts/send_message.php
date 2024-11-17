@@ -54,6 +54,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         };
     }
 
+    $reply = htmlspecialchars($_POST['reply']);
+
     // Get current time
     require "getdate.php";
     $timestamp = $date . " - " . $time;
@@ -61,8 +63,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Insert the message
     $conn -> select_db("gamehub_messages");
     $current_table = $_SESSION['current_table'];
-    $stmt = $conn->prepare("INSERT INTO $current_table (user_id, message, timestamp, file) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $_SESSION['user_id'], $message, $timestamp, $newfilename);
+    $stmt = $conn->prepare("INSERT INTO $current_table (user_id, message, timestamp, file, reply) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $_SESSION['user_id'], $message, $timestamp, $newfilename, $reply);
     $stmt->execute();
     $stmt->close();
     $conn -> select_db("gamehub");
