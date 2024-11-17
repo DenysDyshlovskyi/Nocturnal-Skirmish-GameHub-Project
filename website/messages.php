@@ -77,7 +77,7 @@ if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == 1) {
         </div>
         <form id="message-send-form" method="POST" enctype="multipart/form-data"></form>
     </div>
-
+    
     <footer>
         <p class="footer-tm-text">GameHub™ 2024</p>
         <p class="player-live-count-text" id="players-live-count"></p>

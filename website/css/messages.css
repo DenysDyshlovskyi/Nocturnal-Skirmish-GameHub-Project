@@ -559,3 +559,83 @@ header {
     min-height: 60px;
     border-radius: 5px;
 }
+
+.reply-message-container {
+    max-width: 100%;
+    width: fit-content;
+    height: 40px;
+    display: flex;
+    opacity: 0.5;
+}
+
+.reply-message-container:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.reply-message-arrow {
+    height: 20px;
+    width: 20px;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.reply-message-profilepic {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90% 90%;
+}
+
+.reply-message-profilepic img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.reply-message-name-container {
+    height: 40px;
+    width: calc(100% - 90px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.reply-message-name-container h1 {
+    padding: 0;
+    margin: 0;
+    font-family: "Afacad Flux", "sans-serif";
+    font-weight: 600;
+    font-size: 18px;
+    max-width: 100%;
+    text-wrap: nowrap;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.reply-message-content-container {
+    display: flex;
+    width: 100%;
+    gap: 5px;
+    height: 20px;
+}
+
+.reply-message-content-container p {
+    margin: 0;
+    padding: 0;
+    font-family: "Afacad Flux", "sans-serif";
+    font-weight: 400;
+    font-size: 18px;
+    max-width: 50%;
+    text-wrap: nowrap;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
