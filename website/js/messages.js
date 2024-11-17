@@ -149,7 +149,7 @@ function selectChat(tablename) {
                 removeMedia();
                 cancelReply();
                 resizeMessageBar();
-                setTimeout(scrollToBottom, 50);
+                setTimeout(scrollToBottom, 100);
             }
         }
     })
