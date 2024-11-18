@@ -96,6 +96,11 @@ ORDER BY message_id ASC;");
                 $replyMessage = "";
             }
 
+            //If there is a link in the message, wrap it in <a> tag;
+            $text = strip_tags($row['message']);
+            $textWithLinks = preg_replace('@(https?://([-\w\.]+[-\w])+(:\d+)?(/([\w/_\.#-]*(\?\S+)?[^\.\s])?)?)@', '<a href="$1" target="_blank" rel="nofollow">$1</a>', $text);
+            $message = $textWithLinks;
+
             // Outputs the message to the screen
             echo "<div onmouseover='showMessageButtons(" . $row['message_id'] .  ")' onmouseout='hideMessageButtons(" . $row['message_id'] .  ")' class='message-container' id='" . $row['message_id'] . "'>
                     <div class='message-buttons-container' id='" . $row['message_id'] . "_ButtonContainer'>
@@ -111,7 +116,7 @@ ORDER BY message_id ASC;");
                         <h1 class='message-nickname'>" . $row2['nickname'] . " - <i>" . $row['timestamp'] . "</i></h1>
                     </div>
                     <div class='message-content' $backgroundColor>
-                        <p>" . $row['message'] . "</p>$br
+                        <p>$message</p>$br
                         $mediaAttachment
                     </div>
                 </div>";
