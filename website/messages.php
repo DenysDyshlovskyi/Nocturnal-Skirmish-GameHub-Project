@@ -68,7 +68,7 @@ if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == 1) {
                     <p id="replyingto-p"></p>
                     <button class="replyingto-cancel" title="Cancel reply" onclick="cancelReply()"></button>
                 </div>
-                <textarea class="message-bar-text-input" name="message-text" form="message-send-form" maxlength="500" id="message-input" oninput='resizeTextArea(); resizeMessageBar();' onkeydown = "if (event.keyCode == 13){ $('#message-send-form').submit() }" spellcheck="false"></textarea>
+                <textarea placeholder="Type your message here." class="message-bar-text-input" name="message-text" form="message-send-form" maxlength="500" id="message-input" oninput='resizeTextArea(); resizeMessageBar();' onkeydown = "if (event.keyCode == 13){ $('#message-send-form').submit() }" spellcheck="false"></textarea>
             </div>
             <div class="message-bar-more-container">
                 <button title="Send message" id="send-button" type="submit" form="message-send-form"></button>
