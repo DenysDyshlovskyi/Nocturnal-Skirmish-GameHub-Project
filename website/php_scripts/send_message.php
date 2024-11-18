@@ -7,7 +7,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $empty = false;
 
     // Check if input is empty
-    if ($message === null || strlen($message) == 0) {
+    if ($message === null || strlen($message) == 0 || ctype_space($message)) {
         // Input is empty
         $empty = true;
     }
@@ -27,6 +27,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     } else {
         $empty = false;
+        if (ctype_space($message)) {
+            $message = "";
+        }
         $file_type = $_FILES['media-upload']['type'];
         $allowed = array("image/jpeg", "image/png", "image/gif", "image/webp");
         //If file is not jpeg, png, gif or webp
