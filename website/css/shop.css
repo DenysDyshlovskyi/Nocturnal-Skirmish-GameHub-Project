@@ -498,3 +498,52 @@
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
+/*---------------------------------------------------------------------*/
+/*Border shop*/
+
+.border-container-titles {
+    font-size: 2em;
+    margin-left: 5%;
+    text-decoration: underline;
+    text-underline-offset: 10%;
+    margin-bottom: -9%;
+}
+
+.border-container {
+    width: 93%;
+    height: 220px;
+    background-color: rgba(174, 255, 252, 0.947);
+    margin-left: 4%;
+    margin-top: 10%;
+    border-radius: 10px;
+    padding-top: 1px;
+    padding-bottom: 1%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+}
+
+.border-wrapper {
+    background-color: rgba(34, 70, 70, 0.947);
+    width: 22%;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 2%;
+    
+}
+
+.border-image {
+    background-color: orange ;
+    width: 10%;
+}
+
+.border-img-title {
+    font-size: 1.2em;
+    margin-left: 8%;
+    color: rgb(255, 255, 255);
+}
+
