@@ -11,6 +11,7 @@ session_start();
 <div class="hub-add-friends-container">
     <div class="hub-add-friends-half-container">
         <div class="hub-add-friends-half-container-inner">
+        <p class="hub-add-friends-your-username">Your username: <?php echo $_SESSION['user_profile_username'] ?></p>
             <div class="hub-add-friends-pending-headline">
                 <h1>Friend already added you?</h1>
                 <div class="hub-add-friends-pending-headline-line"></div>
