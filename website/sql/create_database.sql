@@ -97,3 +97,5 @@ CREATE TABLE chats (
 );
 
 CREATE DATABASE IF NOT EXISTS gamehub_messages;
+
+CREATE DATABASE IF NOT EXISTS gamehub_messages_archive;

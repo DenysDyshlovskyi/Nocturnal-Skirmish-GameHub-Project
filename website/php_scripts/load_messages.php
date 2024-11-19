@@ -1,6 +1,7 @@
 <?php
 // Loads messages from current table.
 require "avoid_errors.php";
+start:
 
 if (!isset($_SESSION['current_table'])) {
     // If a chat has not been selected
@@ -8,6 +9,18 @@ if (!isset($_SESSION['current_table'])) {
 } else {
     $conn -> select_db("gamehub_messages");
     $tablename = $_SESSION['current_table'];
+
+    // Check if table exists
+    $stmt = $conn->prepare("SELECT table_name FROM information_schema.tables WHERE table_schema = 'gamehub_messages' AND table_name = '$tablename';");
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if($result->num_rows === 0){
+        //Table doesnt exist
+        unset($_SESSION['current_table']);
+        goto start;
+    }
+    $stmt->close();
+
     $message_amount = $_SESSION['message_amount'];
 
     $stmt = $conn->prepare("SELECT *
