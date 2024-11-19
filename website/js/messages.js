@@ -149,6 +149,7 @@ function selectChat(tablename) {
             } else {
                 ajaxGet("./php_scripts/load_messages.php", "messages-container", "scroll");
                 ajaxGet("./php_scripts/load_current_messenger.php", "current-messenger-container");
+                ajaxGet('./php_scripts/load_chat_list.php', 'messages-menu-chats-container');
                 document.getElementById("message-input").value = '';
                 removeMedia();
                 cancelReply();

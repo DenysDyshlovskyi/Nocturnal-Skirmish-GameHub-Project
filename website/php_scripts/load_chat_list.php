@@ -24,11 +24,18 @@ if ((mysqli_num_rows($result) <= 0)) {
             $row2 = mysqli_fetch_assoc($result2);
             $friend = $row2['user_id'];
 
+            // If the chat is the current chat, put border around button
+            if ($friend == $_SESSION['current_messenger']) {
+                $border = "style='border: 2px solid black;'";
+            } else {
+                $border = "";
+            }
+
             $stmt2 = $conn->prepare("SELECT * FROM users WHERE user_id = $friend");
             $stmt2->execute();
             $result2 = $stmt2->get_result();
             $row2 = mysqli_fetch_assoc($result2);
-            printf("<button class='messages-menu-button' onclick='selectChat(%s)'>
+            printf("<button class='messages-menu-button' onclick='selectChat(%s)' $border>
                         <div class='messages-menu-button-profilepic' style='background-image: url(./img/profile_pictures/" . $row2['profile_picture'] . ");'>
                             <img src='./img/borders/" . $row2['profile_border'] . "'>
                         </div>
