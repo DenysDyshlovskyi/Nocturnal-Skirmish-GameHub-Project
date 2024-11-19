@@ -351,6 +351,10 @@ header {
     background-size: 90% 90%;
 }
 
+.message-profilepic:hover {
+    filter: brightness(0.7);
+}
+
 .message-profilepic img {
     width: 100%;
     height: 100%;
@@ -401,21 +405,34 @@ header {
     overflow: hidden;
 }
 
-.message-reply-button {
+.message-buttons-relative button {
     height: 30px;
     width: 30px;
     border: none;
     background-color: transparent;
     cursor: pointer;
-    background-image: url(./img/icons/reply.svg);
     background-size: 50%;
     background-repeat: no-repeat;
     background-position: center;
     opacity: 0.5;
 }
 
-.message-reply-button:hover {
+.message-buttons-relative button:hover {
     opacity: 1;
+}
+
+#reply-message-button {
+    background-image: url(./img/icons/reply.svg);
+}
+
+#delete-message-button {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    background-image: url(./img/icons/trashcan.svg);
+}
+
+#edit-message-button {
+    background-image: url(./img/icons/pencil_message.svg);
 }
 
 .replyingto-container {

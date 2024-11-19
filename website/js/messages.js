@@ -299,3 +299,13 @@ function initiateMessages() {
     ajaxGet("./php_scripts/load_chat_list.php", "messages-menu-chats-container");
     ajaxGet("./php_scripts/load_current_messenger.php", "current-messenger-container");
 }
+
+// Shows confirmation of deleting message
+function deleteMessage(message_id) {
+
+}
+
+// Shows ui for editing message
+function editMessage(message_id) {
+
+}

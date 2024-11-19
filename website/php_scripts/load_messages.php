@@ -42,11 +42,14 @@ ORDER BY message_id ASC;");
             $stmt2->execute();
             $result2 = $stmt2->get_result();
             $row2 = mysqli_fetch_assoc($result2);
-            // Make message orange if its sent by you
+            // Make message orange if its sent by you, and adds extra buttons on hover for deleting and editing message
             if ($row['user_id'] == $_SESSION['user_id']) {
                 $backgroundColor = "style='background-color: #FFCF8C;'";
+                $moreButtons = "<button id='delete-message-button' onclick='deleteMessage(" . $row['message_id'] . ")'></button>
+                                <button id='edit-message-button' onclick='editMessage(" . $row['message_id'] . ")'></button>";
             } else {
                 $backgroundColor = "";
+                $moreButtons = "";
             }
 
             // if row has image attached, show it.
@@ -118,14 +121,17 @@ ORDER BY message_id ASC;");
             echo "<div onmouseover='showMessageButtons(" . $row['message_id'] .  ")' onmouseout='hideMessageButtons(" . $row['message_id'] .  ")' class='message-container' id='" . $row['message_id'] . "'>
                     <div class='message-buttons-container' id='" . $row['message_id'] . "_ButtonContainer'>
                         <div class='message-buttons-relative'>
-                            <button title='Reply to message' class='message-reply-button' onclick='replyToMessage(" . $row['message_id'] . ", $nickname)'></button>
+                            <button title='Reply to message' id='reply-message-button' onclick='replyToMessage(" . $row['message_id'] . ", $nickname)'></button>
+                            $moreButtons
                         </div>
                     </div>
                     $replyMessage
                     <div class='message-name-container'>
-                        <div class='message-profilepic' style='background-image: url(./img/profile_pictures/" . $row2['profile_picture'] . ");'>
-                            <img src='./img/borders/" . $row2['profile_border'] . "'>
-                        </div>
+                        <a href='#' onclick='displayUserProfile(" . $row2['user_id'] . ")'>
+                            <div class='message-profilepic' style='background-image: url(./img/profile_pictures/" . $row2['profile_picture'] . ");'>
+                                <img src='./img/borders/" . $row2['profile_border'] . "'>
+                            </div>
+                        </a>
                         <h1 class='message-nickname'>" . $row2['nickname'] . " - <i>" . $row['timestamp'] . "</i></h1>
                     </div>
                     <div class='message-content' $backgroundColor>
