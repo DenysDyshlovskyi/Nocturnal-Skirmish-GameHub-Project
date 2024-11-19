@@ -63,6 +63,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     $reply = htmlspecialchars($_POST['reply']);
+    $unix_timestamp = time();
+
+    // Update last_chat column in chats table
+    $current_table = $_SESSION['current_table'];
+    $stmt = $conn->prepare("UPDATE chats SET last_chat = ? WHERE user_id = ? AND tablename = ?");
+    $stmt->bind_param("sss", $unix_timestamp, $_SESSION['user_id'], $current_table );
+    $stmt->execute();
+    $stmt->close();
 
     // Get current time
     require "getdate.php";

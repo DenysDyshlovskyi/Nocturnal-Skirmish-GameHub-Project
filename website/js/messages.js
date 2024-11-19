@@ -293,3 +293,9 @@ function jumpToMessage(messageID){
         }
     }, 25);
 }
+
+// Loads in chat and current messenger in the correct order
+function initiateMessages() {
+    ajaxGet("./php_scripts/load_chat_list.php", "messages-menu-chats-container");
+    ajaxGet("./php_scripts/load_current_messenger.php", "current-messenger-container");
+}

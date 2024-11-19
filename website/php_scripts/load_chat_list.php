@@ -3,7 +3,7 @@
 require "avoid_errors.php";
 
 // Check which chats the user is in
-$stmt = $conn->prepare("SELECT * FROM chats WHERE user_id = ?");
+$stmt = $conn->prepare("SELECT * FROM chats WHERE user_id = ? ORDER BY last_chat DESC");
 $stmt->bind_param("s", $_SESSION['user_id']);
 $stmt->execute();
 $result = $stmt->get_result();
