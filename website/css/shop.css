@@ -122,6 +122,20 @@
     margin-left: 5%;
 }
 
+.right-middle-shop-container-titles {
+    margin-left: 6%;
+    font-size: 30px;
+    color: #3e3e3e;
+}
+
+.right-middle-shop-container-titles-underline {
+    width: 80%;
+    height: 5px;
+    background-color: #3e3e3e;
+    margin-top: -5%;
+    margin-left: 5%;
+}
+
 .featured-characters {
     display: flex;
     flex-direction: column;
@@ -146,6 +160,7 @@
 
 .over-section-header{
     margin-left: 7%;
+    color: #3e3e3e;
 }
 
 .card-section-left-middle-shop-container {
@@ -521,33 +536,7 @@
     text-decoration: underline;
     text-underline-offset: 10%;
     margin-bottom: -9%;
-}
-
-.border-container {
-    width: 93%;
-    height: 220px;
-    background-color: rgba(174, 255, 252, 0.947);
-    margin-left: 4%;
-    margin-top: 10%;
-    border-radius: 10px;
-    padding-top: 1px;
-    padding-bottom: 1%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 10%;
-}
-
-.border-wrapper {
-    background-color: rgba(34, 70, 70, 0.947);
-    width: 22%;
-    height: 180px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-    padding: 2%;
-    
+    color: #3e3e3e;
 }
 
 .border-image {
@@ -559,5 +548,117 @@
     font-size: 1.2em;
     margin-left: 8%;
     color: rgb(255, 255, 255);
+}
+
+.border-container-diamond {
+    width: 93%;
+    height: 220px;
+    background-color: rgba(174, 255, 252, 0.947);
+    margin-left: 4%;
+    margin-top: 10%;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 6%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+ }
+
+.border-wrapper-diamond {
+    background-color: rgba(31, 76, 76, 0.749);
+    width: 22%;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 2%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.border-container-gold {
+    width: 93%;
+    height: 220px;
+    background-color: rgba(226, 170, 0, 0.947);
+    margin-left: 4%;
+    margin-top: 10%;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 6%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+ }
+
+.border-wrapper-gold {
+    background-color: rgba(220, 220, 0, 0.426);
+    width: 22%;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 2%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.border-container-crystal {
+    width: 93%;
+    height: 220px;
+    background-color: rgb(223, 0, 171);
+    margin-left: 4%;
+    margin-top: 10%;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 6%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+ }
+
+.border-wrapper-crystal {
+    background-color: rgba(220, 0, 213, 0.675);
+    width: 22%;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 2%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.border-container-halloween {
+    width: 92%;
+    height: 220px;
+    background-color: rgb(255, 119, 0);
+    margin-left: 4%;
+    margin-top: 10%;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 6%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+ }
+
+.border-wrapper-halloween {
+    background-color: rgba(211, 123, 0, 0.725);
+    width: 30%;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 2%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
