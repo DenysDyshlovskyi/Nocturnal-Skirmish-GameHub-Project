@@ -5,7 +5,7 @@ start:
 
 if (!isset($_SESSION['current_table'])) {
     // If a chat has not been selected
-    echo "<p>Select a chat to begin</p>";
+    echo "<p class='select-to-begin'>Select a chat to begin</p>";
 } else {
     $conn -> select_db("gamehub_messages");
     $tablename = $_SESSION['current_table'];
@@ -135,7 +135,7 @@ ORDER BY message_id ASC;");
                 </div>";
         }
     } else {
-        echo "Looks like this chat is empty....";
+        echo "<p class='select-to-begin'>Looks like this chat is empty. Send a message to start the conversation!</p>";
     }
     $stmt->close();
     $conn -> select_db("gamehub");

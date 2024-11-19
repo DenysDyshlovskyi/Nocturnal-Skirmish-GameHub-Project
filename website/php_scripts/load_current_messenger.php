@@ -10,7 +10,6 @@ if (!isset($_SESSION['current_messenger'])) {
     $stmt3->execute();
     $result3 = $stmt3->get_result();
     if ((mysqli_num_rows($result3) <= 0)) {
-        echo "<p>Looks like you're not in any chats</p>";
         $stmt3->close();
         goto end;
     }

@@ -8,7 +8,11 @@ $stmt->bind_param("s", $_SESSION['user_id']);
 $stmt->execute();
 $result = $stmt->get_result();
 if ((mysqli_num_rows($result) <= 0)) {
-    echo "Looks like you're not in any chats...";
+    echo "
+    <div class='no-chats-container'>
+        <p>Looks like you're not in any chats...</p>
+        <p>Click the + to create a new chat!</p>
+    </div>";
 } else {
     while ($row = mysqli_fetch_assoc($result)) {
         // If chat type is 'two_user', show the the other users profile pic, border and username.
