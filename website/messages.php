@@ -55,7 +55,7 @@ if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == 1) {
             </div>
             <div class="more-button-popup-button">
                 <input type="file" id="media-file-input" class="file-upload" onchange="preview()" name="media-upload" form="message-send-form" accept="image/png, image/gif, image/jpeg, image/webp"/>
-                <img src="./img/icons/image.svg" alt="Attach media">Attach media
+                <img src="./img/icons/image.svg" alt="Attach media">Attach picture
             </div>
         </div>
         <div class="message-bar" id="message-bar">

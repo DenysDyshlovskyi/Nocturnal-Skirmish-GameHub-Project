@@ -4,8 +4,12 @@
         function hideShowAttachMenu() {
             var menu = document.getElementById("more-button-popup");
             if (window.getComputedStyle(menu).display === 'none'){
-                $("#more-button-popup").fadeIn(100);
-                menu.style.display = 'block';
+                if (document.getElementById('media-file-input').value == "") {
+                    $("#more-button-popup").fadeIn(100);
+                    menu.style.display = 'block';
+                } else {
+                    showConfirm("Cannot add 2 attachments at the same time.")
+                }
             } else {
                 $("#more-button-popup").fadeOut(100);
             }
@@ -189,6 +193,9 @@ $("form#message-send-form").submit(function(e) {
             } else if (response == "error") {
                 showConfirm("Something went wrong.");
                 document.getElementById("message-input").value = '';
+            } else if (response == "toolarge") {
+                showConfirm("Attachment exceeds 3MB! Please upload smaller file.")
+                removeMedia();
             } else {
                 ajaxGet("./php_scripts/load_messages.php", "messages-container", "scroll");
                 document.getElementById("message-input").value = '';

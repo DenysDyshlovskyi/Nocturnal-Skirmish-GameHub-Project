@@ -27,6 +27,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     } else {
         $empty = false;
+        define('MB', 1048576);
         if (ctype_space($message)) {
             $message = "";
         }
@@ -35,6 +36,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         //If file is not jpeg, png, gif or webp
         if (!in_array($file_type, $allowed)) {
             echo "unsupported";
+            exit;
+        } else if ($_FILES['media-upload']['size'] > 3*MB) {
+            // If file is over 3MB
+            echo "toolarge";
             exit;
         } else {
             // Changes file name to avoid 2 files with same name
