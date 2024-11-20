@@ -189,8 +189,7 @@
 
 .card-images {
     border-radius: 10px 10px 10px 10px;
-    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .light-card-name {
@@ -287,8 +286,8 @@
    border-radius: 20px;
    width: 90%;
    height: 45%;
-   box-shadow: rgba(50, 50, 93, 0.25) 10px 10px 60px -12px inset, rgba(0, 0, 0, 0.3) 20px 20px 36px -20px inset;
- }
+   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
 
  .fire-card-section-middle-shop-container {
     background-color: #FF4D00;
@@ -298,7 +297,7 @@
     border-radius: 20px;
     width: 90%;
     height: 45%;
-    box-shadow: rgba(50, 50, 93, 0.25) 10px 10px 60px -12px inset, rgba(0, 0, 0, 0.3) 20px 20px 36px -20px inset;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
  }
 
  .ice-card-section-middle-shop-container {
@@ -309,7 +308,7 @@
     border-radius: 20px;
     width: 90%;
     height: 45%;
-    box-shadow: rgba(50, 50, 93, 0.25) 10px 10px 60px -12px inset, rgba(0, 0, 0, 0.3) 20px 20px 36px -20px inset;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
  }
 
  .water-card-section-middle-shop-container {
@@ -320,7 +319,7 @@
     border-radius: 20px;
     width: 90%;
     height: 45%;
-    box-shadow: rgba(50, 50, 93, 0.25) 10px 10px 60px -12px inset, rgba(0, 0, 0, 0.3) 20px 20px 36px -20px inset;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
  }
 
  .blood-card-section-middle-shop-container {
@@ -331,7 +330,7 @@
     border-radius: 20px;
     width: 90%;
     height: 45%;
-    box-shadow: rgba(50, 50, 93, 0.25) 10px 10px 60px -12px inset, rgba(0, 0, 0, 0.3) 20px 20px 36px -20px inset;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
  }
 
  .holy-card-section-middle-shop-container {
@@ -342,7 +341,7 @@
     border-radius: 20px;
     width: 90%;
     height: 45%;
-    box-shadow: rgba(50, 50, 93, 0.25) 10px 10px 60px -12px inset, rgba(0, 0, 0, 0.3) 20px 20px 36px -20px inset;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
  }
 
  .nature-card-section-middle-shop-container {
@@ -353,7 +352,7 @@
     border-radius: 20px;
     width: 90%;
     height: 45%;
-    box-shadow: rgba(50, 50, 93, 0.25) 10px 10px 60px -12px inset, rgba(0, 0, 0, 0.3) 20px 20px 36px -20px inset;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
  }
 
  .chaos-card-section-middle-shop-container {
@@ -364,7 +363,7 @@
     border-radius: 20px;
     width: 90%;
     height: 45%;
-    box-shadow: rgba(50, 50, 93, 0.25) 10px 10px 60px -12px inset, rgba(0, 0, 0, 0.3) 20px 20px 36px -20px inset;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
  }
 
  .necromancy-card-section-middle-shop-container {
@@ -375,7 +374,7 @@
     border-radius: 20px;
     width: 90%;
     height: 45%;
-    box-shadow: rgba(50, 50, 93, 0.25) 10px 10px 60px -12px inset, rgba(0, 0, 0, 0.3) 20px 20px 36px -20px inset;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
  }
 
 .christmas-card-section-middle-shop-container {
@@ -388,7 +387,7 @@
     height: 45%;
     display: flex;
     align-items: center;
-    box-shadow: rgba(50, 50, 93, 0.25) 10px 10px 60px -12px inset, rgba(0, 0, 0, 0.3) 20px 20px 36px -20px inset;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
  }
 
 .halloween-card-section-middle-shop-container {
@@ -401,7 +400,7 @@
     height: 45%;
     display: flex;
     align-items: center;
-    box-shadow: rgba(50, 50, 93, 0.25) 10px 10px 60px -12px inset, rgba(0, 0, 0, 0.3) 20px 20px 36px -20px inset;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
  }
 
 .valentine-card-section-middle-shop-container {
@@ -414,7 +413,7 @@
     height: 45%;
     display: flex;
     align-items: center;
-    box-shadow: rgba(50, 50, 93, 0.25) 10px 10px 60px -12px inset, rgba(0, 0, 0, 0.3) 20px 20px 36px -20px inset;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 /*---------------------------------------------------------------------*/
