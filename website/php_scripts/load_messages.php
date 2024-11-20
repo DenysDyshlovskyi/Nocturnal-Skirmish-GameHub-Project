@@ -78,6 +78,22 @@ ORDER BY message_id ASC;");
                 $stmt3->bind_param("s", $row['reply']);
                 $stmt3->execute();
                 $result3 = $stmt3->get_result();
+                if($result3->num_rows === 0){
+                    // If the message was deleted
+                    $replyMessage = "<div class='reply-message-container' title='Message was deleted'>
+                        <img src='./img/icons/reply_mirror.svg' class='reply-message-arrow'>
+                        <div class='reply-message-profilepic' style='background-image: url(./img/profile_pictures/defaultprofile.svg);'>
+                            <img src='./img/borders/defaultborder.webp'>
+                        </div>
+                        <div class='reply-message-name-container'>
+                            <h1>Deleted Message</h1>
+                            <div class='reply-message-content-container'>
+                                <p>Deleted Message</p>
+                            </div>
+                        </div>
+                    </div>";
+                    goto reply_end;
+                }
                 $reply_message_row = mysqli_fetch_assoc($result3);
 
                 // Get information about user who sent the message
@@ -111,6 +127,8 @@ ORDER BY message_id ASC;");
             } else {
                 $replyMessage = "";
             }
+
+            reply_end:
 
             //If there is a link in the message, wrap it in <a> tag;
             $text = strip_tags($row['message']);
