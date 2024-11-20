@@ -34,6 +34,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("s", $message_id);
     $stmt->execute();
     $stmt->close();
+
+    // Unsets session variable
+    unset($_SESSION['delmessage_id']);
 } else {
     header("Location: ../index.php");
 }
