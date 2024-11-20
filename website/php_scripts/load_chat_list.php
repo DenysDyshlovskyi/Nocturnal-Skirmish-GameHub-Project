@@ -42,13 +42,15 @@ if ((mysqli_num_rows($result) <= 0)) {
                 // Online
                 $onlineOfflineCircle = "<img src='./img/icons/online.svg' class='messages-menu-offline-online'>";
                 $offlineOpacity = "";
+                $onlineOfflineTitle = "This user is online";
             } else {
                 // Offline
                 $onlineOfflineCircle = "<img src='./img/icons/offline.svg' class='messages-menu-offline-online'>";
                 $offlineOpacity = "opacity: 0.6;";
+                $onlineOfflineTitle = "This user is offline";
             }
 
-            printf("<button class='messages-menu-button' onclick='selectChat(%s)' $border>
+            printf("<button class='messages-menu-button' onclick='selectChat(%s)' title='$onlineOfflineTitle' $border>
                         $onlineOfflineCircle
                         <div class='messages-menu-button-profilepic' style='$offlineOpacity background-image: url(./img/profile_pictures/" . $row2['profile_picture'] . ");'>
                             <img src='./img/borders/" . $row2['profile_border'] . "'>
