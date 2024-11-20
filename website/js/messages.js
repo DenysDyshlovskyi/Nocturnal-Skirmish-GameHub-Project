@@ -197,6 +197,9 @@ $("form#message-send-form").submit(function(e) {
             } else if (response == "toolarge") {
                 showConfirm("Attachment exceeds 3MB! Please upload smaller file.")
                 removeMedia();
+            } else if (response == "toolong") {
+                showConfirm("Message is too long! Character limit is 500.");
+                document.getElementById("message-input").value = '';
             } else {
                 ajaxGet("./php_scripts/load_messages.php", "messages-container", "scroll");
                 document.getElementById("message-input").value = '';

@@ -18,6 +18,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 
+    // Check if lenght of message exceeds 500 charachters
+    if (strlen($message) > 500) {
+        echo "toolong";
+        exit;
+    }
+
     // Check if media has been uploaded, if it has, attach it to message
     if ($_FILES['media-upload']['error'] == 4 || ($_FILES['media-upload']['size'] == 0 && $_FILES['media-upload']['error'] == 0)){
         $newfilename = NULL;

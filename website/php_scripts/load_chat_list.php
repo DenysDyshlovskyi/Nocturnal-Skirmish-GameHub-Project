@@ -31,15 +31,29 @@ if ((mysqli_num_rows($result) <= 0)) {
                 $border = "";
             }
 
+
             $stmt2 = $conn->prepare("SELECT * FROM users WHERE user_id = $friend");
             $stmt2->execute();
             $result2 = $stmt2->get_result();
             $row2 = mysqli_fetch_assoc($result2);
+
+            // If user is online, show green circle, else, show red circle and turn down the opacity
+            if ($row2['last_login'] > time()) {
+                // Online
+                $onlineOfflineCircle = "<img src='./img/icons/online.svg' class='messages-menu-offline-online'>";
+                $offlineOpacity = "";
+            } else {
+                // Offline
+                $onlineOfflineCircle = "<img src='./img/icons/offline.svg' class='messages-menu-offline-online'>";
+                $offlineOpacity = "opacity: 0.6;";
+            }
+
             printf("<button class='messages-menu-button' onclick='selectChat(%s)' $border>
-                        <div class='messages-menu-button-profilepic' style='background-image: url(./img/profile_pictures/" . $row2['profile_picture'] . ");'>
+                        $onlineOfflineCircle
+                        <div class='messages-menu-button-profilepic' style='$offlineOpacity background-image: url(./img/profile_pictures/" . $row2['profile_picture'] . ");'>
                             <img src='./img/borders/" . $row2['profile_border'] . "'>
                         </div>
-                        <div class='messages-menu-button-name-container'>
+                        <div class='messages-menu-button-name-container' style='$offlineOpacity'>
                             <p>" . $row2['nickname'] . "</p>
                         </div>
                     </button>", '"' . $row['tablename'] . '"');

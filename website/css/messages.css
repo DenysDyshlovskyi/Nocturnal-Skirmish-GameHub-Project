@@ -112,12 +112,20 @@
     position: absolute;
     right: 0;
     height: 40px;
-    width: calc(100% - 65px);
+    width: calc(100% - 70px);
     margin-right: 10px;
+    margin-left: 5px;
     display: flex;
     align-items: center;
     overflow-x: hidden;
     overflow-y: hidden;
+}
+
+.messages-menu-offline-online {
+    height: 10px;
+    width: 10px;
+    position: relative;
+    left: 5px;
 }
 
 header {
