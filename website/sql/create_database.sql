@@ -99,3 +99,11 @@ CREATE TABLE chats (
 CREATE DATABASE IF NOT EXISTS gamehub_messages;
 
 CREATE DATABASE IF NOT EXISTS gamehub_messages_archive;
+
+CREATE DATABASE IF NOT EXISTS gamehub_messages_deleted_edited;
+
+USE gamehub_messages_deleted_edited;
+
+CREATE TABLE deleted_messages (message_id int, user_id int, message varchar(500), file varchar(50), timestamp varchar(64), edited int DEFAULT 0, reply int DEFAULT 0);
+
+CREATE TABLE edited_messages (message_id int, user_id int, message varchar(500), file varchar(50), timestamp varchar(64), edited int DEFAULT 0, reply int DEFAULT 0);

@@ -1,0 +1,91 @@
+/* Stylesheet for modal for confirming deletion of message */
+
+.delete-message-modal-container {
+    width: 500px;
+    height: fit-content;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.delete-message-modal-headline {
+    font-family: "Afacad Flux", "sans-serif";
+    font-size: 26px;
+    font-weight: 600;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.delete-message-modal-warning {
+    font-family: "Afacad Flux", "sans-serif";
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.70);
+    padding: 0;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.delete-message-modal-message-container {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: solid 2px black;
+    height: fit-content;
+    max-height: 300px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: #ECECEC;
+    border-radius: 10px;
+}
+
+#delete-message-modal-message {
+    max-width: 90%;
+}
+
+.delete-message-modal-button-container {
+    width: 100%;
+    margin-top: 10px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.delete-message-modal-button-container button {
+    width: 145px;
+    height: 45px;
+    border: solid 3px rgb(255, 92, 92);
+    color: rgb(255, 92, 92);
+    background-color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: "Afacad Flux", "sans-serif";
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.delete-message-modal-button-container button:hover {
+    color: white;
+    background-color: rgb(255, 92, 92);
+}
+
+#cancel-button {
+    border: solid 3px #6C6C6C;
+    color: #6C6C6C;
+}
+
+#cancel-button:hover {
+    color: white;
+    background-color: #6C6C6C;
+}

@@ -295,15 +295,39 @@ function jumpToMessage(messageID){
     }, 25);
 }
 
-// Loads in chat and current messenger in the correct order
-function initiateMessages() {
-    ajaxGet("./php_scripts/load_chat_list.php", "messages-menu-chats-container");
-    ajaxGet("./php_scripts/load_current_messenger.php", "current-messenger-container");
-}
-
 // Shows confirmation of deleting message
 function deleteMessage(message_id) {
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/delete_message.php',
+        data:{ message_id : message_id }, 
+        success: function(response){
+            if (response == "error") {
+                showConfirm("Something went wrong.");
+            } else {
+                ajaxGet("./spa/messages/delete_message_modal.php", "dark-container");
+            }
+        }
+    })
+}
 
+// Deletes message after user has confirmed deletion of message
+function confirmDeleteMessage(message_id) {
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/confirm_delete_message.php',
+        data:{ message_id : message_id }, 
+        success: function(response){
+            if (response == "error") {
+                removeDarkContainer();
+                showConfirm("Something went wrong.");
+            } else {
+                document.getElementById(message_id).remove();
+                removeDarkContainer();
+                showConfirm("Message deleted.")
+            }
+        }
+    })
 }
 
 // Shows ui for editing message
