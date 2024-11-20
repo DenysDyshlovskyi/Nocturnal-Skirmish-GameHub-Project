@@ -89,3 +89,24 @@
     color: white;
     background-color: #6C6C6C;
 }
+
+#save-button {
+    border: solid 3px #4A88FF;
+    color: #4A88FF;
+}
+
+#save-button:hover {
+    color: white;
+    background-color: #4A88FF;
+}
+
+#edit-message-textarea {
+    width: 100%;
+    height: fit-content;
+    font-size: 22px;
+    font-family: "Afacad Flux", "sans-serif";
+    border: none;
+    background-color: transparent;
+    resize: none;
+    margin-bottom: 5px;
+}

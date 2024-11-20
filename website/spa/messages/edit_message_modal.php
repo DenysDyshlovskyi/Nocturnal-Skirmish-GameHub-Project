@@ -1,13 +1,13 @@
 <?php
     require "../../php_scripts/avoid_errors.php";
-    // Ui for confirming deletion of message
+    // Ui for editing message
 
     // Get information about the message
     $conn -> select_db("gamehub_messages");
     $tablename = $_SESSION['current_table'];
 
     $stmt = $conn->prepare("SELECT * FROM $tablename WHERE message_id = ?");
-    $stmt->bind_param("s", $_SESSION['delmessage_id']);
+    $stmt->bind_param("s", $_SESSION['editmessage_id']);
     $stmt->execute();
     $result = $stmt->get_result();
     $row = mysqli_fetch_assoc($result);
@@ -100,7 +100,7 @@
     $message = $textWithLinks;
 
     // Saves the message to later be outputted
-    $todelete_message = "<div class='message-container'>
+    $toedit_message = "<div class='message-container'>
             $replyMessage
             <div class='message-name-container'>
                 <a href='#'>
@@ -111,21 +111,22 @@
                 <h1 class='message-nickname'>" . $_SESSION['user_profile_nickname'] . " - <i>" . $row['timestamp'] . " $edited</i></h1>
             </div>
             <div class='message-content' style='background-color: #FFCF8C;' id='delete-message-modal-message'>
-                <p>$message</p>$br
+                <textarea spellcheck='false' id='edit-message-textarea' maxlength='500' oninput='resizeTextAreaEdit()'>$message</textarea>$br
                 $mediaAttachment
             </div>
         </div>";
 ?>
 
+<!-- Reusing styling for delete message modal -->
 <style><?php include "./css/delete-message-modal.css" ?></style>
 <div class="delete-message-modal-container">
-    <h1 class="delete-message-modal-headline">Are you sure you want to delete this message?</h1>
-    <i class="delete-message-modal-warning">This action cannot be undone!</i>
+    <h1 class="delete-message-modal-headline">Edit message</h1>
+    <i class="delete-message-modal-warning">Click the message to edit the text.</i>
     <div class="delete-message-modal-message-container">
-        <?php echo $todelete_message ?>
+        <?php echo $toedit_message ?>
     </div>
     <div class="delete-message-modal-button-container">
-        <button onclick="confirmDeleteMessage(<?php echo $_SESSION['delmessage_id'] ?>)">Delete message</button>
+        <button onclick="confirmEditMessage(<?php echo $_SESSION['editmessage_id'] ?>)" id="save-button">Save</button>
         <button onclick="removeDarkContainer()" id="cancel-button">Cancel</button>
     </div>
 

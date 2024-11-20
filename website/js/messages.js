@@ -23,6 +23,14 @@
             textarea.style.height = textarea.scrollHeight + "px";
         }
 
+        // Resizes message edit input based on how much text is inside of it
+        function resizeTextAreaEdit() {
+            var textarea = document.getElementById("edit-message-textarea");
+
+            textarea.style.height = "";
+            textarea.style.height = textarea.scrollHeight + "px";
+        }
+
         // Checks if user should be kicked
         function isKicked() {
             var placeholder = "placeholder";
@@ -335,5 +343,39 @@ function confirmDeleteMessage(message_id) {
 
 // Shows ui for editing message
 function editMessage(message_id) {
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/edit_message.php',
+        data:{ message_id : message_id }, 
+        success: function(response){
+            if (response == "error") {
+                showConfirm("Something went wrong.");
+            } else {
+                ajaxGet("./spa/messages/edit_message_modal.php", "dark-container");
+            }
+        }
+    })
+}
 
+// Saves message after user clicks save
+function confirmEditMessage(message_id) {
+    var message = document.getElementById("edit-message-textarea").value
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/confirm_edit_message.php',
+        data:{ message_id : message_id, message : message }, 
+        success: function(response){
+            if (response == "empty") {
+                showConfirm("Message is empty!");
+            } else if (response == "error") {
+                showConfirm("Something went wrong.");
+            } else if (response == "toolong") {
+                showConfirm("Message is too long! Character limit is 500.");
+            } else {
+                ajaxGet("./php_scripts/load_messages.php", "messages-container");
+                removeDarkContainer();
+                showConfirm("Message edited.")
+            }
+        }
+    })
 }

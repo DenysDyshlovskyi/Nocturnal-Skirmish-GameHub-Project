@@ -130,6 +130,13 @@ ORDER BY message_id ASC;");
 
             reply_end:
 
+            // If message was edited, add (edited) after timestamp
+            if ($row['edited'] == 1) {
+                $edited = "(edited)";
+            } else {
+                $edited = "";
+            }
+
             //If there is a link in the message, wrap it in <a> tag;
             $text = strip_tags($row['message']);
             $textWithLinks = preg_replace('@(https?://([-\w\.]+[-\w])+(:\d+)?(/([\w/_\.#-]*(\?\S+)?[^\.\s])?)?)@', '<a href="$1" target="_blank" rel="nofollow">$1</a>', $text);
@@ -150,7 +157,7 @@ ORDER BY message_id ASC;");
                                 <img src='./img/borders/" . $row2['profile_border'] . "'>
                             </div>
                         </a>
-                        <h1 class='message-nickname'>" . $row2['nickname'] . " - <i>" . $row['timestamp'] . "</i></h1>
+                        <h1 class='message-nickname'>" . $row2['nickname'] . " - <i>" . $row['timestamp'] . " $edited</i></h1>
                     </div>
                     <div class='message-content' $backgroundColor>
                         <p>$message</p>$br
