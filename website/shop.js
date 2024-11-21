@@ -37,6 +37,9 @@ function openCharacterTab(characterId) {
     // Hide the initial empty preview message
     document.getElementById("characterPreviewEmpty").style.display = "none";
 
+    // Hide the initial empty preview message for character skins tab
+    document.getElementById("characterPreviewEmptys").style.display = "none";
+
     // Hide all character content sections
     const characterContents = document.querySelectorAll(".character-content");
     characterContents.forEach(content => {

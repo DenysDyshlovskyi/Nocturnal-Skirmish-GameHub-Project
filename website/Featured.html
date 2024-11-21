@@ -14,7 +14,7 @@
             <button class="shopLink" onclick="openShopTab(event, 'cards')">Cards</button>
             <button class="shopLink" onclick="openShopTab(event, 'characters')">Characters</button>
             <button class="shopLink" onclick="openShopTab(event, 'profileBorders')">Profile borders</button>
-            <button class="shopLink" onclick="openShopTab(event, 'skins')">Skins</button>
+            <button class="shopLink" onclick="openShopTab(event, 'skins')">Character Skins</button>
             <button class="shopLink" onclick="openShopTab(event, 'eventCrates')">Event crates</button>
             <button class="shopLink" onclick="openShopTab(event, 'currency')">Currency</button>
             <button class="shopLink" onclick="openShopTab(event, 'other')">Other</button>
@@ -831,12 +831,138 @@
             </div>
         </div>
 
+
         <div id="skins" class="tabContent">
             <h1>Skins</h1>
             <div class="middle-shop-container">
                 <div class="left-middle-shop-container" style="overflow-y: scroll;">
-                    <h2 class="left-middle-shop-container-titles">Cards</h2>
+
+                    <div>
+                        <h2 class="left-middle-shop-container-titles">Available for purchase:</h2>
+                        <div class="left-middle-shop-container-titles-underline"></div>
+                    </div>                    
+                    <div class="character-box-container">
+
+                        <div class="character-box-wrapper">
+                            <div class="character-box">
+                                <button class="character-preview" onclick="openCharacterTab('character1s')">Character 1</button>
+                            </div>
+                            <div class="character-box">
+                                <button class="character-preview" onclick="openCharacterTab('character2s')">Character 2</button>
+                            </div>
+                            <div class="character-box">
+                                <button class="character-preview" onclick="openCharacterTab('character3s')">Character 3</button>
+                            </div>
+                        </div>
+
+                        <div class="character-box-wrapper">
+                            <div class="character-box">
+                                <button class="character-preview" onclick="openCharacterTab('character4s')">Character 4</button>
+                            </div>
+                            <div class="character-box-invisible">
+                            </div>
+                            <div class="character-box-invisible">
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
                 </div>
+    
+                <div class="right-middle-shop-container" style="overflow-y: scroll;">
+
+                    <h1 id="characterPreviewEmptys" class="character-preview-empty">
+                        Character Preview
+                        <p id="characterPreviewEmptyUnderText">No characters selected</p>
+                    </h1>
+                    
+
+                    <div>
+                        <div id="character1s" class="character-content">
+                            <h2 class="character-text">Character1 skins</h2>
+                            <div class="character-preview-content">
+                                <div class="character-preview-content-section-character-skins">
+                                    <div class="character-showcase">
+                                    
+                                    </div>
+                                    <div class="character-showcase">
+                                    
+                                    </div>
+                                </div>
+
+                                <div class="character-preview-content-section-character-skins">
+                                    <div class="character-showcase">
+                                    
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                        
+                        <div id="character2s" class="character-content">
+                            <h2 class="character-text">Character2 skins</h2>
+                            <div class="character-preview-content">
+                                <div class="character-preview-content">
+                                    <div class="character-preview-content-section-character-skins">
+                                        <div class="character-showcase">
+                                        
+                                        </div>
+                                        <div class="character-showcase">
+                                        
+                                        </div>
+                                    </div>
+    
+                                    <div class="character-preview-content-section-character-skins">
+                                        <div class="character-showcase">
+                                        
+                                        </div>
+                                    </div>  
+                                </div>
+    
+                            </div>
+                        </div>
+
+                        <div id="character3s" class="character-content">
+                            <h2 class="character-text">Character3 skins</h2>
+                            <div class="character-preview-content">
+                                <div class="character-preview-content-section-character-skins">
+                                    <div class="character-showcase">
+                                    
+                                    </div>
+                                    <div class="character-showcase">
+                                    
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+
+                </div>
+
+                <div>
+                    <div id="character4s" class="character-content">
+                        <h2 class="character-text">Character4 skins</h2>
+                        <div class="character-preview-content">
+                            <div class="character-preview-content-section-character-skins">
+                                <div class="character-showcase">
+                                
+                                </div>
+                                <div class="character-showcase">
+                                
+                                </div>
+                            </div>
+
+                            <div class="character-preview-content-section-character-skins">
+                                <div class="character-showcase">
+                                
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                    
+            </div>
+
+                
     
                 <div class="right-middle-shop-container" style="overflow-y: scroll;">
 
