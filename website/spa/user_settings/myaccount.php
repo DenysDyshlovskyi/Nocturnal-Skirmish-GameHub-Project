@@ -32,7 +32,7 @@ require "../../php_scripts/get_loggedin_info.php";
             <button onclick="ajaxGet('./spa/user_settings/change_nickname.php', 'dark-container')">Edit</button>
         </div>
         <div class="settings-myaccount-details-component">
-            <p>Email</p>
+            <p>Email adress</p>
             <h1 id="settings-myaccount-details-email"><?php echo $_SESSION['user_profile_email'] ?></h1>
             <button onclick="ajaxGet('./spa/user_settings/change_email.php', 'dark-container')">Edit</button>
         </div>
