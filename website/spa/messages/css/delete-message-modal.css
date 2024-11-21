@@ -101,7 +101,7 @@
 }
 
 #edit-message-textarea {
-    width: 100%;
+    width: 400px;
     height: fit-content;
     font-size: 22px;
     font-family: "Afacad Flux", "sans-serif";
@@ -109,4 +109,8 @@
     background-color: transparent;
     resize: none;
     margin-bottom: 5px;
+}
+
+#edit-message-modal-message {
+    max-width: 90%;
 }
