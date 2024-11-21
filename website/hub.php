@@ -16,7 +16,7 @@ require "./php_scripts/get_loggedin_info.php";
     <style> <?php include "./css/universal.css" ?> </style>
     <style> <?php include "./css/hub-page.css" ?> </style>
 </head>
-<body id="hub-body" onload="prepareSFX(); ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx'); isKicked()">
+<body id="hub-body" onload="prepareSFX(); ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx'); isKicked(); ajaxGet('./php_scripts/update_messages_hub.php', 'dropdown-button-chats', 'no_sfx'); ajaxGet('./php_scripts/update_pending_hub.php', 'dropdown-button-friends', 'no_sfx');">
     <div id="dark-container" class="dark-container"></div>
     <div class="confirmation-popup" id="confirmContainer"></div>
     <div class="hub-spa-container" id="hub-spa-container">
@@ -158,10 +158,12 @@ require "./php_scripts/get_loggedin_info.php";
         })
     }
 
-    // Starts 5 second interval to update players online counter, and to check if user should be kicked
+    // Starts 5 second interval to update players online counter, and to check if user should be kicked, and to update notifications
     setInterval(function(){
         ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx');
         isKicked()
+        ajaxGet('./php_scripts/update_messages_hub.php', 'dropdown-button-chats', 'no_sfx');
+        ajaxGet('./php_scripts/update_pending_hub.php', 'dropdown-button-friends', 'no_sfx');
     }, 5000);
 
     // If friend list should be open, open it.

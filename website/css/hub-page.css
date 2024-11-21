@@ -86,10 +86,12 @@
 
 #dropdown-button-friends {
     background-image: url(./img/icons/groups.svg);
+    position: relative;
 }
 
 #dropdown-button-chats {
     background-image: url(./img/icons/message.svg);
+    position: relative;
 }
 
 #dropdown-button-q_and_a {
@@ -98,6 +100,18 @@
 
 #dropdown-button-leaderboard {
     background-image: url(./img/icons/leaderboard.svg);
+}
+
+.hub-notif-bubble {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: red;
+    color: white;
+    font-family: "Afacad Flux", "sans-serif";
 }
 
 .hub-corner-profile-dropdown-divider {
