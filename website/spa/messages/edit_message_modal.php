@@ -110,7 +110,7 @@
                 </a>
                 <h1 class='message-nickname'>" . $_SESSION['user_profile_nickname'] . " - <i>" . $row['timestamp'] . " $edited</i></h1>
             </div>
-            <div class='message-content' style='background-color: #FFCF8C;' id='delete-message-modal-message'>
+            <div class='message-content' style='background-color: #FFCF8C;' id='edit-message-modal-message'>
                 <textarea spellcheck='false' id='edit-message-textarea' maxlength='500' oninput='resizeTextAreaEdit()'>$message</textarea>$br
                 $mediaAttachment
             </div>

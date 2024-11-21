@@ -56,7 +56,7 @@ require "./php_scripts/get_loggedin_info.php";
                 <a class="link" href="Featured.html"><button class="menu-button">Shop</button></a>
                 <br>
                 <button style="margin-bottom: 10px; margin-right: 10px;" class="menu-button">Tutorial</button>
-                <button class="menu-button" onclick="ajaxGet('./spa/hub/friends_list.php', 'hub-spa-container', 'friends_list'); displaySpaContainerHub('block');">Friends List</button>
+                <button class="menu-button" onclick="ajaxGet('./spa/hub/friends_list.php', 'hub-spa-container', 'friends_list'); displaySpaContainerHub('block');" id='menu-selection-friends'>Friends List</button>
             </div>
         </div>
 
