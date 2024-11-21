@@ -1,6 +1,14 @@
 <?php
 // Loads in a list of chats the user is in.
 require "avoid_errors.php";
+$unix_timestamp = (time() + 5);
+
+// Update last_accessed column in chats table
+$current_table = $_SESSION['current_table'];
+$stmt = $conn->prepare("UPDATE chats SET last_accessed = ? WHERE user_id = ? AND tablename = ?");
+$stmt->bind_param("sss", $unix_timestamp, $_SESSION['user_id'], $current_table );
+$stmt->execute();
+$stmt->close();
 
 // Check which chats the user is in
 $stmt = $conn->prepare("SELECT * FROM chats WHERE user_id = ? ORDER BY last_chat DESC");
@@ -15,6 +23,19 @@ if ((mysqli_num_rows($result) <= 0)) {
     </div>";
 } else {
     while ($row = mysqli_fetch_assoc($result)) {
+        // If there are any unread messages, add the notification in a red circle
+        $tablename = $row['tablename'];
+
+        $conn -> select_db("gamehub_messages");
+        $stmt2 = $conn->prepare("SELECT COUNT(*) AS total FROM $tablename WHERE unix_timestamp > ? AND user_id <> ?");
+        $stmt2->bind_param("ss", $row['last_accessed'], $_SESSION['user_id']);
+        $stmt2->execute();
+        $result2 = $stmt2->get_result();
+        $row2 = mysqli_fetch_assoc($result2);
+        $totalNewMessages = $row2['total'];
+
+        $conn -> select_db("gamehub");
+
         // If chat type is 'two_user', show the the other users profile pic, border and username.
         if ($row['type'] == 'two_user') {
             $stmt2 = $conn->prepare("SELECT * FROM chats WHERE tablename = ? AND user_id <> ?");
@@ -50,6 +71,13 @@ if ((mysqli_num_rows($result) <= 0)) {
                 $onlineOfflineTitle = "This user is offline";
             }
 
+            // If there are unread messages in the chat, display the amount of them
+            if ($totalNewMessages > 0) {
+                $notif = "<div class='messages-menu-notif-bubble'>$totalNewMessages</div>";
+            } else {
+                $notif = "";
+            }
+
             printf("<button class='messages-menu-button' onclick='selectChat(%s)' title='$onlineOfflineTitle' $border>
                         $onlineOfflineCircle
                         <div class='messages-menu-button-profilepic' style='$offlineOpacity background-image: url(./img/profile_pictures/" . $row2['profile_picture'] . ");'>
@@ -58,6 +86,7 @@ if ((mysqli_num_rows($result) <= 0)) {
                         <div class='messages-menu-button-name-container' style='$offlineOpacity'>
                             <p>" . $row2['nickname'] . "</p>
                         </div>
+                        $notif
                     </button>", '"' . $row['tablename'] . '"');
         }
     }

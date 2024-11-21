@@ -43,7 +43,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Create chat table in gamehub_messages database
     $conn -> select_db("gamehub_messages");
-    $stmt = $conn->prepare("CREATE TABLE $tablename (message_id int NOT NULL AUTO_INCREMENT, user_id int, message varchar(500), file varchar(50), timestamp varchar(64), edited int DEFAULT 0, reply int DEFAULT 0, PRIMARY KEY (message_id));");
+    $stmt = $conn->prepare("CREATE TABLE $tablename (message_id int NOT NULL AUTO_INCREMENT, user_id int, message varchar(500), file varchar(50), timestamp varchar(64), edited int DEFAULT 0, reply int DEFAULT 0, unix_timestamp int NOT NULL DEFAULT 0, PRIMARY KEY (message_id));");
     $stmt->execute();
     $stmt->close();
     $conn -> select_db("gamehub");

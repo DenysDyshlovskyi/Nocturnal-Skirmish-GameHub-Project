@@ -93,6 +93,7 @@ CREATE TABLE chats (
     user_id int,
     type varchar(32),
     last_chat int NOT NULL DEFAULT 0,
+    last_accessed int NOT NULL DEFAULT 0,
     PRIMARY KEY (id)
 );
 

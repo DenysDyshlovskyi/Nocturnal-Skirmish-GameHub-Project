@@ -75,6 +75,7 @@
     display: flex;
     align-items: center;
     overflow-x: hidden;
+    position: relative;
 }
 
 .messages-menu-button:hover {
@@ -126,6 +127,19 @@
     width: 10px;
     position: relative;
     left: 5px;
+}
+
+.messages-menu-notif-bubble {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: red;
+    color: white;
+    font-family: "Afacad Flux", "sans-serif";
+    margin: 5px;
 }
 
 header {

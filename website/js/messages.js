@@ -84,6 +84,11 @@
             setTimeout(loadMessages, 500);
         }, 3000);
 
+        // Starts 4.5 second interval to update notification
+        setInterval(function(){
+            ajaxGet('./php_scripts/load_chat_list.php', 'messages-menu-chats-container');
+        }, 4500);
+
         // When user scrolls to top of messages, load in 25 more messages
         const scrollableDiv = document.getElementById('messages-container');
         var first_message_id;

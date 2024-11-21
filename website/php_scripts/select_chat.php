@@ -28,6 +28,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Reset amount of messages loaded in
     $_SESSION['message_amount'] = 15;
+
+    $unix_timestamp = time();
+
+    // Update last_accessed column in chats table
+    $current_table = $_SESSION['current_table'];
+    $stmt = $conn->prepare("UPDATE chats SET last_accessed = ? WHERE user_id = ? AND tablename = ?");
+    $stmt->bind_param("sss", $unix_timestamp, $_SESSION['user_id'], $current_table );
+    $stmt->execute();
+    $stmt->close();
 } else {
     header("Location: ../index.php");
 }

@@ -85,8 +85,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Insert the message
     $conn -> select_db("gamehub_messages");
     $current_table = $_SESSION['current_table'];
-    $stmt = $conn->prepare("INSERT INTO $current_table (user_id, message, timestamp, file, reply) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $_SESSION['user_id'], $message, $timestamp, $newfilename, $reply);
+    $stmt = $conn->prepare("INSERT INTO $current_table (user_id, message, timestamp, file, reply, unix_timestamp) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssss", $_SESSION['user_id'], $message, $timestamp, $newfilename, $reply, $unix_timestamp);
     $stmt->execute();
     $stmt->close();
     $conn -> select_db("gamehub");
