@@ -460,6 +460,15 @@
 
 }
 
+.character-box-invisible{
+    width: 23%;
+    height: 270px;
+    background-color: #ffbc5e00;
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+}
+
 .character-content {
     display: none;
 }
@@ -497,6 +506,12 @@
     display: flex;
     flex-direction: row;
     gap: 11%;
+}
+
+
+.character-preview-content-section-character-skins{ /*for character skins shop*/
+    display: flex;
+    flex-direction: row;
 }
 
 .character-showcase {
