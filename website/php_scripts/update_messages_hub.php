@@ -25,5 +25,8 @@ if ((mysqli_num_rows($result) > 0)) {
 }
 
 if ($totalNewMessages > 0) {
+    if ($totalNewMessages > 100) {
+        $totalNewMessages = "99+";
+    }
     echo "<div class='hub-notif-bubble'>$totalNewMessages</div>";
 }
