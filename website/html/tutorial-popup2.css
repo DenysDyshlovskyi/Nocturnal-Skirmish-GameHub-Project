@@ -69,8 +69,13 @@ body {
 .tutorial-selection-box-inside {
     background-color: rgba(0, 0, 0, 0.484);
     border: #B1B1B1 30px solid;
+    box-shadow: rgba(99, 99, 99, 0.25) 0px 30px 60px -12px inset;
     width: calc(100% - 120px);
     height: calc(100% - 120px);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .tutorial-selection-box-inside-container {
@@ -79,29 +84,49 @@ body {
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 100%;
+    width: 80%;
+
+    gap: 50px;
 }
 
 
 /* Tutorial div content elements */
 .tutorial-selection-box-selections-gamehubtutorial {
     background-color: #FFA11E;
-    width: 100%;
-    height: calc(100vh - 500px);
-    margin: 4%; 
+    width: 80%;
+    height: 75%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
     border-radius: 15px;
-    min-width: 200px;
-    min-height: 200px;
-    display: inline-block;
 }
 
-.tutorial-selection-box-selections {
+.tutorial-selection-box-selections-maingame {
     background-color: rgb(88, 12, 86);
-    width: 100%;
-    height: calc(100vh - 500px);
-    margin: 4%; 
+    width: 80%;
+    height: 75%;
+    display: flex;
+
     border-radius: 15px;
-    min-width: 200px;
-    min-height: 200px;
-    display: inline-block;
+}
+
+.title-box {
+    background-color: #ffffff9b;
+    
+    width: calc(100% - 32px);
+    height: 30%;
+    margin-top: 20px;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.title-box p {
+    text-shadow: 0px 6px 4px rgba(0, 0, 0, 25%);;
 }
