@@ -70,13 +70,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $reply = htmlspecialchars($_POST['reply']);
     $unix_timestamp = time();
-
-    // Update last_chat column in chats table
     $current_table = $_SESSION['current_table'];
-    $stmt = $conn->prepare("UPDATE chats SET last_chat = ? WHERE user_id = ? AND tablename = ?");
-    $stmt->bind_param("sss", $unix_timestamp, $_SESSION['user_id'], $current_table );
-    $stmt->execute();
-    $stmt->close();
+
+    if ($current_table != "public") {
+        // Update last_chat column in chats table
+        $stmt = $conn->prepare("UPDATE chats SET last_chat = ? WHERE user_id = ? AND tablename = ?");
+        $stmt->bind_param("sss", $unix_timestamp, $_SESSION['user_id'], $current_table );
+        $stmt->execute();
+        $stmt->close();
+    }
 
     // Get current time
     require "getdate.php";
@@ -84,7 +86,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Insert the message
     $conn -> select_db("gamehub_messages");
-    $current_table = $_SESSION['current_table'];
     $stmt = $conn->prepare("INSERT INTO $current_table (user_id, message, timestamp, file, reply, unix_timestamp) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssssss", $_SESSION['user_id'], $message, $timestamp, $newfilename, $reply, $unix_timestamp);
     $stmt->execute();

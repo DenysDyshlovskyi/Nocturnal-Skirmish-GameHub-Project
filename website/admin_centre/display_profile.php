@@ -245,6 +245,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             <button onclick="ajaxGet('./spa/change_password.php', 'dark-container');">Change Password</button>
             <button onclick="kickUser(<?php echo $user_id ?>)">Kick User</button>
             <button onclick="viewChat(<?php echo $userprofile_row['user_id'] ?>)">View Chats</button>
+            <button onclick="emulateUser(<?php echo $userprofile_row['user_id'] ?>)">Emulate User</button>
             <br>
             <br>
             <button style="background-color: red;" onclick="ajaxGet('./spa/ban_user.php', 'dark-container')">Ban User</button>

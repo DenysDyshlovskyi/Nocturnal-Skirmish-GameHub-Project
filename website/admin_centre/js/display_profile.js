@@ -562,3 +562,14 @@ function viewChat(user_id) {
         }
     })
 }
+
+function emulateUser(user_id) {
+    $.ajax({
+        type: "POST",
+        url: './scripts/display_profile/change_to_userid.php',
+        data:{user_id : user_id}, 
+        success: function(){
+            window.location.href = "../hub.php";
+        }
+    })
+}

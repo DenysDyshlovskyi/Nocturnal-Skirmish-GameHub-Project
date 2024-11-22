@@ -27,20 +27,23 @@ if (!isset($_SESSION['current_messenger'])) {
     $stmt3->close();
 }
 
-// Echo the current messenger to screen
-$stmt = $conn->prepare("SELECT * FROM users WHERE user_id = ?");
-$stmt->bind_param("s", $_SESSION['current_messenger']);
-$stmt->execute();
-$result = $stmt->get_result();
-$row = mysqli_fetch_assoc($result);
-echo "<a href='#' onclick='displayUserProfile(" . $row['user_id'] . ")'>
-                        <div class='current-messenger-profilepic' style='background-image: url(./img/profile_pictures/" . $row['profile_picture'] . ");'>
-                            <img src='./img/borders/" . $row['profile_border'] . "'>
-                        </div>
-                    </a>
-                    <div class='current-messenger-name-container'>
-                        <p>" . $row['nickname'] . "</p>
-                    </div>";
-$stmt->close();
-
+if ($_SESSION['current_messenger'] == "public") {
+    echo "<p class='messages-public-headline'><img src='./img/icons/globe.svg' alt='Public Chat'>Public Chat</p>";
+} else {
+    // Echo the current messenger to screen
+    $stmt = $conn->prepare("SELECT * FROM users WHERE user_id = ?");
+    $stmt->bind_param("s", $_SESSION['current_messenger']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = mysqli_fetch_assoc($result);
+    echo "<a href='#' onclick='displayUserProfile(" . $row['user_id'] . ")'>
+                            <div class='current-messenger-profilepic' style='background-image: url(./img/profile_pictures/" . $row['profile_picture'] . ");'>
+                                <img src='./img/borders/" . $row['profile_border'] . "'>
+                            </div>
+                        </a>
+                        <div class='current-messenger-name-container'>
+                            <p>" . $row['nickname'] . "</p>
+                        </div>";
+    $stmt->close();
+}
 end:

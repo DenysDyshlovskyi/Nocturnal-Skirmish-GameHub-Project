@@ -65,6 +65,33 @@
     font-weight: 600;
 }
 
+.public-chat-button {
+    width: 100%;
+    height: 40px;
+    background-color: #E7E7E7;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    position: relative;
+    font-family: "Afacad Flux", "sans-serif";
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.public-chat-button img{
+    height: 30px;
+    width: 30px;
+    margin-right: 5px;
+}
+
+.public-chat-button:hover {
+    filter: brightness(0.7);
+}
+
 .messages-menu-button {
     width: 100%;
     height: 60px;
@@ -709,4 +736,19 @@ header {
     font-family: "Afacad Flux", "sans-serif";
     font-weight: 600;
     font-size: 20px;
+}
+
+.messages-public-headline {
+    font-family: "Afacad Flux", "sans-serif";
+    font-weight: 600;
+    font-size: 30px;
+    text-wrap: nowrap;
+    display: flex;
+    align-items: center;
+}
+
+.messages-public-headline img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
 }
