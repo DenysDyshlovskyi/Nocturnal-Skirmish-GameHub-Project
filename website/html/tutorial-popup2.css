@@ -5,6 +5,7 @@
 
 body {
     font-family: "Afacad Flux", sans-serif;
+    user-select: none;
 }
 
 .popup-content-box {            /* Default Styling */
@@ -67,9 +68,8 @@ body {
 }
 
 .tutorial-selection-box-inside {
-    background-color: rgba(0, 0, 0, 0.484);
     border: #B1B1B1 30px solid;
-    box-shadow: rgba(99, 99, 99, 0.25) 0px 30px 60px -12px inset;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 30px 60px -12px inset;
     width: calc(100% - 120px);
     height: calc(100% - 120px);
     
@@ -107,6 +107,8 @@ body {
     width: 80%;
     height: 75%;
     display: flex;
+    align-items: center;
+    flex-direction: column;
 
     border-radius: 15px;
 }
@@ -129,4 +131,9 @@ body {
 
 .title-box p {
     text-shadow: 0px 6px 4px rgba(0, 0, 0, 25%);;
+}
+
+.logo {
+    width: 90%;
+    margin-top: 10%;
 }
