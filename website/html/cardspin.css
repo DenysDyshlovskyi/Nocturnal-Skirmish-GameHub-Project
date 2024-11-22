@@ -16,10 +16,31 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 15%;
+    background: linear-gradient(-45deg, #000000, rgb(88, 12, 86));
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 
 .perspective {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -70%);
+  transform: translate(-50%, -70%);
     perspective: 1600px;
     perspective-origin: 50% -240px;
 }
@@ -116,10 +137,36 @@ body {
     background-color: var(--heavenlysmite);
   }
 }
-  
-  
-  
-  
-  
-  
-  
+.matchmaking-text-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin-bottom: calc(50vh - 200px);
+  font-family: "Afacad Flux", "sans-serif";
+  font-weight: 600;
+  font-size: 20px;
+  color: white;
+  text-shadow: 1px 1px 2px pink;
+}
+
+.cancel-button {
+  width: 200px;
+  height: 50px;
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 15px;
+  font-family: "Afacad Flux", "sans-serif";
+  font-weight: 600;
+  font-size: 22px;
+  cursor: pointer;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: rgb(206, 206, 206);
+}
+
+.cancel-button:hover {
+  filter: brightness(0.5);
+}

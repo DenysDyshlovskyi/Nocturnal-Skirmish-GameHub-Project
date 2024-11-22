@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nocturnal Skirmish - Matchmaking</title>
+    <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="cardspin.css">
+    <link rel="stylesheet" href="../css/universal.css">
 </head>
 <body>
     
@@ -18,6 +20,26 @@
         </div>
     </div>
 </div>
-  
+<div class="matchmaking-text-container">
+    <h1 id="finding-match">Finding match</h1>
+</div>
+<button class="cancel-button" title="Cancel matchmaking">Cancel Matchmaking</button>
+<audio src="../audio/music/IntermissionOST.mp3" autoplay style="display: none;" loop></audio>
 </body>
+<script>
+    var matchmakingText = document.getElementById("finding-match")
+    var original = matchmakingText.innerHTML;
+    var dots = "";
+    var dotscounter = 0;
+    setInterval(function(){
+        dots = dots + ".";
+        dotscounter++
+        matchmakingText.innerHTML = original + dots
+        if (dotscounter == 4) {
+            dots = "";
+            dotscounter = 0;
+            matchmakingText.innerHTML = original;
+        }
+    }, 500)
+</script>
 </html>
