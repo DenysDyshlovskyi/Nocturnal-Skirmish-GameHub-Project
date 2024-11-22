@@ -168,6 +168,11 @@ function selectChat(tablename) {
                 cancelReply();
                 resizeMessageBar();
                 setTimeout(scrollToBottom, 100);
+                if (tablename == "public") {
+                    document.getElementById("public-chat-button").style.border = "solid 2px black";
+                } else {
+                    document.getElementById("public-chat-button").style.border = "none";
+                }
             }
         }
     })

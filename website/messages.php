@@ -39,7 +39,7 @@ if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == 1) {
         <div class="loading-container" id="loading"><img src="./img/icons/loading.gif"></div>
         <div class="messages-menu">
             <div class="messages-menu-top">Messages</div>
-            <button class="public-chat-button" title="Public Chat" onclick="selectChat('public')"><img src="./img/icons/globe.svg" alt="Public Chat">Public Chat</button>
+            <button class="public-chat-button" id="public-chat-button" title="Public Chat" onclick="selectChat('public')"><img src="./img/icons/globe.svg" alt="Public Chat">Public Chat</button>
             <div id="messages-menu-chats-container">
                 <?php include "./php_scripts/load_chat_list.php" ?>
             </div>
