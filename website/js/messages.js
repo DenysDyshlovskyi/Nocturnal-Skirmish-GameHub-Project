@@ -444,3 +444,61 @@ function createChatUi(mode) {
         showConfirm("Something went wrong.");
     }
 }
+
+// Function to highlight parent div of checkbox when checkbox is clicked
+function highlightCheckbox(elementID) {
+    var checkbox = document.getElementById(elementID);
+    var parentDiv = checkbox.parentNode;
+
+    checkbox = "#" + elementID;
+
+    if ($(checkbox).is(':checked')) {
+        parentDiv.style.backgroundColor = "#4a89ff40";
+    } else {
+        parentDiv.style.backgroundColor = "#F1F1F1";
+    }
+}
+
+// Function for searching through friend list
+function createGroupchatSearch(search) {
+    // Deletes none found element from previous query if it exists
+    if ($('#none-found-p').length > 0) {
+        document.getElementById('none-found-p').remove();
+    }
+    const resultContainer = document.getElementById('create-groupchat-result-container');
+
+    // Select all elements in result container
+    const allElements = document.getElementById('create-groupchat-result-container').children;
+
+    // Convert to lower case to be case insensitive
+    const searchLower = search.toLowerCase();
+
+    // Hides all elements in result container
+    Array.from(allElements).forEach(
+        el => el.style.display = "none"
+    )
+    
+    // Filter the elements based on the search
+    const filteredElements = Array.from(allElements).filter(el =>
+        el.id.toLowerCase().includes(searchLower)
+    );
+
+    // Checks if any nicknames with the search query were found
+    if (filteredElements.length === 0) {
+        // Not found
+        // Create p tag that says that the search returned to results
+        const para = document.createElement("p");
+        para.id = "none-found-p";
+        const node = document.createTextNode("No nicknames found containing '" + search + "'.");
+
+        // Put the p tag inside result container
+        para.appendChild(node);
+        resultContainer.appendChild(para);
+    } else {
+        // Found
+        // Show the elements that have been filtered
+        filteredElements.forEach(
+            el => el.style.display = "flex"
+        )
+    }
+}
