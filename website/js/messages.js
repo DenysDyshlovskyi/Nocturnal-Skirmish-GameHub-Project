@@ -389,3 +389,58 @@ function confirmEditMessage(message_id) {
         }
     })
 }
+
+// Animation for new chat dropdown
+function newChatDropdown() {
+    dropdownContainer = document.getElementById("new-chat-dropdown");
+    dropdownButton = document.getElementById("messages-add-chat-button");
+    $('#messages-add-chat-button').prop('disabled', true);
+    if (window.getComputedStyle(dropdownContainer).display === 'none'){
+        dropdownButton.style.backgroundImage = "url()";
+        dropdownButton.innerHTML = "Cancel";
+        dropdownContainer.style.display = "flex";
+        dropdownContainer.style.height = "0px";
+        var heightPx = 0;
+        dropdownInterval = setInterval(function(){
+            heightPx = heightPx + 4;
+            dropdownContainer.style.height = heightPx + "px";
+            if (heightPx >= 60) {
+                clearInterval(dropdownInterval);
+                $('#messages-add-chat-button').prop('disabled', false);
+            }
+        }, 1)
+    } else {
+        dropdownButton.style.backgroundImage = "url(./img/icons/plus.svg)";
+        dropdownButton.innerHTML = "";
+        dropdownContainer.style.height = "60px";
+        var heightPx = 60;
+        dropdownInterval = setInterval(function(){
+            heightPx = heightPx - 4;
+            dropdownContainer.style.height = heightPx + "px";
+            if (heightPx <= 0) {
+                clearInterval(dropdownInterval);
+                dropdownContainer.style.display = 'none';
+                $('#messages-add-chat-button').prop('disabled', false);
+            }
+        }, 1)
+    }
+}
+
+// Shows ui for creating a new groupchat or private message
+function createChatUi(mode) {
+    dropdownButton = document.getElementById("messages-add-chat-button");
+    dropdownContainer = document.getElementById("new-chat-dropdown");
+    
+    dropdownButton.style.backgroundImage = "url(./img/icons/plus.svg)";
+    dropdownButton.innerHTML = "";
+    dropdownContainer.style.height = "60px";
+    dropdownContainer.style.display = "none";
+
+    if (mode == "groupchat") {
+        ajaxGet("./spa/messages/create_groupchat.php", "dark-container");
+    } else if (mode == "pm") {
+        ajaxGet("./spa/messages/create_pm.php", "dark-container");
+    } else {
+        showConfirm("Something went wrong.");
+    }
+}

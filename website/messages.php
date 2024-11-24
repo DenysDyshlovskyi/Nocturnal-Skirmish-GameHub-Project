@@ -43,7 +43,11 @@ if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == 1) {
             <div id="messages-menu-chats-container">
                 <?php include "./php_scripts/load_chat_list.php" ?>
             </div>
-            <button class="messages-add-chat-button" title="Create new chat" onclick="localStorage.setItem('openFriendList', 1); window.location.href = 'hub.php';"></button>
+            <button class="messages-add-chat-button" title="Create new chat" id="messages-add-chat-button" onclick="newChatDropdown()"></button>
+            <div class="messages-add-chat-dropdown" id="new-chat-dropdown">
+                <button title="Create groupchat" onclick="createChatUi('groupchat')">Create groupchat</button>
+                <button title="Create private message" onclick="createChatUi('pm')">Create private message</button>
+            </div>
         </div>
 
         <div class="messages-container" id="messages-container">
