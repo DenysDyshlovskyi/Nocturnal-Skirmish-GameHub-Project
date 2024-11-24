@@ -9,5 +9,5 @@
         <button id="cancel-button" onclick="removeDarkContainer()">Cancel</button>
         <button type="submit" form="create-groupchat-form">Create groupchat</button>
     </div>
-    <form action="" id="create-groupchat-form"></form>
+    <form method="POST" id="create-groupchat-form"></form>
 </div>

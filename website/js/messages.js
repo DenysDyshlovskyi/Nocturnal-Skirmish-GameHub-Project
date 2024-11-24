@@ -460,6 +460,9 @@ function highlightCheckbox(elementID) {
 }
 
 // Function for searching through friend list
+// Did the search function in pure javascript instead of post in ajax with SQL LIKE queries. This is because using ajax post and returning the
+// result in the result container would completely replace the child elements. So if a checkbox was checked, and you did a search, that checkbox
+// would no longer be checked, because everything got completely replaced.
 function createGroupchatSearch(search) {
     // Deletes none found element from previous query if it exists
     if ($('#none-found-p').length > 0) {
@@ -502,3 +505,27 @@ function createGroupchatSearch(search) {
         )
     }
 }
+
+// When form for creating groupchat is submitted
+$("form#create-groupchat-form").submit(function(e) {
+    e.preventDefault();
+    var formData = new FormData(this);
+
+    $.ajax({
+        url: './php_scripts/create_groupchat.php',
+        type: 'POST',
+        data: formData,
+        success: function (response) {
+            if (response == "error") {
+                removeDarkContainer();
+                showConfirm("Something went wrong.")
+            } else {
+                removeDarkContainer();
+                showConfirm("Groupchat created!");
+            }
+        },
+        cache: false,
+        contentType: false,
+        processData: false,
+    });
+});
