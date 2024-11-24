@@ -77,12 +77,18 @@ body {
 
 .face.front {
   /*hver rotasjon er 5 sekunder definert over*/
-  animation: texture 50s 2.5s linear infinite
+  animation: texture 50s 2.5s linear infinite;
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
 }
 
 .face.back {
   bottom: 200%;
-  transform-origin: center 366px 0.001px;
+  transform-origin: center 365px 0.001px;
   transform: rotateX(180deg);
   position: absolute;
   background-image: url(../img/cards/Backside_Card_REVERSE.webp);
