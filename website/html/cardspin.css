@@ -88,7 +88,7 @@ body {
 
 .face.back {
   bottom: 200%;
-  transform-origin: center 365px 0.001px;
+  transform-origin: center 365px 0.05px;
   transform: rotateX(180deg);
   position: absolute;
   background-image: url(../img/cards/Backside_Card_REVERSE.webp);
