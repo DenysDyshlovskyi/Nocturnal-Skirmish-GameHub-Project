@@ -46,8 +46,7 @@
     border-bottom-left-radius: 20px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .messages-menu-top{
@@ -90,6 +89,13 @@
 
 .public-chat-button:hover {
     filter: brightness(0.7);
+}
+
+#messages-menu-chats-container {
+    height: calc(100% - 235px);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    border-top: 1px solid #E7E7E7;
 }
 
 .messages-menu-button {
