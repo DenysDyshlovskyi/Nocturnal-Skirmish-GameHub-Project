@@ -113,7 +113,7 @@ if ((mysqli_num_rows($result) <= 0)) {
             $result2 = $stmt2->get_result();
             $row2 = mysqli_fetch_assoc($result2);
 
-            printf("<button class='messages-menu-button' onclick='selectChat(%s)' title='" . $row2['groupchat_name'] . "' $border>
+            printf("<button class='messages-menu-button' onclick='selectChat(%s)' title='Message " . $row2['groupchat_name'] . "' $border>
             <div class='groupchat-button-image' style='background-image: url(./img/groupchat_images/" . $row2['groupchat_image'] . ");'>
             <div class='messages-menu-button-name-container'>
                 <p>" . $row2['groupchat_name'] . "</p>

@@ -45,8 +45,8 @@ ORDER BY message_id ASC;");
             // Make message orange if its sent by you, and adds extra buttons on hover for deleting and editing message
             if ($row['user_id'] == $_SESSION['user_id']) {
                 $backgroundColor = "style='background-color: #FFCF8C;'";
-                $moreButtons = "<button id='delete-message-button' onclick='deleteMessage(" . $row['message_id'] . ")'></button>
-                                <button id='edit-message-button' onclick='editMessage(" . $row['message_id'] . ")'></button>";
+                $moreButtons = "<button id='delete-message-button' title='Delete message' onclick='deleteMessage(" . $row['message_id'] . ")'></button>
+                                <button id='edit-message-button' title='Edit message' onclick='editMessage(" . $row['message_id'] . ")'></button>";
             } else {
                 $backgroundColor = "";
                 $moreButtons = "";
