@@ -85,8 +85,6 @@ body {
   transform: scaleX(-1);
   filter: "FlipH";
   -ms-filter: "FlipH";
-  transition: 
-    background-image 0.1s;
 }
 
 .face.back {
