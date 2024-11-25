@@ -64,6 +64,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $_SESSION['current_table'] = $tablename;
     $_SESSION['current_messenger'] = $posted_userid;
+    $_SESSION['current_messenger_type'] = "two_user";
 } else {
     header("Location: ../index.php");
 }
