@@ -97,6 +97,14 @@ CREATE TABLE chats (
     PRIMARY KEY (id)
 );
 
+CREATE TABLE groupchat_settings (
+    id int NOT NULL AUTO_INCREMENT,
+    tablename varchar(128),
+    groupchat_name varchar(30) DEFAULT "New Groupchat",
+    groupchat_image varchar(128) DEFAULT "defaultgroupchat.svg",
+    PRIMARY KEY (id)
+);
+
 CREATE DATABASE IF NOT EXISTS gamehub_messages;
 
 USE gamehub_messages;

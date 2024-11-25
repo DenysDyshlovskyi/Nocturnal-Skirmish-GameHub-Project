@@ -212,7 +212,8 @@ header {
 }
 
 .current-messenger-name-container {
-    width: 75%;
+    max-width: 75%;
+    width: fit-content;
     height: 60px;
     margin-left: 15px;
     overflow-x: hidden;
@@ -784,4 +785,43 @@ header {
     width: 60px;
     height: 60px;
     margin-right: 10px;
+}
+
+.groupchat-button-image {
+    width: 40px;
+    height: 40px;
+    margin-left: 25px;
+    border-radius: 40px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.current-messenger-groupchat-image {
+    width: 60px;
+    height: 60px;
+    min-height: 60px;
+    min-height: 60px;
+    border-radius: 60px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.groupchat-settings-button {
+    width: 35px;
+    height: 35px;
+    margin-left: 15px;
+    cursor: pointer;
+    border: solid 1px black;
+    border-radius: 5px;
+    background-image: url(./img/icons/settings.svg);
+    background-position: center;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+}
+
+.groupchat-settings-button:hover {
+    opacity: 1;
 }

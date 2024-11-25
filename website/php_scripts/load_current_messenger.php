@@ -45,7 +45,8 @@ if ($_SESSION['current_messenger'] == "public") {
     echo "<p class='messages-public-headline'><img src='./img/icons/globe.svg' alt='Public Chat'>Public Chat</p>";
 } else {
     // Echo the current messenger to screen
-    if ($_SESSION['current_messenger_type'] = "two_user") {
+    if ($_SESSION['current_messenger_type'] == "two_user") {
+        // If the chat is two user (private message)
         $stmt = $conn->prepare("SELECT * FROM users WHERE user_id = ?");
         $stmt->bind_param("s", $_SESSION['current_messenger']);
         $stmt->execute();
@@ -59,6 +60,19 @@ if ($_SESSION['current_messenger'] == "public") {
                             <div class='current-messenger-name-container'>
                                 <p>" . $row['nickname'] . "</p>
                             </div>";
+    } else if ($_SESSION['current_messenger_type'] == "groupchat") {
+        // If the chat is a groupchat
+        $stmt = $conn->prepare("SELECT * FROM groupchat_settings WHERE tablename = ?");
+        $stmt->bind_param("s", $_SESSION['current_messenger']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = mysqli_fetch_assoc($result);
+        echo "
+            <div class='current-messenger-groupchat-image' style='background-image: url(./img/groupchat_images/" . $row['groupchat_image'] . ");'></div>
+            <div class='current-messenger-name-container'>
+                <p>" . $row['groupchat_name'] . "</p>
+            </div>
+            <button class='groupchat-settings-button' onclick='openGroupchatSettings()' title='Groupchat settings'></button>";
     }
     $stmt->close();
 }

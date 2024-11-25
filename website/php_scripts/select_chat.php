@@ -23,15 +23,28 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "error";
             exit;
         }
+        $row = mysqli_fetch_assoc($result);
         $stmt->close();
 
-        // Get user id of other user
-        $stmt = $conn->prepare("SELECT user_id FROM chats WHERE user_id <> ? AND tablename = '$tablename'");
-        $stmt->bind_param("s", $_SESSION['user_id']);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $row = mysqli_fetch_assoc($result);
-        $_SESSION['current_messenger'] = $row['user_id'];
+        if ($row['type'] == "two_user") {
+            // Get user id of other user
+            $stmt = $conn->prepare("SELECT user_id FROM chats WHERE user_id <> ? AND tablename = '$tablename'");
+            $stmt->bind_param("s", $_SESSION['user_id']);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row = mysqli_fetch_assoc($result);
+
+            $_SESSION['current_messenger'] = $row['user_id'];
+
+            // Set the type to two user
+            $_SESSION['current_messenger_type'] = "two_user";
+        } else if ($row['type'] == "groupchat") {
+
+            $_SESSION['current_messenger'] = $tablename;
+
+            // Set the type to groupchat
+            $_SESSION['current_messenger_type'] = "groupchat";
+        }
 
         // Set the current table to the tablename
         $_SESSION['current_table'] = $tablename;
