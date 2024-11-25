@@ -78,11 +78,13 @@ body {
 .face.front {
   /*hver rotasjon er 5 sekunder definert over*/
   animation: texture 50s 2.5s linear infinite;
+  transition-duration: 0s;
   -moz-transform: scaleX(-1);
   -o-transform: scaleX(-1);
   -webkit-transform: scaleX(-1);
+  -ms-transform: scaleX(-1);
   transform: scaleX(-1);
-  filter: FlipH;
+  filter: "FlipH";
   -ms-filter: "FlipH";
 }
 
