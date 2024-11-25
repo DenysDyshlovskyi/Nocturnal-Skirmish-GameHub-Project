@@ -77,7 +77,7 @@ body {
 
 .face.front {
   /*hver rotasjon er 5 sekunder definert over*/
-  animation: texture 50s 2.5s infinite;
+  animation: texture 50s 3s infinite;
   -moz-transform: scaleX(-1);
   -o-transform: scaleX(-1);
   -webkit-transform: scaleX(-1);
