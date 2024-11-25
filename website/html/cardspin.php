@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nocturnal Skirmish - Matchmaking</title>
     <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="cardspin.css">
+    <style><?php require "./cardspin.css" ?></style>
     <link rel="stylesheet" href="../css/universal.css">
 </head>
 <body>

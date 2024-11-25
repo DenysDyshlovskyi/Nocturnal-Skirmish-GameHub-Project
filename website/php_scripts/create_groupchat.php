@@ -69,3 +69,7 @@ foreach ($_POST['create-groupchat-checkbox'] as $user_id) {
     $stmt->execute();
     $stmt->close();
 }
+
+// Sets current table to the groupchat
+$_SESSION['current_table'] = $tablename;
+$_SESSION['current_messenger'] = $posted_userid;

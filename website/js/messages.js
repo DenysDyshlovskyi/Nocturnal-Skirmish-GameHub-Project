@@ -517,10 +517,13 @@ function createGroupchat() {
             if (response == "error") {
                 removeDarkContainer();
                 showConfirm("Something went wrong.")
+            } else if (response == "short") {
+                showConfirm("You have to select atleast 2 friends!")
+            } else if (response == "empty") {
+                showConfirm("No friends selected!")
             } else {
                 removeDarkContainer();
                 showConfirm("Groupchat created!");
-                alert(response);
             }
         },
         cache: false,

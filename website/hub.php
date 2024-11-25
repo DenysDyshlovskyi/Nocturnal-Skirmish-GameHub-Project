@@ -50,7 +50,7 @@ require "./php_scripts/get_loggedin_info.php";
             style="display: flex; justify-content: center; flex-direction: column; align-items: center; gap: 20px;">
             <h1 class="title-text">GameHub™</h1>
             <div class="menu-selection-buttons">
-                <button onclick="window.location.href = './html/cardspin.html'" class="play-button">Play <img style="width: 30%;" src="img/Noc_Skir_Logo.svg" alt="Logo"></button>
+                <button onclick="window.location.href = './html/cardspin.php'" class="play-button">Play <img style="width: 30%;" src="img/Noc_Skir_Logo.svg" alt="Logo"></button>
                 <br>
                 <button style="margin-bottom: 10px; margin-right: 10px;" class="menu-button">Inventory</button>
                 <a class="link" href="Featured.html"><button class="menu-button">Shop</button></a>
