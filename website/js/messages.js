@@ -507,10 +507,8 @@ function createGroupchatSearch(search) {
 }
 
 // When form for creating groupchat is submitted
-$("form#create-groupchat-form").submit(function(e) {
-    e.preventDefault();
-    var formData = new FormData(this);
-
+function createGroupchat() {
+    var formData = new FormData($('#create-groupchat-form')[0]);
     $.ajax({
         url: './php_scripts/create_groupchat.php',
         type: 'POST',
@@ -522,10 +520,11 @@ $("form#create-groupchat-form").submit(function(e) {
             } else {
                 removeDarkContainer();
                 showConfirm("Groupchat created!");
+                alert(response);
             }
         },
         cache: false,
         contentType: false,
         processData: false,
     });
-});
+};

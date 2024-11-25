@@ -7,7 +7,7 @@
     </div>
     <div class="create-groupchat-button-container">
         <button id="cancel-button" onclick="removeDarkContainer()">Cancel</button>
-        <button type="submit" form="create-groupchat-form">Create groupchat</button>
+        <button onclick="createGroupchat()">Create groupchat</button>
     </div>
     <form method="POST" id="create-groupchat-form"></form>
 </div>

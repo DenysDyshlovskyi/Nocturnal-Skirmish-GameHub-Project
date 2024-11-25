@@ -22,7 +22,7 @@ if ((mysqli_num_rows($result) <= 0)) {
                     <div class='create-groupchat-friend-name-container'>
                         <h1>" . $row2['nickname'] . "</h1>
                     </div>
-                    <input type='checkbox' onclick='highlightCheckbox(%s)' id='checkbox_" . $row2['user_id'] . "' class='create-groupchat-friend-checkbox' name='create-groupchat-checkbox' value='" . $row2['user_id'] . "' form='create-groupchat-form'>
+                    <input type='checkbox' onclick='highlightCheckbox(%s)' id='checkbox_" . $row2['user_id'] . "' class='create-groupchat-friend-checkbox' name='create-groupchat-checkbox[]' value='" . $row2['user_id'] . "' form='create-groupchat-form'>
                 </div>", '"checkbox_' . $row2['user_id'] . '"');
         $stmt->close();
     }
