@@ -31,6 +31,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($row2['user_id'] == $posted_userid) {
                 $_SESSION['current_table'] = $row['tablename'];
                 $_SESSION['current_messenger'] = $posted_userid;
+                $_SESSION['current_messenger_type'] = "two_user";
                 exit;
             }
             $stmt2->close();

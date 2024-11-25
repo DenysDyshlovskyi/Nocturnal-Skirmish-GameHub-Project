@@ -5,6 +5,12 @@ $_SESSION['message_amount'] = 15;
 if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == 1) {
     echo "Viewing as admin";
 }
+
+// Redirects user to login page if theyre not logged in
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ./index.php");
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

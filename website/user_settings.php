@@ -1,8 +1,12 @@
 <?php
 session_start();
-
-require "./config/conn.php";
-require "./php_scripts/get_loggedin_info.php";
+// Redirects user to login page if theyre not logged in
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ./index.php");
+} else {
+    require "./config/conn.php";
+    require "./php_scripts/get_loggedin_info.php";
+}
 ?>
 
 <!DOCTYPE html>
@@ -18,9 +22,6 @@ require "./php_scripts/get_loggedin_info.php";
     <script src="./lib/cropper_js/node_modules/cropperjs/dist/cropper.js"></script>
     <style> <?php include "./css/universal.css" ?> </style>
     <style> <?php include "./css/user-settings-page.css" ?> </style>
-    <!-- Preloads images that might be large -->
-    <link rel="preload" as="image" href="<?php echo $_SESSION['user_profile_picture'] ?>" />
-    <link rel="preload" as="image" href="<?php echo $_SESSION['user_profile_banner'] ?>" />
 </head>
 <body id="settings-body" onload="ajaxGet('./spa/user_settings/myaccount.php', 'settings-spa-container'); prepareSFX(); ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx'); isKicked()">
     <div id="dark-container" class="dark-container"></div>

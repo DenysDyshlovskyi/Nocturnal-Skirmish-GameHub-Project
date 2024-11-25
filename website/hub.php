@@ -1,8 +1,13 @@
 <?php
 session_start();
 
-require "./config/conn.php";
-require "./php_scripts/get_loggedin_info.php";
+// Redirects user to login page if theyre not logged in
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ./index.php");
+} else {
+    require "./config/conn.php";
+    require "./php_scripts/get_loggedin_info.php";
+}
 ?>
 
 <!DOCTYPE html>
