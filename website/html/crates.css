@@ -1,3 +1,13 @@
+/* Defining spritesheet variables (for positioning and easier access) */
+:root {
+	--xmas-front: url(../img/crates/Crate_Template.gif) 0 0;
+	--xmas-back: url(../img/crates/Crate_Template.gif) 0 -64px;
+	--xmas-right: url(../img/crates/Crate_Template.gif) 0 -128px;
+	--xmas-left: url(../img/crates/Crate_Template.gif) 0 -192px;
+	--xmas-top: url(../img/crates/Crate_Template.gif) 0 -256px;
+	--xmas-bottom: url(../img/crates/Crate_Template.gif) 0 -320px;
+}
+
 body {
 	background: #000;
 }
@@ -27,8 +37,7 @@ body {
 	height: 100%;
 	transform-style: preserve-3d;
 	animation: spin 5s linear infinite;
-    animation-play-state: running; /* Runs only when hovered */
-
+    animation-play-state: running; /* Runs only when hovered over the crate */
 }
 
 .face {
@@ -66,3 +75,35 @@ body {
       transform: rotateY(360deg);
     }
   }
+
+
+/* Texturing for xmas crate sides using a single spritesheet for all sides ;) Made by Denys & Henrik */
+#xmas-front {
+	background: no-repeat var(--xmas-front);
+	background-size: 100%;
+}
+#xmas-back {
+	background: no-repeat var(--xmas-back);
+	background-position: 0 -200px;
+	background-size: 100%;
+}
+#xmas-right {
+	background: no-repeat var(--xmas-right);
+	background-position: 0 -400px;
+	background-size: 100%;
+}
+#xmas-left {
+	background: no-repeat var(--xmas-left);
+	background-position: 0 -600px;
+	background-size: 100%;
+}
+#xmas-top {
+	background: no-repeat var(--xmas-top);
+	background-position: 0 -800px;
+	background-size: 100%;
+}
+#xmas-bottom {
+	background: no-repeat var(--xmas-top);
+	background-position: 0 -1000px;
+	background-size: 100%;
+}
