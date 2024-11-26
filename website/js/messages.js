@@ -46,9 +46,10 @@
             })
         }
 
-        // Starts 5 second interval to update players online counter, and to check if user should be kicked
+        // Starts 5 second interval to update players online counter, and to check if user should be kicked, and to update total amount of new messages in tab title
         setInterval(function(){
             ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx');
+            ajaxGet('./php_scripts/update_new_messages_tab_title.php', 'tab-title', 'no_sfx');
             isKicked()
         }, 5000);
 
@@ -163,6 +164,7 @@ function selectChat(tablename) {
                 ajaxGet("./php_scripts/load_messages.php", "messages-container", "scroll");
                 ajaxGet("./php_scripts/load_current_messenger.php", "current-messenger-container");
                 ajaxGet('./php_scripts/load_chat_list.php', 'messages-menu-chats-container');
+                ajaxGet('./php_scripts/update_new_messages_tab_title.php', 'tab-title', 'no_sfx');
                 document.getElementById("message-input").value = '';
                 removeMedia();
                 cancelReply();
@@ -538,3 +540,23 @@ function createGroupchat() {
         processData: false,
     });
 };
+
+// Opens groupchat settings
+function openGroupchatSettings(groupchat) {
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/open_groupchat_settings.php',
+        data:{ groupchat : groupchat }, 
+        success: function(response){
+            if (response == "error") {
+                removeDarkContainer();
+                showConfirm("Something went wrong.")
+            } else if (response == "not_groupchat") {
+                removeDarkContainer();
+                showConfirm("This chat is not a groupchat!")
+            } else {
+                ajaxGet('./spa/messages/groupchat_settings.php', 'dark-container');
+            }
+        }
+    })
+}
