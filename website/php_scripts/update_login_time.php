@@ -14,9 +14,9 @@ $row = mysqli_fetch_assoc($result);
 
 // If there is one player online say "player", not players.
 if ($row['total'] == 1) {
-    $text = "1 player online";
+    $text = "You are the only person online :(";
+    echo $text;
 } else {
     $text = $row['total'] . " players online. ";
+    echo $text . "<img class='live-count-icon' src='img/icons/live-count.svg' alt='live count icon'>";
 }
-
-echo $text . "<img class='live-count-icon' src='img/icons/live-count.svg' alt='live count icon'>";
