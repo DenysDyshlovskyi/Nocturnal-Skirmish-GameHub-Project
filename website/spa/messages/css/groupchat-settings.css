@@ -14,7 +14,7 @@
 }
 
 .groupchat-settings-close {
-    width: 145px;
+    width: 100px;
     height: 45px;
     border: solid 3px #6C6C6C;
     color: #6C6C6C;
@@ -33,6 +33,51 @@
 .groupchat-settings-close:hover {
     color: white;
     background-color: #6C6C6C;
+}
+
+.groupchat-settings-left-button-container {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 15px;
+}
+
+.groupchat-settings-save-changes {
+    width: 145px;
+    height: 45px;
+    border: solid 3px #58D245;
+    color: #58D245;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: "Afacad Flux", "sans-serif";
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.groupchat-settings-save-changes:hover {
+    color: white;
+    background-color: #58D245;
+}
+
+.groupchat-settings-leave {
+    width: 125px;
+    height: 45px;
+    border: solid 3px rgb(255, 92, 92);
+    color: rgb(255, 92, 92);
+    background-color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: "Afacad Flux", "sans-serif";
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.groupchat-settings-leave:hover {
+    color: white;
+    background-color: rgb(255, 92, 92);
 }
 
 .grouphcat-settings-edit-container {

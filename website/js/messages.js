@@ -660,3 +660,24 @@ function saveGroupChatName() {
         }
     })
 }
+
+// Leaves groupchat
+function leaveGroupchat() {
+    var placeholder = "placeholder";
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/leave_groupchat.php',
+        data:{ placeholder : placeholder }, 
+        success: function(response){
+            if (response == "error") {
+                showConfirm("Something went wrong.");
+            } else {
+                removeDarkContainer();
+                showConfirm("Left groupchat.");
+                ajaxGet("./php_scripts/load_messages.php", "messages-container");
+                ajaxGet("./php_scripts/load_current_messenger.php", "current-messenger-container");
+                ajaxGet('./php_scripts/load_chat_list.php', 'messages-menu-chats-container');
+            }
+        }
+    })
+}
