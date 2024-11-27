@@ -1,5 +1,5 @@
 <?php
-// Creates a chat
+// Creates a chat between two people
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     require "avoid_errors.php";
 
@@ -63,6 +63,31 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->execute();
     $stmt->close();
 
+    // Get nickname of friend
+    $stmt = $conn->prepare("SELECT nickname FROM users WHERE user_id = ?");
+    $stmt->bind_param("s", $posted_userid);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = mysqli_fetch_assoc($result);
+    $friend_nickname = $row['nickname'];
+    $stmt->close();
+
+    // Get current time
+    require "getdate.php";
+    $timestamp = $date . " - " . $time;
+    $unix_timestamp = time();
+
+    // Insert notifier message into chat that says that the chat was created and when
+    $message = "$timestamp | Chat between $friend_nickname and " . $_SESSION['user_profile_nickname'] . " was created.";
+    $notifier_userid = 0;
+    $conn -> select_db("gamehub_messages");
+    $stmt = $conn->prepare("INSERT INTO $tablename (user_id, message, timestamp, unix_timestamp) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $notifier_userid, $message, $timestamp, $unix_timestamp);
+    $stmt->execute();
+    $stmt->close();
+    $conn -> select_db("gamehub");
+
+    // Set session variables
     $_SESSION['current_table'] = $tablename;
     $_SESSION['current_messenger'] = $posted_userid;
     $_SESSION['current_messenger_type'] = "two_user";
