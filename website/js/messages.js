@@ -607,6 +607,7 @@ function configureCropperJSGroupchat() {
                             ajaxGet('./spa/messages/groupchat_settings.php', 'dark-container')
                             ajaxGet("./php_scripts/load_current_messenger.php", "current-messenger-container");
                             ajaxGet('./php_scripts/load_chat_list.php', 'messages-menu-chats-container');
+                            ajaxGet("./php_scripts/load_messages.php", "messages-container");
                         }
 					}
 				});
