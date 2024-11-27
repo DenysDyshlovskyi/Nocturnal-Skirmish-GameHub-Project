@@ -6,7 +6,7 @@ require "../../php_scripts/avoid_errors.php";
 if (isset($_SESSION['current_table'])) {
     // Does the user have access to the chat?
     $stmt = $conn->prepare("SELECT * FROM chats WHERE tablename = ? AND user_id = ?");
-    $stmt->bind_param("ss", $groupchat, $_SESSION['user_id']);
+    $stmt->bind_param("ss", $_SESSION['current_table'], $_SESSION['user_id']);
     $stmt->execute();
     $result = $stmt->get_result();
     if($result->num_rows === 0){
@@ -17,7 +17,7 @@ if (isset($_SESSION['current_table'])) {
 
     // Is the chat a groupchat?
     $stmt = $conn->prepare("SELECT * FROM chats WHERE tablename = ? AND type = 'groupchat'");
-    $stmt->bind_param("s", $groupchat);
+    $stmt->bind_param("s", $_SESSION['current_table']);
     $stmt->execute();
     $result = $stmt->get_result();
     if($result->num_rows === 0){
@@ -33,4 +33,5 @@ if (isset($_SESSION['current_table'])) {
 <style><?php include "./css/groupchat-settings.css" ?></style>
 <div class="groupchat-settings-container">
 
+    <button class="groupchat-settings-close" onclick="removeDarkContainer()">Close</button>
 </div>
