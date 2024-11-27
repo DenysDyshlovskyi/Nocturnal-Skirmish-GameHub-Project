@@ -89,9 +89,47 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         $stmt->close();
 
-        // Unset the current messenger and current table
-        unset($_SESSION['current_messenger']);
-        unset($_SESSION['current_table']);
+        // Changes current messenger to the most recent chat
+        // Get the last chat you sent message in, and set that to the current chat
+        $stmt3 = $conn->prepare("SELECT * FROM chats WHERE user_id = ? ORDER BY last_chat DESC LIMIT 1");
+        $stmt3->bind_param("s", $_SESSION['user_id']);
+        $stmt3->execute();
+        $result3 = $stmt3->get_result();
+        if ((mysqli_num_rows($result3) <= 0)) {
+            $stmt3->close();
+            unset($_SESSION['current_messenger']);
+            unset($_SESSION['current_messenger_type']);
+            unset($_SESSION['current_table']);
+            goto end;
+        }
+        $row3 = mysqli_fetch_assoc($result3);
+        $_SESSION['current_table'] = $row3['tablename'];
+
+        $type = "";
+        if ($row3['type'] == "groupchat") {
+            $type = "groupchat";
+        } else {
+            $type = "two_user";
+        }
+        $stmt3->close();
+
+        // Set the current messenger
+        if ($type == "two_user") {
+            $stmt3 = $conn->prepare("SELECT user_id FROM chats WHERE user_id <> ? AND tablename = ?");
+            $stmt3->bind_param("ss", $_SESSION['user_id'], $row3['tablename']);
+            $stmt3->execute();
+            $result3 = $stmt3->get_result();
+            $row3 = mysqli_fetch_assoc($result3);
+
+            $_SESSION['current_messenger'] = $row3['user_id'];
+            $_SESSION['current_messenger_type'] = "two_user";
+            $stmt3->close();
+        } else if ($type == "groupchat") {
+            $_SESSION['current_messenger'] = $row3['tablename'];
+            $_SESSION['current_messenger_type'] = "groupchat";
+        }
+
+        end:
     } else {
         echo "error";
         exit;
