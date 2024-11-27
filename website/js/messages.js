@@ -560,3 +560,9 @@ function openGroupchatSettings(groupchat) {
         }
     })
 }
+
+// Resizes input for groupchat name based on the amount of text inside it
+function resizeGroupchatInput() {
+    var input = document.getElementById("groupchat-name-input");
+    input.style.width = input.value.length + "ch";
+}
