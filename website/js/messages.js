@@ -46,10 +46,10 @@
             })
         }
 
-        // Starts 5 second interval to update players online counter, and to check if user should be kicked, and to update total amount of new messages in tab title
+        // Starts 5 second interval to update players online counter, and to check if user should be kicked, and to update current messenger
         setInterval(function(){
             ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx');
-            ajaxGet('./php_scripts/update_new_messages_tab_title.php', 'tab-title', 'no_sfx');
+            ajaxGet("./php_scripts/load_current_messenger.php", "current-messenger-container");
             isKicked()
         }, 5000);
 
@@ -88,6 +88,7 @@
         // Starts 4.5 second interval to update notification
         setInterval(function(){
             ajaxGet('./php_scripts/load_chat_list.php', 'messages-menu-chats-container');
+            ajaxGet('./php_scripts/update_new_messages_tab_title.php', 'tab-title', 'no_sfx');
         }, 4500);
 
         // When user scrolls to top of messages, load in 25 more messages
@@ -98,9 +99,13 @@
         function scrollToDiv() {
             const container = document.getElementById('messages-container');
             const target = document.getElementById(first_message_id);
-            const offsetTop = target.offsetTop - container.offsetTop;
-            container.scrollTo({ top: offsetTop});
-            $('#loading').hide();
+            if (target == null) {
+                $('#loading').hide();
+            } else {
+                const offsetTop = target.offsetTop - container.offsetTop;
+                container.scrollTo({ top: offsetTop});
+                $('#loading').hide();
+            }
         }
 
         // Jumps to previous last message when new messages are loaded in
@@ -116,8 +121,11 @@
         scrollableDiv.addEventListener('scroll', () => {
             // Check if the user has scrolled to the top, if they have start loading animation
             if (scrollableDiv.scrollTop === 0) {
-                $('#loading').css('display', 'flex');
-                setTimeout(jumpToLastMessage, 300);
+                var element = document.getElementById('messages-container')
+                if (element.scrollWidth > element.clientWidth || element.scrollHeight > element.clientHeight) {
+                    $('#loading').css('display', 'flex');
+                    setTimeout(jumpToLastMessage, 300);
+                }
             }
         });
 
