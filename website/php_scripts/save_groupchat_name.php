@@ -41,11 +41,40 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             exit;
         }
 
+        // Check if old groupchat name is diffrent from the new name
+        $groupchat_name = trim($groupchat_name);
+        $stmt = $conn->prepare("SELECT groupchat_name FROM groupchat_settings WHERE tablename = ?");
+        $stmt->bind_param("s", $_SESSION['current_table']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = mysqli_fetch_assoc($result);
+        if ($row['groupchat_name'] == $groupchat_name) {
+            echo "same";
+            exit;
+        }
+        $stmt->close();
+
         // Update groupchat name
         $stmt = $conn->prepare("UPDATE groupchat_settings SET groupchat_name = ? WHERE tablename = ?");
         $stmt->bind_param("ss", $groupchat_name, $_SESSION['current_table']);
         $stmt->execute();
         $stmt->close();
+
+        // Get current time
+        require "getdate.php";
+        $timestamp = $date . " - " . $time;
+        $unix_timestamp = time();
+
+        // Insert notifier message into groupchat that says that the user changed the groupchat name
+        $tablename = $_SESSION['current_table'];
+        $message = $timestamp . " | " . $_SESSION['user_profile_nickname'] . " changed the groupchat name to '$groupchat_name'";
+        $notifier_userid = 0;
+        $conn -> select_db("gamehub_messages");
+        $stmt = $conn->prepare("INSERT INTO $tablename (user_id, message, timestamp, unix_timestamp) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $notifier_userid, $message, $timestamp, $unix_timestamp);
+        $stmt->execute();
+        $stmt->close();
+        $conn -> select_db("gamehub");
     } else {
         echo "error";
         exit;

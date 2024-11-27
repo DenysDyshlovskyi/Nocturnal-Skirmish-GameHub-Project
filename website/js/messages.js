@@ -652,8 +652,11 @@ function saveGroupChatName() {
                 showConfirm("Input is empty!");
             } else if (response == "too_long") {
                 showConfirm("Groupchat name cannot exceed 28 characters!");
+            } else if (response == "same") {
+                showConfirm("No changes have been made!");
             } else {
                 showConfirm("Saved groupchat name!");
+                ajaxGet("./php_scripts/load_messages.php", "messages-container");
                 ajaxGet("./php_scripts/load_current_messenger.php", "current-messenger-container");
                 ajaxGet('./php_scripts/load_chat_list.php', 'messages-menu-chats-container');
             }

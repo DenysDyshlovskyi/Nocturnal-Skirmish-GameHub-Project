@@ -46,7 +46,7 @@ if (isset($_SESSION['current_table'])) {
                 <div class="groupchat-image-hover-pencil"></div>
             </div>
         </a>
-        <input type="text" value="<?php echo $groupchat_settings_row['groupchat_name'] ?>" maxlength="28" oninput="resizeGroupchatInput()" id="groupchat-name-input" onkeydown = "if (event.keyCode == 13){saveGroupChatName()}">
+        <input type="text" value="<?php echo $groupchat_settings_row['groupchat_name'] ?>" maxlength="28" oninput="resizeGroupchatInput();" id="groupchat-name-input" onkeydown = "if (event.keyCode == 13){saveGroupChatName()}">
     </div>
     <div class="member-list-container">
         <h1 class="member-list-headline">Member List</h1>
@@ -56,7 +56,7 @@ if (isset($_SESSION['current_table'])) {
     </div>
     <button class="groupchat-settings-close" title="close" onclick="removeDarkContainer()" title="Close groupchat settings">Close</button>
     <div class="groupchat-settings-left-button-container">
-        <button class="groupchat-settings-save-changes" title="Save changes" onclick="saveGroupChatName()">Save changes</button>
+        <button class="groupchat-settings-save-changes" id="groupchat-settings-save-changes" title="Save changes" onclick="saveGroupChatName()">Save changes</button>
         <button class="groupchat-settings-leave" title="Leave groupchat" onclick="ajaxGet('./spa/messages/confirm_leave_chat.php', 'dark-container');">Leave chat</button>
     </div>
 </div>
