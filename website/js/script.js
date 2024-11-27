@@ -55,7 +55,11 @@ function ajaxGet(phpFile, changeID, onLoad){
                 container.scrollTop = container.scrollHeight;
             } else if (onLoad == "scrollToDiv") {
                 scrollToDiv();
-            };
+            } else if (onLoad == "cropper_js_groupchat") {
+                configureCropperJSGroupchat();
+            } else if (onLoad == "resize_groupchat_input") {
+                resizeGroupchatInput();
+            }
         }
 
         if (onLoad != "no_sfx") {

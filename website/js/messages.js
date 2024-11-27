@@ -555,7 +555,7 @@ function openGroupchatSettings(groupchat) {
                 removeDarkContainer();
                 showConfirm("This chat is not a groupchat!")
             } else {
-                ajaxGet('./spa/messages/groupchat_settings.php', 'dark-container');
+                ajaxGet('./spa/messages/groupchat_settings.php', 'dark-container', 'resize_groupchat_input');
             }
         }
     })
@@ -565,4 +565,98 @@ function openGroupchatSettings(groupchat) {
 function resizeGroupchatInput() {
     var input = document.getElementById("groupchat-name-input");
     input.style.width = input.value.length + "ch";
+}
+
+// Configures cropper js for grouchat image upload
+function configureCropperJSGroupchat() {
+    image = document.getElementById('cropper_js_element_groupchat');
+    let cropper = new Cropper(image, {
+        aspectRatio: 1/1,
+        dragMode: 'none',
+        preview: '.groupchat-image-preview'
+    });
+    $('#groupchat-image-crop-save').click(function(){
+		canvas = cropper.getCroppedCanvas({
+			width:400,
+			height:400
+		});
+		canvas.toBlob(function(blob){
+			url = URL.createObjectURL(blob);
+			var reader = new FileReader();
+			reader.readAsDataURL(blob);
+			reader.onloadend = function(){
+				var base64data = reader.result;
+				$.ajax({
+					url:'./php_scripts/groupchat_cropped_upload.php',
+					method:'POST',
+					data:{image:base64data},
+					success:function(response){
+                        if (response == "error") {
+                            showConfirm("Something went wrong.");
+                            removeDarkContainer();
+                        } else {
+                            showConfirm("Groupchat image saved!");
+                            ajaxGet('./spa/messages/groupchat_settings.php', 'dark-container')
+                            ajaxGet("./php_scripts/load_current_messenger.php", "current-messenger-container");
+                            ajaxGet('./php_scripts/load_chat_list.php', 'messages-menu-chats-container');
+                        }
+					}
+				});
+			};
+		});
+    });
+}
+
+// Prepares upload of image for groupchat
+function uploadGroupchatImage() {
+    var file_data = $('#groupchat-image-input').prop('files')[0];   
+    var form_data = new FormData();                  
+    form_data.append('file', file_data);                           
+    $.ajax({
+        url: './php_scripts/groupchat_image_upload.php',
+        dataType: 'text',
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: form_data,                         
+        type: 'post',
+        success: function(response){
+            if (response == "unsupported") {
+                removeDarkContainer();
+                showConfirm("File type not supported! Only JPG and PNG allowed.");
+            } else if (response == "empty") {
+                removeDarkContainer();
+                showConfirm("File input empty!");
+            } else if (response == "error") {
+                removeDarkContainer();
+                showConfirm("Something went wrong.");
+            } else {
+                ajaxGet('./spa/messages/groupchat_image_crop.php', 'dark-container', 'cropper_js_groupchat');
+            }
+        }
+    });
+}
+
+// Saves name of groupchat
+function saveGroupChatName() {
+    var groupchatName = document.getElementById("groupchat-name-input").value;
+
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/save_groupchat_name.php',
+        data:{ groupchatName : groupchatName }, 
+        success: function(response){
+            if (response == "error") {
+                showConfirm("Something went wrong.");
+            } else if (response == "empty") {
+                showConfirm("Input is empty!");
+            } else if (response == "too_long") {
+                showConfirm("Groupchat name cannot exceed 28 characters!");
+            } else {
+                showConfirm("Saved groupchat name!");
+                ajaxGet("./php_scripts/load_current_messenger.php", "current-messenger-container");
+                ajaxGet('./php_scripts/load_chat_list.php', 'messages-menu-chats-container');
+            }
+        }
+    })
 }

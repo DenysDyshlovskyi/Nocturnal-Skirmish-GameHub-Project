@@ -128,3 +128,11 @@
     position: relative;
     border: solid black 1px;
 }
+
+.groupchat-image-preview {
+    width: 150px;
+    height: 150px;
+    border-radius: 90px;
+    overflow: hidden;
+    position: relative;
+}

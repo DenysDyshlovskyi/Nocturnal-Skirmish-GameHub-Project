@@ -25,6 +25,14 @@ if (isset($_SESSION['current_table'])) {
         exit;
     }
     $stmt->close();
+    
+    // Get settings for groupchat to display
+    $stmt = $conn->prepare("SELECT * FROM groupchat_settings WHERE tablename = ?");
+    $stmt->bind_param("s", $_SESSION['current_table']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $groupchat_settings_row = mysqli_fetch_assoc($result);
+    $stmt->close();
 } else {
     echo "Error <button onclick='removeDarkContainer()'>Close</button>";
     exit;
@@ -33,22 +41,17 @@ if (isset($_SESSION['current_table'])) {
 <style><?php include "./css/groupchat-settings.css" ?></style>
 <div class="groupchat-settings-container">
     <div class="grouphcat-settings-edit-container">
-        <a href="#" class="groupchat-image-link">
-            <div class="groupchat-image" style="background-image: url(./img/groupchat_images/defaultgroupchat.svg);">
+        <a href="#" class="groupchat-image-link" onclick="ajaxGet('./spa/messages/groupchat_image_upload.php', 'dark-container');">
+            <div class="groupchat-image" id="groupchat-image" style="background-image: url(./img/groupchat_images/<?php echo $groupchat_settings_row['groupchat_image'] ?>);">
                 <div class="groupchat-image-hover-pencil"></div>
             </div>
         </a>
-        <input type="text" value="New Groupchat" maxlength="30" oninput="resizeGroupchatInput()" id="groupchat-name-input">
+        <input type="text" value="<?php echo $groupchat_settings_row['groupchat_name'] ?>" maxlength="28" oninput="resizeGroupchatInput()" id="groupchat-name-input" onkeydown = "if (event.keyCode == 13){saveGroupChatName()}">
     </div>
     <div class="member-list-container">
         <h1 class="member-list-headline">Member List</h1>
         <div class="member-list">
-            <div class="member-list-row">
-                <div class="member-list-row-profilepic" style="background-image: url(./img/profile_pictures/defaultprofile.svg);">
-                    <img src="./img/borders/defaultborder.webp" alt="">
-                </div>
-                <p class="member-list-nickname">BimBomSlimSlom</p>
-            </div>
+            <?php include "../../php_scripts/load_member_list_groupchat.php" ?>
         </div>
     </div>
     <button class="groupchat-settings-close" onclick="removeDarkContainer()" title="Close groupchat settings">Close</button>

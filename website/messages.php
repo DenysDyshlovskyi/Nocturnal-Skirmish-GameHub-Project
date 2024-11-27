@@ -23,6 +23,8 @@ if (!isset($_SESSION['user_id'])) {
     <script src="./lib/LC-emoji-picker-master/lc_emoji_picker.min.js"></script>
     <!--Using LC Emoji Picker: https://lcweb.it/lc-emoji-picker-javascript-plugin/-->
     <script type="text/javascript"> new lc_emoji_picker('textarea, input'); </script>
+    <link href="./lib/cropper_js/node_modules/cropperjs/dist/cropper.css" rel="stylesheet">
+    <script src="./lib/cropper_js/node_modules/cropperjs/dist/cropper.js"></script>
     <style> <?php include "./css/universal.css" ?> </style>
     <style> <?php include "./css/messages.css" ?> </style>
 </head>
