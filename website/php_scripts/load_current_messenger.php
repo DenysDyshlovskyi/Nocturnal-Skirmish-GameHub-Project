@@ -67,12 +67,12 @@ if ($_SESSION['current_messenger'] == "public") {
         $stmt->execute();
         $result = $stmt->get_result();
         $row = mysqli_fetch_assoc($result);
-        echo "
+        printf("
             <div class='current-messenger-groupchat-image' style='background-image: url(./img/groupchat_images/" . $row['groupchat_image'] . ");'></div>
             <div class='current-messenger-name-container'>
                 <p>" . $row['groupchat_name'] . "</p>
             </div>
-            <button class='groupchat-settings-button' onclick='openGroupchatSettings()' title='Groupchat settings'></button>";
+            <button class='groupchat-settings-button' onclick='openGroupchatSettings(%s)' title='Groupchat settings'></button>", '"' . $row['tablename'] . '"');
     }
     $stmt->close();
 }
