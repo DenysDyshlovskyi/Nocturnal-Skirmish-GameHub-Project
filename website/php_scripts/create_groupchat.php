@@ -61,12 +61,23 @@ $stmt->bind_param("ss", $_SESSION['user_id'], $tablename);
 $stmt->execute();
 $stmt->close();
 
+$notifier_nicknames = "";
+
 // Everyone else
 foreach ($_POST['create-groupchat-checkbox'] as $user_id) {
     $user_id = htmlspecialchars($user_id);
     $stmt = $conn->prepare("INSERT INTO chats (user_id, tablename, type) VALUES (?, ?, 'groupchat')");
     $stmt->bind_param("ss", $user_id, $tablename);
     $stmt->execute();
+    $stmt->close();
+
+    // Get nickname of every person for notifier message
+    $stmt = $conn->prepare("SELECT nickname FROM users WHERE user_id = ?");
+    $stmt->bind_param("s", $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    $notifier_nicknames = $notifier_nicknames . ", " . $row['nickname'];
     $stmt->close();
 }
 
@@ -75,6 +86,25 @@ $stmt = $conn->prepare("INSERT INTO groupchat_settings (tablename) VALUES (?)");
 $stmt->bind_param("s", $tablename);
 $stmt->execute();
 $stmt->close();
+
+$notifier_nicknames = ltrim($notifier_nicknames, $notifier_nicknames[0]);
+
+// Get current time
+require "getdate.php";
+$timestamp = $date . " - " . $time;
+$unix_timestamp = time();
+
+$notifier_nicknames = $notifier_nicknames . " and " . $_SESSION['user_profile_nickname'] . ".";
+
+// Insert notifier message into groupchat that says that a groupchat was created
+$message = "$timestamp | Groupchat created with $notifier_nicknames";
+$notifier_userid = 0;
+$conn -> select_db("gamehub_messages");
+$stmt = $conn->prepare("INSERT INTO $tablename (user_id, message, timestamp, unix_timestamp) VALUES (?, ?, ?, ?)");
+$stmt->bind_param("ssss", $notifier_userid, $message, $timestamp, $unix_timestamp);
+$stmt->execute();
+$stmt->close();
+$conn -> select_db("gamehub");
 
 // Sets current table to the groupchat
 $_SESSION['current_table'] = $tablename;
