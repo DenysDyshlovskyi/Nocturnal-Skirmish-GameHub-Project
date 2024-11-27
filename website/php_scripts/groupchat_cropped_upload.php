@@ -58,6 +58,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->execute();
         $stmt->close();
 
+        // Get current time
+        require "getdate.php";
+        $timestamp = $date . " - " . $time;
+        $unix_timestamp = time();
+
+        // Insert notifier message into groupchat that says that the user changed the groupchat image
+        $tablename = $_SESSION['current_table'];
+        $message = $timestamp . " | " . $_SESSION['user_profile_nickname'] . " changed the groupchat image.";
+        $notifier_userid = 0;
+        $conn -> select_db("gamehub_messages");
+        $stmt = $conn->prepare("INSERT INTO $tablename (user_id, message, timestamp, unix_timestamp) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $notifier_userid, $message, $timestamp, $unix_timestamp);
+        $stmt->execute();
+        $stmt->close();
+        $conn -> select_db("gamehub");
+
         //Sends image path back to javascript
         echo "url(./img/groupchat_images/" . $newfilename . ")";
     } else {
