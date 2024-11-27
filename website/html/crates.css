@@ -6,6 +6,13 @@
 	--xmas-left: url(../img/crates/Crate_Template.gif) 0 -192px;
 	--xmas-top: url(../img/crates/Crate_Template.gif) 0 -256px;
 	--xmas-bottom: url(../img/crates/Crate_Template.gif) 0 -320px;
+
+	--wooden-front: url(../img/crates/Wooden_Crate.gif) 0 0;
+	--wooden-back: url(../img/crates/Wooden_Crate.gif) 0 -64px;
+	--wooden-right: url(../img/crates/Wooden_Crate.gif) 0 -128px;
+	--wooden-left: url(../img/crates/Wooden_Crate.gif) 0 -192px;
+	--wooden-top: url(../img/crates/Wooden_Crate.gif) 0 -256px;
+	--wooden-bottom: url(../img/crates/Wooden_Crate.gif) 0 -320px;
 }
 
 body {
@@ -31,6 +38,7 @@ body {
     animation: spin 5s linear infinite;
     animation-play-state: paused;
 
+	animation: idleShake 1s linear infinite, stagger 1s linear infinite;
 }
 .cube:hover {
 	width: 100%;
@@ -45,7 +53,7 @@ body {
 	width: 200px;
 	height: 200px;
 	background-size: cover;
-	border: 2px solid #04dabe;
+	border: 2px solid #00fffb;
     background-image: url(../img/profile_pictures/defaultprofile.svg);
 	border-radius: 10px;
 }
@@ -69,12 +77,66 @@ body {
 }
 @keyframes spin {
     from {
-      transform: rotate(0);
+    	transform: rotate(0);
     }
     to {
-      transform: rotateY(360deg);
+    	transform: rotateY(360deg);
     }
   }
+
+@keyframes idleShake {
+	from {
+        transform: scale(1);
+    }
+	25% {
+		transform: scale(1.025);
+	}
+	50% {
+		transform: scale(1.05);
+	}
+	75%{
+	    transform: scale(1.025);
+	}
+	to {
+		transform: scale(1);
+	}
+}
+
+@keyframes stagger {
+	from {
+        transform: translate3d(0, 0, 0); /* X-axis, Y-axis, and "depth" Z-axis */
+    }
+	10% {
+        transform: translate3d(4px, -3px, 50px);
+    }
+	20% {
+        transform: translate3d(-8px, -15px, 0);
+    }
+	30% {
+        transform: translate3d(6px, 0, 50px);
+    }
+	40% {
+        transform: translate3d(16px, -21px, 0);
+    }
+    50% {
+        transform: translate3d(15px, 10px, 100px);
+    }
+	60% {
+        transform: translate3d(-1px, 13px, 0);
+    }
+	70% {
+        transform: translate3d(-8px, -20px, 25px);
+    }
+	80% {
+        transform: translate3d(3px, 10px, 50px);
+    }
+	90% {
+        transform: translate3d(12px, -12px, 0);
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
 
 
 /* Texturing for xmas crate sides using a single spritesheet for all sides ;) Made by Denys & Henrik */
@@ -104,6 +166,37 @@ body {
 }
 #xmas-bottom {
 	background: no-repeat var(--xmas-top);
+	background-position: 0 -1000px;
+	background-size: 100%;
+}
+
+/* Texturing for wooden crate sides */
+#wooden-front {
+	background: no-repeat var(--wooden-front);
+	background-size: 100%;
+}
+#wooden-back {
+	background: no-repeat var(--wooden-back);
+	background-position: 0 -200px;
+	background-size: 100%;
+}
+#wooden-right {
+	background: no-repeat var(--wooden-right);
+	background-position: 0 -400px;
+	background-size: 100%;
+}
+#wooden-left {
+	background: no-repeat var(--wooden-left);
+	background-position: 0 -600px;
+	background-size: 100%;
+}
+#wooden-top {
+	background: no-repeat var(--wooden-top);
+	background-position: 0 -800px;
+	background-size: 100%;
+}
+#wooden-bottom {
+	background: no-repeat var(--wooden-top);
 	background-position: 0 -1000px;
 	background-size: 100%;
 }
