@@ -149,3 +149,20 @@
     font-family: "Afacad Flux", "sans-serif";
     margin-left: 15px;
 }
+
+.send-pm-button {
+    margin-right: 15px;
+    font-family: "Afacad Flux", "sans-serif";
+    border: 2px black solid;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    height: 30px;
+    width: 120px;
+}
+
+.send-pm-button:hover {
+    background-color: black;
+    color: white;
+}

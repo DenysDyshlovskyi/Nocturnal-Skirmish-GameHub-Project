@@ -809,7 +809,7 @@ function changeVisibility(inputID, buttonID){
 }
 
 // Creates a new chat
-function createChat(user_id) {
+function createChat(user_id, location) {
     $.ajax({
         type: "POST",
         url: './php_scripts/create_chat.php',
@@ -818,7 +818,14 @@ function createChat(user_id) {
             if (response == "error") {
                 showConfirm("Something went wrong.");
             } else {
-                window.location.href = "messages.php";
+                if (location == 1) {
+                    removeDarkContainer();
+                    ajaxGet("./php_scripts/load_messages.php", "messages-container", "scroll");
+                    ajaxGet("./php_scripts/load_current_messenger.php", "current-messenger-container");
+                    ajaxGet('./php_scripts/load_chat_list.php', 'messages-menu-chats-container');
+                } else {
+                    window.location.href = "messages.php";
+                }
             }
         }
     })
