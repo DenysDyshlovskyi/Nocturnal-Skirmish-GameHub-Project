@@ -5,7 +5,7 @@ require "avoid_errors.php";
 $sql = "SELECT user_id_2 FROM friend_list WHERE user_id_1 = " . $_SESSION['user_id'];
 $result = $conn->query($sql);
 if ((mysqli_num_rows($result) <= 0)) {
-    echo "Looks like you dont have any friends...";
+    echo "<p id='none-found-p'>Looks like you dont have any friends...</p>";
 } else {
     while ($row = mysqli_fetch_assoc($result)) {
         $stmt = $conn->prepare("SELECT * FROM users WHERE user_id = ?");

@@ -49,7 +49,10 @@ if (isset($_SESSION['current_table'])) {
         <input type="text" value="<?php echo $groupchat_settings_row['groupchat_name'] ?>" maxlength="28" oninput="resizeGroupchatInput();" id="groupchat-name-input" onkeydown = "if (event.keyCode == 13){saveGroupChatName()}">
     </div>
     <div class="member-list-container">
-        <h1 class="member-list-headline">Member List</h1>
+        <div class="member-list-headline-container">
+            <h1>Member List</h1>
+            <button title="Add new member to groupchat" onclick="ajaxGet('./spa/messages/add_member_groupchat.php', 'dark-container')"></button>
+        </div>
         <div class="member-list">
             <?php include "../../php_scripts/load_member_list_groupchat.php" ?>
         </div>

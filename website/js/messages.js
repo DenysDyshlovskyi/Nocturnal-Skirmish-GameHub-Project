@@ -549,6 +549,30 @@ function createGroupchat() {
     });
 };
 
+// Adds people to groupchat
+function addMembersGroupchat() {
+    var formData = new FormData($('#create-groupchat-form')[0]);
+    $.ajax({
+        url: './php_scripts/add_member_groupchat.php',
+        type: 'POST',
+        data: formData,
+        success: function (response) {
+            if (response == "error") {
+                removeDarkContainer();
+                showConfirm("Something went wrong.")
+            } else if (response == "empty") {
+                showConfirm("No friends selected!")
+            } else {
+                ajaxGet('./spa/messages/groupchat_settings.php', 'dark-container');
+                showConfirm("Added users to groupchat!");
+            }
+        },
+        cache: false,
+        contentType: false,
+        processData: false,
+    });
+}
+
 // Opens groupchat settings
 function openGroupchatSettings(groupchat) {
     $.ajax({
