@@ -588,7 +588,7 @@ header {
     right: 0;
     bottom: 0;
     width: 200px;
-    height: 75px;
+    height: 45px;
     border-radius: 15px;
     background-color: #F3F3F3;
     margin-bottom: 85px;
@@ -600,7 +600,7 @@ header {
 
 .more-button-popup-button {
     width: 100%;
-    height: 50%;
+    height: 45px;
     border: none;
     font-family: "Afacad Flux", "sans-serif";
     cursor: pointer;

@@ -62,10 +62,6 @@ if (!isset($_SESSION['user_id'])) {
             <?php include "./php_scripts/load_messages.php"; ?>
         </div>
         <div class="more-button-popup" id="more-button-popup">
-            <div class="more-button-popup-button" id="attach-file">
-                <input type="file" class="file-upload" name="file-upload" form="message-send-form"/>
-                <img src="./img/icons/paper-clip.svg" alt="Attach file">Attach file
-            </div>
             <div class="more-button-popup-button">
                 <input type="file" id="media-file-input" class="file-upload" onchange="preview()" name="media-upload" form="message-send-form" accept="image/png, image/gif, image/jpeg, image/webp"/>
                 <img src="./img/icons/image.svg" alt="Attach media">Attach picture
