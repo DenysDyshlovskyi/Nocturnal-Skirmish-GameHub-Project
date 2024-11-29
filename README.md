@@ -60,7 +60,7 @@ Instructions:
 ## Introduction: <br>
 GameHub/Nocturnal Skirmish is a website written in PHP, JavaScript, CSS and HTML. jQuery is used extensivly throughout the website for AJAX requests.
 The website is semi single page, and many modals are used to prevent refreshes, and the modals are seperate files that are loaded in through AJAX GET requests.
-The website is hosted on <a href="https://www.iis.net/">Microsoft Internet Information Services Version 10.0.22621.1</a> and uses the <a href="https://dev.mysql.com/downloads/mysql/">MySQL Community Server</a> as the database.
+The website is hosted on <a href="https://www.iis.net/">Microsoft Internet Information Services Version 10.0.22621.1</a> on a Windows 11 machine and uses the <a href="https://dev.mysql.com/downloads/mysql/">MySQL Community Server</a> as the database. The PHP version used is version 8.4, and the FastCGI version is used (php-cgi.exe).
 Both PHP and JavaScript libraries and imports are used in the website. <br>
 
 PHP libraries include: <br>
@@ -71,6 +71,17 @@ JavaScript libraries and imports include:
  - <a href='https://jquery.com/'>jQuery</a>
  - <a href='https://fengyuanchen.github.io/cropperjs/'>CropperJS</a>
  - <a href='https://lcweb.it/lc-emoji-picker-javascript-plugin/'>LC Emoji Picker</a>
- ## Setup
+ ## Setup:
+ To download and host the server you need to first enable Internet Information Services on your Windows machine, along with the FastCGI module.
+ Then you need to download PHP 8.4 to C:\php.
+ In php.ini, make sure to enable the mysqli extension.
+ Then you need to download the MySQL Community Server.
+ Then you need to copy the contents in the <b>website</b> folder into C:\inetpub\wwwroot
+ Make sure the IIS_IUSRS account has access to all files in the directory
+ Then you need to download phpMyAdmin, and place phpMyAdmin in the phpMyAdmin folder.
+
+ In IIS, you need to create a new FastCGI module mapping, and set the request path *.php, the module to FastCgiModule, the executable to C:\php\php-cgi.exe and the name to php.
+ Then you need to set a MIME type for webp files, as they are used alot in the website.
+ Then you need to set the default document to index.php
                                                               
  
