@@ -22,9 +22,17 @@ if (!isset($_SESSION['user_id'])) {
     <style> <?php include "./css/hub-page.css" ?> </style>
 </head>
 <body id="hub-body" onload="prepareSFX(); ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx'); isKicked(); ajaxGet('./php_scripts/update_messages_hub.php', 'dropdown-button-chats', 'no_sfx'); ajaxGet('./php_scripts/update_pending_hub.php', 'dropdown-button-friends', 'no_sfx');">
+
     <div id="dark-container" class="dark-container"></div>
     <div class="confirmation-popup" id="confirmContainer"></div>
     <div class="hub-spa-container" id="hub-spa-container">
+    </div>
+    <div class="slide-text">
+        <h1 class="slide-text-h1">
+            <span>
+                Untitled-Game-Terminal-Project also known as Nocturnal Skirmish is not only jut a game but a game hub too. In this multipul A game you will face your worst fears and experiance action like you've never seen before. take your cards to battle in this emersive open world, 3D, mmo rpg, billion dollar game with not one A, not two A's, not three but four A's.
+            </span>
+        </h1>
     </div>
     <div class="hub-corner-profile-container">
         <div class="hub-corner-profilepic-container" id="hub-corner-profilepic-container">
