@@ -71,6 +71,6 @@ JavaScript libraries and imports include:
  - <a href='https://jquery.com/'>jQuery</a>
  - <a href='https://fengyuanchen.github.io/cropperjs/'>CropperJS</a>
  - <a href='https://lcweb.it/lc-emoji-picker-javascript-plugin/'>LC Emoji Picker</a>
- 
+ ## Setup
                                                               
  
