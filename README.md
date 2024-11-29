@@ -76,11 +76,11 @@ JavaScript libraries and imports include:
  Then you need to download PHP 8.4 to C:\php.
  In php.ini, make sure to enable the mysqli extension.
  Then you need to download the MySQL Community Server.
- Then you need to copy the contents in the <b>website</b> folder into C:\inetpub\wwwroot
- Make sure the IIS_IUSRS account has access to all files in the directory
- Then you need to download phpMyAdmin, and place phpMyAdmin in the phpMyAdmin folder.
+ Then you need to copy the contents in the <b>website</b> folder into C:\inetpub\wwwroot. 
+ Make sure the IIS_IUSRS account has access to all files in the directory. 
+ Then you need to download phpMyAdmin, and place phpMyAdmin in the phpMyAdmin folder. 
 
- In IIS, you need to create a new FastCGI module mapping, and set the request path *.php, the module to FastCgiModule, the executable to C:\php\php-cgi.exe and the name to php.
+ In IIS, you need to create a new FastCGI module mapping, and set the request path to *.php, the module to FastCgiModule, the executable to C:\php\php-cgi.exe and the name to php.
  Then you need to set a MIME type for webp files, as they are used alot in the website.
  Then you need to set the default document to index.php
                                                               
