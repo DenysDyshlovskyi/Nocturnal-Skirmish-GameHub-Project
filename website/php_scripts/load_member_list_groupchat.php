@@ -12,12 +12,25 @@ if($result->num_rows > 0){
         $stmt2->execute();
         $result2 = $stmt2->get_result();
         $row2 = mysqli_fetch_assoc($result2);
+
+        // If user is offline, grey out their name and put a red circle next to them
+        if ($row2['last_login'] < time()) {
+            $opacityStyling = "opacity: 0.5;";
+            $onlineOfflineTitle = "title='This user is offline.'";
+            $offlineOnlineCircle = "<img src='./img/icons/offline.svg' class='offline-online-circle-groupchat'>";
+        } else {
+            // If the user is online, put a green circle next to them
+            $opacityStyling = "";
+            $onlineOfflineTitle = "title='This user is online.'";
+            $offlineOnlineCircle = "<img src='./img/icons/online.svg' class='offline-online-circle-groupchat'>";
+        }
         echo "
-            <div class='member-list-row'>
-                <div class='member-list-row-profilepic' style='background-image: url(./img/profile_pictures/" . $row2['profile_picture'] . ");'>
+            <div class='member-list-row' $onlineOfflineTitle>
+                $offlineOnlineCircle
+                <div class='member-list-row-profilepic' style='background-image: url(./img/profile_pictures/" . $row2['profile_picture'] . "); $opacityStyling'>
                     <img src='./img/borders/" . $row2['profile_border'] . "'>
                 </div>
-                <p class='member-list-nickname'>" . $row2['nickname'] . "</p>
+                <p class='member-list-nickname' style='$opacityStyling'>" . $row2['nickname'] . "</p>
             </div>";
     }
 }
