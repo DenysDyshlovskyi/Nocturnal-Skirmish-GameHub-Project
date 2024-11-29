@@ -57,9 +57,10 @@ Instructions:
  5. you have free acsess before others ;=}
 ````
 # Technical overview
-Introduction: <br>
+## Introduction: <br>
 GameHub/Nocturnal Skirmish is a website written in PHP, JavaScript, CSS and HTML. jQuery is used extensivly throughout the website for AJAX requests.
-The website is semi single page, and many modals are used to prevent refreshes, and the modals are separete files that are loaded in through AJAX GET requests.
+The website is semi single page, and many modals are used to prevent refreshes, and the modals are seperate files that are loaded in through AJAX GET requests.
+The website is hosted on <a href="https://www.iis.net/">Microsoft Internet Information Services Version 10.0.22621.1</a> and uses the <a href="https://dev.mysql.com/downloads/mysql/">MySQL Community Server</a> as the database.
 Both PHP and JavaScript libraries and imports are used in the website. <br>
 
 PHP libraries include: <br>
