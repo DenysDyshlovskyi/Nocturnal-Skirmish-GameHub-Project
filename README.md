@@ -94,12 +94,8 @@ JavaScript libraries and imports include:
 These files include sensitive information, which is why they are not included in the repo.
 You need to replace the credentials in the files below with your own: <br>
 <b>admin_hash.php</b> This file includes a hash for the password for logging in to the Admin Center. <br>
-````
-<?php
-//Hash for admin password
-// Is in gitignore
-
-$admin_hash = 'your_hash_here';
-````
+```
+ $admin_hash = 'your_hash_here';
+```
                                                               
  
