@@ -56,6 +56,7 @@ Instructions:
 
  5. you have free acsess before others ;=}
 ````
+
 # Technical overview
 ## Introduction: <br>
 GameHub/Nocturnal Skirmish is a website written in PHP, JavaScript, CSS and HTML. jQuery is used extensivly throughout the website for AJAX requests.
@@ -91,11 +92,72 @@ JavaScript libraries and imports include:
  - devcode_special.php
  - mail_cred.php
 <br>
+
 These files include sensitive information, which is why they are not included in the repo.
 You need to replace the credentials in the files below with your own: <br>
-<b>admin_hash.php</b> This file includes a hash for the password for logging in to the Admin Center. <br>
-```
- $admin_hash = 'your_hash_here';
-```
+
+<b>admin_hash.php:</b> This file includes a hash for the password for logging in to the Admin Center. <br>
+~~~
+ <?php
+//Hash for admin password
+// Is in gitignore
+
+$admin_hash = 'your_hash_here';
+~~~
+
+<b>conn.php:</b> This file includes credentials for connecting to MySQL database.<br>
+~~~
+<?php
+// Is in gitignore
+
+$servername = "localhost";
+$username = "root";
+$password = "your_password_here";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$conn -> select_db("gamehub");
+~~~
+
+<b>devcode_special.php:</b> This file includes devcodes that do more than one action, or do more than update a column in SQL. These codes specifically give the user all the borders, and removes all redeemed codes. <br>
+~~~
+<?php
+// Checks if devcode is a special code that does other things than usual
+
+require "../php_scripts/avoid_errors.php";
+
+if ($posted_devcode == "code_that_gives_all_borders") {
+    // For each border in borders directory, add it to user inventory
+    $borders = array_diff(scandir(dirname(dirname(__FILE__)) . "/img/borders"), array('..', '.'));
+    foreach($borders as $file) {
+        $sql1 = "INSERT INTO border_inventory (user_id, border) VALUES ('" . $_SESSION['user_id'] . "', '$file')";
+        $conn->query($sql1);
+    };
+} else if ($posted_devcode == "code_that_resets_redeemed_codes") {
+    //Resets redeemed codes for user who is logged in.
+    $sql1 = "DELETE FROM redeemed_codes WHERE user_id = " . $_SESSION['user_id'];
+    $conn->query($sql1);
+    exit;
+}
+~~~
+
+<b>mail_cred.php:</b> This file includes credentials for sending email with PHPMailer. <br>
+~~~
+<?php
+//Credentials for email sending
+// Is in gitignore
+
+$mailpassword = "your_email_password";
+$mailusername = "your_email_username";
+?>
+~~~
+
+Next thing to do is create the necessary databases and tables inside the MySQL server. Copy the code from sql/create_database.sql into the SQL tab on phpMyAdmin and execute it.
                                                               
  
