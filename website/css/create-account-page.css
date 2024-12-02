@@ -58,9 +58,41 @@
     text-indent: 10px;
 }
 
+.username-validate-container {
+    width: 303px;
+    height: 115px;
+    background-color: white;
+    border: solid 1px black;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding-top: 5px;
+}
+
+.username-validate-container p {
+    margin: 0;
+    padding: 0;
+    width: calc(100% - 30px);
+    height: 25%;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    font-family: "Afacad Flux", "sans-serif";
+    position: relative;
+    padding-left: 30px;
+    font-weight: 600;
+}
+
+.username-validate-container img {
+    width: 20px;
+    height: 15px;
+    position: absolute;
+    left: 0;
+    margin-left: 5px;
+}
+
 .ca-creation-description-input{
     width: 300px;
-    height: 300px;
+    height: 176px;
     border-radius: 5px;
     border: solid black 1px;
     background-color: white;
@@ -83,22 +115,6 @@
 
 .ca-terms-link{
     color: #4A88FF;
-}
-
-.ca-creation-error-container{
-    width: 300px;
-    height: 60px;
-    background-color: #f96161;
-    border: solid black 1px;
-    margin-bottom: 15px;
-    font-family: "Afacad Flux", sans-serif;
-    font-weight: 600;
-    color: white;
-    font-size: 25px;
-    border-radius: 5px;
-    text-align: center;
-    line-height: 60px;
-    display: none;
 }
 
 .ca-next-button{

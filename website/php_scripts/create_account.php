@@ -17,12 +17,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Checks if any of the inputs, except description and checkbox, are empty
     if 
     (
-        $username === null || strlen($username) == 0 ||
-        $nickname === null || strlen($nickname) == 0 ||
-        $email === null || strlen($email) == 0 ||
-        $email_confirm === null || strlen($email_confirm) == 0 ||
-        $password=== null || strlen($password) == 0 ||
-        $password_confirm === null || strlen($password_confirm) == 0
+        $username === null || strlen($username) == 0 || ctype_space($username) ||
+        $nickname === null || strlen($nickname) == 0 || ctype_space($nickname) ||
+        $email === null || strlen($email) == 0 || ctype_space($email) ||
+        $email_confirm === null || strlen($email_confirm) == 0 || ctype_space($email_confirm) ||
+        $password=== null || strlen($password) == 0 || ctype_space($password) ||
+        $password_confirm === null || strlen($password_confirm) == 0 || ctype_space($password_confirm)
     ) 
     {
         echo "empty";
@@ -64,6 +64,26 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
     $stmt->close();
+
+    // Check that username is between 5-25 letters
+    if (strlen($username) > 25 || strlen($username) < 5) {
+        echo "toolong";
+        exit;
+    }
+
+    // String containing all charachters allowed
+    $whitelist = "abcdefghijklmnopqrstuvwxyz0123456789_";
+
+    // Convert username to lowercase
+    $username_lower = strtolower($username);
+
+    // For each charachter in username, check that the charachter is allowed
+    foreach (str_split($username_lower) as $char) {
+        if (!str_contains($whitelist, $char)) {
+            echo "whitelist";
+            exit;
+        }
+    }
 
     // Check if email is already registered
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");

@@ -784,6 +784,10 @@ function createAccount() {
                 showConfirm("You have been banned! Log in to see reason.");
             } else if (response == "email_invalid") {
                 showConfirm("Not a valid email adress!");
+            } else if (response == "toolong") {
+                showConfirm("Username is either too long or too short! Username need to be between 5-25 letters.");
+            } else if (response == "whitelist") {
+                showConfirm("Charachters in username not allowed!")
             } else {
                 stopWaitClick();
                 window.location.href = "hub.php";
@@ -827,6 +831,18 @@ function createChat(user_id, location) {
                     window.location.href = "messages.php";
                 }
             }
+        }
+    })
+}
+
+// Error handles username
+function validateUsername(username) {
+    $.ajax({
+        type: "POST",
+        url: './php_scripts/validate_username.php',
+        data:{ username : username }, 
+        success: function(response){
+            document.getElementById("username-validate-container").innerHTML = response;
         }
     })
 }

@@ -57,7 +57,7 @@ if (isset($_SESSION['current_table'])) {
             <?php include "../../php_scripts/load_member_list_groupchat.php" ?>
         </div>
     </div>
-    <button class="groupchat-settings-close" title="close" onclick="removeDarkContainer()" title="Close groupchat settings">Close</button>
+    <button class="groupchat-settings-close" onclick="removeDarkContainer()" title="Close groupchat settings">Close</button>
     <div class="groupchat-settings-left-button-container">
         <button class="groupchat-settings-save-changes" id="groupchat-settings-save-changes" title="Save changes" onclick="saveGroupChatName()">Save changes</button>
         <button class="groupchat-settings-leave" title="Leave groupchat" onclick="ajaxGet('./spa/messages/confirm_leave_chat.php', 'dark-container');">Leave chat</button>
