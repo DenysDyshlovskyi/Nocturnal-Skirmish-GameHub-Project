@@ -1,0 +1,1 @@
+const crate = document.getElementsByClassName("default");

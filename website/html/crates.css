@@ -7,12 +7,12 @@
 	--xmas-top: url(../img/crates/Crate_Template.gif) 0 -256px;
 	--xmas-bottom: url(../img/crates/Crate_Template.gif) 0 -320px;
 
-	--wooden-front: url(../img/crates/Wooden_Crate.gif) 0 0;
-	--wooden-back: url(../img/crates/Wooden_Crate.gif) 0 -64px;
-	--wooden-right: url(../img/crates/Wooden_Crate.gif) 0 -128px;
-	--wooden-left: url(../img/crates/Wooden_Crate.gif) 0 -192px;
-	--wooden-top: url(../img/crates/Wooden_Crate.gif) 0 -256px;
-	--wooden-bottom: url(../img/crates/Wooden_Crate.gif) 0 -320px;
+	--wooden-front: url(../img/crates/New_Wodden_Crate.webp) 0 0;
+	--wooden-back: url(../img/crates/New_Wodden_Crate.webp) 0 -64px;
+	--wooden-right: url(../img/crates/New_Wodden_Crate.webp) 0 -128px;
+	--wooden-left: url(../img/crates/New_Wodden_Crate.webp) 0 -192px;
+	--wooden-top: url(../img/crates/New_Wodden_Crate.webp) 0 -256px;
+	--wooden-bottom: url(../img/crates/New_Wodden_Crate.webp) 0 -320px;
 }
 
 body {
@@ -50,7 +50,6 @@ body {
 .container:active {
 	perspective: 1600px;
     perspective-origin: 50% -240px;
-	animation: open 2s 1s linear;
 }
 
 
@@ -59,7 +58,7 @@ body {
 	width: 200px;
 	height: 200px;
 	background-size: cover;
-	border: 2px solid #00fffb;
+	border: 2px solid hsl(177, 100%, 50%);
     background-image: url(../img/profile_pictures/defaultprofile.svg);
 	border-radius: 10px;
 }
@@ -81,6 +80,11 @@ body {
 .face.bottom {
 	transform: rotateX(-90deg) translateZ(100px);
 }
+
+.default:active {
+	animation: open 2s 1s linear;
+}
+
 @keyframes spin {
     from {
     	transform: rotate(0);
@@ -145,10 +149,10 @@ body {
 }
 @keyframes open {
 	from {
-		transform: scale(1);
+		transform: translateZ(100px);
 	}
 	to {
-		transform: scale(3);
+		transform:  translateZ(2500px);
 	}
 }
 
@@ -185,6 +189,10 @@ body {
 }
 
 /* Texturing for wooden crate sides */
+.wooden {
+	/* Individual styling for the wooden crate border */
+	border-color: #b85900;
+}
 #wooden-front {
 	background: no-repeat var(--wooden-front);
 	background-size: 100%;
