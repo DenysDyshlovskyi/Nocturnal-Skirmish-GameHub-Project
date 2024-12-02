@@ -15,7 +15,8 @@
             <button class="shopLink" onclick="openShopTab(event, 'characters')">Characters</button>
             <button class="shopLink" onclick="openShopTab(event, 'profileBorders')">Profile borders</button>
             <button class="shopLink" onclick="openShopTab(event, 'skins')">Character Skins</button>
-            <button class="shopLink" onclick="openShopTab(event, 'eventCrates')">Event crates</button>
+            <button class="shopLink" onclick="openShopTab(event, 'crates')">Crates</button>
+            <button class="shopLink" onclick="openShopTab(event, 'limitedCrates')">Limited crates</button>
             <button class="shopLink" onclick="openShopTab(event, 'currency')">Currency</button>
             <button class="shopLink" onclick="openShopTab(event, 'other')">Other</button>
         </div>
@@ -974,8 +975,22 @@
             </div>
         </div>
 
-        <div id="eventCrates" class="tabContent">
-            <h1>Event Crates</h1>
+        <div id="crates" class="tabContent">
+            <h1>Crates</h1>
+            <button class="settings-backtohub" title="Back to Hub" onclick="window.location.href = 'hub.php';">Back to Hub</button>
+            <div class="middle-shop-container">
+                <div class="left-middle-shop-container" style="overflow-y: scroll;">
+                    <h2 class="left-middle-shop-container-titles">Cards</h2>
+                </div>
+    
+                <div class="right-middle-shop-container" style="overflow-y: scroll;">
+
+                </div>
+            </div>
+        </div>
+
+        <div id="limitedCrates" class="tabContent">
+            <h1>Limited Crates</h1>
             <button class="settings-backtohub" title="Back to Hub" onclick="window.location.href = 'hub.php';">Back to Hub</button>
             <div class="middle-shop-container">
                 <div class="left-middle-shop-container" style="overflow-y: scroll;">
