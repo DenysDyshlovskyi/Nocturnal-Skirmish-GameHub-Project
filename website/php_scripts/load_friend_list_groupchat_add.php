@@ -31,7 +31,7 @@ if ((mysqli_num_rows($result) <= 0)) {
             // Prints out user profiles for every friend
             $result2 = $stmt->get_result();
             $row2 = $result2->fetch_assoc();
-            printf("<div class='create-groupchat-friend-container' id='" . $row2['nickname'] . "'>
+            printf("<div class='create-groupchat-friend-container' id='" . $row2['nickname'] . "_" . $row2['username'] . "'>
                         <div class='create-groupchat-friend-profilepic' style='background-image: url(./img/profile_pictures/" . $row2['profile_picture'] . ");'>
                             <img src='./img/borders/" . $row2['profile_border'] . "'>
                         </div>
