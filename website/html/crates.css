@@ -60,7 +60,7 @@ body {
 	background-size: cover;
 	border: 2px solid hsl(177, 100%, 50%);
     background-image: url(../img/profile_pictures/defaultprofile.svg);
-	border-radius: 10px;
+	border-radius: 3px;
 }
 .face.front {
 	transform: translateZ(100px);
