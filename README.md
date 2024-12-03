@@ -83,7 +83,7 @@ JavaScript libraries and imports include:
 
  In IIS, you need to create a new FastCGI module mapping, and set the request path to *.php, the module to FastCgiModule, the executable to C:\php\php-cgi.exe and the name to php.
  Then you need to set a MIME type for webp files, as they are used alot in the website.
- Then you need to set the default document to index.php
+ Then you need to set the default document to index.php. Then go to "Authentication" in IIS, click annonymous authentication, press "edit" and select the setting "Application pool identity", if its not selected already. Then press ok.
 
  Then you need to make a folder in wwwroot called <b>config</b>
  This folder needs to include these files that you have to make yourself:
