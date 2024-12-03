@@ -9,7 +9,7 @@
     <style> <?php include "./css/create-account-page.css" ?> </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
-<body>
+<body onload="validateUsername('')">
     <div id="wait-container" class="wait-container">
         <div class="wait-container-inner">Please wait...</div>
     </div>
@@ -19,8 +19,9 @@
         <div class="ca-creation-form-container">
             <div class="ca-creation-form-user-details-container">
                 <h1 class="ca-form-headline">User details</h1>
-                <input type="text" placeholder="Username*" id="username-input" class="ca-creation-cred-input" maxlength="25">
-                <br>
+                <input type="text" placeholder="Username*" id="username-input" class="ca-creation-cred-input" maxlength="25" oninput="validateUsername(this.value)">
+                <div class="username-validate-container" id="username-validate-container">
+                </div>
                 <input type="text" placeholder="Nickname*" id="nickname-input" class="ca-creation-cred-input" maxlength="25">
                 <br>
                 <textarea id="description-input" placeholder="Description" class="ca-creation-description-input" maxlength="500"></textarea>
