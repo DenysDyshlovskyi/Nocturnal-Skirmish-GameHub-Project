@@ -40,7 +40,7 @@
                     <input type="password" placeholder="Confirm password*" id="password-input-confirm" required class="ca-creation-cred-input" maxlength="80">
                     <button id="password-view-confirm-button" onclick="changeVisibility('password-input-confirm', 'password-view-confirm-button')"></button>
                 </div>
-                <input type="checkbox" required id="terms-checkbox">*I agree to GameHub's <a href="" class="ca-terms-link">terms and conditions.</a>
+                <input type="checkbox" required id="terms-checkbox">*I agree to GameHub's <a href="terms_and_conditions.txt" class="ca-terms-link">terms and conditions.</a>
                 <p class="ca-username-indefinite-warning">*You can always change your nickname, but the username is indefinite</p>
                 <span id="ca-login-button-span"><button class="ca-next-button" onclick="location.href = 'index.php'">Back to login</button></span>
                 <span><input type="submit" value="Create account" class="ca-next-button" name="next_button" onclick="waitClick(); createAccount();"></span>
