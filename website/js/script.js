@@ -140,6 +140,7 @@ function saveEmail() {
             } else {
                 document.getElementById("settings-myaccount-details-email").innerHTML = email;
                 removeDarkContainer();
+                stopWaitClick();
                 showConfirm("Email saved!");
             }
         }

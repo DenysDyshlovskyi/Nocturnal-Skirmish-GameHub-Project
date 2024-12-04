@@ -146,8 +146,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $mailReceiver = $email;
     $mailSubject = "Thank you for creating a GameHub account!";
     $mailBody = "Hey " . $username . ". Thank you for creating a GameHub account.";
-    $mailBodyAlt = "Hey " . $username . ". Thank you for creating a GameHub account.";
-    sendMail($mailReceiver, $mailSubject, $mailBody, $mailBodyAlt);
+    sendMail($mailReceiver, $mailSubject, $mailBody);
 } else {
     header("Location: ../index.php");
 }

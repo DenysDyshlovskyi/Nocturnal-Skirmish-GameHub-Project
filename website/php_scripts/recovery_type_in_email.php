@@ -56,8 +56,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $mailReceiver = $email;
     $mailSubject = "GameHub account recovery";
     $mailBody = "Hey " . $email . ". The recovery code is: $randomCode";
-    $mailBodyAlt = "Hey " . $email . ". The recovery code is: $randomCode";
-    sendMail($mailReceiver, $mailSubject, $mailBody, $mailBodyAlt);
+    sendMail($mailReceiver, $mailSubject, $mailBody);
 } else {
     header("Location: ../index.php");
 }

@@ -14,9 +14,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $mailReceiver = $_SESSION['user_profile_email'];
         $mailSubject = "GameHub account email change";
-        $mailBody = "Hello " . $_SESSION['user_profile_email'] . ". The email for your GameHub account har recently been changed to " . $email . ". If this is a mistake, please contact user support at: gamehub-nocskir@outlook.com";
-        $mailBodyAlt = "Hello " . $_SESSION['user_profile_email'] . ". The email for your GameHub account har recently been changed to " . $email . ". If this is a mistake, please contact user support at: gamehub-nocskir@outlook.com";
-        sendMail($mailReceiver, $mailSubject, $mailBody, $mailBodyAlt);
+        $mailBody = "Hello " . $_SESSION['user_profile_email'] . ". The email for your GameHub account har recently been changed to " . $email . ". If this is a mistake, please contact user support at: support@nocskir.com";
+        sendMail($mailReceiver, $mailSubject, $mailBody);
         $_SESSION['user_profile_email'] = $email;
 
         echo $email;

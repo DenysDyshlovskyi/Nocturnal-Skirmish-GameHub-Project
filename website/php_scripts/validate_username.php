@@ -51,10 +51,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Echo results to screen
     echo "
-    <p style='color: $whitelistColor'><img src='./img/icons/$whitelistImg'>Only includes numbers from 0-9,  letters in english alphabet and these special charachters: _</p>
-    <p style='color: $letterCountColor'><img src='./img/icons/$letterCountImg'>Is between 5-25 letters.</p>
-    <p style='color: $takenColor'><img src='./img/icons/$takenImg'>Is not taken.</p>
-    <p style='color: $emptyColor'><img src='./img/icons/$emptyImg'>Is not empty.</p>
+    <p style='color: $whitelistColor'><img draggable='false' src='./img/icons/$whitelistImg'>Only includes numbers from 0-9,  letters in english alphabet and these special charachters: _</p>
+    <p style='color: $letterCountColor'><img draggable='false' src='./img/icons/$letterCountImg'>Is between 5-25 letters.</p>
+    <p style='color: $takenColor'><img draggable='false' src='./img/icons/$takenImg'>Is not taken.</p>
+    <p style='color: $emptyColor'><img draggable='false' src='./img/icons/$emptyImg'>Is not empty.</p>
     ";
 } else {
     header("Location: ../index.php");

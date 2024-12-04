@@ -19,12 +19,12 @@
         <div class="ca-creation-form-container">
             <div class="ca-creation-form-user-details-container">
                 <h1 class="ca-form-headline">User details</h1>
-                <input type="text" placeholder="Username*" id="username-input" class="ca-creation-cred-input" maxlength="25" oninput="validateUsername(this.value)">
+                <input type="text" autocomplete="off" placeholder="Username*" id="username-input" class="ca-creation-cred-input" maxlength="25" oninput="validateUsername(this.value)">
                 <div class="username-validate-container" id="username-validate-container">
                 </div>
-                <input type="text" placeholder="Nickname*" id="nickname-input" class="ca-creation-cred-input" maxlength="25">
+                <input type="text" placeholder="Nickname*" autocomplete="off" id="nickname-input" class="ca-creation-cred-input" maxlength="25">
                 <br>
-                <textarea id="description-input" placeholder="Description" class="ca-creation-description-input" maxlength="500"></textarea>
+                <textarea id="description-input" autocomplete="off" placeholder="Description" class="ca-creation-description-input" maxlength="500"></textarea>
             </div>
             <div class="ca-creation-form-additional-information-container">
                 <h1 class="ca-form-headline">Additional information</h1>

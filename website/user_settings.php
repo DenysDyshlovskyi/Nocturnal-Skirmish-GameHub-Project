@@ -26,6 +26,9 @@ if (!isset($_SESSION['user_id'])) {
 <body id="settings-body" onload="ajaxGet('./spa/user_settings/myaccount.php', 'settings-spa-container'); prepareSFX(); ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx'); isKicked()">
     <div id="dark-container" class="dark-container"></div>
     <div class="confirmation-popup" id="confirmContainer"></div>
+    <div id="wait-container" class="wait-container">
+        <div class="wait-container-inner">Please wait...</div>
+    </div>
     <div class="settings-container">
         <button class="settings-backtohub" title="Back to Hub" onclick="window.location.href = 'hub.php';">Back to Hub</button>
         <div class="settings-sidebar">
