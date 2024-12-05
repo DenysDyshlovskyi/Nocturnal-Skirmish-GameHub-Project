@@ -21,6 +21,16 @@
             <img src="./img/cards/BloomingRejuvenation_Card.webp" class="nocskir-slideshow-img">
             <img src="./img/cards/SandsOfTime_Card.webp" class="nocskir-slideshow-img">
             <img src="./img/cards/FlameBarrier_Card.webp" class="nocskir-slideshow-img">
+            <img src="./img/cards/Whale_Symphony_Card.webp" class="nocskir-slideshow-img">
+            <img src="./img/cards/ThrowingDaggers_Card.webp" class="nocskir-slideshow-img">
+            <img src="./img/cards/SpiritRelease_Card.webp" class="nocskir-slideshow-img">
+            <img src="./img/cards/Soul_Scythe.webp" class="nocskir-slideshow-img">
+            <img src="./img/cards/Punch_card.webp" class="nocskir-slideshow-img">
+            <img src="./img/cards/Cleave_Card.webp" class="nocskir-slideshow-img">
+            <img src="./img/cards/IceMirror_Card.webp" class="nocskir-slideshow-img">
+            <img src="./img/cards/Blight_Card.webp" class="nocskir-slideshow-img">
+            <img src="./img/cards/IceShield_Card.webp" class="nocskir-slideshow-img">
+            <img src="./img/cards/DivineBlade_Card.webp" class="nocskir-slideshow-img">
         </div>
         <div class="nocskir-slideshow-items">
             <img src="./img/cards/AncientSpirit_Card.webp" class="nocskir-slideshow-img">
@@ -33,6 +43,16 @@
             <img src="./img/cards/BloomingRejuvenation_Card.webp" class="nocskir-slideshow-img">
             <img src="./img/cards/SandsOfTime_Card.webp" class="nocskir-slideshow-img">
             <img src="./img/cards/FlameBarrier_Card.webp" class="nocskir-slideshow-img">
+            <img src="./img/cards/Whale_Symphony_Card.webp" class="nocskir-slideshow-img">
+            <img src="./img/cards/ThrowingDaggers_Card.webp" class="nocskir-slideshow-img">
+            <img src="./img/cards/SpiritRelease_Card.webp" class="nocskir-slideshow-img">
+            <img src="./img/cards/Soul_Scythe.webp" class="nocskir-slideshow-img">
+            <img src="./img/cards/Punch_card.webp" class="nocskir-slideshow-img">
+            <img src="./img/cards/Cleave_Card.webp" class="nocskir-slideshow-img">
+            <img src="./img/cards/IceMirror_Card.webp" class="nocskir-slideshow-img">
+            <img src="./img/cards/Blight_Card.webp" class="nocskir-slideshow-img">
+            <img src="./img/cards/IceShield_Card.webp" class="nocskir-slideshow-img">
+            <img src="./img/cards/DivineBlade_Card.webp" class="nocskir-slideshow-img">
         </div>
     </div>
     <div class="nocskir-slideshow-gradient">

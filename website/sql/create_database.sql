@@ -105,6 +105,11 @@ CREATE TABLE groupchat_settings (
     PRIMARY KEY (id)
 );
 
+CREATE TABLE visits (
+    date varchar(128),
+    amount int
+);
+
 CREATE DATABASE IF NOT EXISTS gamehub_messages;
 
 USE gamehub_messages;

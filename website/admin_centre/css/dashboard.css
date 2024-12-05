@@ -187,3 +187,55 @@ header h1 {
     text-align: center;
     z-index: 999;
 }
+.visits-container {
+    width: 400px;
+    height: calc(100vh - 160px);
+    position: absolute;
+    right: 0;
+    margin-right: 445px;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.visits-container h1 {
+    font-family: "Afacad Flux", "sans-serif";
+    padding: 0;
+    margin: 0;
+    font-weight: 600;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.visits-table-container {
+    width: 100%;
+    height: calc(100% - 100px);
+    margin-top: 15px;
+    border-radius: 5px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    border: solid 1px black;
+}
+
+.visits-container table {
+    width: 100%;
+    font-family: "Afacad Flux", "sans-serif";
+}
+
+table, th, td, tr{
+    border-collapse: collapse;
+    border: 1px solid black;
+    text-align: center;
+}
+
+td, tr{
+    height: 40px;
+}
+
+.no-records {
+    margin: 0;
+    padding: 0;
+    margin: 5px;
+    font-family: "Afacad Flux", "sans-serif";
+}

@@ -14,7 +14,7 @@
 }
 
 .nocskir-slideshow-items {
-    animation: 10s carousel infinite linear;
+    animation: 20s carousel infinite linear;
     display: inline-block;
 }
 

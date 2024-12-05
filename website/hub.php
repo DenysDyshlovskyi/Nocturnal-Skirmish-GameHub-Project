@@ -7,6 +7,7 @@ if (!isset($_SESSION['user_id'])) {
 } else {
     require "./config/conn.php";
     require "./php_scripts/get_loggedin_info.php";
+    require "./php_scripts/register_visit.php";
 }
 ?>
 
