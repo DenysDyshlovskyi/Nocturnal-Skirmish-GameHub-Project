@@ -63,7 +63,7 @@ if (!isset($_SESSION['user_id'])) {
             style="display: flex; justify-content: center; flex-direction: column; align-items: center; gap: 20px;">
             <h1 class="title-text">GameHub™</h1>
             <div class="menu-selection-buttons">
-                <button onclick="window.location.href = './html/cardspin.php'" class="play-button">Play <img style="width: 30%;" src="img/Noc_Skir_Logo.svg" alt="Logo"></button>
+                <button onclick="window.location.href = 'nocturnal-skirmish.php'" class="play-button">Play <img style="width: 30%;" src="img/Noc_Skir_Logo.svg" alt="Logo"></button>
                 <br>
                 <button style="margin-bottom: 10px; margin-right: 10px;" class="menu-button">Inventory</button>
                 <a class="link" href="Featured.html"><button class="menu-button">Shop</button></a>
@@ -118,6 +118,7 @@ if (!isset($_SESSION['user_id'])) {
 
     <!-- Footer container with trademark text and live player count -->
     <footer>
+        <a class="report-errors-link" href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAFkaGe5UNUNEQldDQ0tWMzIyN0s1VlM0MzFDNlVGVS4u">Report errors</a>
         <p class="footer-tm-text">GameHub™ 2024</p>
         <p class="player-live-count-text" id="players-live-count"></p>
     </footer>
