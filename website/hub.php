@@ -1,10 +1,14 @@
 <?php
 session_start();
+$_SESSION['user_profile_picture'] = "";
+$_SESSION['user_profile_border'] = "";
+$user_id = "";
 
 // Redirects user to login page if theyre not logged in
 if (!isset($_SESSION['user_id'])) {
     header("Location: ./index.php");
 } else {
+    $user_id = $_SESSION['user_id'];
     require "./config/conn.php";
     require "./php_scripts/get_loggedin_info.php";
     require "./php_scripts/register_visit.php";
@@ -37,7 +41,7 @@ if (!isset($_SESSION['user_id'])) {
     </div>
     <div class="hub-corner-profile-container">
         <div class="hub-corner-profilepic-container" id="hub-corner-profilepic-container">
-            <a href="#" onclick="displayUserProfile(<?php echo $_SESSION['user_id'] ?>)">
+            <a href="#" onclick="displayUserProfile(<?php echo $user_id ?>)">
                 <div class="hub-corner-profilepic" style="background-image: url(<?php echo $_SESSION['user_profile_picture']; ?>);">
                     <img src="<?php echo $_SESSION['user_profile_border']; ?>" alt="Profile Border" class="hub-corner-profilepic-border">
                 </div>
