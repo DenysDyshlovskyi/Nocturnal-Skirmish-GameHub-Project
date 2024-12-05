@@ -210,7 +210,7 @@ header h1 {
 
 .visits-table-container {
     width: 100%;
-    height: calc(100% - 100px);
+    height: calc(100% - 120px);
     margin-top: 15px;
     border-radius: 5px;
     overflow-x: hidden;
@@ -238,4 +238,10 @@ td, tr{
     padding: 0;
     margin: 5px;
     font-family: "Afacad Flux", "sans-serif";
+}
+
+#dashboard-player-online {
+    font-family: "Afacad Flux", "sans-serif";
+    position: relative;
+    bottom: 10px;
 }

@@ -6,7 +6,7 @@ if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] != 1) {
     exit;
 } else {
     // For each row in visits table
-    $stmt = $conn->prepare("SELECT * FROM visits LIMIT 25");
+    $stmt = $conn->prepare("SELECT * FROM visits ORDER BY date DESC LIMIT 25");
     $stmt->execute();
     $result = $stmt->get_result();
     if ((mysqli_num_rows($result) <= 0)) {

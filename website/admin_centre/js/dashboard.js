@@ -33,3 +33,12 @@ function adminVisitSearch(search) {
 }
 
 $('#message-container').delay(3500).fadeOut('slow');
+
+// Shows a list of online players
+function showOnlineList() {
+    ajaxGet("./spa/dashboard_online_list.php", "dark-container");
+}
+
+setInterval(function(){
+    ajaxGet("./scripts/load_online_count.php", "dashboard-player-online");
+}, 2000)

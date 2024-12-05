@@ -19,7 +19,7 @@ if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] != 1) {
     <style> <?php include "./css/dashboard.css" ?> </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
-<body>
+<body onload="ajaxGet('./scripts/load_online_count.php', 'dashboard-player-online');">
     <?php
     if (isset($_GET['userdeleted'])) {
         echo "<div id='message-container'>User deleted. uID: " . $_GET['userdeleted'] . ". Cleanup recommended.</div>";
@@ -27,6 +27,7 @@ if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] != 1) {
         echo "<div id='message-container'>User banned. uID: " . $_GET['userbanned'] . ". Go into user profile to see changes.</div>";
     }
     ?>
+    <div id="dark-container" class="dark-container"></div>
     <header>
         <h1>GameHub Admin Center</h1>
         <div class="header-button-container">
@@ -55,9 +56,11 @@ if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] != 1) {
                     <?php include "./scripts/load_visits.php" ?>
                 </table>
             </div>
+            <p id="dashboard-player-online"></p>
         </div>
     </div>
 </body>
+<script><?php include "./js/display_profile.js" ?></script>
 <script><?php include "./js/dashboard.js" ?></script>
 </body>
 </html>
