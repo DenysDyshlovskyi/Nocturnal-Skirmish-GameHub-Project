@@ -59,38 +59,48 @@ if ((mysqli_num_rows($result) <= 0)) {
             $stmt2->execute();
             $result2 = $stmt2->get_result();
             $row2 = mysqli_fetch_assoc($result2);
-
-            // If user is online, show green circle, else, show red circle and turn down the opacity
-            if ($row2['last_login'] > time()) {
-                // Online
-                $onlineOfflineCircle = "<img src='./img/icons/online.svg' class='messages-menu-offline-online'>";
-                $offlineOpacity = "";
-                $onlineOfflineTitle = "This user is online";
+            if($result2->num_rows === 0){
+                printf("<button class='messages-menu-button' onclick='selectChat(%s)' title='Deleted User' $border>
+                            <div class='messages-menu-button-profilepic' style='background-image: url(./img/profile_pictures/defaultprofile.svg);'>
+                                <img src='./img/borders/defaultborder.webp'>
+                            </div>
+                            <div class='messages-menu-button-name-container'>
+                                <p>Deleted User</p>
+                            </div>
+                        </button>", '"' . $row['tablename'] . '"');  
             } else {
-                // Offline
-                $onlineOfflineCircle = "<img src='./img/icons/offline.svg' class='messages-menu-offline-online'>";
-                $offlineOpacity = "opacity: 0.6;";
-                $onlineOfflineTitle = "This user is offline";
-            }
+                // If user is online, show green circle, else, show red circle and turn down the opacity
+                if ($row2['last_login'] > time()) {
+                    // Online
+                    $onlineOfflineCircle = "<img src='./img/icons/online.svg' class='messages-menu-offline-online'>";
+                    $offlineOpacity = "";
+                    $onlineOfflineTitle = "This user is online";
+                } else {
+                    // Offline
+                    $onlineOfflineCircle = "<img src='./img/icons/offline.svg' class='messages-menu-offline-online'>";
+                    $offlineOpacity = "opacity: 0.6;";
+                    $onlineOfflineTitle = "This user is offline";
+                }
 
-            // If there are unread messages in the chat, display the amount of them
-            if ($totalNewMessages > 0) {
-                $notif = "<div class='messages-menu-notif-bubble'>$totalNewMessages</div>";
-            } else {
-                $notif = "";
-            }
+                // If there are unread messages in the chat, display the amount of them
+                if ($totalNewMessages > 0) {
+                    $notif = "<div class='messages-menu-notif-bubble'>$totalNewMessages</div>";
+                } else {
+                    $notif = "";
+                }
 
-            // Print the button to the menu
-            printf("<button class='messages-menu-button' onclick='selectChat(%s)' title='$onlineOfflineTitle' $border>
-                        $onlineOfflineCircle
-                        <div class='messages-menu-button-profilepic' style='$offlineOpacity background-image: url(./img/profile_pictures/" . $row2['profile_picture'] . ");'>
-                            <img src='./img/borders/" . $row2['profile_border'] . "'>
-                        </div>
-                        <div class='messages-menu-button-name-container' style='$offlineOpacity'>
-                            <p>" . $row2['nickname'] . "</p>
-                        </div>
-                        $notif
-                    </button>", '"' . $row['tablename'] . '"');
+                // Print the button to the menu
+                printf("<button class='messages-menu-button' onclick='selectChat(%s)' title='$onlineOfflineTitle' $border>
+                            $onlineOfflineCircle
+                            <div class='messages-menu-button-profilepic' style='$offlineOpacity background-image: url(./img/profile_pictures/" . $row2['profile_picture'] . ");'>
+                                <img src='./img/borders/" . $row2['profile_border'] . "'>
+                            </div>
+                            <div class='messages-menu-button-name-container' style='$offlineOpacity'>
+                                <p>" . $row2['nickname'] . "</p>
+                            </div>
+                            $notif
+                        </button>", '"' . $row['tablename'] . '"');  
+            }
         } if ($row['type'] == 'groupchat') {
             // If the chat is a groupchat
             // If the chat is the current chat, put border around button

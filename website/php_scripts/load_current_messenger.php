@@ -51,15 +51,27 @@ if ($_SESSION['current_messenger'] == "public") {
         $stmt->bind_param("s", $_SESSION['current_messenger']);
         $stmt->execute();
         $result = $stmt->get_result();
-        $row = mysqli_fetch_assoc($result);
-        echo "<a href='#' onclick='displayUserProfile(" . $row['user_id'] . ")'>
-                                <div class='current-messenger-profilepic' style='background-image: url(./img/profile_pictures/" . $row['profile_picture'] . ");'>
-                                    <img src='./img/borders/" . $row['profile_border'] . "'>
-                                </div>
-                            </a>
-                            <div class='current-messenger-name-container'>
-                                <p>" . $row['nickname'] . "</p>
-                            </div>";
+        if($result->num_rows === 0){
+            // if user doesnt exist
+            echo "              <a href='#'>
+                                    <div class='current-messenger-profilepic' style='background-image: url(./img/profile_pictures/defaultprofile.svg);'>
+                                        <img src='./img/borders/defaultborder.webp'>
+                                    </div>
+                                </a>
+                                <div class='current-messenger-name-container'>
+                                    <p>Deleted User</p>
+                                </div>";
+        } else {
+            $row = mysqli_fetch_assoc($result);
+            echo "<a href='#' onclick='displayUserProfile(" . $row['user_id'] . ")'>
+                                    <div class='current-messenger-profilepic' style='background-image: url(./img/profile_pictures/" . $row['profile_picture'] . ");'>
+                                        <img src='./img/borders/" . $row['profile_border'] . "'>
+                                    </div>
+                                </a>
+                                <div class='current-messenger-name-container'>
+                                    <p>" . $row['nickname'] . "</p>
+                                </div>";
+        }
     } else if ($_SESSION['current_messenger_type'] == "groupchat") {
         // If the chat is a groupchat
         $stmt = $conn->prepare("SELECT * FROM groupchat_settings WHERE tablename = ?");

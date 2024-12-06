@@ -184,8 +184,53 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             removeFakeUsers('friend_list', 'multiple');
             removeFakeUsers('pending_friend_list', 'multiple');
 
-            // TODO : remove two user chats with user_ids that dont exist, or replace the sender with username of "deleted user"
+            // Remove chats from users that dont exist
+            echo "Removing chats from users that dont exist or are deleted...<br>";
+            $conn -> select_db("gamehub_messages");
+            $messagesDeleted = 0;
 
+            // Query to get all tables
+            $sql = "SHOW TABLES";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_array()) {
+                    // For each table
+                    $tablename = $row[0];
+                    if ($tablename != "public") {
+                        $stmt2 = $conn->prepare("SELECT * FROM $tablename");
+                        $stmt2->execute();
+                        $result2 = $stmt2->get_result();
+                        while($row2 = $result2->fetch_array()) {
+                            // For each message in that table
+                            if ($row2['user_id'] != 0) {
+                                $conn -> select_db("gamehub");
+                                $stmt3 = $conn->prepare("SELECT user_id FROM users WHERE user_id = ?");
+                                $stmt3->bind_param("s", $row2['user_id']);
+                                $stmt3->execute();
+                                $result3 = $stmt3->get_result();
+                                if ((mysqli_num_rows($result3) <= 0)) {
+                                    // User doesnt exist
+                                    $conn -> select_db("gamehub_messages");
+                                    echo "<br>Deleted message: " . $row2['message'] . "<br>";
+                                    $stmt3 = $conn->prepare("DELETE FROM $tablename WHERE message_id = ?");
+                                    $stmt3->bind_param("s", $row2['message_id']);
+                                    $stmt3->execute();
+                                    $stmt3->close();
+                                    $messagesDeleted++;
+                                }
+                                $conn -> select_db("gamehub_messages");
+                            }
+                        }
+                    }
+                }
+            } else {
+                echo "No chats found.";
+            }
+
+            $conn -> select_db("gamehub");
+            echo "Deleted $messagesDeleted messages. <br>";
+
+            // Remove chat tables that have no members
             echo "<br>Cleanup done! <a href='../dashboard.php'>Back to dashboard.</a>";
         } else if (isset($_POST['logout'])) {
             session_unset();
