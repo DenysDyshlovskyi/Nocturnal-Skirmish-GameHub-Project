@@ -1,0 +1,74 @@
+/* Stylesheet for list of players online in dashboard */
+.online-list-container {
+    width: 500px;
+    height: fit-content;
+    padding: 15px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.online-list-headline {
+    font-family: "Afacad Flux", "sans-serif";
+    padding: 0;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.online-list-result-container {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #A1A1A1;
+    height: fit-content;
+    max-height: 300px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin-bottom: 15px;
+}
+
+.online-list-row {
+    width: 100%;
+    height: 80px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.online-list-profilepic {
+    height: 40px;
+    width: 40px;
+    margin-left: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90% 90%;
+    position: relative;
+}
+
+.online-list-profilepic img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.online-list-username {
+    font-family: "Afacad Flux", "sans-serif";
+    padding: 0;
+    margin: 0;
+    margin-left: 5px;
+    max-width: calc(100% - 135px);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

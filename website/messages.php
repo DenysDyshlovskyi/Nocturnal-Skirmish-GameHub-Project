@@ -88,6 +88,7 @@ if (!isset($_SESSION['user_id'])) {
     </div>
     
     <footer>
+    <a class="report-errors-link" href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAFkaGe5UNUNEQldDQ0tWMzIyN0s1VlM0MzFDNlVGVS4u">Report errors</a>
         <p class="footer-tm-text">GameHub™ 2024</p>
         <p class="player-live-count-text" id="players-live-count"></p>
     </footer>

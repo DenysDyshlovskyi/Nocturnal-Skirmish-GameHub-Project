@@ -94,3 +94,9 @@ footer {
     text-align: center;
     border: 1px solid black;
 }
+
+.report-errors-link {
+    position: absolute;
+    left: 0;
+    margin-left: 15px;
+}

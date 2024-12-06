@@ -15,4 +15,30 @@ function adminUserSearch(search) {
     })
 }
 
+// Function that searches for visits
+function adminVisitSearch(search) {
+    $.ajax({
+        type: "POST",
+        url: './scripts/visit_search.php',
+        data:{ search : search }, 
+        success: function(response){
+            resultContainer = document.getElementById("visits-table");
+            if (response == "none") {
+                resultContainer.innerHTML = "<p class='no-records'>No results found containing '" + search + "'.</p>";
+            } else {
+                resultContainer.innerHTML = response;
+            }
+        }
+    })
+}
+
 $('#message-container').delay(3500).fadeOut('slow');
+
+// Shows a list of online players
+function showOnlineList() {
+    ajaxGet("./spa/dashboard_online_list.php", "dark-container");
+}
+
+setInterval(function(){
+    ajaxGet("./scripts/load_online_count.php", "dashboard-player-online");
+}, 2000)

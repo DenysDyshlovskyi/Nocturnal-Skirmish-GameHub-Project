@@ -1,12 +1,17 @@
 <?php
 session_start();
+$_SESSION['user_profile_picture'] = "";
+$_SESSION['user_profile_border'] = "";
+$user_id = "";
 
 // Redirects user to login page if theyre not logged in
 if (!isset($_SESSION['user_id'])) {
     header("Location: ./index.php");
 } else {
+    $user_id = $_SESSION['user_id'];
     require "./config/conn.php";
     require "./php_scripts/get_loggedin_info.php";
+    require "./php_scripts/register_visit.php";
 }
 ?>
 
@@ -36,7 +41,7 @@ if (!isset($_SESSION['user_id'])) {
     </div>
     <div class="hub-corner-profile-container">
         <div class="hub-corner-profilepic-container" id="hub-corner-profilepic-container">
-            <a href="#" onclick="displayUserProfile(<?php echo $_SESSION['user_id'] ?>)">
+            <a href="#" onclick="displayUserProfile(<?php echo $user_id ?>)">
                 <div class="hub-corner-profilepic" style="background-image: url(<?php echo $_SESSION['user_profile_picture']; ?>);">
                     <img src="<?php echo $_SESSION['user_profile_border']; ?>" alt="Profile Border" class="hub-corner-profilepic-border">
                 </div>
@@ -63,7 +68,7 @@ if (!isset($_SESSION['user_id'])) {
             style="display: flex; justify-content: center; flex-direction: column; align-items: center; gap: 20px;">
             <h1 class="title-text">GameHub™</h1>
             <div class="menu-selection-buttons">
-                <button onclick="window.location.href = './html/cardspin.php'" class="play-button">Play <img style="width: 30%;" src="img/Noc_Skir_Logo.svg" alt="Logo"></button>
+                <button onclick="window.location.href = 'nocturnal-skirmish.php'" class="play-button">Play <img style="width: 30%;" src="img/Noc_Skir_Logo.svg" alt="Logo"></button>
                 <br>
                 <button style="margin-bottom: 10px; margin-right: 10px;" class="menu-button">Inventory</button>
                 <a class="link" href="Featured.html"><button class="menu-button">Shop</button></a>
@@ -118,6 +123,7 @@ if (!isset($_SESSION['user_id'])) {
 
     <!-- Footer container with trademark text and live player count -->
     <footer>
+        <a class="report-errors-link" href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAFkaGe5UNUNEQldDQ0tWMzIyN0s1VlM0MzFDNlVGVS4u">Report errors</a>
         <p class="footer-tm-text">GameHub™ 2024</p>
         <p class="player-live-count-text" id="players-live-count"></p>
     </footer>
