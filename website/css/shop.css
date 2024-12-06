@@ -3,6 +3,8 @@
 #hub-body {
     background-color: #FFCF8C;
     font-family: "Afacad Flux", sans-serif;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
 }
 
 .settings-backtohub {
