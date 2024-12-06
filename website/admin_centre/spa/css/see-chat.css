@@ -1,0 +1,43 @@
+/* Stylesheet for ui for seeing chat as admin */
+
+.seechat-container {
+    width: 1000px;
+    height: fit-content;
+    padding: 15px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.seechat-headline {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 15px;
+    font-family: "Afacad Flux", "sans-serif";
+}
+
+.seechat-chat-container {
+    width: calc(100% - 20px);
+    height: fit-content;
+    max-height: 400px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 10px;
+    background-color: white;
+    border: solid 1px black;
+    border-radius: 5px;
+    margin-bottom: 35px;
+}
+
+.seechat-close {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 15px;
+    cursor: pointer;
+}
