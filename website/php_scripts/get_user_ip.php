@@ -1,8 +1,6 @@
 <?php
 require "avoid_errors.php";
 
-function getUserIP()
-{
     // Get real visitor IP behind CloudFlare network
     if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
                 $_SERVER['REMOTE_ADDR'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
@@ -24,6 +22,3 @@ function getUserIP()
     {
         $ip = $remote;
     }
-
-    return $ip;
-}

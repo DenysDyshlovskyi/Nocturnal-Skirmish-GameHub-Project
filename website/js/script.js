@@ -143,6 +143,10 @@ function saveEmail() {
                 stopWaitClick();
                 showConfirm("Email saved!");
             }
+        },
+        error: function() {
+            stopWaitClick();
+            showConfirm("Something went wrong.");
         }
     })
 }
@@ -793,7 +797,10 @@ function createAccount() {
                 stopWaitClick();
                 window.location.href = "hub.php";
             }
+        },
+        error: function() {
             stopWaitClick();
+            showConfirm("Something went wrong.");
         }
     })
 }

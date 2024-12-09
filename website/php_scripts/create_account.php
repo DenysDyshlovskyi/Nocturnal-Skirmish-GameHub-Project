@@ -103,7 +103,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Get ip to check if user is ip banned
     require "get_user_ip.php";
-    $ip = getUserIP();
 
     // Checks if user trying to create account is banned.
     $stmt = $conn->prepare("SELECT * FROM banned WHERE ip = ? LIMIT 1");

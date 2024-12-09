@@ -5,8 +5,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     require "get_user_ip.php";
 
-    $ip = getUserIP();
-
     // Check if ip has already been registered
     $stmt = $conn->prepare("SELECT * FROM ip_adresses WHERE user_id = ? AND ip = ?");
     $stmt->bind_param("ss", $_SESSION['user_id'], $ip);
