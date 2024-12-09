@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="selection-container-inner">
-        <button class="selection-gamehub" title="GameHub: Beginners Tutorial">
+        <button class="selection-gamehub" title="GameHub: Beginners Tutorial" onclick="window.location.href='tutorial.php?section=gamehub&origin=hub'">
             <div class="selection-text-box">
                 <p>GameHub:<br>Beginners Tutorial</p>
             </div>

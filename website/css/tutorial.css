@@ -1,0 +1,93 @@
+/* Stylesheet for tutorial page */
+
+.tutorial-sidebar {
+    width: 300px;
+    height: calc(100vh - 50px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #c2c2c2;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.tutorial-sidebar button {
+    width: 300px;
+    height: 50px;
+    background-color: #d9d9d9;
+    cursor: pointer;
+    border: none;
+    font-family: "Afacad Flux", "sans-serif";
+    font-size: 18px;
+    text-align: left;
+    text-indent: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 15px 30px -6px inset, rgba(0, 0, 0, 0.3) 0px 9px 18px -9px inset;
+}
+
+.tutorial-sidebar button:hover {
+    background-color: #4a89ff6e;
+    color: white;
+}
+
+.tutorial-sidebar-headline {
+    width: 300px;
+    height: 75px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Afacad Flux", "sans-serif";
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.back-button {
+    width: 300px;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border: none;
+    cursor: pointer;
+    font-family: "Afacad Flux", "sans-serif";
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.back-button:hover {
+    background-color: #4a89ff;
+    color: white;
+}
+
+.tutorial-article-container {
+    width: calc(100% - 315px);
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+/* All content on right side of screen is inside article tag */
+article h1{
+    font-family: "Afacad Flux", "sans-serif";
+    font-size: 30px;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+article p {
+    font-family: "Afacad Flux", "sans-serif";
+    font-size: 20px;
+    max-width: calc(100% - 15px);
+    overflow-wrap: break-word;
+}
+
+article img {
+    max-width: 100%;
+}

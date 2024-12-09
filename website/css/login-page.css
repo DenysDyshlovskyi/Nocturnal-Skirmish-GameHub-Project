@@ -158,3 +158,19 @@
     background-repeat: no-repeat;
     background-size: 80%;
 }
+
+.login-info-button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 15px;
+    background-image: url(./img/icons/info_blue.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+}

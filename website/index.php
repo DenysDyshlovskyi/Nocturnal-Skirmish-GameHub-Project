@@ -35,6 +35,7 @@
             </div>
         </div>
     </div>
+    <button class="login-info-button" title="Tutorial" onclick="window.location.href = 'tutorial.php?section=gamehub'"></button>
 </body>
 <script type="text/javascript"><?php include "./js/script.js" ?></script>
 </html>
