@@ -797,6 +797,7 @@ function createAccount() {
                 stopWaitClick();
                 window.location.href = "hub.php";
             }
+            stopWaitClick();
         },
         error: function() {
             stopWaitClick();
