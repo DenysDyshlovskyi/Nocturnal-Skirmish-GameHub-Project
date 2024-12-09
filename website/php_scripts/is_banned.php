@@ -9,7 +9,10 @@ if($result->num_rows > 0){
     $showError = true;
     $errorMessage = "You have been banned! Expires: " . $row['duration'] . "<button>Show reason</button>";
 
-    $_SESSION['user_id'] = "banned";
+    if (isset($_SESSION['user_id'])) {
+        unset($_SESSION['user_id']);
+    };
+
 } else {
     header("Location: ./hub.php");
 }

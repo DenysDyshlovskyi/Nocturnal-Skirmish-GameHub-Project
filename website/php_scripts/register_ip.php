@@ -3,7 +3,9 @@
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     require "avoid_errors.php";
 
-    $ip = $_SERVER['REMOTE_ADDR'];
+    require "get_user_ip.php";
+
+    $ip = getUserIP();
 
     // Check if ip has already been registered
     $stmt = $conn->prepare("SELECT * FROM ip_adresses WHERE user_id = ? AND ip = ?");

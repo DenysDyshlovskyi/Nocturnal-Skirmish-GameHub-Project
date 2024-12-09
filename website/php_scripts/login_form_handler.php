@@ -55,7 +55,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             echo "You have been temporaily banned! Expires: " . $row['duration'] . " - Reason: " . $row['reason'];
         }
-        $_SESSION['user_id'] = "banned";
+
+        if (isset($_SESSION['user_id'])) {
+            unset($_SESSION['user_id']);
+        };
     } else {
         echo "correct";
     }

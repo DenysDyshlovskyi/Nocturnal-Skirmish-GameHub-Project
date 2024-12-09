@@ -12,7 +12,7 @@
     <div class="tutorial-sidebar">
         <div class="tutorial-sidebar-headline">GameHub</div>
         <button id="getting-started" title="Getting started" onclick="ajaxGet('./spa/tutorial/getting-started.php', 'tutorial-article-container', 'no_sfx');">1 - Getting started</button>
-        <button title="Customizing your profile">2 - Customizing your profile</button>
+        <button id="customizing" title="Customizing your profile" onclick="ajaxGet('./spa/tutorial/customizing.php', 'tutorial-article-container', 'no_sfx');">2 - Customizing your profile</button>
         <button title="Choosing your settings">2.1 - Choosing your settings</button>
         <button title="Adding Friends">3 - Adding Friends</button>
         <button title="Accepting pending friend requests">3.1 - Accepting pending friend requests</button>
