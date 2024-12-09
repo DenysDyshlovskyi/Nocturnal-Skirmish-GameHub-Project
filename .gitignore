@@ -5,3 +5,4 @@
 /website/config
 /website/img/chat_images
 /website/img/groupchat_images
+/website/lib/vendor/phpmailer

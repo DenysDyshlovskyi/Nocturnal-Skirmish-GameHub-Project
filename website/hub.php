@@ -84,6 +84,13 @@ if (!isset($_SESSION['user_id'])) {
             <div class="patch-notes-content-grey">
                 <div class="patch-note-list">
                     <div class="patch-note">
+                        <h3 class="patch-note-title">Version 1.1.0</h3>
+                        <ul class="patch-note-list-items">
+                            <li>Added new cards</li>
+                            <li>Updated shop items</li>
+                        </ul>
+                    </div>
+                    <div class="patch-note">
                         <h3 class="patch-note-title">Version 1.0.0</h3>
                         <ul class="patch-note-list-items">
                             <li>Added new stuff</li>

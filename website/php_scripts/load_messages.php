@@ -40,22 +40,6 @@ ORDER BY message_id ASC;");
                 echo "<div class='notifier-message'>" . $row['message'] . "</div>";
                 goto end;
             }
-            // Gets information about user who sent the current message
-            $conn -> select_db("gamehub");
-            $stmt2 = $conn->prepare("SELECT * FROM users WHERE user_id = ?");
-            $stmt2->bind_param("s", $row['user_id']);
-            $stmt2->execute();
-            $result2 = $stmt2->get_result();
-            $row2 = mysqli_fetch_assoc($result2);
-            // Make message orange if its sent by you, and adds extra buttons on hover for deleting and editing message
-            if ($row['user_id'] == $_SESSION['user_id']) {
-                $backgroundColor = "style='background-color: #FFCF8C;'";
-                $moreButtons = "<button id='delete-message-button' title='Delete message' onclick='deleteMessage(" . $row['message_id'] . ")'></button>
-                                <button id='edit-message-button' title='Edit message' onclick='editMessage(" . $row['message_id'] . ")'></button>";
-            } else {
-                $backgroundColor = "";
-                $moreButtons = "";
-            }
 
             // if row has image attached, show it.
             if($row['file'] != NULL) {
@@ -72,8 +56,17 @@ ORDER BY message_id ASC;");
                 $br = "";
             }
 
-            // Prepares nickname to put inside replyToMessage parameter
-            $nickname = '"' . $row2['nickname'] . '"';
+            // If message was edited, add (edited) after timestamp
+            if ($row['edited'] == 1) {
+                $edited = "(edited)";
+            } else {
+                $edited = "";
+            }
+
+            //If there is a link in the message, wrap it in <a> tag;
+            $text = strip_tags($row['message']);
+            $textWithLinks = preg_replace('@(https?://([-\w\.]+[-\w])+(:\d+)?(/([\w/_\.#-]*(\?\S+)?[^\.\s])?)?)@', '<a href="$1" target="_blank" rel="nofollow">$1</a>', $text);
+            $message = $textWithLinks;
 
             // Checks if message is reply to diffrent message. If it is, add reply-message div
             if ($row['reply'] != 0) {
@@ -135,40 +128,72 @@ ORDER BY message_id ASC;");
 
             reply_end:
 
-            // If message was edited, add (edited) after timestamp
-            if ($row['edited'] == 1) {
-                $edited = "(edited)";
-            } else {
-                $edited = "";
-            }
-
-            //If there is a link in the message, wrap it in <a> tag;
-            $text = strip_tags($row['message']);
-            $textWithLinks = preg_replace('@(https?://([-\w\.]+[-\w])+(:\d+)?(/([\w/_\.#-]*(\?\S+)?[^\.\s])?)?)@', '<a href="$1" target="_blank" rel="nofollow">$1</a>', $text);
-            $message = $textWithLinks;
-
-            // Outputs the message to the screen
-            echo "<div onmouseover='showMessageButtons(" . $row['message_id'] .  ")' onmouseout='hideMessageButtons(" . $row['message_id'] .  ")' class='message-container' id='" . $row['message_id'] . "'>
-                    <div class='message-buttons-container' id='" . $row['message_id'] . "_ButtonContainer'>
-                        <div class='message-buttons-relative'>
-                            <button title='Reply to message' id='reply-message-button' onclick='replyToMessage(" . $row['message_id'] . ", $nickname)'></button>
-                            $moreButtons
+            // Gets information about user who sent the current message
+            $conn -> select_db("gamehub");
+            $stmt2 = $conn->prepare("SELECT * FROM users WHERE user_id = ?");
+            $stmt2->bind_param("s", $row['user_id']);
+            $stmt2->execute();
+            $result2 = $stmt2->get_result();
+            if($result2->num_rows === 0){
+                // If user doenst exist
+                echo "<div>
+                <div class='message-buttons-container'>
+                    <div class='message-buttons-relative'>
+                        <button title='Reply to message' id='reply-message-button'></button>
+                    </div>
+                </div>
+                $replyMessage
+                <div class='message-name-container'>
+                    <a href='#'>
+                        <div class='message-profilepic' style='background-image: url(./img/profile_pictures/defaultprofile.svg);'>
+                            <img src='./img/borders/defaultborder.webp'>
                         </div>
+                    </a>
+                    <h1 class='message-nickname'>Deleted User - <i>" . $row['timestamp'] . " $edited</i></h1>
+                </div>
+                <div class='message-content'>
+                    <p>$message</p>$br
+                    $mediaAttachment
+                </div>
+            </div>";
+            } else {
+                $row2 = mysqli_fetch_assoc($result2);
+                // Make message orange if its sent by you, and adds extra buttons on hover for deleting and editing message
+                if ($row['user_id'] == $_SESSION['user_id']) {
+                    $backgroundColor = "style='background-color: #FFCF8C;'";
+                    $moreButtons = "<button id='delete-message-button' title='Delete message' onclick='deleteMessage(" . $row['message_id'] . ")'></button>
+                                    <button id='edit-message-button' title='Edit message' onclick='editMessage(" . $row['message_id'] . ")'></button>";
+                } else {
+                    $backgroundColor = "";
+                    $moreButtons = "";
+                }
+
+                // Prepares nickname to put inside replyToMessage parameter
+                $nickname = '"' . $row2['nickname'] . '"';
+
+                // Outputs the message to the screen
+                echo "<div onmouseover='showMessageButtons(" . $row['message_id'] .  ")' onmouseout='hideMessageButtons(" . $row['message_id'] .  ")' class='message-container' id='" . $row['message_id'] . "'>
+                <div class='message-buttons-container' id='" . $row['message_id'] . "_ButtonContainer'>
+                    <div class='message-buttons-relative'>
+                        <button title='Reply to message' id='reply-message-button' onclick='replyToMessage(" . $row['message_id'] . ", $nickname)'></button>
+                        $moreButtons
                     </div>
-                    $replyMessage
-                    <div class='message-name-container'>
-                        <a href='#' onclick='displayUserProfile(" . $row2['user_id'] . ")'>
-                            <div class='message-profilepic' style='background-image: url(./img/profile_pictures/" . $row2['profile_picture'] . ");'>
-                                <img src='./img/borders/" . $row2['profile_border'] . "'>
-                            </div>
-                        </a>
-                        <h1 class='message-nickname'>" . $row2['nickname'] . " - <i>" . $row['timestamp'] . " $edited</i></h1>
-                    </div>
-                    <div class='message-content' $backgroundColor>
-                        <p>$message</p>$br
-                        $mediaAttachment
-                    </div>
-                </div>";
+                </div>
+                $replyMessage
+                <div class='message-name-container'>
+                    <a href='#' onclick='displayUserProfile(" . $row2['user_id'] . ")'>
+                        <div class='message-profilepic' style='background-image: url(./img/profile_pictures/" . $row2['profile_picture'] . ");'>
+                            <img src='./img/borders/" . $row2['profile_border'] . "'>
+                        </div>
+                    </a>
+                    <h1 class='message-nickname'>" . $row2['nickname'] . " - <i>" . $row['timestamp'] . " $edited</i></h1>
+                </div>
+                <div class='message-content' $backgroundColor>
+                    <p>$message</p>$br
+                    $mediaAttachment
+                </div>
+            </div>";
+            }
             end:
         }
     } else {
