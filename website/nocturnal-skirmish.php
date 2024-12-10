@@ -7,6 +7,9 @@
     <link rel="icon" type=".image/x-icon" href="./img/favicon.png">
     <style> <?php include "./css/universal.css" ?> </style>
     <style> <?php include "./css/nocskir-mainmenu.css" ?> </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body id="nocskir-body" onload="prepareSFX();">
     <div class="nocskir-slideshow">
@@ -58,6 +61,19 @@
     <div class="nocskir-slideshow-gradient">
         <img src="./img/Noc_Skir_Logo.svg" class="nocskir-center-logo" draggable="false">
     </div>
+
+    <div class="neon-button-container">
+        <div>
+        <a href="#" class="neon-button">Play</a>
+        </div>
+        <div>
+        <a href="#" class="neon-button">Inventory</a>
+        </div>
+        <div>
+        <a href="#" class="neon-button">Options</a>
+        </div>
+    </div>
+
     <div class="nocskir-buttons-container">
         <button class="nocskir-backtohub-button" onclick="window.location.href = 'hub.php'" title="Back to Hub">Back to Hub</button>
     </div>
