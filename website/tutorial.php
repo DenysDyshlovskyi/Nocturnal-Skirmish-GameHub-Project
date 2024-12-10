@@ -18,8 +18,8 @@
         <button id="accepting_friends" title="Accepting pending friend requests" onclick="ajaxGet('./spa/tutorial/accepting_friends.php', 'tutorial-article-container', 'no_sfx');">3.1 - Accepting pending friend requests</button>
         <button id="removing_friends" title="Removing friends" onclick="ajaxGet('./spa/tutorial/removing_friends.php', 'tutorial-article-container', 'no_sfx');">3.2 - Removing friends</button>
         <button id="creating_chats" title="Creating chats" onclick="ajaxGet('./spa/tutorial/creating_chats.php', 'tutorial-article-container', 'no_sfx');">4 - Creating chats</button>
-        <button title="Creating groupchats">4.1 - Creating groupchats</button>
-        <button title="Customizing groupchats">4.2 - Customizing groupchats</button>
+        <button id="creating_groupchats" title="Creating groupchats" onclick="ajaxGet('./spa/tutorial/creating_groupchats.php', 'tutorial-article-container', 'no_sfx');">4.1 - Creating groupchats</button>
+        <button id="customizing_groupchats" title="Customizing groupchats" onclick="ajaxGet('./spa/tutorial/customizing_groupchats.php', 'tutorial-article-container', 'no_sfx');">4.2 - Customizing groupchats</button>
         <button title="Adding friends to groupchat">4.3 - Adding friends to groupchat</button>
         <button title="Using the public chat">4.4 - Using the public chat</button>
         <button title="Navigating the shop">5 - Navigating the shop</button>
