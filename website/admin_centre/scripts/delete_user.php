@@ -56,6 +56,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bind_param("s", $user_id);
         $stmt->execute();
 
+        // banned
+        $stmt = $conn->prepare("DELETE FROM banned WHERE user_id = ?");
+        $stmt->bind_param("s", $user_id);
+        $stmt->execute();
+
+        // kick
+        $stmt = $conn->prepare("DELETE FROM kick WHERE user_id = ?");
+        $stmt->bind_param("s", $user_id);
+        $stmt->execute();
+
+        // Archive every two user chat they were in
+        $stmt = $conn->prepare("SELECT * FROM chats WHERE user_id = ? AND type = 'two_user'");
+        $stmt->bind_param("s", $user_id);
+        $stmt->execute();
+
         //Redirect to dashboard
         header("Location: ../dashboard.php?userdeleted=$user_id");
         exit;

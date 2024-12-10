@@ -24,6 +24,5 @@ if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] != 1) {
         <input type="text" placeholder="Type in password.">
         <button></button>
     </div>
-    
 </body>
 </html>
