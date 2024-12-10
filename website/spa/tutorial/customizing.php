@@ -19,16 +19,18 @@
     <br>
     <img src="./img/tutorial/my_account.png">
     <br>
-    <p>Lets start with changing your profile picture. You can do this by clicking on your profile picture, uploading a jpg or png image, cropping it and saving it.</p>
+    <p>Lets start with changing your profile picture. You can do this by clicking on your profile picture, uploading a .jpg or .png image, cropping it and saving it.
+        The same can be done with your banner, by clicking the "Change banner" button.
+    </p>
     <br>
     <img src="./img/tutorial/changing_profilepic.gif">
     <br>
     <p>To change your description, simply click on the description text field, edit it, and click the green "Save" button.</p>
     <br>
-    <img src="">
+    <img src="./img/tutorial/change_desc.gif">
     <br>
     <p>Changing other details like your email, password and nickname, can be done further down on the page in text boxes, like shown below:</p>
     <br>
-    <img src="">
+    <img src="./img/tutorial/change_other.gif">
     <br>
 </article>
