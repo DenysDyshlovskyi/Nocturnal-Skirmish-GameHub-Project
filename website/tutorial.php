@@ -13,9 +13,10 @@
         <div class="tutorial-sidebar-headline">GameHub</div>
         <button id="getting-started" title="Getting started" onclick="ajaxGet('./spa/tutorial/getting-started.php', 'tutorial-article-container', 'no_sfx');">1 - Getting started</button>
         <button id="customizing" title="Customizing your profile" onclick="ajaxGet('./spa/tutorial/customizing.php', 'tutorial-article-container', 'no_sfx');">2 - Customizing your profile</button>
-        <button title="Choosing your settings">2.1 - Choosing your settings</button>
-        <button title="Adding Friends">3 - Adding Friends</button>
-        <button title="Accepting pending friend requests">3.1 - Accepting pending friend requests</button>
+        <button id="choosing_settings" title="Choosing your settings" onclick="ajaxGet('./spa/tutorial/choosing_settings.php', 'tutorial-article-container', 'no_sfx');">2.1 - Choosing your settings</button>
+        <button id="adding_friends" title="Adding Friends" onclick="ajaxGet('./spa/tutorial/adding_friends.php', 'tutorial-article-container', 'no_sfx');">3 - Adding Friends</button>
+        <button id="accepting_friends" title="Accepting pending friend requests" onclick="ajaxGet('./spa/tutorial/accepting_friends.php', 'tutorial-article-container', 'no_sfx');">3.1 - Accepting pending friend requests</button>
+        <button id="removing_friends" title="Removing friends" onclick="ajaxGet('./spa/tutorial/removing_friends.php', 'tutorial-article-container', 'no_sfx');">3.2 - Removing friends</button>
         <button title="Creating chats">4 - Creating chats</button>
         <button title="Creating groupchats">4.1 - Creating groupchats</button>
         <button title="Customizing groupchats">4.2 - Customizing groupchats</button>

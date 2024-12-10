@@ -8,7 +8,7 @@
     <h1>Customizing your profile</h1>
     <p>
         Now that you have created your account you can customize your profile. You do this in the User Settings.
-        The user settings can be accessed by clicking the cogwheel on the main hub.
+        The user settings can be accessed by clicking the <b>cogwheel</b> on the main hub.
     </p>
     <br>
     <img src="./img/tutorial/settings_pointer.png">
@@ -19,13 +19,13 @@
     <br>
     <img src="./img/tutorial/my_account.png">
     <br>
-    <p>Lets start with changing your profile picture. You can do this by clicking on your profile picture, uploading a .jpg or .png image, cropping it and saving it.
-        The same can be done with your banner, by clicking the "Change banner" button.
+    <p>Lets start with changing your profile picture. You can do this by clicking on your <b>profile picture</b>, uploading a .jpg or .png image, cropping it and saving it.
+        The same can be done with your banner, by clicking the <b>"Change banner"</b> button.
     </p>
     <br>
     <img src="./img/tutorial/changing_profilepic.gif">
     <br>
-    <p>To change your description, simply click on the description text field, edit it, and click the green "Save" button.</p>
+    <p>To change your description, simply click on the <b>description text field</b>, edit it, and click the green <b>"Save"</b> button.</p>
     <br>
     <img src="./img/tutorial/change_desc.gif">
     <br>

@@ -8,7 +8,7 @@
     <h1>Getting started</h1>
     <p>
         Hello, and welcome to GameHub & Nocturnal Skirmish! In this tutorial, we are going to show you how to get started.
-        The first thing you need to do is to create an account. To do this, head to the login page and click the "Create account" link
+        The first thing you need to do is to create an account. To do this, head to the login page and click the <b>"Create account"</b> link
         or click <a href="create_account.php" target="_blank">this link.</a>
     </p>
     <br>
