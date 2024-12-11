@@ -20,8 +20,9 @@
         <button id="creating_chats" title="Creating chats" onclick="ajaxGet('./spa/tutorial/creating_chats.php', 'tutorial-article-container', 'no_sfx');">4 - Creating chats</button>
         <button id="creating_groupchats" title="Creating groupchats" onclick="ajaxGet('./spa/tutorial/creating_groupchats.php', 'tutorial-article-container', 'no_sfx');">4.1 - Creating groupchats</button>
         <button id="customizing_groupchats" title="Customizing groupchats" onclick="ajaxGet('./spa/tutorial/customizing_groupchats.php', 'tutorial-article-container', 'no_sfx');">4.2 - Customizing groupchats</button>
-        <button title="Adding friends to groupchat">4.3 - Adding friends to groupchat</button>
-        <button title="Using the public chat">4.4 - Using the public chat</button>
+        <button id="adding_to_groupchat" title="Adding friends to groupchat" onclick="ajaxGet('./spa/tutorial/adding_to_groupchat.php', 'tutorial-article-container', 'no_sfx');">4.3 - Adding friends to groupchat</button>
+        <button id="leaving_groupchat" title="Leaving groupchat" onclick="ajaxGet('./spa/tutorial/leaving_groupchat.php', 'tutorial-article-container', 'no_sfx');">4.4 - Leaving groupchat</button>
+        <button id="public_chat" title="Using public chat" onclick="ajaxGet('./spa/tutorial/public_chat.php', 'tutorial-article-container', 'no_sfx');">4.5 - Using public chat</button>
         <button title="Navigating the shop">5 - Navigating the shop</button>
         <button title="Redeeming codes & socials">6 - Redeeming codes & socials</button>
         <button title="What to do next">7 - What to do next</button>
