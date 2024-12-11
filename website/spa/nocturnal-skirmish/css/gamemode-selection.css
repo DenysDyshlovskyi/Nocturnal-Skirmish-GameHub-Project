@@ -1,0 +1,67 @@
+/* Stylesheet for gamemode selection */
+
+#dark-container {
+    background-color: transparent;
+}
+
+.gamemode-selection-menu-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.gamemode-selection-menu-header {
+    width: 20%;
+    height: 7%;
+    background-color: #9e9e9e;
+    border: #ffae00 3px solid;
+    box-shadow: #FFAE00 0px 0px 3em;
+    position: absolute;
+    z-index: 1;
+    top: 16%;
+    font-family: "Silkscreen", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#gamemode-selection-menu-header-text {
+    font-size: 1.5em;
+}
+
+.gamemode-selection-menu {
+    width: 80%;
+    height: 60%;
+    background-color: #9e9e9e4b;
+    border: #ffae00 3px solid;
+    backdrop-filter: blur(5px);
+    box-shadow: #FFAE00 0px 0px 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+
+.gamemode-selection-menu-gamemode-box {
+    width: 30%;
+    height: 45%;
+    background-color: #9e9e9e;
+}
+
+#gamemode-selection-menu-close-button {
+    position: absolute;
+    z-index: 1;
+    bottom: 18.5%;
+    width: 6%;
+    height: 4%;
+    background-color: #9e9e9e;
+    border: #ffae00 3px solid;
+    box-shadow: #FFAE00 0px 0px 3em;
+    font-family: "Silkscreen", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100%;
+}

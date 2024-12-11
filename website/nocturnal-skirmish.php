@@ -9,9 +9,11 @@
     <style> <?php include "./css/nocskir-mainmenu.css" ?> </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body id="nocskir-body" onload="prepareSFX();">
+<div id="dark-container" class="dark-container"></div>
     <div class="nocskir-slideshow">
         <div class="nocskir-slideshow-items">
             <img src="./img/cards/AncientSpirit_Card.webp" class="nocskir-slideshow-img">
@@ -64,7 +66,7 @@
 
     <div class="neon-button-container">
         <div>
-        <a href="#" class="neon-button">Play</a>
+        <a href="#" class="neon-button" onclick="ajaxGet('./spa/nocturnal-skirmish/gamemode_selection.php', 'dark-container')">Play</a>
         </div>
         <div>
         <a href="#" class="neon-button">Inventory</a>
