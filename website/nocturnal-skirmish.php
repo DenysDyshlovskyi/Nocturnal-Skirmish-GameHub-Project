@@ -78,10 +78,7 @@
         <a href="#" class="neon-button">Options</a>
         </div>
     </div>
-
-    <div class="nocskir-buttons-container">
-        <button class="nocskir-backtohub-button" onclick="window.location.href = 'hub.php'" title="Back to Hub">Back to Hub</button>
-    </div>
+    <button class="nocskir-backtohub-button" onclick="window.location.href = 'hub.php'" title="Back to Hub"></button>
 </body>
 <script><?php include "./js/script.js" ?></script>
 <!-- Autolooping audio background music (works only if user allows it) -->

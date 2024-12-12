@@ -83,35 +83,28 @@
     animation: 1s logofade ease-out;
 }
 
-.nocskir-buttons-container {
-    width: 100%;
-    height: calc(100vh - 410px);
-}
-
 .nocskir-backtohub-button {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: fit-content;
-    height: fit-content;
-    padding: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 35px;
+    background-image: url(./img/icons/arrow-left.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: none;
     cursor: pointer;
-    font-family: "Afacad Flux", "sans-serif";
-    border: 2px solid white;
-    border-radius: 5px;
-    color: white;
     background-color: transparent;
-    font-size: 25px;
-    font-weight: 600;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-shadow: 0 0 5px #fff;
+    border: #ffffff 3px solid;
+    margin: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
 }
 
 .nocskir-backtohub-button:hover {
-    color: black;
-    background-color: white;
+    border: #ffae00 3px solid;
+    box-shadow: #FFAE00 0px 0px 3em;
 }
 
 /*neon button*/
