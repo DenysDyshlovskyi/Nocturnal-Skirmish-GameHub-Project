@@ -20,7 +20,7 @@ if (!isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameHub</title>
+    <title>GameHub & Nocturnal Skirmish - Main Hub</title>
     <link rel="icon" type=".image/x-icon" href="./img/favicon.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <style> <?php include "./css/universal.css" ?> </style>
@@ -66,7 +66,7 @@ if (!isset($_SESSION['user_id'])) {
     <div class="main-menu-middle-ui-container">
         <div class="main-menu-middle-ui"
             style="display: flex; justify-content: center; flex-direction: column; align-items: center; gap: 20px;">
-            <h1 class="title-text">GameHub™</h1>
+            <h1 class="title-text">GameHub</h1>
             <div class="menu-selection-buttons">
                 <button onclick="window.location.href = 'nocturnal-skirmish.php'" class="play-button">Play <img style="width: 30%;" src="img/Noc_Skir_Logo.svg" alt="Logo"></button>
                 <br>
@@ -131,7 +131,7 @@ if (!isset($_SESSION['user_id'])) {
     <!-- Footer container with trademark text and live player count -->
     <footer>
         <a class="report-errors-link" href="error_report.php">Report errors</a>
-        <p class="footer-tm-text">GameHub™ 2024</p>
+        <p class="footer-tm-text">GameHub 2024</p>
         <p class="player-live-count-text" id="players-live-count"></p>
     </footer>
     <!-- /HUB2-IMPORT -->

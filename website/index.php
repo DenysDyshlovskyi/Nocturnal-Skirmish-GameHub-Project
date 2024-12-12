@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameHub - Log in</title>
+    <title>GameHub & Nocturnal Skirmish - Log in</title>
     <link rel="icon" type=".image/x-icon" href="./img/favicon.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <style> <?php include "./css/login-page.css" ?> </style>

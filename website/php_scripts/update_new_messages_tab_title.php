@@ -28,7 +28,7 @@ if ($totalNewMessages > 0) {
     if ($totalNewMessages > 100) {
         $totalNewMessages = "99+";
     }
-    echo "GameHub - Messages (" . $totalNewMessages . ")";
+    echo "GameHub & Nocturnal Skirmish - Messages (" . $totalNewMessages . ")";
 } else {
-    echo "GameHub - Messages";
+    echo "GameHub & Nocturnal Skirmish - Messages";
 }

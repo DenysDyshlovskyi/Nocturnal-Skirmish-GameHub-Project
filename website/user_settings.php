@@ -14,7 +14,7 @@ if (!isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameHub - User settings</title>
+    <title>GameHub & Nocturnal Skirmish - User settings</title>
     <link rel="icon" type=".image/x-icon" href="./img/favicon.png">
     <link rel="icon" type=".image/x-icon" href="./img/favicon.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -46,7 +46,7 @@ if (!isset($_SESSION['user_id'])) {
     </div>
     <footer>
     <a class="report-errors-link" href="error_report.php">Report errors</a>
-        <p class="footer-tm-text">GameHub™ 2024</p>
+        <p class="footer-tm-text">GameHub 2024</p>
         <p class="player-live-count-text" id="players-live-count"></p>
     </footer>
     <!-- div to target with jQuery when nothing should be displayed -->

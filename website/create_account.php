@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameHub - Create account</title>
+    <title>GameHub & Nocturnal Skirmish - Create account</title>
     <link rel="icon" type=".image/x-icon" href="./img/favicon.png">
     <style> <?php include "./css/universal.css" ?> </style>
     <style> <?php include "./css/create-account-page.css" ?> </style>

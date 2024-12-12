@@ -17,7 +17,7 @@ if (!isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="tab-title"><?php include "./php_scripts/update_new_messages_tab_title.php" ?></title>
+    <title id="tab-title">GameHub & Nocturnal Skirmish - Messages</title>
     <link rel="icon" type=".image/x-icon" href="./img/favicon.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="./lib/LC-emoji-picker-master/lc_emoji_picker.min.js"></script>
@@ -28,7 +28,7 @@ if (!isset($_SESSION['user_id'])) {
     <style> <?php include "./css/universal.css" ?> </style>
     <style> <?php include "./css/messages.css" ?> </style>
 </head>
-<body id="messages-body" onload="prepareSFX(); ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx'); isKicked(); scrollToBottom();">
+<body id="messages-body" onload="prepareSFX(); ajaxGet('./php_scripts/update_login_time.php', 'players-live-count', 'no_sfx'); isKicked(); scrollToBottom(); ajaxGet('./php_scripts/update_new_messages_tab_title.php', 'tab-title', 'no_sfx');">
 <div id="dark-container" class="dark-container"></div>
 <div class="confirmation-popup" id="confirmContainer"></div>
     <div class="messages-content-container">
@@ -89,7 +89,7 @@ if (!isset($_SESSION['user_id'])) {
     
     <footer>
     <a class="report-errors-link" href="error_report.php">Report errors</a>
-        <p class="footer-tm-text">GameHub™ 2024</p>
+        <p class="footer-tm-text">GameHub 2024</p>
         <p class="player-live-count-text" id="players-live-count"></p>
     </footer>
     <audio autoplay loop style="display: none;" id="musicAudio">
