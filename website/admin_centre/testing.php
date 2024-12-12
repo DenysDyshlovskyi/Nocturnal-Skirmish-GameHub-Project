@@ -13,7 +13,7 @@ if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] != 1) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameHub - Testing page</title>
+    <title>GameHub & Nocturnal Skirmish - Testing page</title>
     <link rel="icon" type=".image/x-icon" href="../img/favicon.png">
     <style> <?php include "../css/universal.css" ?> </style>
     <style> <?php include "./css/testing.css" ?> </style>

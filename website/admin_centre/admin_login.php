@@ -20,7 +20,7 @@ if (isset($_GET['error'])) {
     <style> <?php include "../css/universal.css" ?> </style>
     <style> <?php include "./css/admin-login.css" ?> </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <title>GameHub - Login as admin</title>
+    <title>GameHub & Nocturnal Skirmish - Login as admin</title>
 </head>
 <body>
     <div class="admin-logon-container">
