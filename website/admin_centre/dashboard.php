@@ -19,7 +19,7 @@ if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] != 1) {
     <style> <?php include "./css/dashboard.css" ?> </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
-<body onload="ajaxGet('./scripts/load_online_count.php', 'dashboard-player-online');">
+<body onload="ajaxGet('./scripts/load_online_count.php', 'dashboard-player-online'); errorReportsSearch('')">
     <?php
     if (isset($_GET['userdeleted'])) {
         echo "<div id='message-container'>User deleted. uID: " . $_GET['userdeleted'] . ". Cleanup recommended.</div>";
@@ -42,6 +42,16 @@ if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] != 1) {
     <div class="content">
         <form action="display_profile.php" method="POST" id="display-profile-form"></form>
         <div class="scroll-container">
+            <div class="error-reports-container">
+                <h1 class="error-reports-container-h1">Error reports</h1>
+                <input type="text" placeholder="Search by category, ip, user id or date" id="user-search-input" onkeyup="errorReportsSearch(this.value)">
+                <div class="error-reports-table-container">
+                    <table>
+                        <tbody id="error-reports-tbody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             <div class="dashboard-chat-list">
                 <h1 class="dashboard-chat-list-h1">Chat List</h1>
                 <input type="text" placeholder="Search by username, nickname, groupchat name, user id or tablename" id="user-search-input" onkeyup="adminChatSearch(this.value)">

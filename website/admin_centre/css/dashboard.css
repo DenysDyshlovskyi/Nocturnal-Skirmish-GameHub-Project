@@ -380,3 +380,44 @@ td {
     overflow: hidden;
     text-align: left;
 }
+
+.error-reports-container {
+    width: 800px;
+    min-width: 800px;
+    height: calc(100vh - 160px);
+    padding: 15px;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    position: relative;
+    display: inline-block;
+}
+
+.error-reports-container-h1 {
+    font-family: "Afacad Flux", "sans-serif";
+    font-size: 30px;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.error-reports-table-container {
+    width: calc(100% - 20px);
+    background-color: #D9D9D9;
+    padding: 10px;
+    border-radius: 5px;
+    height: calc(100% - 120px);
+    margin-top: 15px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.error-reports-table-container table {
+    font-family: "Afacad Flux", "sans-serif";
+    width: 100%;
+}
+
+.error-details-container {
+    max-width: 100%;
+    text-wrap: wrap;
+}

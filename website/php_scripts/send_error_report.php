@@ -6,8 +6,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $unix_timestamp = time();
 
     // See if user has already sent an error report in the last 15 minutes
-    $stmt = $conn->prepare("SELECT * FROM error_reports WHERE ip = ? AND unix_timestamp > ?");
-    $stmt->bind_param("ss", $ip, $unix_timestamp);
+    $stmt = $conn->prepare("SELECT * FROM error_reports WHERE ip = ? AND unix_timestamp > ? OR user_id = ? AND unix_timestamp > ?");
+    $stmt->bind_param("ssss", $ip, $unix_timestamp, $_SESSION['user_id'], $unix_timestamp);
     $stmt->execute();
     $result = $stmt->get_result();
     if ((mysqli_num_rows($result) > 0)) {

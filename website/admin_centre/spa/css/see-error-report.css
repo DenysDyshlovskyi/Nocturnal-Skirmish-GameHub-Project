@@ -1,0 +1,85 @@
+/* Stylesheet for viewing error report */
+
+.error-report-container {
+    width: 1000px;
+    height: fit-content;
+    max-height: 500px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 15px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.error-report-headline {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 15px;
+    font-family: "Afacad Flux", "sans-serif";
+}
+
+.error-report-details {
+    width: fit-content;
+    height: fit-content;
+    margin-bottom: 10px;
+}
+
+.error-report-details p{
+    font-style: italic;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 5px;
+    font-family: "Afacad Flux", "sans-serif";
+    font-size: 20px;
+}
+
+.username-container {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    font-family: "Afacad Flux", "sans-serif";
+    font-size: 20px;
+    text-wrap: nowrap;
+}
+
+.error-report-profilepic {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90% 90%;
+    margin-right: 5px;
+}
+
+.error-report-profilepic img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.error-report-article h1 {
+    font-family: "Afacad Flux", "sans-serif";
+    padding: 0;
+    margin: 0;
+}
+
+.error-report-article p {
+    margin: 0;
+    padding: 0;
+    font-family: "Afacad Flux", "sans-serif";
+    font-size: 20px;
+}
+
+.error-report-article img{
+    max-width: 300px;
+    height: fit-content;
+}

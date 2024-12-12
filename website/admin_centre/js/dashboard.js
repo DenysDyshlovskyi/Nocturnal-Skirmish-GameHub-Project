@@ -83,6 +83,7 @@ function adminChatSearch(search) {
     }
 }
 
+// displays chat when see chat button is pressed
 function adminSeeChat(tablename) {
     $.ajax({
         type: "POST",
@@ -90,6 +91,42 @@ function adminSeeChat(tablename) {
         data:{ tablename : tablename }, 
         success: function(){
             ajaxGet("./spa/see_chat.php", "dark-container");
+        }
+    })
+}
+
+// Searched through error reports table
+function errorReportsSearch(search) {
+    var tbody = document.getElementById("error-reports-tbody");
+
+    $.ajax({
+        type: "POST",
+        url: './scripts/search_error_reports.php',
+        data:{ search : search }, 
+        success: function(response){
+            if (response == "none") {
+                tbody.innerHTML = "No results found containing '" + search + "'";
+            } else {
+                tbody.innerHTML = response;
+            }
+        },
+        error: function(xhr, status, error) {
+            tbody.innerHTML = "<div class='error-details-container'>Error details:\n" +
+                                "Status: " + status + "\n" +
+                                "Error: " + error + "\n" +
+                                "Response Text: " + xhr.responseText + "</div>"
+        }
+    })
+}
+
+// views error report
+function viewErrorReport(error_id) {
+    $.ajax({
+        type: "POST",
+        url: './scripts/set_errorreport_id.php',
+        data:{ error_id : error_id }, 
+        success: function(){
+            ajaxGet("./spa/see_error_report.php", "dark-container");
         }
     })
 }
