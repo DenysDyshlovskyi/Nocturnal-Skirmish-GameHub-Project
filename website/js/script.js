@@ -32,6 +32,22 @@ function checkPendingAmount() {
     })
 }
 
+// Configures flickty
+function configureFlickity() {
+    var elem = document.querySelector('.main-carousel');
+    var flkty = new Flickity( elem, {
+        // options
+        cellAlign: 'center',
+        contain: true,
+        wrapAround: true
+    });
+        // element argument can be a selector string
+        //   for an individual element
+        var flkty = new Flickity( '.main-carousel', {
+        // options
+    });
+}
+
 // GET request with ajax
 function ajaxGet(phpFile, changeID, onLoad){
     const xhttp = new XMLHttpRequest();
@@ -59,6 +75,8 @@ function ajaxGet(phpFile, changeID, onLoad){
                 configureCropperJSGroupchat();
             } else if (onLoad == "resize_groupchat_input") {
                 resizeGroupchatInput();
+            } else if (onLoad == "flickity") {
+                setTimeout(configureFlickity, 100);
             }
         }
 

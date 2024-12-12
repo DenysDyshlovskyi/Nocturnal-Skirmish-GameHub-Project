@@ -1,67 +1,99 @@
-/* Stylesheet for gamemode selection */
-
-#dark-container {
-    background-color: transparent;
-}
-
 .gamemode-selection-menu-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-}
-
-.gamemode-selection-menu-header {
-    width: 20%;
-    height: 7%;
-    background-color: #9e9e9e;
-    border: #ffae00 3px solid;
-    box-shadow: #FFAE00 0px 0px 3em;
-    position: absolute;
-    z-index: 1;
-    top: 16%;
-    font-family: "Silkscreen", sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#gamemode-selection-menu-header-text {
-    font-size: 1.5em;
-}
-
-.gamemode-selection-menu {
-    width: 80%;
-    height: 60%;
+    width: calc(100% - 300px);
+    height: 70vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     background-color: #9e9e9e4b;
     border: #ffae00 3px solid;
     backdrop-filter: blur(5px);
     box-shadow: #FFAE00 0px 0px 3em;
     display: flex;
+    align-items: center;
+}
+
+.gamemode-selection-header-container {
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.gamemode-selection-header {
+    height: 50px;
+    width: 200px;
+    position: relative;
+    bottom: 25px;
+    background-color: #9e9e9e;
+    border: #ffae00 3px solid;
+    box-shadow: #FFAE00 0px 0px 3em;
+    display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2em;
+    font-family: "Silkscreen", sans-serif;
 }
 
-.gamemode-selection-menu-gamemode-box {
-    width: 30%;
-    height: 45%;
-    background-color: #9e9e9e;
-}
-
-#gamemode-selection-menu-close-button {
+.gamemode-selection-close-container {
+    width: 100%;
     position: absolute;
-    z-index: 1;
-    bottom: 18.5%;
-    width: 6%;
-    height: 4%;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    height: 30px;
+}
+
+.gamemode-selection-close-container button {
+    width: 100px;
+    height: 30px;
+    position: relative;
+    top: 15px;
     background-color: #9e9e9e;
     border: #ffae00 3px solid;
     box-shadow: #FFAE00 0px 0px 3em;
     font-family: "Silkscreen", sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 100%;
+    cursor: pointer;
 }
+
+.gamemode-selection-close-container button:hover {
+    background-color: #ffae00;
+    color: white;
+}
+
+.flickity-container {
+    width: 100%;
+    height: 330px;
+    max-height: calc(100% - 50px);
+}
+
+* { box-sizing: border-box; }
+
+body { font-family: sans-serif; }
+
+.main-carousel {
+  background-color: transparent;
+  height: 100%;
+}
+
+.carousel-cell {
+  width: 40%;
+  margin-top: 30px;
+  min-height: 270px;
+  margin-right: 10px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 5px;
+  counter-increment: carousel-cell;
+  filter: blur(5px);
+  color: white;
+}
+
+.is-selected {
+    filter: blur(0px);
+    border: #ffae00 3px solid;
+    box-shadow: #FFAE00 0px 0px 1em;
+}
+
+/* cell number */

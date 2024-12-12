@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./lib/flickity/flickity.min.css">
+    <link rel="stylesheet" href="./lib/flickity/flickity.css" media="screen">
+    <script src="./lib/flickity/flickity.pkgd.min.js"></script>
 </head>
 <body id="nocskir-body" onload="prepareSFX();">
 <div id="dark-container" class="dark-container"></div>
@@ -66,7 +69,7 @@
 
     <div class="neon-button-container">
         <div>
-        <a href="#" class="neon-button" onclick="ajaxGet('./spa/nocturnal-skirmish/gamemode_selection.php', 'dark-container')">Play</a>
+        <a href="#" class="neon-button" onclick="ajaxGet('./spa/nocturnal-skirmish/gamemode_selection.php', 'dark-container', 'flickity')">Play</a>
         </div>
         <div>
         <a href="#" class="neon-button">Inventory</a>
@@ -94,3 +97,4 @@
         <source src="audio/sfx/click1.mp3" type="audio/mpeg">
     </audio>
 </html>
+<script><?php include "./lib/flickity/flickity.pkgd.js" ?></script>
