@@ -1,0 +1,192 @@
+/* Stylesheet for error report page */
+
+.error-report-container {
+    width: calc(100% - 60px);
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 15px;
+    height: fit-content;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.error-report-container h1 {
+    font-family: "Afacad Flux", "sans-serif";
+    font-weight: 600;
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.headline-divider {
+    width: 100%;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.353);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.error-report-container p {
+    font-family: "Afacad Flux", "sans-serif";
+    font-weight: 400;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+select {
+    margin-top: 5px;
+    width: 400px;
+    height: 40px;
+    font-family: "Afacad Flux", "sans-serif";
+    font-size: 20px;
+}
+
+option {
+    font-size: 20px;
+}
+
+#what-happened {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.textarea-container {
+    max-width: 100%;
+    width: 505px;
+    height: 200px;
+    border-radius: 5px;
+    border: solid 1px black;
+    position: relative;
+}
+
+textarea {
+    font-family: "Afacad Flux", "sans-serif";
+    resize: none;
+    width: calc(100% - 7px);
+    height: calc(100% - 30px);
+    border: none;
+    background-color: transparent;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+#textarea-lenght-counter {
+    width: calc(100% - 10px);
+    background-color: transparent;
+    text-align: right;
+    font-family: "Afacad Flux", "sans-serif";
+    color: rgba(0, 0, 0, 0.455);
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    height: 25px;
+    margin-right: 5px;
+}
+
+form {
+    width: 100%;
+}
+
+.category-details {
+    width: fit-content;
+    max-width: 500px;
+    text-wrap: wrap;
+    padding: 10px;
+    height: fit-content;
+    background-color: #cecece;
+    border: solid 1px black;
+    border-radius: 7px;
+    margin-top: 10px;
+    font-family: "Afacad Flux", "sans-serif";
+    display: none;
+}
+
+#provide_screenshot {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.screenshot-preview-container {
+    width: fit-content;
+    min-height: 200px;
+    max-width: 400px;
+    max-height: 400px;
+    padding: 25px;
+    border-radius: 15px;
+    background-color: #A1A1A1;
+    border: solid 1px black;
+    position: relative;
+    display: none;
+}
+
+.screenshot-preview-container img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.cancel-screenshot-button {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-image: url(./img/icons/x-red.svg);
+    opacity: 0.5;
+    z-index: 999;
+    background-color: transparent;
+}
+
+.cancel-screenshot-button:hover {
+    opacity: 1;
+}
+
+#screenshot-input {
+    margin-top: 15px;
+}
+
+.backtohub-button {
+    width: 140px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #D9D9D9;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 23px;
+    margin-right: 30px;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+.backtohub-button:hover {
+    background-color: #868686;
+}
+
+.submit-error-report-button {
+    width: 180px;
+    height: 50px;
+    border: #4A88FF solid 3px;
+    color: #4A88FF;
+    background-color: white;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.submit-error-report-button:hover {
+    background-color: #4A88FF;
+    color: white;
+}

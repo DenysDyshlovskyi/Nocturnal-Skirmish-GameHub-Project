@@ -110,6 +110,19 @@ CREATE TABLE visits (
     amount int
 );
 
+CREATE TABLE error_reports (
+    id int NOT NULL AUTO_INCREMENT,
+    user_id int,
+    ip varchar(64),
+    timestamp varchar(64),
+    category varchar(32),
+    what_happened varchar(500),
+    screenshot varchar(64),
+    unix_timestamp int,
+    PRIMARY KEY (id)
+);
+
+
 CREATE DATABASE IF NOT EXISTS gamehub_messages;
 
 USE gamehub_messages;

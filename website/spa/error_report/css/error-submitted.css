@@ -1,0 +1,43 @@
+/* Stylesheet for "error submitted!" page */
+
+.error-submitted-container {
+    width: fit-content;
+    height: fit-content;
+    padding: 15px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.error-submitted-container h1 {
+    font-size: 30px;
+    font-family: "Afacad Flux", "sans-serif";
+    font-weight: 600;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.error-submitted-container button {
+    width: 160px;
+    height: 50px;
+    border: #4A88FF solid 3px;
+    color: #4A88FF;
+    background-color: white;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.error-submitted-container button:hover {
+    background-color: #4A88FF;
+    color: white;
+}

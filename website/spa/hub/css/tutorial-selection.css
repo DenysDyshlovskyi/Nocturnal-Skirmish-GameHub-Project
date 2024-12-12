@@ -139,3 +139,21 @@
     font-family: "Afacad Flux", "sans-serif";
     text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
+
+.coming-soon-filler {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    cursor: not-allowed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Afacad Flux", "sans-serif";
+    font-size: 40px;
+    font-weight: 600;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+}

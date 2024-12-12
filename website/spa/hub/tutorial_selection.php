@@ -13,6 +13,7 @@
             <img src="./img/Noc_Skir_Logo.svg">
         </button>
         <button title="Nocturnal Skirmish: How to battle" class="selection-nocturnal">
+            <div class="coming-soon-filler">Coming soon!</div>
             <div class="selection-text-box">
                 <p>Nocturnal Skirmish:<br>How to battle</p>
             </div>
