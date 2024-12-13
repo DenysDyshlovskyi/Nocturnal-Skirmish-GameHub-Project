@@ -24,8 +24,8 @@
         <button id="leaving_groupchat" title="Leaving groupchat" onclick="ajaxGet('./spa/tutorial/leaving_groupchat.php', 'tutorial-article-container', 'no_sfx');">4.4 - Leaving groupchat</button>
         <button id="public_chat" title="Using public chat" onclick="ajaxGet('./spa/tutorial/public_chat.php', 'tutorial-article-container', 'no_sfx');">4.5 - Using public chat</button>
         <button id="navigating_shop" title="Navigating the shop" onclick="ajaxGet('./spa/tutorial/navigating_shop.php', 'tutorial-article-container', 'no_sfx');">5 - Navigating the shop</button>
-        <button title="Redeeming codes & socials">6 - Redeeming codes & socials</button>
-        <button title="What to do next">7 - What to do next</button>
+        <button id="redeeming_codes" title="Redeeming codes & socials" onclick="ajaxGet('./spa/tutorial/redeeming_codes.php', 'tutorial-article-container', 'no_sfx');">6 - Redeeming codes & socials</button>
+        <button id="what_next" title="What to do next" onclick="ajaxGet('./spa/tutorial/what_next.php', 'tutorial-article-container', 'no_sfx');">7 - What to do next</button>
     </div>
     <div id="tutorial-article-container" class="tutorial-article-container">
 
