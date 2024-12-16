@@ -240,6 +240,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             header("Location: ../../phpMyAdmin/index.php");
         } else if (isset($_POST['testing'])) {
             header("Location: ../testing.php");
+        } else if (isset($_POST['server_settings'])) {
+            header("Location: ../server_settings.php");
         }
     }
 } else {
