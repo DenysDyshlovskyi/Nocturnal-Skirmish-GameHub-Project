@@ -123,6 +123,7 @@
 .hub-add-friends-pending-profile-text-container h1{
     margin: 0;
     padding: 0;
+    text-wrap: nowrap;
 }
 
 .hub-add-friends-pending-profile-text-container-line {
