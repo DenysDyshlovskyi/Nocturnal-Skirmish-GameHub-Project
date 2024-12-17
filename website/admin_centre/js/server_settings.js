@@ -27,7 +27,9 @@ const cpu_config = {
     },
     scales: {
         y: {
-            beginAtZero: true
+            beginAtZero: true,
+            min: 0,
+            max: 100,
         },
         x: {
             display: false,
