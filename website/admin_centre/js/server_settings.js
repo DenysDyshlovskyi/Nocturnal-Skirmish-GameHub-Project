@@ -97,8 +97,9 @@ function loadCharts() {
         document.getElementById("cpu-current-p").innerHTML = "CPU | Current usage: " + usage + "%"
     });
     $.get("./scripts/get_ram_usage.php", function(usage){
-        addData(ramChart, 'GB', usage);
-        document.getElementById("ram-current-p").innerHTML = "RAM | Current usage: " + usage + "GB"
+        newusage = usage.replace(",", ".")
+        addData(ramChart, 'GB', newusage);
+        document.getElementById("ram-current-p").innerHTML = "RAM | Current usage: " + newusage + "GB"
     });
 }
 
