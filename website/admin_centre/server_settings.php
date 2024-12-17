@@ -24,8 +24,10 @@ if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] != 1) {
     <div id="confirmContainer" class="confirmation-popup"></div>
     <header>
         <h1>Server settings</h1>
-        <button class="git_pull_button" onclick="gitPull()" title="Git pull">Git pull</button>
-        <button class="backtodashboard" title="Back to dashboard" onclick="window.location.href = 'dashboard.php'">Back to Dashboard</button>
+        <div class="server-settings-header-button-container">
+            <button class="git_pull_button" onclick="gitPull()" title="Git pull">Git pull</button>
+            <button class="backtodashboard" title="Back to dashboard" onclick="window.location.href = 'dashboard.php'">Back to Dashboard</button>
+        </div>
     </header>
     <div class="content">
         <div class="server-stats-container">
