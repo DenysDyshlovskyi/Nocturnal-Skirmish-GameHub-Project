@@ -2,10 +2,6 @@
 session_start();
 $_SESSION['message_amount'] = 15;
 
-if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == 1) {
-    echo "Viewing as admin";
-}
-
 // Redirects user to login page if theyre not logged in
 if (!isset($_SESSION['user_id'])) {
     header("Location: ./index.php");
@@ -36,13 +32,7 @@ if (!isset($_SESSION['user_id'])) {
             <div class="current-messenger-container" id="current-messenger-container">
                 <?php include "./php_scripts/load_current_messenger.php" ?>
             </div>
-            <?php
-            if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == 1) {
-                printf("<button class='messages-backtohub' style='width: 200px' title='Back to Dashboard' onclick='window.location.href = %s;'>Back to Dashboard</button>", '"' . "./admin_centre/dashboard.php" . '"');
-            } else {
-                printf("<button class='messages-backtohub' title='Back to Hub' onclick='window.location.href = %s;'>Back to Hub</button>", '"' . "hub.php" . '"');
-            }
-            ?>
+            <button class='messages-backtohub' title='Back to Hub' onclick='window.location.href = "hub.php";'>Back to Hub</button>
         </header>
         <div class="loading-container" id="loading"><img src="./img/icons/loading.gif"></div>
         <div class="messages-menu">
