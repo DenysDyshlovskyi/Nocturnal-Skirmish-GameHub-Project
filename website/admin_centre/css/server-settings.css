@@ -2,7 +2,7 @@
 
 .server-stats-container {
     padding: 15px;
-    height: fit-content;
+    height: 83%;
     width: 400px;
     border-radius: 15px;
     background-color: white;
@@ -55,7 +55,6 @@ header {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     display: flex;
     align-items: center;
-    z-index: 997;
 }
 
 header h1 {
@@ -98,4 +97,104 @@ header h1 {
     overflow-x: scroll;
     display: flex;
     align-items: center;
+}
+
+.file-explorer-container {
+    padding: 15px;
+    height: 83%;
+    width: 400px;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-left: 15px;
+    font-family: "Afacad Flux", "sans-serif";
+    position: relative;
+}
+
+.file-explorer-container h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.file-explorer-inner {
+    width: calc(100% - 40px);
+    height: calc(100% - 110px);
+    position: absolute;
+    bottom: 0;
+    background-color: rgb(221, 221, 221);
+    border-radius: 10px;
+    margin-top: 75px;
+    margin-right: 15px;
+    margin-bottom: 30px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 5px;
+}
+
+#file-explorer-path {
+    font-family: "Afacad Flux", sans-serif;
+    opacity: 0.7;
+    margin: 0;
+    padding: 0;
+}
+
+.file-explorer-file-container {
+    width: 100%;
+    height: fit-content;
+}
+
+.file-explorer-row {
+    width: 100%;
+    height: 40px;
+    background-color: rgb(231, 231, 231);
+    display: flex;
+    align-items: center;
+}
+
+.file-explorer-row img {
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+}
+
+.file-explorer-row a {
+    margin-left: 5px;
+    max-width: calc(100% - 70px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.previousdir-button {
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    border: none;
+    background-image: url(../img/icons/previous_dir.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    margin-left: 5px;
+    position: relative;
+    bottom: 5px;
+}
+
+#sourceCodeContainer{
+    display: none;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    background-color: white;
+    z-index: 999;
+    overflow-x: scroll;
+    text-wrap: wrap;
+}
+
+.resetpath-button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-left: 15px;
+    margin-bottom: 5px;
 }

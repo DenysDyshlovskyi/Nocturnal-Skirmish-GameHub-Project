@@ -125,3 +125,84 @@ function showConfirm(text) {
     confirmContainer.style.display = "block";
     $("#confirmContainer").fadeOut(3000);
 }
+
+// GET request with ajax
+function ajaxGet(phpFile, changeID){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function(){
+        document.getElementById(changeID).innerHTML = this.responseText;
+        if (changeID == "dark-container") {
+            $("#dark-container").fadeIn(100);
+        }
+    }
+    xhttp.open("GET", phpFile);
+    xhttp.send();
+}
+
+// Function for downloading files or accessing directories
+function adminDownloadFile(file, type) {
+    switch(type) {
+        case "folder":
+            $.ajax({
+                type: "POST",
+                url: './scripts/set_folder.php',
+                data:{ folder : file }, 
+                success: function(response){
+                    if (response == "error") {
+                        showConfirm("Something went wrong");
+                    } else {
+                        ajaxGet('./scripts/admin_loadfiles.php', 'file-explorer-file-container');
+                    }
+                },
+                error: function() {
+                    showConfirm("Something went wrong.");
+                }
+            })
+            break
+        case "file":
+            $.ajax({
+                type: "POST",
+                url: './scripts/download_file.php',
+                data:{ file : file }, 
+                success: function(response){
+                    if (response == "error") {
+                        showConfirm("Something went wrong.")
+                    } else {
+                        document.getElementById("sourceCodeContainer").innerHTML = response;
+                        document.getElementById("sourceCodeContainer").style.display = "block";
+                    }
+                },
+                error: function(xhr, status, error) {
+                    // Alert detailed error information
+                    alert("Error details:\n" +
+                        "Status: " + status + "\n" +
+                        "Error: " + error + "\n" +
+                        "Response Text: " + xhr.responseText);
+                    
+                    // Optionally, log the error for debugging
+                    console.error("Error Details:", xhr, status, error);
+                }
+            })
+            break
+    }
+}
+
+// Goes back to previous folder
+function adminPreviousDir() {
+    $.get("./scripts/set_previousfolder.php", function(){
+        ajaxGet('./scripts/admin_loadfiles.php', 'file-explorer-file-container');
+    });
+}
+
+// Removes sourcecode container
+function removeSourceCode() {
+    document.getElementById("sourceCodeContainer").innerHTML = "";
+    document.getElementById("sourceCodeContainer").style.display = "none";
+}
+
+// Resets current path
+function resetPath() {
+    $.get("./scripts/reset_path.php", function(){
+        ajaxGet('./scripts/admin_loadfiles.php', 'file-explorer-file-container');
+    });
+}

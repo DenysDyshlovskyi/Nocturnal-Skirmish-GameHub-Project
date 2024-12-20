@@ -20,7 +20,8 @@ if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] != 1) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="../lib/chartjs/dist/chart.umd.js"></script>
 </head>
-<body onload="loadCharts()">
+<body onload="loadCharts(); ajaxGet('./scripts/admin_loadfiles.php', 'file-explorer-file-container')">
+    <div id="sourceCodeContainer"></div>
     <div id="confirmContainer" class="confirmation-popup"></div>
     <header>
         <h1>Server settings</h1>
@@ -44,6 +45,14 @@ if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] != 1) {
                     <canvas id="ram_chart"></canvas>
                 </div>
             </div>
+        </div>
+        <div class="file-explorer-container">
+            <h1>File Explorer</h1>
+            <div class="file-explorer-inner">
+                <div class="file-explorer-file-container" id="file-explorer-file-container">
+                </div>
+            </div>
+            <button class="resetpath-button" onclick="resetPath()">Reset Path</button>
         </div>
     </div>
     <script><?php include "./js/server_settings.js" ?></script>
